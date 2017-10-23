@@ -1,0 +1,37 @@
+// Typographic Variables
+$primary-text-color: $light-black;
+$secondary-text-color: $dark-grey;
+$inverse-text-color: $white;
+$button-color: $inverse-text-color;
+
+// Font Declarations
+$stack-serif: "Times New Roman", Times, Georgia, serif;
+$stack-sans-serif: Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", sans-serif;
+$stack-slab-serif: "Courier New", Courier, serif;
+$stack-mono: Courier, monospace;
+$stack-icons: "icons";
+
+// Custom Fonts
+$nunito: 'Nunito', $stack-sans-serif;
+
+// Font Declarations
+$primary-font: $nunito;
+$secondary-font: $stack-serif;
+$body-font: $primary-font;
+$heading-font: $primary-font;
+
+// Heading Sizes
+$primary-heading-size: paragon-text;
+$secondary-heading-size: tertia-text;
+
+// Baseline Typography
+$base-text-size: map-get($type-scale, normal-text);
+
+// For line-height in .type-size mixin
+$round-to-nearest: map-get($fraction-map, quarter);
+
+// Line Height
+$long-line-height: 1.75;
+
+// Vertical Rhythm
+$base-vertical: 20;

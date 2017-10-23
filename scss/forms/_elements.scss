@@ -1,0 +1,109 @@
+// Forms
+
+input,
+textarea,
+select {
+
+    @if $input-border {
+        border: solid 1px $input-border-color;
+    }
+
+    @if $input-border-radius > 0 {
+        border-radius: px($input-border-radius);
+    }
+}
+
+input,
+textarea,
+select {
+    // Style
+    padding: px($input-top-padding) px($input-side-padding);
+    outline: none;
+    width: 100%;
+    font-size: 1em;
+    font-family: $primary-font;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.is-current {
+        z-index: 1;        
+    }
+}
+
+input {
+    &[type="checkbox"],
+    &[type="radio"] {
+        width: auto;
+    }
+}
+
+textarea {
+    height: $full-vertical * 4;
+}
+
+select {
+    width: auto;
+    max-width: 100%;
+}
+
+// Style Placeholders
+@include placeholder {
+    color: $input-placeholder-color;
+};
+
+// Input Static Width Map
+$input-static-widths: (
+    xxxs: 30,
+    xxs: 50,
+    xs: 100,
+    s: 175,
+    m: 250,
+    l: 350
+);
+
+// Create Input Static Sizes
+@each $size, $value in $input-static-widths {
+    .input--#{$size} {
+        max-width: px($value);
+    }
+};
+
+// Input Label Elements
+
+.input-label {
+
+    input,
+    textarea,
+    select {
+        // Mixins
+        @include margin-vertical(0.5);
+    }
+}
+
+
+// Select Box
+.select-box {
+    @extend .relative-container;
+
+    select {
+        width: 100%;
+        background: none;
+        min-height: px($input-top-padding * 4);
+        appearance: none;
+    }
+
+    // Create Arrow
+    &:after {
+        content:"";
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $black;
+        position: absolute;
+        top: 50%;
+        right: px(10);
+        transform: translateY(-50%);
+    }
+}

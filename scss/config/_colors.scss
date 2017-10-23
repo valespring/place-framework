@@ -1,0 +1,55 @@
+// Blacks
+$black: #000;
+$light-black: lighten( $black, 15% );
+
+// Greys
+$grey: #a9a6a7;
+$dark-grey: darken($grey, 15%);
+$light-grey: lighten($grey, 15%);
+
+// Blues
+$blue: #1f75ae;
+$dark-blue: darken($blue, 15%);
+$light-blue: lighten($blue, 15%);
+
+// Greens
+$green: #72bc44;
+$dark-green: darken($green, 15%);
+$light-green: lighten($green, 15%);
+
+// Yellows
+$yellow: #fcb040;
+$dark-yellow: darken($yellow, 15%);
+$light-yellow: lighten($yellow, 15%);
+
+// Oranges
+$orange: #f79433;
+$dark-orange: darken($orange, 15%);
+$light-orange: lighten($orange, 15%);
+
+// Reds
+$red: #e63c4d;
+$dark-red: darken($red, 15%);
+$light-red: lighten($red, 15%);
+
+// Pinks
+$pink: #f37b83;
+$dark-pink: darken($pink, 15%);
+$light-pink: lighten($pink, 15%);
+
+// Purples
+$purple: #a05ea5;
+$dark-purple: darken($purple, 15%);
+$light-purple: lighten($purple, 15%);
+
+// Whites
+$white: #fff;
+$dark-white: darken($white, 15%);
+
+// Brands
+$facebook-blue: #3b5998;
+$linkedin-blue: #0077B5;
+$twitter-blue: #00a0d1;
+$pinterest-red: #c92228;
+$youtube-red: #bb0000;
+$reddit-orange: #ff5700;

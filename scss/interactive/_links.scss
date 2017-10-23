@@ -1,0 +1,30 @@
+/*!
+
+Link Styles
+
+*/
+
+a,
+.link {
+	color: $primary-link-color;
+
+	&:hover,
+	&:focus,
+	&.is-current {
+		color: $primary-link-hover;
+	}
+}
+
+.unlink {
+	text-decoration: none;
+}
+
+.unlink-all {
+
+	&,
+	&:hover,
+	&:focus,
+	&.is-current {
+		@extend .unlink;
+	}
+}

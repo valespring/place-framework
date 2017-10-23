@@ -1,0 +1,65 @@
+form {
+    margin: 0;
+}
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+legend {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    display: block;
+    white-space: normal;
+}
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    margin: 0;
+    display: block;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    display: inline-block;
+    cursor: pointer;
+}
+button,
+input {
+    line-height: normal;
+
+    &[disabled] {
+        cursor: default;
+    }
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+input {
+    &[type="checkbox"],
+    &[type="radio"] {
+        margin: 3px;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
+        vertical-align: top;
+    }
+    &[type="search"] {
+        -webkit-appearance: textfield;
+        
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+    }
+}
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}

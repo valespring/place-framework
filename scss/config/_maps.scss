@@ -1,0 +1,37 @@
+// Typographic Scale
+$type-scale: (
+    inch-text: 72,
+	canon-text: 38,
+	paragon-text: 30,
+	primer-text: 24,
+	tertia-text: 18,
+	normal-text: 14,
+	petite-text: 12,
+	minion-text: 10
+);
+
+// Typographic Weights
+$type-weights: (
+	light: 300,
+	normal: 400,
+	semibold: 600,
+	bold: 700
+);
+
+// WYSWIYG (Blog) Scale
+$wysiwyg-scale: (
+	canon-text,
+	paragon-text,
+	primer-text,
+	normal-text,
+	petite-text,
+	minion-text
+);
+
+// Fraction Map
+$fraction-map: (
+	fifth: 5,
+	quarter: 4,
+	third: 3,
+	half: 2
+);

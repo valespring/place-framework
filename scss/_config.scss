@@ -1,0 +1,51 @@
+// Import Base
+@import "config/_booleans";
+@import "config/_names";
+@import "config/_maps";
+@import "config/_colors";
+@import "config/_breakpoints";
+@import "config/_grid";
+@import "config/_type";
+@import "config/_paths";
+
+// Wrapper Variable
+$wrapper-max-width: $bp-x-large-width;
+$wrapper-fixed-width: $bp-large-width;
+
+// Border Variables
+$default-border-width: 1;
+$default-border-radius: 3;
+
+// Site Color Variables
+$primary-color: #45b3af;
+$secondary-color: #196966;
+$tertiary-color: #a9a6a7;
+$quarternary-color: #c0e5e4;
+
+// Border Color Variables
+$primary-border-color: darken($primary-color, 25%);
+$secondary-border-color: darken($secondary-color, 25%);
+
+// Link Color Variables
+$primary-link-color: $primary-color;
+$primary-link-hover: darken($primary-color, 15%);
+
+// Table Color Variables
+$table-border-color: $light-grey;
+
+// Form Variables
+$input-border: $default-border-width;
+$input-border-radius: $default-border-radius;
+$input-background-color: $white;
+$input-border-color: $light-grey;
+$input-placeholder-color: $light-grey;
+$label-required-color: $blue;
+$input-top-padding: 8;
+$input-side-padding: 12;
+
+// Form Variables
+$active-color: $blue;
+$warning-color: $dark-yellow;
+$success-color: $green;
+$error-color: $red;
+$info-color: $dark-blue;

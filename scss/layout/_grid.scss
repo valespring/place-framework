@@ -1,0 +1,37 @@
+/*!
+
+Grid
+
+Create grid placeholder classes first to extend later on within the media directive. Then create the grid markup in its entirety, with an option for a flex grid.
+
+*/
+
+// Mobile 
+@media #{$small-screens-max} {
+    @include create-grid-width-placeholders( $grid-viewport-mobile-infix, $mobile-columns );
+    @include create-grid( 
+        $grid-viewport-mobile-infix, 
+        $mobile-columns, 
+        $mobile-margin
+    );
+}
+
+// Tablet
+@media #{$medium-screens-only} {
+    @include create-grid-width-placeholders( $grid-viewport-tablet-infix, $tablet-columns );
+    @include create-grid( 
+        $grid-viewport-tablet-infix, 
+        $tablet-columns, 
+        $tablet-margin
+    );
+}
+
+// Desktop
+@media #{$large-screens-min} {
+    @include create-grid-width-placeholders( $grid-viewport-desktop-infix, $total-columns );
+    @include create-grid( 
+        $grid-viewport-desktop-infix, 
+        $total-columns, 
+        $base-margin
+    );
+}

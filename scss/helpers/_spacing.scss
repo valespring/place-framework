@@ -1,0 +1,65 @@
+/*!
+
+Spacing Helpers
+
+Spacing helpers to quickly apply extra margin or padding to an element to quickly prototype, or leave in (it's your life).
+
+Default Prefixes: `p, m`
+Default Infixes: `t, r, b, l, h, v`
+Default Suffixes: `s, m, l`
+
+Change the maps in the configuration to change the default output.
+
+*/
+
+$spacing-positions: (
+    t: top,
+    r: right,
+    b: bottom,
+    l: left
+);
+
+$spacing-combined: (
+    v: vertical,
+    h: horizontal,
+    a: all
+);
+
+$spacing-values: (
+    n: 0,
+    s: $quarter-vertical,
+    m: $half-vertical,
+    l: $full-vertical
+);
+
+// Mixin for creating helpers
+@mixin m-spacing-loop( $prefix, $property ) {
+    @each $infix, $position  in $spacing-positions {
+
+        @each $suffix, $value in $spacing-values {
+            .#{$prefix}#{$infix}#{$suffix} {
+                #{$property}-#{$position}: $value !important;
+            }
+
+            @each $c, $alignment in $spacing-combined {
+                .#{$prefix}#{$c}#{$suffix} {
+                    @if $alignment == vertical {
+                        @if $position == top or $position == bottom {
+                            @extend .#{$prefix}#{$infix}#{$suffix};
+                        }
+                    } @else if $alignment == horizontal {
+                        @if $position == left or $position == right {
+                            @extend .#{$prefix}#{$infix}#{$suffix};
+                        }
+                    } @else if $alignment == all {
+                        @extend .#{$prefix}#{$infix}#{$suffix};
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Create Classes
+@include m-spacing-loop(p, padding);
+@include m-spacing-loop(m, margin);

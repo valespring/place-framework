@@ -1,0 +1,188 @@
+@font-face {
+	font-family: "bolt-icons";
+	src: url('../../dist/fonts/bolt-icons/bolt-icons.eot');
+	src: url('../../dist/fonts/bolt-icons/bolt-icons.eot?#iefix') format('eot'),
+		url('../../dist/fonts/bolt-icons/bolt-icons.woff2') format('woff2'),
+		url('../../dist/fonts/bolt-icons/bolt-icons.woff') format('woff'),
+		url('../../dist/fonts/bolt-icons/bolt-icons.ttf') format('truetype'),
+		url('../../dist/fonts/bolt-icons/bolt-icons.svg#bolt-icons') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "bolt-icons";
+	font-style: normal;
+	font-variant: normal;
+	font-size: 1.5em;
+	font-weight: normal;
+	line-height: 1;
+	text-decoration: none;
+	text-rendering: optimizeLegibility;
+	text-transform: none;
+	speak: none;
+    vertical-align: middle;
+    white-space: nowrap;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class*="icon--"]:before,
+[class*="pre-icon--"]:before,
+[class*="post-icon--"]:after {
+	@include icon-styles;
+}
+
+[class*="pre-icon--"]:before {
+	padding-right: px(5);
+}
+
+[class*="post-icon--"]:after {
+	padding-left: px(5);
+}
+
+@mixin icon-char($filename) {
+	
+		@if arrow-down == $filename {
+			content: "\E001";
+		}
+	
+		@if arrow-left == $filename {
+			content: "\E002";
+		}
+	
+		@if arrow-right == $filename {
+			content: "\E003";
+		}
+	
+		@if arrow-up == $filename {
+			content: "\E004";
+		}
+	
+		@if checkmark == $filename {
+			content: "\E005";
+		}
+	
+		@if email == $filename {
+			content: "\E006";
+		}
+	
+		@if facebook == $filename {
+			content: "\E007";
+		}
+	
+		@if info == $filename {
+			content: "\E008";
+		}
+	
+		@if instagram == $filename {
+			content: "\E009";
+		}
+	
+		@if menu == $filename {
+			content: "\E00A";
+		}
+	
+		@if pinterest == $filename {
+			content: "\E00B";
+		}
+	
+		@if search == $filename {
+			content: "\E00C";
+		}
+	
+		@if twitter == $filename {
+			content: "\E00D";
+		}
+	
+}
+
+
+
+.icon--arrow-down:before,
+.pre-icon--arrow-down:before,
+.post-icon--arrow-down:after {
+	@include icon-char(arrow-down);
+}
+
+
+.icon--arrow-left:before,
+.pre-icon--arrow-left:before,
+.post-icon--arrow-left:after {
+	@include icon-char(arrow-left);
+}
+
+
+.icon--arrow-right:before,
+.pre-icon--arrow-right:before,
+.post-icon--arrow-right:after {
+	@include icon-char(arrow-right);
+}
+
+
+.icon--arrow-up:before,
+.pre-icon--arrow-up:before,
+.post-icon--arrow-up:after {
+	@include icon-char(arrow-up);
+}
+
+
+.icon--checkmark:before,
+.pre-icon--checkmark:before,
+.post-icon--checkmark:after {
+	@include icon-char(checkmark);
+}
+
+
+.icon--email:before,
+.pre-icon--email:before,
+.post-icon--email:after {
+	@include icon-char(email);
+}
+
+
+.icon--facebook:before,
+.pre-icon--facebook:before,
+.post-icon--facebook:after {
+	@include icon-char(facebook);
+}
+
+
+.icon--info:before,
+.pre-icon--info:before,
+.post-icon--info:after {
+	@include icon-char(info);
+}
+
+
+.icon--instagram:before,
+.pre-icon--instagram:before,
+.post-icon--instagram:after {
+	@include icon-char(instagram);
+}
+
+
+.icon--menu:before,
+.pre-icon--menu:before,
+.post-icon--menu:after {
+	@include icon-char(menu);
+}
+
+
+.icon--pinterest:before,
+.pre-icon--pinterest:before,
+.post-icon--pinterest:after {
+	@include icon-char(pinterest);
+}
+
+
+.icon--search:before,
+.pre-icon--search:before,
+.post-icon--search:after {
+	@include icon-char(search);
+}
+
+
+.icon--twitter:before,
+.pre-icon--twitter:before,
+.post-icon--twitter:after {
+	@include icon-char(twitter);
+}

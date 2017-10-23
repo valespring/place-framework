@@ -1,0 +1,165 @@
+/*!
+
+Alignment
+
+These can be added to individual elements or on parent elements to adjust the content inside.
+
+*/
+
+.align--left {
+    text-align: left;
+}
+
+.align--center {
+    text-align: center;
+}
+
+.align--right {
+    text-align: right;
+}
+
+.align--sub {
+    vertical-align: sub;
+}
+
+.align--middle {
+    vertical-align: middle;
+}
+
+.align--top {
+    vertical-align: top;
+}
+
+/*!
+
+Justify
+
+Justify the content inside the element (typically used in flex models).
+
+*/
+
+.justify--start {
+    justify-content: start;
+}
+
+.justify--end {
+    justify-content: end;
+}
+
+.justify--center {
+    justify-content: center;
+}
+
+.justify--space-around {
+    justify-content: space-around;
+}
+
+.justify--space-between {
+    justify-content: space-between;
+}
+
+/*!
+
+Floats
+
+Like it sounds.
+
+*/
+
+.float--left {
+    float:left;
+}
+
+.float--center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.float--right {
+    float:right;
+}
+
+.float--none {
+    float:none;
+}
+
+.clear {
+    clear: both;
+}
+
+/*!
+
+New Line
+
+Applies `display:block;` to apply a new line.
+
+*/
+
+.new-line {
+    display: block;
+}
+
+/*!
+
+Group
+
+When you may not need a grid, but need your (clear)fix.
+
+*/
+
+.group {
+    @include clearfix();
+}
+
+/*!
+
+Hides and Unhides
+
+Hides content while making it accessible to screen readers.
+
+*/
+
+.is-hidden {
+    @include visually-hidden();
+}
+
+@media #{$small-screens-max} {
+    .is-hidden-mobile {
+        @include visually-hidden();
+    }
+}
+
+@media #{$medium-screens-only}  {
+    .is-hidden-tablet {
+        @include visually-hidden();
+    }
+}
+
+@media #{$large-screens-min}  {
+    .is-hidden-desktop {
+        @include visually-hidden();
+
+    }
+}
+
+.isnt-hidden {
+
+    /* Mixins */
+    @include show-hidden();
+}
+
+/*!
+
+ Position
+
+ Set the position on an element.
+
+ */
+
+.relative-container {
+    position: relative;
+}
+
+.absolute-container {
+    position: absolute;
+}

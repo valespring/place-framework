@@ -1,0 +1,73 @@
+// Size For Font
+// Convert type size into rems, with a pixel fallback.
+
+@mixin size-for-font($font-size) {
+	$rem:					$font-size / 16;
+	$px:					$font-size;
+	font-size:				#{$px}px;
+	font-size:				#{$rem}rem;
+}
+
+@mixin responsive-type-size ($font-size, $bp: $responsive-type-bp) {
+	// TODO: perhaps improve this
+	$size: ($font-size / ($bp * 0.01) ) * 1;
+
+	font-size: #{$size}vw;
+}
+
+// Vertical Rhythm
+// Calculate the minimum multiple of rhythm units needed to contain the font-size.
+// Optionally, you can specify a custom line-height (sans unit).
+
+@mixin lines-for-font-size($font-size, $line-height, $round: false) {
+	$unit: $base-vertical;
+
+	@each $fraction, $value in $fraction-map {
+		@if $round && $round == $value {
+			$unit: $base-vertical / $value;
+		}
+	}
+
+	$ceil:			ceil( $font-size / $unit );
+	line-height:	( $ceil * $unit ) / $font-size;
+}
+
+
+// Type Size
+// Combine the font sizing mixin with the line-height one. Package deal.
+
+@mixin type-size($font-size, $round: $round-to-nearest) {
+	@include size-for-font($font-size);
+	@include lines-for-font-size($font-size, $round);
+}
+
+// Lists
+@mixin unstyled-list()		{
+	padding-left:			0;
+	list-style:				none outside none;
+}
+
+
+// Webfonts
+// Mixins to generate `@font-face` code, with and sans SVG.
+
+@mixin web-font($name: "Web Font", $folder: folder, $filename: webfont) {
+	font-family:	"#{$name}";
+	src:			url("#{$font-path}/#{$folder}/#{$filename}.eot");
+	src:			url("#{$font-path}/#{$folder}/#{$filename}.eot?#iefix") format('embedded-opentype'),
+					url("#{$font-path}/#{$folder}/#{$filename}.woff") format('woff'),
+					url("#{$font-path}/#{$folder}/#{$filename}.ttf") format('truetype');
+	font-weight:	normal;
+	font-style:		normal;
+}
+
+@mixin web-font-svg($name: "Web Font", $folder: folder, $filename: webfont, $svg-name: WebFont) {
+	font-family:	"#{$name}";
+	src:			url("#{$font-path}/#{$folder}/#{$filename}.eot");
+	src:			url("#{$font-path}/#{$folder}/#{$filename}.eot?#iefix") format('embedded-opentype'),
+					url("#{$font-path}/#{$folder}/#{$filename}.woff") format('woff'),
+					url("#{$font-path}/#{$folder}/#{$filename}.ttf") format('truetype'),
+					url("#{$font-path}/#{$folder}/#{$filename}.svg##{$svg-name}") format('svg');
+	font-weight:	normal;
+	font-style:		normal;
+}
