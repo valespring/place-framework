@@ -1,4 +1,4 @@
-#BOLT CSS Framework Documentation
+BOLT CSS Framework Documentation
 ====
 
 ## Table of Contents
@@ -39,7 +39,7 @@ The class `.nav__dropdown` would house the function to initialize the dropdown, 
         - global-fixed.scss
         
         
-##Install
+## Install
 * `npm install`
 
 ## Task Runner Configuration
@@ -76,7 +76,7 @@ Classes                       | Description
 [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)| 'Eats' the errors and continues watching files when an error occurs.
 [gulp-require-tasks](https://www.npmjs.com/package/gulp-require-tasks)| Allows us to load Gulp tasks from the multiple individual files inside a defined directory.
 [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)| 'Eats' the errors and continues watching files when an error occurs.
-[gulp-sass](https://www.npmjs.com/package/gulp-sass)| Kinda needed. :)
+[gulp-sass](https://www.npmjs.com/package/gulp-sass)| Kinda needed.
 [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)| Generates sourcemaps if `config.sourcemaps` is `true`.
 [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)| Used for minifying JS.
 [gulp-watch](https://www.npmjs.com/package/gulp-watch)| For watching for changes in files.
@@ -105,52 +105,57 @@ Knowing that `d` stands for desktop, and `t` for tablet, we know immediately tha
 
 Row generation combines the grid prefix, the viewport infix, and the grid row suffix. Rows are made to contain the column classes and floats therein.
 
-#####Active Changeable Variables
-* `$grid-prefix`
-* `$grid-row-suffix`
-* `$grid-viewport-desktop-infix`
-* `$grid-viewport-tablet-infix`
-* `$grid-viewport-mobile-infix`
+Active Variables                     | Default
+------------------------------|------------------------------
+`$grid-prefix`| 'g'
+`$grid-row-suffix`| 'row'
+`$grid-viewport-desktop-infix`| 'd'
+`$grid-viewport-tablet-infix`| 't'
+`$grid-viewport-mobile-infix`| 'm'
 
-#####Defaults
-
-* `.gd-row` (Desktop)
-* `.gt-row` (Tablet)
-* `.gm-row` (Mobile)
+Viewport                 | Default Class
+------------------------------|------------------------------
+Desktop| `.gd-row`
+Tablet| `.gt-row`
+Mobile| `.gm-row`
 
 #### Columns
 
-#####Active Changeable Variables
-* `$grid-prefix`
-* `$grid-column-infix`
-* `$grid-column-prefix` *
-* `$grid-viewport-desktop-infix`
-* `$grid-viewport-tablet-infix`
-* `$grid-viewport-mobile-infix`
-
 Column generation takes the grid column prefix and attaches the viewport infix at the end.
 
-##### Defaults
-* `[class*="gcd"]`
-* `[class*="gct"]`
-* `[class*="gcm"]`
+Active Variables                     | Default
+------------------------------|------------------------------
+`$grid-prefix`| 'g'
+`$grid-column-infix`| 'c'
+`$grid-column-prefix`*| 'gc'
+`$grid-viewport-desktop-infix`| 'd'
+`$grid-viewport-tablet-infix`| 't'
+`$grid-viewport-mobile-infix`| 'm'
+
+Viewport                | Default Class
+------------------------------|------------------------------
+Desktop| `[class*="gcd"]`
+Tablet| `[class*="gct"]`
+Mobile| `[class*="gcm"]`
 
 #### Widths
 
 Widths are generated based off of the columns variable for that viewport, creating a simplified fraction useable class. For example, 4/12 columns would simplify to 1/3 columns.
 
-#####Active Changeable Variables
-* `$total-columns`
-* `$tablet-columns`
-* `$mobile-columns`
-* `$grid-viewport-desktop-infix`
-* `$grid-viewport-tablet-infix`
-* `$grid-viewport-mobile-infix`
+Active Variables                     | Default
+------------------------------|------------------------------
+`$total-columns`| 12
+`$tablet-columns`| 9
+`$mobile-columns`| 4
+`$grid-viewport-desktop-infix`| 'd'
+`$grid-viewport-tablet-infix`| 't'
+`$grid-viewport-mobile-infix`| 'm'
 
-##### Defaults
-* `[class*="d-#{numerator}of#{denominator}]`
-* `[class*="t-#{numerator}of#{denominator}]`
-* `[class*="m-#{numerator}of#{denominator}]`
+Viewport                 | Default Class
+------------------------------|------------------------------
+Desktop| `[class*="d-#{numerator}of12"]`
+Tablet| `[class*="t-#{numerator}of9"]`
+Mobile| `[class*="m-#{numerator}of4"]`
 
 ## Functions
 
@@ -201,5 +206,3 @@ A handful of variables interpolate with the mixins and functions created, allowi
 
 ### SASS Maps
 Variable maps are an intriguing feature, since they make it simple to view the relationship of a variable under one umbrella. By default, the grid generates numbered classes based on the column count in that viewport. However, sometimes we can use quick widths that make sense, such as `-quarter` which is the same as `-1of4`.
-
-
