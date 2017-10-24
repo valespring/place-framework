@@ -27,7 +27,7 @@ $secondary-heading-size: tertia-text;
 // Baseline Typography
 $base-text-size: map-get($type-scale, normal-text);
 
-// For line-height in .type-size mixin
+// For line-height in type-size mixin
 $round-to-nearest: map-get($fraction-map, quarter);
 
 // Line Height

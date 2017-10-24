@@ -1,10 +1,9 @@
 // Import Base
-@import "config/_booleans";
 @import "config/_names";
 @import "config/_maps";
 @import "config/_colors";
 @import "config/_breakpoints";
-@import "config/_grid";
+@import "config/_structure";
 @import "config/_type";
 @import "config/_paths";
 
@@ -33,19 +32,3 @@ $primary-link-hover: darken($primary-color, 15%);
 // Table Color Variables
 $table-border-color: $light-grey;
 
-// Form Variables
-$input-border: $default-border-width;
-$input-border-radius: $default-border-radius;
-$input-background-color: $white;
-$input-border-color: $light-grey;
-$input-placeholder-color: $light-grey;
-$label-required-color: $blue;
-$input-top-padding: 8;
-$input-side-padding: 12;
-
-// Form Variables
-$active-color: $blue;
-$warning-color: $dark-yellow;
-$success-color: $green;
-$error-color: $red;
-$info-color: $dark-blue;

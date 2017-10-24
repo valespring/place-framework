@@ -1,0 +1,40 @@
+// Boolean Activations
+$grid-flex: true;
+$grid-lte8: true;
+
+// Grid Name Variables
+$grid-prefix: "g";
+$grid-column-infix: "c";
+$grid-column-prefix: "#{$grid-prefix}#{$grid-column-infix}";
+
+$grid-viewport-desktop-infix: 'd';
+$grid-viewport-tablet-infix: 't';
+$grid-viewport-mobile-infix: 'm';
+
+$grid-row-suffix: 'row';
+$grid-flex-suffix: 'flex';
+$grid-flush-suffix: 'flush';
+
+// Container Name Variables
+$wrapper-class: 'container';
+
+// Column Variables
+$base-column: 47;
+$base-margin: 36;
+$total-columns: 12;
+
+// Tablet Grid
+$tablet-column: 50;
+$tablet-margin: 32;
+$tablet-columns: 9;
+
+// Mobile Grid
+$mobile-column: 136;
+$mobile-margin: 24;
+$mobile-columns: 4;
+
+// Responsive Breakpoints
+$bp-small-width: 480;
+$bp-medium-width: 768;
+$bp-large-width: 992;
+$bp-x-large-width: 1240;

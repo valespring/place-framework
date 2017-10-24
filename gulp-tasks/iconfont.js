@@ -4,9 +4,9 @@ module.exports = function ( gulp, config, plugins ) {
 	var task = {
 		fontName: config.tag + '-icons',
 		templatePath: config.source.icons + 'template.scss',
-      	targetPath: '../../../scss/type/_icons.scss',
-      	fontPath: '../../' + config.dist.icons,
-      	dest: config.dist.icons
+		targetPath: '../../../scss/type/_icons.scss',
+		fontPath: '../../' + config.dist.icons,
+		dest: config.dist.icons
 	};
 
 	// Task Run

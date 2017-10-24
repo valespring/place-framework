@@ -7,7 +7,7 @@ BOLT CSS Framework Documentation
 
 The premise of BOLT is to have a truly modular and customizable framework with minimal markup, devoid of combing through the core for manipulation. This is achieved in a variety of ways, allowing you to develop faster than ever before.
 
-BOLT is developed with Object Oriented CSS (OOCSS), when applicable, to give any developer a good understanding of a class' function at a quick glance. You should see that these classes are separated based on what they do, and it is encouraged that you resume this style throughout your project. For instance, for a main navigation with dropdown functionality, one might use the following markup: 
+BOLT is developed with Object Oriented CSS (OOCSS), when applicable, to give any developer a good understanding of a class' function at a quick glance. You should see that these classes are separated based on what they bring to the table, and it is encouraged that you resume this mode of writing throughout your project. For instance, for a main navigation with dropdown functionality, one might use the following markup: 
 
 ```html
 <ul class="nav__dropdown nav__main">
@@ -21,26 +21,49 @@ The class `.nav__dropdown` would house the function to initialize the dropdown, 
 
 ## Folder Structure
 
+BOLT's folder structure 
+
     + scss
         + config
         + content
-        + mixins
-        + normalize
-        + helpers
-        + modules
-        + type
-        + interactive
         + forms
+        + helpers
+        + interactive
         + layout
+        + mixins
+        + modules
+        + normalize
         + site
+        + type
         - _vars.less
         - _config.scss
+        - _functions.scss
         - global.scss
         - global-fixed.scss
         
         
-## Install
-* `npm install`
+## Configuration
+
+### Requirements
+
+Name                       | Description
+------------------------------|------------------------------
+[Xcode](https://developer.apple.com/xcode/)| Used to view differences in code; also used in some variations of iconfont generation.
+[node-js](https://www.nodejs.org)| Allows access to the Node Package Manager (NPM) for dependencies and gulp install.
+[Gulp](https://gulpjs.com/)| Automates workflow and handles all of BOLT's tasks.
+
+### Quick Install
+While the above is the bare minimum needed to work within BOLT, here is a quick way to install everything you need through the command line.
+
+1. Install XCode. `xcode-select --install`
+2. Install Brew. `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+`
+3. Install Node. `brew install node`
+4. Install Gulp. `npm install -g grunt-cli`
+
+### Package Install
+After you have all the requirements installed, simply run `npm install` inside your project folder to load in all necessary packages.
+
 
 ## Task Runner Configuration
 
@@ -80,6 +103,8 @@ Classes                       | Description
 [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)| Generates sourcemaps if `config.sourcemaps` is `true`.
 [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)| Used for minifying JS.
 [gulp-watch](https://www.npmjs.com/package/gulp-watch)| For watching for changes in files.
+
+## Task Runner Commands
 
 ## Grid
 
@@ -180,13 +205,7 @@ Variables in BOLT are set up to encourage customization. This is achieved throug
 $grid-flex: true;
 
 // Single Variables
-$grid-prefix: "g";
-$grid-column-infix: "c";
-$grid-column-prefix: "#{$grid-prefix}#{$grid-column-infix}";
-
-$grid-viewport-desktop-infix: 'd';
-$grid-viewport-tablet-infix: 't';
-$grid-viewport-mobile-infix: 'm';
+$wrapper-class: 'container';
 
 // Variable Maps
 $fraction-map: (
@@ -202,7 +221,7 @@ $fraction-map: (
 For example, `$grid-flex` is set to `true` by default if you need a grid variation that uses flexbox. However, maybe your project is simple in nature and doesn't need to utilize flexbox. Simply set to `false` and, upon compilation, will eliminate unused classes and reduce your overall CSS footprint.
 
 ### Single Variable Strings
-A handful of variables interpolate with the mixins and functions created, allowing the variables you set in the configuration to simply output with your changes in place. For instance, the grid generates a column class based on the `$grid-column-prefix` plus the infix of the viewport. Therefore, assume we use `$grid-viewport-desktop-infix`. If we change `grid-column-prefix` to `col`, and change `$grid-viewport-desktop-infix` to 'lg', the grid will generate the CSS of `[class*="col-lg"]`.
+A handful of variables interpolate with the mixins and functions created, allowing the variables you set in the configuration to simply output with your change in place. For instance, if you wanted to use a different wrapper class, such as `.wrap`, simply change `$wrapper-class` to `wrap` in your configuration.
 
 ### SASS Maps
 Variable maps are an intriguing feature, since they make it simple to view the relationship of a variable under one umbrella. By default, the grid generates numbered classes based on the column count in that viewport. However, sometimes we can use quick widths that make sense, such as `-quarter` which is the same as `-1of4`.
