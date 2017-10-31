@@ -22,7 +22,7 @@
 @mixin lines-for-font-size($font-size, $line-height, $round: false) {
 	$unit: $base-vertical;
 
-	@each $fraction, $value in $fraction-map {
+	@each $rhythm, $value in $rhythm-map {
 		@if $round && $round == $value {
 			$unit: $base-vertical / $value;
 		}

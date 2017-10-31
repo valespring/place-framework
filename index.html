@@ -13,7 +13,8 @@
 	    	.grid-display {
 	    		margin-top: 1em;
 	    	}
-	    	.grid-display > * > * {
+	    	.grid-display > * > *,
+	    	.grid-display-item {
 	    		background: #eee;
 	    		border: solid 1px #b3b3b3;
 	    		padding: 1em;
@@ -360,6 +361,25 @@ $grid-flush-suffix: 'flush';
 							</li>
 						</ul>
 					</section>
+					<section class="flex-mosiac-grid">
+						<h3 class="primary-heading">Flex Mosaic Grid</h3>
+
+						<div class="gd-row__flex--flush gt-row__flex--flushgrid-display align--center">
+							<div class="gd-third gt-third">
+								<div class="grid-display-item">
+									Item 1
+								</div>
+								<div class="grid-display-item">
+									Item 2
+								</div>
+							</div>
+							<div class="gd-2of3 gt-2of3">
+								<div class="grid-display-item">
+									Item 3
+								</div>
+							</div>
+						</div>
+					</section>
 					<section class="flex-media-grid">
 						<h3 class="primary-heading">Flex Media Grid</h3>
 
@@ -516,8 +536,8 @@ $grid-flush-suffix: 'flush';
 									<div class="select-box">
 										<select>
 											<option value="Mr.">Mr.</option>
-											<option value="Mr.">Ms.</option>
-											<option value="Mr.">Mrs.</option>
+											<option value="Ms.">Ms.</option>
+											<option value="Mrs.">Mrs.</option>
 										</select>
 									</div>
 								</label>

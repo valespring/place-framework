@@ -40,7 +40,7 @@ $ease-in-out: (
 
 @each $type, $transition in $ease-in {
 	%ease-in-#{$type} {
-		transition: $transition;
+		transition: all $transition;
 	}
 }
 
@@ -48,7 +48,7 @@ $ease-in-out: (
 
 @each $type, $transition in $ease-out {
 	%ease-out-#{$type} {
-		transition: $transition;
+		transition: all $transition;
 	}
 }
 
@@ -56,7 +56,7 @@ $ease-in-out: (
 
 @each $type, $transition in $ease-in-out {
 	%ease-in-out-#{$type} {
-		transition: $transition;
+		transition: all $transition;
 	}
 }
 
@@ -68,7 +68,7 @@ Insert transitions here.
 
 If you want to utilize a `cubic-bezier` transition, simply extend the placeholder class.
 
-For example, if you wanted `ease-in-out` with `expo`, write `@extend %ease-in-out-expo` to apply the transition.
+For example, if you wanted `ease-in-out` with `expo`, write `@extend %ease-in-out-expo` to apply the transition to all properties.
 
 */
 

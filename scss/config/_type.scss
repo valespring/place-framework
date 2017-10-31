@@ -28,7 +28,7 @@ $secondary-heading-size: tertia-text;
 $base-text-size: map-get($type-scale, normal-text);
 
 // For line-height in type-size mixin
-$round-to-nearest: map-get($fraction-map, quarter);
+$round-to-nearest: map-get($rhythm-map, quarter);
 
 // Line Height
 $long-line-height: 1.75;
