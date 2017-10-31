@@ -1,4 +1,4 @@
-module.exports = function ( gulp, config, plugins ) {
+module.exports = function ( gulp, config, $ ) {
 
 	// Task Variables
 	var task = {
@@ -9,20 +9,20 @@ module.exports = function ( gulp, config, plugins ) {
 	return function () {
 		gulp.task('scss', function () {
 		    gulp.src( task.src )
-			    .pipe(plugins.plumber(function (error) {
-	                plugins.util.log(error.message);
+			    .pipe($.plumber(function (error) {
+	                $.util.log(error.message);
 	                this.emit('end');
 	            }))
-	            .pipe(plugins.if( config.sourcemaps, plugins.sourcemaps.init()) )
-	            .pipe(plugins.sass({
+	            .pipe($.if( config.sourcemaps, $.sourcemaps.init()) )
+	            .pipe($.sass({
 	            	indentType: 'space',
 	            	outputStyle: 'expanded'
 	            }))
-	            .pipe(plugins.autoprefixer({
+	            .pipe($.autoprefixer({
 		            browsers: config.pkg.browserslist
 		        }))
-		    	.pipe(plugins.if( config.production, plugins.cleanCss()) )
-			    .pipe(plugins.if( config.sourcemaps, plugins.sourcemaps.write()) )
+		    	.pipe($.if( config.production, $.cleanCss()) )
+			    .pipe($.if( config.sourcemaps, $.sourcemaps.write()) )
 		        .pipe(gulp.dest( config.dist.css ))
 		});
 	};

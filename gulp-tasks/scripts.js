@@ -1,4 +1,4 @@
-module.exports = function ( gulp, config, plugins ) {
+module.exports = function ( gulp, config, $ ) {
 
 	// Task Variables
 	var task = {
@@ -20,10 +20,10 @@ module.exports = function ( gulp, config, plugins ) {
 	return function () {
 		gulp.task('scripts', function () {
 		   	gulp.src( scripts.helpers )
-		   		.pipe(plugins.if( config.sourcemaps, plugins.sourcemaps.init()) )
-		   		.pipe(plugins.concat( task.name ))
-		   		.pipe(plugins.if( config.production, plugins.uglify()) )
-		   		.pipe(plugins.if( config.sourcemaps, plugins.sourcemaps.write()) )
+		   		.pipe($.if( config.sourcemaps, $.sourcemaps.init()) )
+		   		.pipe($.concat( task.name ))
+		   		.pipe($.if( config.production, $.uglify()) )
+		   		.pipe($.if( config.sourcemaps, $.sourcemaps.write()) )
 		      	.pipe(gulp.dest( task.dest ));
 		});
 	};

@@ -38,3 +38,7 @@ $bp-small-width: 480;
 $bp-medium-width: 768;
 $bp-large-width: 992;
 $bp-x-large-width: 1240;
+
+// Wrapper Variable
+$wrapper-max-width: $bp-x-large-width;
+$wrapper-fixed-width: $bp-large-width;

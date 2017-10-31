@@ -53,3 +53,20 @@ $twitter-blue: #00a0d1;
 $pinterest-red: #c92228;
 $youtube-red: #bb0000;
 $reddit-orange: #ff5700;
+
+// Site Color Variables
+$primary-color: #45b3af;
+$secondary-color: #196966;
+$tertiary-color: #a9a6a7;
+$quarternary-color: #c0e5e4;
+
+// Border Color Variables
+$primary-border-color: darken($primary-color, 25%);
+$secondary-border-color: darken($secondary-color, 25%);
+
+// Link Color Variables
+$primary-link-color: $primary-color;
+$primary-link-hover: darken($primary-color, 15%);
+
+// Table Color Variables
+$table-border-color: $light-grey;

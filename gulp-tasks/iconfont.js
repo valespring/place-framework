@@ -1,4 +1,4 @@
-module.exports = function ( gulp, config, plugins ) {
+module.exports = function ( gulp, config, $ ) {
 
 	// Task Variables
 	var task = {
@@ -13,13 +13,13 @@ module.exports = function ( gulp, config, plugins ) {
 	return function () {
 		gulp.task('iconfont', function(){
 			gulp.src( [config.watch.icons] )
-			   	.pipe(plugins.iconfontCss({
+			   	.pipe($.iconfontCss({
 			    	fontName: task.fontName,
 			      	path: task.templatePath,
 			      	targetPath: task.targetPath,
 			      	fontPath: task.fontPath
 			    }))
-			    .pipe(plugins.iconfont({
+			    .pipe($.iconfont({
 			    	fontName: task.fontName,
 			    	prependUnicode: true,
 			    	formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],

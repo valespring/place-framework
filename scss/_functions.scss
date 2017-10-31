@@ -2,6 +2,13 @@
 	@return ( 1em * ($value / $base-text-size) );
 }
 
+@function map-deep-get($map, $keys...) {
+	@each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
 @function plural-fraction( $fraction ) {
 	@if $fraction == half {
 		@return halves;

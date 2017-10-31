@@ -105,6 +105,26 @@ Classes                       | Description
 [gulp-watch](https://www.npmjs.com/package/gulp-watch)| For watching for changes in files.
 
 ## Task Runner Commands
+There are a handful of gulp tasks already set to get you off the ground running.
+
+`gulp`
+
+Compiles SCSS and JS with the active configuration variables.
+
+`gulp js`
+
+Compiles JS with the active configuration variables.
+
+`gulp iconfont`
+
+Generates font files from SVG files within a folder, along with appropriate mixins and classes with the active configuration variables.
+
+`gulp watch`
+
+Watches for changes in .scss files and effectively runs the SCSS task.
+
+
+
 
 ## Grid
 
@@ -193,7 +213,7 @@ Takes px values in relation to `$base-text-size` and converts them to em units.
 
 ## Variable Configuration
  
-Variables in BOLT are set up to encourage customization. This is achieved through three separate facets of the framework.
+Variables in BOLT are set up to encourage customization. This is achieved three different ways.
 
 * Boolean activation
 * Variable Interpolation
@@ -224,4 +244,4 @@ For example, `$grid-flex` is set to `true` by default if you need a grid variati
 A handful of variables interpolate with the mixins and functions created, allowing the variables you set in the configuration to simply output with your change in place. For instance, if you wanted to use a different wrapper class, such as `.wrap`, simply change `$wrapper-class` to `wrap` in your configuration.
 
 ### SASS Maps
-Variable maps are an intriguing feature, since they make it simple to view the relationship of a variable under one umbrella. By default, the grid generates numbered classes based on the column count in that viewport. However, sometimes we can use quick widths that make sense, such as `-quarter` which is the same as `-1of4`.
+Variable maps are an intriguing feature, since they make it simple to view the relationship of a variable under one umbrella. By default, the grid generates numbered classes based on the column count in that viewport. However, sometimes we can use quick widths inside the `$fraction-map`, such as `-quarter` which is will extend the width of `-1of4`.
