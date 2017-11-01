@@ -61,5 +61,7 @@ $spacing-values: (
 }
 
 // Create Classes
-@include m-spacing-loop(p, padding);
-@include m-spacing-loop(m, margin);
+@if $spacing-helpers {
+    @include m-spacing-loop(p, padding);
+    @include m-spacing-loop(m, margin);
+}

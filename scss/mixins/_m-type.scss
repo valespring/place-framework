@@ -17,7 +17,7 @@
 
 // Vertical Rhythm
 // Calculate the minimum multiple of rhythm units needed to contain the font-size.
-// Optionally, you can specify a custom line-height (sans unit).
+// You can also specify a custom line-height (sans unit).
 
 @mixin lines-for-font-size($font-size, $line-height, $round: false) {
 	$unit: $base-vertical;

@@ -208,7 +208,7 @@ $grid-flush-suffix: 'flush';
 						<h3 class="primary-heading">Default Grid</h3>
 						<p>The default grid system covers mobile, tablet, and desktop breakpoints you define in the <code>_config</code> file. No need to worry about which column is first or last. Simply write it out for each viewport and watch it work.</p>
 
-						<div class="gd-row gt-row gm-row grid-display grid-spaced align--center">
+						<div class="gd-row gt-row gm-row grid-display grid-spaced align-center">
 							<div class="gcd-quarter gct-quarter gcm-quarter">
 								<div>
 									25%
@@ -231,7 +231,7 @@ $grid-flush-suffix: 'flush';
 							</div>
 						</div>
 
-						<div class="gd-row gt-row gm-row grid-display grid-spaced align--center">
+						<div class="gd-row gt-row gm-row grid-display grid-spaced align-center">
 							<div class="gcd-third gct-third gcm-third">
 								<div>
 									33%
@@ -249,7 +249,7 @@ $grid-flush-suffix: 'flush';
 							</div>
 						</div>
 
-						<div class="gd-row gt-row gm-row grid-display grid-spaced align--center">
+						<div class="gd-row gt-row gm-row grid-display grid-spaced align-center">
 							<div class="gcd-half gct-half gcm-half">
 								<div>
 									50%
@@ -262,7 +262,7 @@ $grid-flush-suffix: 'flush';
 							</div>
 						</div>
 
-						<div class="gd-row gt-row gm-row grid-display grid-spaced align--center">
+						<div class="gd-row gt-row gm-row grid-display grid-spaced align-center">
 							<div class="gcd-2of3 gct-2of3 gcm-2of3">
 								<div>
 									67%
@@ -275,7 +275,7 @@ $grid-flush-suffix: 'flush';
 							</div>
 						</div>
 
-						<div class="gd-row gt-row gm-row grid-display grid-spaced align--center">
+						<div class="gd-row gt-row gm-row grid-display grid-spaced align-center">
 							<div class="gcd-3of4 gct-3of4 gcm-3of4">
 								<div>
 									75%
@@ -291,7 +291,7 @@ $grid-flush-suffix: 'flush';
 					<section class="flex-grid" id="flex-grid">
 						<h3 class="primary-heading">Flex Grid</h3>
 						<p>Assuming the <code>$grid-flex</code> variable is true in the configuration, the flex grid is activated by adding <code>__flex</code> to the end of your row class. This will display the entirety of the content in flexbox.</p>
-						<div class="gd-row__flex gt-row__flex gm-row__flex grid-display grid-spaced align--center">
+						<div class="gd-row__flex gt-row__flex gm-row__flex grid-display grid-spaced align-center">
 							<div class="gcd-quarter gct-quarter gcm-half">
 								<div>
 									Item 1
@@ -318,7 +318,9 @@ $grid-flush-suffix: 'flush';
 					<section class="flex-flush-grid">
 						<h3 class="primary-heading">Flex Flush Grid</h3>
 
-						<ul class="gd-row__flex--flush gt-row__flex--flush gm-row__flex--flush grid-display align--center">
+						<p>Have a flexible flush layout, without the padding of a standard grid.</p>
+
+						<ul class="gd-row__flex--flush gt-row__flex--flush gm-row__flex--flush grid-display align-center">
 							<li class="gd-quarter gt-quarter gm-half">
 								<div>
 									Item 1
@@ -346,7 +348,10 @@ $grid-flush-suffix: 'flush';
 							</li>
 							<li class="gd-quarter gt-quarter gm-half">
 								<div>
-									Item 6
+									Item 6<br>
+									Item 6<br>
+									Item 6<br>
+									Item 6<br>
 								</div>
 							</li>
 							<li class="gd-quarter gt-quarter gm-half">
@@ -361,10 +366,12 @@ $grid-flush-suffix: 'flush';
 							</li>
 						</ul>
 					</section>
-					<section class="flex-mosiac-grid">
+					<section class="flex-mosaic-grid">
 						<h3 class="primary-heading">Flex Mosaic Grid</h3>
 
-						<div class="gd-row__flex--flush gt-row__flex--flushgrid-display align--center">
+						<p>Just an extenuation of the flush grid, this mosaic grid example allows you to have the flexibility for an even height layout with multiple items.</p>
+
+						<div class="gd-row__flex--flush gt-row__flex--flush grid-display align-center">
 							<div class="gd-third gt-third">
 								<div class="grid-display-item">
 									Item 1
@@ -377,13 +384,19 @@ $grid-flush-suffix: 'flush';
 								<div class="grid-display-item">
 									Item 3
 								</div>
+								<div class="grid-display-item">
+									Item 4
+								</div>
+								<div class="grid-display-item">
+									Item 5
+								</div>
 							</div>
 						</div>
 					</section>
 					<section class="flex-media-grid">
 						<h3 class="primary-heading">Flex Media Grid</h3>
 
-						<ul class="gd__flex--thirds gt__flex--thirds gm__flex--halves grid-display justify--center align--center">
+						<ul class="gd__flex--thirds gt__flex--thirds gm__flex--halves grid-display justify-center align-center">
 							<li>
 								<div>
 									<img src="http://placehold.it/300x200/f7f7f9/b8b5b6&amp;text=img">
@@ -694,7 +707,7 @@ $grid-flush-suffix: 'flush';
 		</div>
 
 		<footer class="main-footer">
-			<div class="container align--center">
+			<div class="container align-center">
 				<span class="petite-text">&copy; 2017 BOLT.  Massaged in SASS. Created for all.</span>
 			</div>
 		</footer>

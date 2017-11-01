@@ -1,11 +1,3 @@
 @function px( $value ) {
 	@return ( 1em * ($value / $base-text-size) );
 }
-
-@function plural-fraction( $fraction ) {
-	@if $fraction == half {
-		@return halves;
-	} @else {
-		@return #{$fraction}s;
-	}
-}

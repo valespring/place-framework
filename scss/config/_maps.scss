@@ -28,15 +28,32 @@ $wysiwyg-scale: (
 	minion-text
 );
 
-// Vertical Rhythm Map
-$rhythm-map: (
+// Helper Breakpoint Suffixes
+$helper-breakpoint-suffix: (
+	#{$small-screens-max}: 'sm',
+	#{$medium-screens-only}: 'md',
+	#{$large-screens-min}: 'lg'
+);
+
+// Fraction Map
+$fraction-map: (
 	quarter: 4,
 	third: 3,
 	half: 2
 );
 
+// Vertical Rhythm Map
+$rhythm-map: $fraction-map;
+
+// Quick Grid Map
+$quick-grid-map: (
+	quarters: 4,
+	thirds: 3,
+	halves: 2
+);
+
 // Quick Width Map
-$grid-quick-widths: (
+$grid-widths: (
 	fifth: 1/5,
 	three-quarters: 3/4,
 	quarter: 1/4,

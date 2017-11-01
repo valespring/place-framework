@@ -6,56 +6,28 @@ These can be added to individual elements or on parent elements to adjust the co
 
 */
 
-.align--left {
+.align-left {
     text-align: left;
 }
 
-.align--center {
+.align-center {
     text-align: center;
 }
 
-.align--right {
+.align-right {
     text-align: right;
 }
 
-.align--sub {
+.align-sub {
     vertical-align: sub;
 }
 
-.align--middle {
+.align-middle {
     vertical-align: middle;
 }
 
-.align--top {
+.align-top {
     vertical-align: top;
-}
-
-/*!
-
-Justify
-
-Justify the content inside the element (typically used in flex models).
-
-*/
-
-.justify--start {
-    justify-content: start;
-}
-
-.justify--end {
-    justify-content: end;
-}
-
-.justify--center {
-    justify-content: center;
-}
-
-.justify--space-around {
-    justify-content: space-around;
-}
-
-.justify--space-between {
-    justify-content: space-between;
 }
 
 /*!
@@ -66,20 +38,20 @@ Like it sounds.
 
 */
 
-.float--left {
+.float-left {
     float:left;
 }
 
-.float--center {
+.float-center {
     margin-left: auto;
     margin-right: auto;
 }
 
-.float--right {
+.float-right {
     float:right;
 }
 
-.float--none {
+.float-none {
     float:none;
 }
 
@@ -123,25 +95,6 @@ Hides content while making it accessible to screen readers.
     @include visually-hidden();
 }
 
-@media #{$small-screens-max} {
-    .is-hidden-mobile {
-        @include visually-hidden();
-    }
-}
-
-@media #{$medium-screens-only}  {
-    .is-hidden-tablet {
-        @include visually-hidden();
-    }
-}
-
-@media #{$large-screens-min}  {
-    .is-hidden-desktop {
-        @include visually-hidden();
-
-    }
-}
-
 .isnt-hidden {
 
     /* Mixins */
@@ -162,4 +115,119 @@ Hides content while making it accessible to screen readers.
 
 .absolute-container {
     position: absolute;
+}
+
+/*!
+
+Flex Helpers
+
+Misc. flex helpers along with justify, for justifying the content inside the element.
+
+*/
+
+@if flex-helpers {
+    .flex-display {
+        display: flex;
+    }
+
+    .flex-grow {
+        flex-grow: 1;
+    }
+
+    .justify-start {
+        justify-content: start;
+    }
+
+    .justify-end {
+        justify-content: end;
+    }
+
+    .justify-center {
+        justify-content: center;
+    }
+
+    .justify-space-around {
+        justify-content: space-around;
+    }
+
+    .justify-space-between {
+        justify-content: space-between;
+    }
+}
+
+
+/*!
+
+Media Query Helpers
+
+*/
+
+@if $viewport-helpers {
+    @each $breakpoint, $suffix in $helper-breakpoint-suffix {
+        @media #{$breakpoint} {
+            // Hides
+            .is-hidden--#{$suffix} {
+                @include visually-hidden();
+            }
+
+            // Alignment
+            .align-left--#{$suffix} {
+                text-align: left;
+            }
+
+            .align-center--#{$suffix} {
+                text-align: center;
+            }
+
+            .align-right--#{$suffix} {
+                text-align: right;
+            }
+
+            // Floats
+            .float-left--#{$suffix} {
+                float:left;
+            }
+
+            .float-center--#{$suffix} {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .float-right--#{$suffix} {
+                float:right;
+            }
+
+            // Flex 
+
+            @if flex-helpers {
+                .flex-display--#{$suffix} {
+                    display: flex;
+                }
+
+                .flex-grow--#{$suffix} {
+                    flex-grow: 1;
+                }
+                
+                .justify-start--#{$suffix} {
+                    justify-content: start;
+                }
+
+                .justify-end--#{$suffix} {
+                    justify-content: end;
+                }
+
+                .justify-center--#{$suffix} {
+                    justify-content: center;
+                }
+
+                .justify-space-around--#{$suffix} {
+                    justify-content: space-around;
+                }
+
+                .justify-space-between--#{$suffix} {
+                    justify-content: space-between;
+                }
+            }
+        } 
+    }
 }

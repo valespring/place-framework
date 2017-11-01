@@ -59,7 +59,7 @@
 }
 
 @mixin grid-flex-row {
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     align-items: stretch;
     align-content: space-between;
 }
@@ -121,12 +121,12 @@
             @if not index($col-widths, $w) {
                 @if $p != $t {
                     @if $p == 1 {
-                        @each $fraction, $value in $grid-quick-widths {
-                            $fraction-suffix: plural-fraction( $fraction );
+                        @each $desc, $value in $quick-grid-map {
+                            $fraction-suffix: $desc;
 
                             @if $value == $t {
                                 [class*="#{$row-class}__#{$grid-flex-suffix}"] > [class*="#{$prefix}-#{$p}of#{$t}"],
-                                [class*="#{$row-class}__#{$grid-flex-suffix}"] > [class*="#{$prefix}-#{$fraction}"],
+                                [class*="#{$row-class}__#{$grid-flex-suffix}"] > [class*="#{$prefix}-#{$desc}"],
                                 .#{$grid-prefix}#{$prefix}__#{$grid-flex-suffix}--#{$fraction-suffix} > * {
                                     @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t};
                                 }
@@ -164,7 +164,7 @@
 
                     $col-widths: append($col-widths, $w, comma);
 
-                    @each $fraction, $value in $grid-quick-widths {
+                    @each $fraction, $value in $grid-widths {
                         @if $value == ($p/$t) {
                             [class*="#{$prefix}-#{$fraction}"] {
                                 @extend [class*="#{$prefix}-#{$p}of#{$t}"];
@@ -245,7 +245,6 @@
             @extend [class*="#{$grid-row-class}"];
         }
         
-
         // Flex wrap all row variations
         [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
         .#{$grid-row-class}__#{$grid-flex-suffix}--#{$grid-flush-suffix},
@@ -262,8 +261,17 @@
 
         // Set the flex item base
         [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] > *,
+        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}-"],
         [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-column-class}"] {
             @include grid-flex-item;
+
+            display: flex;
+            flex-direction: column;
+
+            // Flex grow the items to stretch to the container
+            > * {
+                flex-grow: 1;
+            }
         }
 
         // Create auto grid

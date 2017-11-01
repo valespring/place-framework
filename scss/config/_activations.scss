@@ -1,0 +1,51 @@
+/*! 
+
+Grid Flex
+
+Set to true to have the option of flex grids.
+
+*/
+
+$grid-flex: true;
+
+/*! 
+
+Grid Flex Fallback
+
+Set to true to have fallback for older browsers. Recommended.
+
+*/
+
+$grid-lte8: true;
+
+/*! 
+
+Viewport Helpers
+
+Set to true to have specific viewport utility classes, such as `is-hidden-lg` to hide something in a large viewport, or `float-left--sm` to float left only in a small viewport.
+
+*/
+
+$viewport-helpers: true;
+
+/*! 
+
+Spacing Helpers
+
+Set to true to have spacing helpers to quickly add margin or padding to an element. 
+
+Recommended, at least at the beginning of a project.
+
+*/
+
+$spacing-helpers: true;
+
+/*! 
+
+Flex Helpers
+
+Set to true to have flex helpers for `display:flex` or `flex-grow`.
+
+*/
+
+$flex-helpers: true;
