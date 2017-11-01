@@ -4,7 +4,7 @@ var config = {};
 config.pkg = require('./package.json');
 config.tag = config.pkg.name;
 config.master = 'global';
-config.sourcemaps = true;
+config.sourcemaps = false;
 config.production = false;
 
 // Root Paths

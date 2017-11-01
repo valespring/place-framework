@@ -21,7 +21,13 @@ module.exports = function ( gulp, config, $ ) {
 	            .pipe($.autoprefixer({
 		            browsers: config.pkg.browserslist
 		        }))
-		    	.pipe($.if( config.production, $.cleanCss()) )
+		    	.pipe($.if( config.production, $.cleanCss({
+		    		level: {
+    					1: {
+		    				specialComments: 'none'
+	    				}
+    				}
+		    	})) )
 			    .pipe($.if( config.sourcemaps, $.sourcemaps.write()) )
 		        .pipe(gulp.dest( config.dist.css ))
 		});

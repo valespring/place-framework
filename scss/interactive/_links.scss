@@ -23,8 +23,7 @@ a,
 
 	&,
 	&:hover,
-	&:focus,
-	&.is-current {
+	&:focus {
 		@extend .unlink;
 	}
 }

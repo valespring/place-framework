@@ -42,6 +42,13 @@ $fraction-map: (
 	half: 2
 );
 
+// Nested Selectors (so we don't have to use the * selector)
+$nested-selectors: (
+	section,
+	li,
+	div
+);
+
 // Vertical Rhythm Map
 $rhythm-map: $fraction-map;
 

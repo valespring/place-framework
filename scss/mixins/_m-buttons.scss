@@ -5,14 +5,12 @@
 
     &,
     &:hover,
-    &:focus,
-    &.is-current {
+    &:focus {
         color: $color;
     }
 
     &:hover,
-    &:focus,
-    &.is-current {
+    &:focus {
         background-color: darken($background, 15%);
         border-color: darken($border, 15%);
     }

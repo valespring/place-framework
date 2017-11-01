@@ -135,11 +135,11 @@ Misc. flex helpers along with justify, for justifying the content inside the ele
     }
 
     .justify-start {
-        justify-content: start;
+        justify-content: flex-start;
     }
 
     .justify-end {
-        justify-content: end;
+        justify-content: flex-end;
     }
 
     .justify-center {

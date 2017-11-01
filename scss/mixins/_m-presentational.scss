@@ -50,8 +50,8 @@
     border: 0;
     overflow: hidden;
     
-    &.focusable:active,
-    &.focusable:focus {
+    &:active,
+    &:focus {
         width: auto;
         height: auto;
         margin: 0;

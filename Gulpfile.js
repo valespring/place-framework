@@ -19,12 +19,6 @@ gulp.task('js', ['scripts']);
 gulp.task('icons', ['iconfont']);
 gulp.task('refresh', ['icons', 'scss', 'scripts']);
 
-gulp.task('config', function() {
-    return gulp.src([
-    	'scss/_config-base.scss'])
-    	.pipe(gulp.dest('scss/something.scss'));
-});
-
 // Watch
 gulp.task('watch', function() {
   gulp.watch(proj.watch.scss, ['scss']);
