@@ -42,8 +42,8 @@ $fraction-map: (
 	half: 2
 );
 
-// Nested Selectors (so we don't have to use the * selector)
-$nested-selectors: (
+// Descendant Selectors (so we don't have to use the expensive * selector)
+$descendant-selectors: (
 	section,
 	li,
 	div

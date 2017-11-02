@@ -70,7 +70,15 @@ If you want to utilize a `cubic-bezier` transition, simply extend the placeholde
 
 For example, if you wanted `ease-in-out` with `expo`, write `@extend %ease-in-out-expo` to apply the transition to all properties.
 
+You can also use the map-get function to grab a transition, like so:
+
+`.something {
+	transition: all map-get($ease-in, circ);
+}`
+
 */
+
+
 
 
 

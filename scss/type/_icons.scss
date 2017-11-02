@@ -1,11 +1,13 @@
-@font-face {
-	font-family: "bolt-icons";
-	src: url('../../dist/fonts/bolt-icons/bolt-icons.eot');
-	src: url('../../dist/fonts/bolt-icons/bolt-icons.eot?#iefix') format('eot'),
-		url('../../dist/fonts/bolt-icons/bolt-icons.woff2') format('woff2'),
-		url('../../dist/fonts/bolt-icons/bolt-icons.woff') format('woff'),
-		url('../../dist/fonts/bolt-icons/bolt-icons.ttf') format('truetype'),
-		url('../../dist/fonts/bolt-icons/bolt-icons.svg#bolt-icons') format('svg');
+@at-root {
+	@font-face {
+		font-family: "bolt-icons";
+		src: url('../../dist/fonts/bolt-icons/bolt-icons.eot');
+		src: url('../../dist/fonts/bolt-icons/bolt-icons.eot?#iefix') format('eot'),
+			url('../../dist/fonts/bolt-icons/bolt-icons.woff2') format('woff2'),
+			url('../../dist/fonts/bolt-icons/bolt-icons.woff') format('woff'),
+			url('../../dist/fonts/bolt-icons/bolt-icons.ttf') format('truetype'),
+			url('../../dist/fonts/bolt-icons/bolt-icons.svg#bolt-icons') format('svg');
+	}
 }
 
 @mixin icon-styles {

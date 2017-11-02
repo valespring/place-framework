@@ -25,8 +25,7 @@ select {
 
     &:hover,
     &:focus,
-    &:active,
-    &.is-current {
+    &:active {
         z-index: 1;        
     }
 }

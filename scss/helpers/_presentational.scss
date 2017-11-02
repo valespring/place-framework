@@ -34,7 +34,7 @@ These can be added to individual elements or on parent elements to adjust the co
 
 Floats
 
-Like it sounds.
+Glub glub glub. Like it sounds. 
 
 */
 
@@ -126,6 +126,7 @@ Misc. flex helpers along with justify, for justifying the content inside the ele
 */
 
 @if flex-helpers {
+    %flex-display,
     .flex-display {
         display: flex;
     }

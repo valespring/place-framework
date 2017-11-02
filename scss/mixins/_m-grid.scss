@@ -15,8 +15,7 @@
 
 @mixin grid-list-clear {
     @at-root ul#{&} {
-        padding-left: 0;
-        list-style: none outside none;
+        @include unstyled-list();
     }
 }
 
@@ -96,12 +95,35 @@
 }
 
 @mixin grid-display-placeholders ( $prefix ) {
+
+    %grid-list-clear-#{$prefix} {
+        @include grid-list-clear();
+    }
+
+    %grid-flex-item-#{$prefix} {
+        @include grid-flex-item();
+    }
+
+    %grid-flex-item-lte8-#{$prefix} {
+        @include grid-item-lte8();
+    }
+
+    %grid-flex-item-combined-#{$prefix} {
+        @extend %grid-flex-item-#{$prefix};
+        @extend %flex-display-#{$prefix};
+        @extend %flex-column-#{$prefix};
+    }
+
     %flex-display-#{$prefix} {
         display: flex;
     }
 
-    %flex-item-lte8-#{$prefix} {
-        @include grid-item-lte8();
+    %flex-column-#{$prefix} {
+        flex-direction: column;
+    }
+
+    %flex-grow-#{$prefix} {
+        flex-grow: 1;
     }
 }
 
@@ -140,13 +162,15 @@
                             $fraction-suffix: $desc;
 
                             @if $value == $t {
-                                [class*="#{$row-class}__#{$grid-flex-suffix}"] > [class*="#{$prefix}-#{$p}of#{$t}"],
-                                [class*="#{$row-class}__#{$grid-flex-suffix}"] > [class*="#{$prefix}-#{$desc}"] {
-                                    @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t};
+                                [class*="#{$row-class}__#{$grid-flex-suffix}"] {
+                                    > [class*="#{$prefix}-#{$p}of#{$t}"] {
+                                        @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t};
+                                    }
                                 }
+
                                 .#{$grid-prefix}#{$prefix}__#{$grid-flex-suffix}--#{$fraction-suffix} {
-                                    @each $element in $nested-selectors {
-                                        > #{$element} {
+                                    @each $selector in $descendant-selectors {
+                                        > #{$selector} {
                                             @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t};
                                         }
                                     }
@@ -211,8 +235,8 @@
     @include create-grid-widths( $grid-viewport-infix, $grid-columns );
 
     [class*="#{$grid-row-class}"] {
-        @include grid-list-clear();
         @include clearfix();
+        @include grid-list-clear();
     }
 
     // Row
@@ -253,16 +277,21 @@
             $grid-columns 
         );
 
+        // Flex Grow Helper Class
+        .#{$grid-prefix}#{$grid-viewport-infix}-grow {
+            @extend %flex-grow-#{$grid-viewport-infix};
+        }
+
         // Display Flex
         [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
-        .#{$grid-row-class}__#{$grid-flex-suffix}--#{$grid-flush-suffix},
-        .#{$grid-row-class}__#{$grid-flex-suffix} {
+        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] {
             @extend %flex-display-#{$grid-viewport-infix};
         }
 
+        // Extend to descendants
         [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-            @each $element in $nested-selectors {
-                > #{$element} {
+             @each $selector in $descendant-selectors {
+                > #{$selector} {
                     @extend %flex-display-#{$grid-viewport-infix};
                 }
             }
@@ -275,50 +304,53 @@
         
         // Flex wrap all row variations
         [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
-        .#{$grid-row-class}__#{$grid-flex-suffix}--#{$grid-flush-suffix},
-        .#{$grid-row-class}__#{$grid-flex-suffix} {
+        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] {
             @include grid-flex-row();
-            @include grid-list-clear();
+        }
+
+        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] {
+            @extend %grid-list-clear-#{$grid-viewport-infix};
         }
 
         // If listing, display as row
-        [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
         .#{$grid-row-class}__#{$grid-flex-suffix} {
             @include grid-row($grid-margin);
         }
 
         // Set the flex item base
-        [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] > *,
         [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}-"],
         [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-column-class}"] {
-            @include grid-flex-item;
 
-            @extend %flex-display-#{$grid-viewport-infix};
-
-            flex-direction: column;
-
-            @each $element in $nested-selectors {
-                > #{$element} {
-                    flex-grow: 1;
-                }
-            }
+            // Extend placeholder
+            @extend %grid-flex-item-combined-#{$grid-viewport-infix};
         }
 
-        // Create auto grid
+        // Invite Descendants To The Party
+        // TODO: find out why classes aren't comma combined
         [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
+            @each $selector in $descendant-selectors {
+                > #{$selector} {
+                    // Extend
+                    @extend %grid-flex-item-combined-#{$grid-viewport-infix};
 
-            @each $element in $nested-selectors {
-                > #{$element} {
                     @include grid-list-margin();
                     @include grid-padding($grid-margin);
 
+                    // Style
                     min-height: 1px;
+
+                    @each $selector in $descendant-selectors {
+                        > #{$selector} {
+                            @extend %flex-grow-#{$grid-viewport-infix};
+                        }
+                    }
                 }
             }
         }
 
         // Fallbacks
         @if $grid-lte8 {
+            // Default Fallback
             .lte8 {
                 [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
                 [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] {
@@ -326,14 +358,14 @@
                 }
 
                 [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-column-class}"],
-                [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}"] {
-                    @extend %flex-item-lte8-#{$grid-viewport-infix};
+                [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}"]{
+                    @extend %grid-flex-item-lte8-#{$grid-viewport-infix};
                 }
 
                 [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-                    @each $element in $nested-selectors {
-                        > #{$element} {
-                            @extend %flex-item-lte8-#{$grid-viewport-infix};
+                    @each $selector in $descendant-selectors {
+                        > #{$selector} {
+                            @extend %grid-flex-item-lte8-#{$grid-viewport-infix};
                         }
                     }
                 }

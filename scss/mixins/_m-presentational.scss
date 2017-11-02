@@ -40,7 +40,7 @@
     hyphens: auto;
 }
 
-// http://developer.yahoo.com/blogs/ydn/posts/2012/10/clip-your-hidden-content-for-better-accessibility/
+//http://cssmojo.com/hide-content-from-sighted-users/
 @mixin visually-hidden() { 
     width: 1px;
     height: 1px;
@@ -60,7 +60,7 @@
         position: static;
     }
 
-    body:hover & {
+    @at-root body:hover #{&} {
         a,
         input,
         button {
@@ -75,7 +75,7 @@
     position: relative;
     clip: auto;
     
-    body:hover & {
+    @at-root body:hover #{&} {
         a,
         input,
         button {

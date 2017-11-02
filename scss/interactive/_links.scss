@@ -9,8 +9,7 @@ a,
 	color: $primary-link-color;
 
 	&:hover,
-	&:focus,
-	&.is-current {
+	&:focus {
 		color: $primary-link-hover;
 	}
 }
