@@ -313,7 +313,8 @@
         }
 
         // If listing, display as row
-        .#{$grid-row-class}__#{$grid-flex-suffix} {
+        .#{$grid-row-class}__#{$grid-flex-suffix},
+        [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
             @include grid-row($grid-margin);
         }
 
@@ -333,6 +334,7 @@
                     // Extend
                     @extend %grid-flex-item-combined-#{$grid-viewport-infix};
 
+                    // Include
                     @include grid-list-margin();
                     @include grid-padding($grid-margin);
 

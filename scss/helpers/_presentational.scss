@@ -131,6 +131,7 @@ Misc. flex helpers along with justify, for justifying the content inside the ele
         display: flex;
     }
 
+    %flex-grow,
     .flex-grow {
         flex-grow: 1;
     }
@@ -201,10 +202,12 @@ Media Query Helpers
             // Flex 
 
             @if flex-helpers {
+                %flex-display--#{$suffix},
                 .flex-display--#{$suffix} {
                     display: flex;
                 }
 
+                %flex-grow--#{$suffix},
                 .flex-grow--#{$suffix} {
                     flex-grow: 1;
                 }
