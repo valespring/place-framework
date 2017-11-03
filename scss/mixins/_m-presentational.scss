@@ -1,5 +1,5 @@
 @mixin remove-styles() {
-    /* Display & Box Model */
+    // Display & Box Model
     display: inline;
     width: auto;
     height: auto;
@@ -7,7 +7,7 @@
     padding: 0;
     border: none;
 
-    /* Other */
+    // Other Removals
     font-family: inherit;
     font-size: inherit;
     color: inherit;
@@ -40,7 +40,7 @@
     hyphens: auto;
 }
 
-//http://cssmojo.com/hide-content-from-sighted-users/
+// http://cssmojo.com/hide-content-from-sighted-users/
 @mixin visually-hidden() { 
     width: 1px;
     height: 1px;

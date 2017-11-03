@@ -1,4 +1,4 @@
-// Forms
+// * Forms
 
 input,
 textarea,
@@ -58,7 +58,15 @@ select {
     }
 };
 
-// Input Label Elements
+@if $input-styling {
+
+/*!
+
+Input Label Elements
+
+* Wrap form elements in the `input-label` tag to add a bit of extra styling to maintain consistency.
+
+*/
 
 .input-label {
 
@@ -70,9 +78,15 @@ select {
     }
 }
 
-// Select Box
+/*!
+
+Select Box
+
+* Wrap your select with the class of `select-box` to have a clean and simple dropdown with pure CSS.
+
+*/
 .select-box {
-    @extend .relative-container;
+    @extend %relative-container;
 
     select {
         width: 100%;

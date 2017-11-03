@@ -2,7 +2,7 @@
 
 Embed Container
 
-Containers used to wrap around content, like videos, to keep them contained for every viewport.
+* Containers used to wrap around content, like videos, to keep them contained for every viewport.
 
 <div class="embed-container">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
@@ -11,13 +11,13 @@ Containers used to wrap around content, like videos, to keep them contained for 
 */
 
 .embed-container {
-    @extend .relative-container;
+    @extend %relative-container;
 
      &:before {
         content: "";
 
         // Extend display block
-        @extend .new-line;
+        @extend %new-line;
 
         // Vars
         $landscape-ratio: ( 100% * ( 9 / 16 ) );

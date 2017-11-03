@@ -147,12 +147,12 @@
             @if $grid-flex {
                 %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t} {
                     flex-basis: $w * 100%;
-                    max-width: $w * 100%;
                 }
             }
 
             %#{$prefix}-#{$p}of#{$t} {
                 width: $w * 100%;
+                max-width: $w * 100%;
             }
         }
     }
@@ -373,6 +373,5 @@
                 }
             }
         }
-
     }
 }

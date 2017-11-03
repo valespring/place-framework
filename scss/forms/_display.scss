@@ -2,17 +2,17 @@
 
 Input Label
 
-Add the class `input-label` to the surrounding element to add additional styling.
+* Add the class `input-label` to the surrounding element to add additional styling.
 
-    <label class="input-label">
-        Text Field
-        <input type="text" name="text" required>
-    </label>
+<label class="input-label">
+    Text Field
+    <input type="text" name="text" required>
+</label>
 
 */
 
 .input-label {
-    @extend .new-line;
+    @extend %new-line;
 
     @include padding-leader(1);
 }
@@ -22,7 +22,7 @@ Add the class `input-label` to the surrounding element to add additional styling
 
 Fieldsets
 
-Add to fieldsets for more spacing.
+* Add to fieldsets for more spacing.
 
 */
 

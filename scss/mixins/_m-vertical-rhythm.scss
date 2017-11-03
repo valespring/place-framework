@@ -8,7 +8,7 @@
 	#{$property}: 		#{$rhythm-em}em;
 }
 
- //Apply leading whitespace as margin
+// Apply leading whitespace as margin
 @mixin margin-leader( $lines: 1, $font-size: $base-text-size) {
 	@include rhythm(margin-top, $lines, $font-size);
 }

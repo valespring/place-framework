@@ -2,7 +2,7 @@
 
 Alignment
 
-These can be added to individual elements or on parent elements to adjust the content inside.
+* These can be added to individual elements or on parent elements to adjust the content inside.
 
 */
 
@@ -34,7 +34,7 @@ These can be added to individual elements or on parent elements to adjust the co
 
 Floats
 
-Glub glub glub. Like it sounds. 
+* Glub glub glub. Like it sounds. 
 
 */
 
@@ -63,7 +63,7 @@ Glub glub glub. Like it sounds.
 
 New Line
 
-Applies `display:block;` to apply a new line.
+* Applies `display:block;` to apply a new line.
 
 */
 
@@ -76,7 +76,7 @@ Applies `display:block;` to apply a new line.
 
 Group
 
-When you may not need a grid, but need your (clear)fix.
+* When you may not need a grid, but need your (clear)fix.
 
 */
 
@@ -104,29 +104,32 @@ Hides content while making it accessible to screen readers.
 
 /*!
 
- Position
+Position
 
- Set the position on an element.
+Set the position on an element.
 
- */
+*/
 
+%relative-container,
 .relative-container {
     position: relative;
 }
 
+%absolute-container,
 .absolute-container {
     position: absolute;
 }
 
-/*!
-
-Flex Helpers
-
-Misc. flex helpers along with justify, for justifying the content inside the element.
-
-*/
-
 @if flex-helpers {
+
+    /*!
+
+    Flex Helpers
+
+    Misc. flex helpers along with justify, for justifying the content inside the element.
+
+    */
+
     %flex-display,
     .flex-display {
         display: flex;
@@ -159,13 +162,14 @@ Misc. flex helpers along with justify, for justifying the content inside the ele
 }
 
 
-/*!
-
-Media Query Helpers
-
-*/
-
 @if $viewport-helpers {
+
+    /*!
+
+    Media Query Helpers
+
+    */
+
     @each $breakpoint, $suffix in $helper-breakpoint-suffix {
         @media #{$breakpoint} {
             // Hides

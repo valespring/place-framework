@@ -1,9 +1,3 @@
-/*
-
-Font Declarations
-
-*/
-
 // Font Declaration w/out SVG
 // @font-face {
 //     @include web-font("NAME", font-family, font-family-file);
@@ -14,6 +8,10 @@ Font Declarations
 //     @include web-font-svg("NAME", font-family, font-family-file, FontFamilySVG);
 // }
 
-@at-root {
-	@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700');
+// Import Google Font
+
+@if $google-font {
+	@at-root {
+		@include google-font();
+	}
 }

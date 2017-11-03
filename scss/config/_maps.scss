@@ -19,6 +19,7 @@ $type-weights: (
 );
 
 // WYSWIYG (Blog) Scale
+// * Use the keys from `type-scale` to set the heading sizes.
 $wysiwyg-scale: (
 	h1: canon-text,
 	h2: paragon-text,
@@ -52,7 +53,8 @@ $quick-grid-map: (
 	halves: 2
 );
 
-// Quick Width Map
+// Extended Width Map
+// * Extends widths to quick classes, so you can use `third` in addition to `1of3` if desired.
 $grid-widths: (
 	fifth: 1/5,
 	three-quarters: 3/4,
@@ -62,7 +64,8 @@ $grid-widths: (
 	half: 1/2
 );
 
-// Descendant Selectors for the grid (so we don't have to use the expensive * selector)
+// Descendant Selectors 
+// * For the quick grid (so we don't have to use the expensive `*` selector).
 $descendant-selectors: (
 	section,
 	li,
@@ -77,4 +80,11 @@ $input-static-widths: (
     s: 175,
     m: 250,
     l: 350
+);
+
+// Google Font Map 
+// * Define specific weights, or use open quotes to import the entire library.
+$google-font-map: (
+	Nunito: '300,400,600,700',
+	Open Sans: ''
 );

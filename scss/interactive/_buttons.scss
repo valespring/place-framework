@@ -2,7 +2,7 @@
 
 Buttons
 
-The default button styles for every button on the site. The base `.btn` style is devoid of any coloring, allowing either the primary, secondary, or classes you create further color the button.
+* The default button styles for every button on the site. The base `.btn` style is devoid of any coloring, allowing either the primary, secondary, or classes you create further color the button.
 
 */
 
@@ -58,6 +58,7 @@ The default button styles for every button on the site. The base `.btn` style is
     @include m-button-color( $primary-color, $primary-border-color, $button-color);
 }
 
+// Button Secondary
 .btn--secondary {
     @include m-button-color( $secondary-color, $secondary-border-color, $button-color);
 }

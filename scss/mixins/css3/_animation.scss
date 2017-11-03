@@ -1,3 +1,5 @@
+// Animation
+// * Animation mixin for creating CSS animations. `null` values are optional.
 @mixin animation (
     $name,
     $duration,
@@ -11,7 +13,7 @@
     animation: $name $duration $timing-function $delay $direction $iteration $fill-mode $play-state;
 }
 
-
+// Keyframes
 @mixin keyframes($name) {
     @keyframes #{$name} {
         @content;
