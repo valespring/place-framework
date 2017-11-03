@@ -8,7 +8,11 @@ Create grid placeholder classes first to extend later on within the media direct
 
 // Mobile 
 @media #{$small-screens-max} {
-    @include create-grid-placeholders( $grid-viewport-mobile-infix, $mobile-columns );
+    @include create-grid-placeholders( 
+        $grid-viewport-mobile-infix, 
+        $mobile-columns, 
+        $mobile-margin 
+    );
     @include create-grid( 
         $grid-viewport-mobile-infix, 
         $mobile-columns, 
@@ -18,7 +22,11 @@ Create grid placeholder classes first to extend later on within the media direct
 
 // Tablet
 @media #{$medium-screens-only} {
-    @include create-grid-placeholders( $grid-viewport-tablet-infix, $tablet-columns );
+    @include create-grid-placeholders( 
+        $grid-viewport-tablet-infix, 
+        $tablet-columns, 
+        $tablet-margin 
+    );
     @include create-grid( 
         $grid-viewport-tablet-infix, 
         $tablet-columns, 
@@ -28,7 +36,11 @@ Create grid placeholder classes first to extend later on within the media direct
 
 // Desktop
 @media #{$large-screens-min} {
-    @include create-grid-placeholders( $grid-viewport-desktop-infix, $total-columns );
+    @include create-grid-placeholders( 
+        $grid-viewport-desktop-infix, 
+        $total-columns, 
+        $base-margin 
+    );
     @include create-grid( 
         $grid-viewport-desktop-infix, 
         $total-columns, 

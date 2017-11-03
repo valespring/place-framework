@@ -89,12 +89,22 @@
     text-rendering: auto;
 }
 
-@mixin create-grid-placeholders( $prefix, $columns ) {
-    @include grid-display-placeholders( $prefix );
+@mixin create-grid-placeholders( $prefix, $columns, $margin ) {
+    @include grid-display-placeholders( $prefix, $margin );
     @include grid-width-placeholders( $prefix, $columns);
 }
 
-@mixin grid-display-placeholders ( $prefix ) {
+@mixin grid-display-placeholders ( $prefix, $margin ) {
+
+    %grid-column-item-#{$prefix} {
+        @include grid-padding($margin);
+
+        min-height: 1px;
+    }
+
+    %grid-list-margin-#{$prefix} {
+        @include grid-list-margin();
+    }
 
     %grid-list-clear-#{$prefix} {
         @include grid-list-clear();
@@ -248,9 +258,7 @@
 
     // Column
     [class*="#{$grid-column-class}"] {
-        @include grid-padding($grid-margin);
-
-        min-height: 1px;
+        @extend %grid-column-item-#{$grid-viewport-infix};
     }
 
     // Alignments
@@ -308,10 +316,6 @@
             @include grid-flex-row();
         }
 
-        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] {
-            @extend %grid-list-clear-#{$grid-viewport-infix};
-        }
-
         // If listing, display as row
         .#{$grid-row-class}__#{$grid-flex-suffix},
         [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
@@ -319,7 +323,7 @@
         }
 
         // Set the flex item base
-        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}-"],
+        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}"],
         [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-column-class}"] {
 
             // Extend placeholder
@@ -332,14 +336,10 @@
             @each $selector in $descendant-selectors {
                 > #{$selector} {
                     // Extend
+                    @extend %grid-column-item-#{$grid-viewport-infix};
                     @extend %grid-flex-item-combined-#{$grid-viewport-infix};
+                    @extend %grid-list-margin-#{$grid-viewport-infix};
 
-                    // Include
-                    @include grid-list-margin();
-                    @include grid-padding($grid-margin);
-
-                    // Style
-                    min-height: 1px;
 
                     @each $selector in $descendant-selectors {
                         > #{$selector} {

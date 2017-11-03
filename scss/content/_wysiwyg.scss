@@ -25,10 +25,10 @@ Even though it's encouraged to keep your classes modular, there may be scenarios
     }
 
     // Set size based on scale
-    @each $scale in $wysiwyg-scale {
+    @each $heading, $scale in $wysiwyg-scale {
         $i: index($wysiwyg-scale, $scale);
 
-        h#{$i} { 
+        #{$heading} { 
             @extend %#{$scale};
         }
     }
