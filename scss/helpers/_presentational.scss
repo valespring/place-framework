@@ -122,13 +122,13 @@ Set the position on an element.
 
 @if flex-helpers {
 
-    /*!
+/*!
 
-    Flex Helpers
+Flex Helpers
 
-    Misc. flex helpers along with justify, for justifying the content inside the element.
+Misc. flex helpers along with justify, for justifying the content inside the element.
 
-    */
+*/
 
     %flex-display,
     .flex-display {
@@ -164,11 +164,11 @@ Set the position on an element.
 
 @if $viewport-helpers {
 
-    /*!
+/*!
 
-    Media Query Helpers
+Media Query Helpers
 
-    */
+*/
 
     @each $breakpoint, $suffix in $helper-breakpoint-suffix {
         @media #{$breakpoint} {
