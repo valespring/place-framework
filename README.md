@@ -19,6 +19,10 @@ BOLT is developed with Object Oriented CSS (OOCSS), when applicable, to give any
 
 The class `.nav__dropdown` would house the function to initialize the dropdown, while `.nav__main` would carry the weight of all the visual styles. We do not clump everything under one class, such as `.nav__main`, so that all of our logic is clear, concise, and isolated to its own purpose.
 
+## Harder working CSS Classes
+
+https://24ways.org/2012/a-harder-working-class/
+
 ## Folder Structure
 
 BOLT's folder structure 
@@ -227,12 +231,14 @@ $grid-flex: true;
 // Single Variables
 $wrapper-class: 'container';
 
-// Variable Maps
-$fraction-map: (
-    fifth: 5,
-    quarter: 4,
-    third: 3,
-    half: 2
+// Variable Map
+$grid-widths: (
+    fifth: 1/5,
+    three-quarters: 3/4,
+    quarter: 1/4,
+    third: 1/3,
+    two-thirds: 2/3,
+    half: 1/2
 );
 
 ```
@@ -244,4 +250,4 @@ For example, `$grid-flex` is set to `true` by default if you need a grid variati
 A handful of variables interpolate with the mixins and functions created, allowing the variables you set in the configuration to simply output with your change in place. For instance, if you wanted to use a different wrapper class, such as `.wrap`, simply change `$wrapper-class` to `wrap` in your configuration.
 
 ### SASS Maps
-Variable maps are an intriguing feature, since they make it simple to view the relationship of a variable under one umbrella. By default, the grid generates numbered classes based on the column count in that viewport. However, sometimes we can use quick widths inside the `$fraction-map`, such as `-quarter` which is will extend the width of `-1of4`.
+Variable maps are an intriguing feature, since they make it simple to view the relationship of a variable under one umbrella. By default, the grid generates numbered classes based on the column count in that viewport. However, sometimes we can use quick widths inside the `$grid-widths`, such as `-quarter` which is will extend the width of `-1of4`.

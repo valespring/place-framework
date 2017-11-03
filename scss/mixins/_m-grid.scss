@@ -213,7 +213,7 @@
 
                     $col-widths: append($col-widths, $w, comma);
 
-                    @each $fraction, $value in $grid-widths {
+                    @each $fraction, $value in $quick-grid-widths {
                         @if $value == ($p/$t) {
                             [class*="#{$prefix}-#{$fraction}"] {
                                 @extend [class*="#{$prefix}-#{$p}of#{$t}"];
