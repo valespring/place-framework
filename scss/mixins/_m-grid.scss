@@ -172,7 +172,6 @@
 
                             @if $value == $t {
                                 [class*="#{$row-class}__#{$grid-flex-suffix}"] {
-                                    //> [class*="#{$prefix}-#{$p}of#{$t}"] {
                                     > .#{$prefix}-#{$p}of#{$t} {
                                         @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t};
                                     }
@@ -188,7 +187,6 @@
                             }
                         }
                     } @else {
-                        //[class*="#{$row-class}__#{$grid-flex-suffix}"] > [class*="#{$prefix}-#{$p}of#{$t}"] {
                         [class*="#{$row-class}__#{$grid-flex-suffix}"] > .#{$grid-prefix}#{$prefix}-#{$p}of#{$t},
                         [class*="#{$row-class}__#{$grid-flex-suffix}"] > .#{$grid-column-prefix}#{$prefix}-#{$p}of#{$t} {
                             @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t};
