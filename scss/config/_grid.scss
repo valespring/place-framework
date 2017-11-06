@@ -1,0 +1,34 @@
+// Grid Name Variables
+$grid-prefix: "g";
+$grid-offset-prefix: "os";
+$grid-column-infix: "c";
+$grid-column-prefix: "#{$grid-prefix}#{$grid-column-infix}";
+
+// Grid Width Separator
+// * This goes in between the numerator and denominator.
+$grid-width-separator: 'of';
+
+// Row Variables
+$grid-row-suffix: "row";
+$grid-flex-suffix: "flex";
+$grid-flush-suffix: "flush";
+
+// Grid Viewport Variables
+$grid-viewport-desktop-infix: "d";
+$grid-viewport-tablet-infix: "t";
+$grid-viewport-mobile-infix: "m";
+
+// Column Variables
+$base-column: 47;
+$base-margin: 36;
+$total-columns: 12;
+
+// Tablet Grid
+$tablet-column: 50;
+$tablet-margin: 32;
+$tablet-columns: 9;
+
+// Mobile Grid
+$mobile-column: 136;
+$mobile-margin: 24;
+$mobile-columns: 4;
