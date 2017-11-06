@@ -138,12 +138,17 @@
         @for $p from 1 through $t {
             $w: ($p / $t);
 
-            @if $grid-flex {
-                %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t} {
-                    flex-basis: $w * 100%;
-                }
+            // Flex Placeholders
+            %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t} {
+                flex-basis: $w * 100%;
             }
 
+            // Offset Placeholders
+            %#{$prefix}-#{$grid-offset-prefix}-#{$p}of#{$t} {
+                margin-left: $w * 100%;
+            }
+
+            // Width Placeholders
             %#{$prefix}-#{$p}of#{$t} {
                 width: $w * 100%;
                 max-width: $w * 100%;
@@ -167,7 +172,8 @@
 
                             @if $value == $t {
                                 [class*="#{$row-class}__#{$grid-flex-suffix}"] {
-                                    > [class*="#{$prefix}-#{$p}of#{$t}"] {
+                                    //> [class*="#{$prefix}-#{$p}of#{$t}"] {
+                                    > .#{$prefix}-#{$p}of#{$t} {
                                         @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t};
                                     }
                                 }
@@ -182,7 +188,9 @@
                             }
                         }
                     } @else {
-                        [class*="#{$row-class}__#{$grid-flex-suffix}"] > [class*="#{$prefix}-#{$p}of#{$t}"] {
+                        //[class*="#{$row-class}__#{$grid-flex-suffix}"] > [class*="#{$prefix}-#{$p}of#{$t}"] {
+                        [class*="#{$row-class}__#{$grid-flex-suffix}"] > .#{$grid-prefix}#{$prefix}-#{$p}of#{$t},
+                        [class*="#{$row-class}__#{$grid-flex-suffix}"] > .#{$grid-column-prefix}#{$prefix}-#{$p}of#{$t} {
                             @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}of#{$t};
                         }
                     }
@@ -198,6 +206,35 @@
     }
 }
 
+@mixin create-grid-offsets($prefix, $columns) {
+    $col-widths: ();
+
+    @for $t from 1 through $columns {
+        @for $p from 1 through $t {
+            $w: ($p/$t);
+
+            @if not index($col-widths, $w) {
+                @if $p != $t {
+                    .#{$grid-offset-prefix}#{$prefix}-#{$p}of#{$t} {
+                        @extend %#{$prefix}-#{$grid-offset-prefix}-#{$p}of#{$t};
+                    }
+
+                    $col-widths: append($col-widths, $w, comma);
+
+                    @each $fraction, $value in $quick-grid-widths {
+                        @if $value == ($p/$t) {
+                            .#{$grid-offset-prefix}#{$prefix}-#{$fraction} {
+                                @extend %#{$prefix}-#{$grid-offset-prefix}-#{$p}of#{$t};
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
 @mixin create-grid-widths($prefix, $columns) {
     $col-widths: ();
 
@@ -207,7 +244,9 @@
 
             @if not index($col-widths, $w) {
                 @if $p != $t {
-                    [class*="#{$prefix}-#{$p}of#{$t}"] {
+                    // [class*="#{$prefix}-#{$p}of#{$t}"] {
+                    .#{$grid-prefix}#{$prefix}-#{$p}of#{$t},
+                    .#{$grid-column-prefix}#{$prefix}-#{$p}of#{$t} {
                         @extend %#{$prefix}-#{$p}of#{$t};
                     }
 
@@ -215,14 +254,18 @@
 
                     @each $fraction, $value in $quick-grid-widths {
                         @if $value == ($p/$t) {
-                            [class*="#{$prefix}-#{$fraction}"] {
-                                @extend [class*="#{$prefix}-#{$p}of#{$t}"];
+                            .#{$grid-column-prefix}#{$prefix}-#{$fraction},
+                            .#{$grid-prefix}#{$prefix}-#{$fraction} {
+                                @extend .#{$grid-prefix}#{$prefix}-#{$p}of#{$t};
+                                //@extend [class*="#{$prefix}-#{$p}of#{$t}"];
                             }
                         }
                     }
                     
                 } @else {
-                    [class*="#{$prefix}-full"] {
+                    // [class*="#{$prefix}-full"] {
+                     .#{$grid-prefix}#{$prefix}-full,
+                     .#{$grid-column-prefix}#{$prefix}-full {
                         @extend %#{$prefix}-1of1;
                     }
                 }
@@ -237,6 +280,11 @@
 
     // Widths
     @include create-grid-widths( $grid-viewport-infix, $grid-columns );
+
+    // Offset
+    @if $grid-offset {
+        @include create-grid-offsets( $grid-viewport-infix, $grid-columns );
+    }
 
     [class*="#{$grid-row-class}"] {
         @include clearfix();

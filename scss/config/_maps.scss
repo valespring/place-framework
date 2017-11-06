@@ -31,9 +31,9 @@ $wysiwyg-scale: (
 
 // Helper Breakpoint Suffixes
 $helper-breakpoint-suffix: (
-	#{$small-screens-max}: 'm',
-	#{$medium-screens-only}: 't',
-	#{$large-screens-min}: 'd'
+	#{$small-screens-max}: 'sm',
+	#{$medium-screens-only}: 'md',
+	#{$large-screens-min}: 'lg'
 );
 
 // Fraction Map

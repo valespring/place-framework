@@ -4,9 +4,14 @@
 $grid-flex: true;
 
 // Grid Flex Fallback
-// * Set to `true` to have fallback for older browsers. Recommended.
+// * Set to `true` to have flex fallback for older browsers. Recommended if `grid-flex` is true.
 
 $grid-lte8: true;
+
+// Grid Offset
+// * Set to `true` to have offset grid classes.
+
+$grid-offset: true;
 
 // Viewport Helpers
 // * Set to `true` to have specific viewport utility classes, such as `is-hidden-lg` to hide something in a large viewport, or `float-left--sm` to float left only in a small viewport.
