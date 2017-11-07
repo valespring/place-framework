@@ -10,7 +10,7 @@ module.exports = function ( gulp, config, $ ) {
 	};
 
 	// Task Run
-	return function () {
+	return () => {
 		gulp.task('iconfont', function(){
 			gulp.src( [config.watch.icons] )
 			   	.pipe($.iconfontCss({
@@ -27,7 +27,7 @@ module.exports = function ( gulp, config, $ ) {
 			    	fontHeight: 1000,
 			    	ttfautohint: true
 			    }))
-			    .pipe(gulp.dest( config.dist.icons ));
-		});
-	};
+			    .pipe(gulp.dest( config.dist.icons ))
+		})
+	}
 }

@@ -5,13 +5,15 @@ Container
 * These main classes to wrap content on your site and keep it centered.
 
 */
-.#{$wrapper-class} {
-	max-width: 1em * ($wrapper-max-width / $base-text-size);
 
-	&,
-	&--wide {
-		width: 92%;
-		margin-left: auto;
-		margin-right: auto;
-	}
+
+.#{$wrapper-name}
+.#{$wrapper-name}--wide {
+	width: 92%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.#{$wrapper-name} {
+	max-width: 1em * ($wrapper-max-width / $base-text-size);
 }

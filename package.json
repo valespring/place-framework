@@ -16,11 +16,12 @@
     "not ie < 8"
   ],
   "author": "Nutrabolt",
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.4.0",
     "gulp-concat": "^2.6.1",
+    "gulp-critical-css": "^1.0.1",
     "gulp-iconfont": "^8.0.1",
     "gulp-iconfont-css": "^2.1.0",
     "gulp-if": "^2.0.2",

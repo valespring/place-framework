@@ -1,11 +1,12 @@
 // Set Baseline
-var config = {};
+var config = {}
 
 config.pkg = require('./package.json');
 config.tag = config.pkg.name;
 config.master = 'global';
+config.critical = true;
 config.sourcemaps = false;
-config.production = true;
+config.production = false;
 
 // Root Paths
 config.source = "";
@@ -16,13 +17,13 @@ config.source = {
   js: config.source + "js/",
   scss: config.source + "scss/",
   icons: config.source + "icons/",
-};
+}
 
 config.dist = {
   js: config.dist + "js/",
   css: config.dist + "css/",
   icons: config.dist + "fonts/" + config.tag + "-icons/"
-};
+}
 
 config.watch = {
 	scss: config.source.scss + "**/*.scss",

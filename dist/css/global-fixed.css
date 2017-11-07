@@ -2878,3 +2878,13 @@ Embed Container
     margin: 2cm;
   }
 }
+
+html,
+body {
+  min-width: 70.85714em;
+}
+
+.container,
+.container--wide {
+  width: 88.57143em;
+}

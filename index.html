@@ -2,12 +2,27 @@
 <!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 	<head>
 		<title>Bolt</title>
-		<!-- Styles -->
-	    <!--[if lt IE 9]><link href="dist/css/global-fixed.css" rel="stylesheet"><![endif]-->
-	    <!--[if gt IE 8]><!--><link href="dist/css/global.css" rel="stylesheet"><!--<![endif]-->
-	    <!-- End Styles -->
 
-	    <script type="text/javascript" src="dist/js/bolt.helpers.js"></script>
+	    <meta name="fullcss"  content="dist/css/global.css">
+		<meta name="fulljs"  content="/dist/js/bolt.helpers.js">
+		<!--#if expr="$HTTP_COOKIE=/fullcss\=true/" -->
+			<!--/* load entire stylesheet */-->
+			<link rel="stylesheet" href="/path/to/full.css">
+		<!--#else -->
+			<style>
+				/* critical CSS styles for this template go here... */
+			</style>
+		<!--#endif -->	
+		<script>
+			<!--#include virtual="/dist/js/bolt.enhance.js" -->
+		</script>
+
+		<noscript>
+		  	<!--[if lt IE 9]><link href="dist/css/global-fixed.css" rel="stylesheet"><![endif]-->
+		    <!--[if gt IE 8]><!--><link href="dist/css/global.css" rel="stylesheet"><!--<![endif]-->
+		</noscript>
+
+	    
 
 	    <style>
 	    	.grid-display {
