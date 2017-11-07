@@ -92,7 +92,7 @@ Watches for changes in .scss files and effectively runs the SCSS task.
 
 ## Folder Structure
 
-BOLT's Folder Structure is setup in an effort to keep everything separated by its function. For instance, there will not be any leaks (hopefully) across files. Import partials are prefaced with an underscore.
+BOLT's Folder Structure is setup in an effort to keep everything separated by its function. Import partials are prefaced with an underscore.
 
     + scss
         + config
@@ -114,23 +114,59 @@ BOLT's Folder Structure is setup in an effort to keep everything separated by it
         
         
 
-## Overview
+## Ethos
 
-You should see that classes are separated based on what they bring to the table, and it is encouraged that you resume this mode of coding throughout your project. For instance, for a main navigation with dropdown functionality, one might use the following markup: 
+### Modularity
+
+You should see that classes are separated based on what they bring to the table, and it is encouraged that you resume this mode of coding throughout your project. For instance, for a heading that may need to be pushed to the right, one might use the following markup:
 
 ```html
-<ul class="nav__dropdown nav__main">
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-</ul>   
+<h3 class="primary-heading align-right">
+    This is a heading that is floating right.
+</h3>   
 ```
 
-The class `.nav__dropdown` would house the function to initialize the dropdown, while `.nav__main` would carry the weight of all the visual styles. We do not clump everything under one class, such as `.nav__main`, so that all of our logic is clear, concise, and isolated to its own purpose.
+The class `.primary-heading` is your primary heading, while `align-right` text-aligns to the right. Consider, however, if we applied `align-right` to the `primary-heading` class. We would then be pigeonholed to that alignment every time we called the heading. Keeping these classes separated allows us to remain flexible in development. 
+
+Use less overrides. Stay modular.
+
+### Descriptive Class Names
+
+Each class name should be descriptive and quietly tell any developer new to the project what a class is doing. This is achieved through the following methods:
+
+#### Naming
+
+Literally - just the name of a class should be descriptive and concise enough to describe its function. There's no reason to name have a protracted class name if it creates more keystrokes. For example, `align-right` vs `text-align-right`, a difference of 5 characters each time it's used.
+
+#### OOCSS / BEM
+
+A now established concept, but foreign to a good number of developers, object-oriented CSS displays the relationship of a class by using element and modifier suffixes. Consider the class `.is-hidden--sm`. A seasoned developer will know immediately that this is a hide of some sort in a smaller viewport. While BOLT typically only uses modifier suffixes because of its light weight, it is encouraged you leverage this style throughout your project.
+
+**Source:** [https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 
 ### Harder Working CSS Classes
 
-There are a few selectors written to target multiple instances of that class to keep the CSS clean and concise. For example, the default grid configuration utilizes the following attribute selector <code>[class*="gcd"]</code> to apply the column fix in contrast to <code>.gcd-1of2, .gcd-1of3, .gcd-3of4, .gcd-11of12</code> etc.
+There are a few selectors written to target multiple instances of that class to keep the CSS clean and concise. For example, consider these two examples:
+
+#### Example 1
+
+```css
+[class*="gcd"] {
+    display:inline;
+    float:left;
+}
+```
+
+#### Example 2
+```css
+.gcd-1of5, .gcd-1of4, .gcd-1of3, .gcd-1of2, .gcd-3of5, .gcd-3of4, .gcd-2of3, .gcd-7of10 {
+    display: inline;
+    float:left;
+}   
+
+```
+
+As you can see, there's already a big discrepancy between both examples when it comes to achieving the same effect. While single class targeting may be (marginally) faster, we opt for the attribute targeting class to keep our CSS much smaller.
 
 **Source:** [https://24ways.org/2012/a-harder-working-class/](https://24ways.org/2012/a-harder-working-class/)
 

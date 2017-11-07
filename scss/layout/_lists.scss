@@ -1,0 +1,31 @@
+/*!
+
+Unstyled List
+
+* A basic stripping of list styles.
+
+*/
+
+.list--unstyled {
+    @include unstyled-list();
+}
+
+/*!
+
+Inline List
+
+* An inline list with the unstyled list styles extended.
+
+*/
+
+.list--inline {
+    @extend .list--unstyled;
+
+    li {
+        display: inline;
+    }
+
+    a {
+        display: inline-block;
+    }
+}

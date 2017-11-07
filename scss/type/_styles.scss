@@ -8,6 +8,7 @@
 }
 
 // Font Styles
+// * Create font weight classes based on the map.
 @each $weight, $value in $type-weights {
     .#{$weight}-weight {
         @if $weight == bold {
@@ -60,16 +61,4 @@ body,
 
     // Styles
     font-family: $body-font;
-}
-
-/*
-
-Unstyled List
-
-* A basic stripping of list styles.
-
-*/
-
-.list--unstyled {
-    @include unstyled-list();
 }

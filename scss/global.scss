@@ -13,14 +13,9 @@
 // Normalize
 @import "normalize/normalize";
 
-// // Helper Classes
+// Helper Classes
 @import "helpers/_spacing";
 @import "helpers/_presentational";
-
-// Reusable Modules
-@import "modules/_keyframes";
-@import "modules/_transitions";
-@import "modules/_embeds";
 
 // Typography
 @import "type/_font-face";
@@ -37,12 +32,18 @@
 @import "forms/_display";
 
 // Layout
+@import "layout/_lists";
 @import "layout/_grid";
 
 // Content
 @import "content/_containers";
 @import "content/_wysiwyg";
 @import "content/_tables";
+
+// Reusable Modules
+@import "modules/_keyframes";
+@import "modules/_transitions";
+@import "modules/_embeds";
 
 	
 @media print {
