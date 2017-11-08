@@ -4,7 +4,12 @@
 		<title>Bolt</title>
 
 	  	<!--[if lt IE 9]><link href="dist/css/global-fixed.css" rel="stylesheet"><![endif]-->
-	    <!--[if gt IE 8]><!--><link href="dist/css/global.css" rel="stylesheet"><!--<![endif]-->
+	    <!--[if gt IE 8]><!--><style type="text/css">
+		@charset "UTF-8";@import url(https://fonts.googleapis.com/css?family=Nunito:300,400,600,700);*,:after,:before{-webkit-box-sizing:border-box;box-sizing:border-box}body{margin:0}header,nav,section{display:block}html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html{font-family:sans-serif}h3,h4,p,pre,ul{margin:1.42857em 0 0 0;font-size:1em}ul{padding-left:2.5em}code,pre{font-family:monospace,serif;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}img{max-width:100%;border:0}.primary-heading{font-size:30px;font-size:1.875rem;line-height:1}.secondary-heading{font-size:18px;font-size:1.125rem;line-height:1.11111}body{font-size:14px;font-size:.875rem;line-height:1.42857}.primary-heading,.secondary-heading{font-weight:600}h3,h4{margin-top:1.75em;font-weight:400;font-family:Nunito,Helvetica,Arial,"Arial Unicode","Lucida Sans Unicode",sans-serif}.primary-heading{color:#45b3af}.secondary-heading{color:#196966}body{font-family:Nunito,Helvetica,Arial,"Arial Unicode","Lucida Sans Unicode",sans-serif}a{color:#45b3af}::-webkit-input-placeholder{color:#cfcdcd}:-moz-placeholder{color:#cfcdcd}::-moz-placeholder{color:#cfcdcd}:-ms-input-placeholder{color:#cfcdcd}.list--unstyled{padding-left:0;list-style:none outside none}@media all and (max-width:47.9375em){[class*=gm-row]:after,[class*=gm-row]:before{content:"\0020";height:0;display:block;overflow:hidden}[class*=gm-row]:after{clear:both}.gm-row{margin-left:-.85714em;margin-right:-.85714em}}@media all and (min-width:48em) and (max-width:61.9375em){[class*=gct]{padding-left:1.14286em;padding-right:1.14286em;min-height:1px}.gct-third{width:33.33333%;max-width:33.33333%}.gct-2of3{width:66.66667%;max-width:66.66667%}.gct-3of4{width:75%;max-width:75%}[class*=gt-row]:after,[class*=gt-row]:before{content:"\0020";height:0;display:block;overflow:hidden}[class*=gt-row]:after{clear:both}.gt-row{margin-left:-1.14286em;margin-right:-1.14286em}.gt-row>[class*=gct]{display:inline;float:left}}@media all and (min-width:62em){[class*=gcd]{padding-left:1.28571em;padding-right:1.28571em;min-height:1px}.gcd-third{width:33.33333%;max-width:33.33333%}.gcd-quarter{width:25%;max-width:25%}.gcd-3of4{width:75%;max-width:75%}[class*=gd-row]:after,[class*=gd-row]:before{content:"\0020";height:0;display:block;overflow:hidden}[class*=gd-row]:after{clear:both}.gd-row{margin-left:-1.28571em;margin-right:-1.28571em}.gd-row>[class*=gcd]{display:inline;float:left}}.container{width:92%;margin-left:auto;margin-right:auto}.container{max-width:88.57143em}
+	</style>
+	<link href="dist/css/global.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+	<noscript><link href="dist/css/global.css" rel="stylesheet"></noscript>
+	<script>!function(e){"use strict";var t=function(t,n,r){function o(e){if(i.body)return e();setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r,r.getAttribute("media")),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script><!--<![endif]-->
 
 	    <style>
 	    	.grid-display {
@@ -501,11 +506,11 @@ $grid-flush-suffix: 'flush';
 						<div class="wysiwyg mtl">
 							<h1>WYSIWYG Heading 1</h1>
 							<h2>WYSIWYG Heading 2</h2>
-							<h3>WYSIWYG Heading 3</h1>
+							<h3>WYSIWYG Heading 3
 							<h4>WYSIWYG Heading 4</h4>
 							<h5>WYSIWYG Heading 5</h5>
 							<h6>WYSIWYG Heading 6</h6>
-						</div>
+						</h3></div>
 
 						<h3 class="secondary-heading">Responsive Type</h3>
 						<p class="gd-half gt-half">In wider viewports, responsive type may be preferred. Simply add <code>responsive-</code> to preface the hierarchical size class.</p> 

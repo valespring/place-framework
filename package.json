@@ -17,6 +17,7 @@
   ],
   "author": "Nutrabolt",
   "devDependencies": {
+    "critical": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.4.0",

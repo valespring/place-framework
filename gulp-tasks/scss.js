@@ -6,16 +6,6 @@ module.exports = function ( gulp, config, $ ) {
 		fixed: config.source.scss + config.master + "-fixed.scss"
 	};
 
-	critical.generate({
-	    inline: true,
-	    base: '/',
-	    src: 'index.html',
-	    dest: 'index.html',
-	    minify: true,
-	    width: 1300,
-	    height: 900
-	});
-
 	// Task Run
 	return () => {
 		gulp.task('scss', function () {
