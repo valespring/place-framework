@@ -18,16 +18,18 @@ $grid-offset: false;
 
 $viewport-helpers: true;
 
-// Spacing Helpers
-// * Set to `true` to have spacing helpers to quickly add margin or padding to an element. 
-// * Recommended, at least at the beginning of a project.
-$spacing-helpers: true;
-
 // Flex Helpers
 // * Set to `true` to have flex helpers for `display:flex` or `flex-grow`.
 
 $flex-helpers: true;
 
-// Google Fonts
-// * Set to `true` to have utilize Google Fonts via the SASS font map.
-$google-font: false;
+// Spacing Helpers
+// * Set to `true` to have spacing helpers to quickly add margin or padding to an element. 
+// * Recommended, at least at the beginning of a project.
+
+$spacing-helpers: true;
+
+// Type Color Helpers
+// * Set to `true` to activate helper classes like `white-text` from the map `type-quick-colors`.
+
+$type-color-helpers: true;

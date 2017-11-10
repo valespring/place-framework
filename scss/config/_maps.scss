@@ -18,6 +18,12 @@ $type-weights: (
 	bold: 700
 );
 
+// Typographic Text Color Helpers
+$type-quick-colors: (
+	black-text: $black,
+	white-text: $white
+);
+
 // WYSWIYG (Blog) Scale
 // * Use the keys from `type-scale` to set the heading sizes.
 $wysiwyg-scale: (
@@ -80,10 +86,4 @@ $input-static-widths: (
     s: 175,
     m: 250,
     l: 350
-);
-
-// Google Font Map 
-// * Define specific weights in string format, or use open quotes to import the entire library.
-$google-font-map: (
-	Nunito: '300,400,600,700'
 );

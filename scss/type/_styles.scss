@@ -19,6 +19,17 @@
     }
 }
 
+// Font Colors
+// * Generate helper classes based on the SASS map.
+@if $type-color-helpers {
+    @each $color, $value in $type-quick-colors {
+        %#{$color},
+        .#{$color}{
+            color: $value !important;
+        }
+    }
+}
+
 // Headings
 
 h1,
@@ -54,11 +65,11 @@ h6 {
     color: $tertiary-color;
 }
 
-body,
+ body,
 .body-text {
     // Extends
     @extend %normal-text;
 
-    // Styles
+    // Style
     font-family: $body-font;
 }

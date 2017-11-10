@@ -6,7 +6,7 @@ config.tag = config.pkg.name;
 config.master = 'global';
 config.critical = true;
 config.sourcemaps = false;
-config.production = true;
+config.production = false;
 
 // Root Paths
 config.source = "";

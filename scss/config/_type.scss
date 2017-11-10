@@ -16,9 +16,14 @@ $nunito: 'Nunito', $stack-sans-serif;
 
 // Font Declarations
 $primary-font: $nunito;
-$secondary-font: $stack-serif;
+$secondary-font: $stack-sans-serif;
 $body-font: $primary-font;
+$body-font-fallback: $stack-sans-serif;
 $heading-font: $primary-font;
+$print-font: $stack-sans-serif;
+
+// @font-face Display
+$font-face-display: fallback;
 
 // Heading Sizes
 $primary-heading-size: paragon-text;

@@ -70,22 +70,3 @@
 	font-weight:	normal;
 	font-style:		normal;
 }
-
-// Google Fonts
-// * Use in conjunction with `$google-font-map` and `$google-font`
-
-@mixin google-font() {
-	@each $font, $weights in $google-font-map {
-
-		$font-family: str-replace(#{$font}, ' ', '+');
-		$weight-suffix: "";
-
-		@if $weights != '' {
-			$weight-suffix: ":#{$weights}";
-		} 
-
-		$font-path: 'https://fonts.googleapis.com/css?family=#{$font-family}#{$weight-suffix}';
-
-		@import url( $font-path );
-	}
-}
