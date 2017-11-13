@@ -70,18 +70,18 @@
     float:none;
 }
 
-@mixin grid-row-lte8 {
+@mixin grid-row-lte9 {
     // Variables
-    $lt8-ltr-spacing: px(4);
-    $lt8-word-spacing: px(6);
+    $lte9-ltr-spacing: px(4);
+    $lte9-word-spacing: px(6);
 
     // Style
-    letter-spacing: -$lt8-ltr-spacing;
-    word-spacing: -$lt8-word-spacing;
+    letter-spacing: -$lte9-ltr-spacing;
+    word-spacing: -$lte9-word-spacing;
     text-rendering: optimizespeed;
 }
 
-@mixin grid-item-lte8 {
+@mixin grid-item-lte9 {
     display: inline-block;
     letter-spacing: normal;
     word-spacing: normal;
@@ -114,8 +114,8 @@
         @include grid-flex-item();
     }
 
-    %grid-flex-item-lte8-#{$prefix} {
-        @include grid-item-lte8();
+    %grid-flex-item-lte9-#{$prefix} {
+        @include grid-item-lte9();
     }
 
     %flex-display-#{$prefix} {
@@ -386,23 +386,23 @@
         }
 
         // Fallbacks
-        @if $grid-lte8 {
+        @if $grid-lte9 {
             // Default Fallback
-            .lte8 {
+            .lte9 {
                 [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
                 [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] {
-                    @include grid-row-lte8();
+                    @include grid-row-lte9();
                 }
 
                 [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-column-class}"],
                 [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}"]{
-                    @extend %grid-flex-item-lte8-#{$grid-viewport-infix};
+                    @extend %grid-flex-item-lte9-#{$grid-viewport-infix};
                 }
 
                 [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
                     @each $selector in $descendant-selectors {
                         > #{$selector} {
-                            @extend %grid-flex-item-lte8-#{$grid-viewport-infix};
+                            @extend %grid-flex-item-lte9-#{$grid-viewport-infix};
                         }
                     }
                 }
