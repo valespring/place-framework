@@ -13,7 +13,6 @@ console.log(plugins);
 gulp.task('scss', require( taskDir + 'scss')(gulp, proj, plugins));
 gulp.task('scripts', require( taskDir + 'scripts')(gulp, proj, plugins));
 gulp.task('iconfont', require( taskDir + 'iconfont')(gulp, proj, plugins));
-//gulp.task('critical', require( taskDir + 'critical')(gulp, proj, plugins));
 
 // Set Tasks
 gulp.task('default', ['scss', 'scripts']);
@@ -25,8 +24,8 @@ gulp.task('critical', ['default'], function (cb) {
 	critical.generate({
 	    inline: true,
 	    base: './',
-	    src: 'index.html',
-	    dest: 'index-crit.html',
+	    src: proj.critical.index.src,
+	    dest: proj.critical.index.dest,
 	    minify: true,
 	    width: 1300,
 	    height: 900

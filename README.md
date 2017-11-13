@@ -58,9 +58,16 @@ The main Gulp file. This is where we tasks are loaded and set.
 ### Gulp Config
 **Location:** `gulp-config.js`
 
-The configuration for the project. This is where variables for the project are located, in addition to the production variable, which minifies all your output files.
+The configuration for the project. This is where boolean and path variables for the project are located.
+
+Variable                      | Description
+------------------------------|------------------------------
+`config.critical`| Set to `true` to inline above-the-fold CSS for page speed optimization.
+`config.sourcemaps`| Set to `true` to include sourcemaps.
+`config.production`| Set to `true` to minify all output and remove comments.
 
 ### Gulp Tasks
+
 **Location:** `/gulp-tasks/*`
 
 Each task is separated into their own file. This makes it simple to find and configure, for example, the `iconfont` task, if you wanted to change the output format(s).

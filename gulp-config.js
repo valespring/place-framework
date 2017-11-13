@@ -30,4 +30,11 @@ config.watch = {
 	icons: config.source.icons + "svg/*.svg"
 }
 
+config.critical = {
+	index: {
+		src: 'index.html',
+		dest: 'index-crit.html'
+	}
+}
+
 module.exports = config;
