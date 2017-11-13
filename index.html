@@ -72,10 +72,6 @@
 	    		font-size: 1.25em;
 	    	}
 
-	    	.colored-table tbody tr:nth-child( odd ), .colored-table tbody > tr:nth-child( odd ){
-	    		background: #f7f7f9;
-	    	}
-
 	    	@media all and (min-width:47.9375em) {
 	    		.bolt-nav.is-sticky {
 		    		position: fixed;
@@ -84,6 +80,10 @@
 
 		    	.inner-content {
 		    		padding: 75px 0;
+		    	}
+
+		    	.colored-table tbody tr:nth-child( odd ), .colored-table tbody > tr:nth-child( odd ){
+		    		background: #f7f7f9;
 		    	}
 	    	}
 	    </style>
@@ -741,16 +741,16 @@ $grid-flush-suffix: 'flush';
 						<table class="colored-table">
 	                        <tbody>
 								<tr>
-									<td data-th="Xcode">Xcode</td>
-									<td data-th="Description">Used to view differences in code; also used in some variations of iconfont generation.</td>
+									<td><strong>Xcode</strong></td>
+									<td>Used to view differences in code; also used in some variations of iconfont generation.</td>
 								</tr>
 								<tr>
-									<td data-th="node-js">node-js</td>
-									<td data-th="Description">Allows access to the Node Package Manager (NPM) for dependencies and gulp install.</td>
+									<td scope="col"><strong>node-js</strong></td>
+									<td>Allows access to the Node Package Manager (NPM) for dependencies and gulp install.</td>
 								</tr>
 								<tr>
-									<td data-th="Gulp">Gulp</td>
-									<td data-th="Description">Automates workflow and handles all of BOLT's tasks.</td>
+									<td><strong>Gulp</strong></td>
+									<td>Automates workflow and handles all of BOLT's tasks.</td>
 								</tr>
 							</tbody>
 	                    </table>

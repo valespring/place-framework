@@ -30,7 +30,7 @@
 	    	}
 	    	.grid-display > * > *,
 	    	.grid-display-item {
-	    		background: #eee;
+	    		background: #f7f7f9;
 	    		border: solid 1px #b3b3b3;
 	    		padding: 1em;
 	    	}
@@ -43,9 +43,9 @@
 	    	}
 
 	    	.code-panel {
-	    		border-radius: 0.21428571428571427em;
+	    		border-radius: 3px;
 			    color: #262626;
-			    border: 1px solid #cfcbca;
+			    border: 1px solid #b3b3b3;
 			    background-color: #f7f7f9;
 			    white-space: pre-wrap;
 			    word-wrap: break-word;
@@ -86,6 +86,10 @@
 
 		    	.inner-content {
 		    		padding: 75px 0;
+		    	}
+
+		    	.colored-table tbody tr:nth-child( odd ), .colored-table tbody > tr:nth-child( odd ){
+		    		background: #f7f7f9;
 		    	}
 	    	}
 	    </style>
@@ -147,16 +151,11 @@
 								Javascript
 							</a>
 						</li>
-						<!-- <li>
+						<li>
 							<a href="#requirements">
 								Requirements
 							</a>
 						</li>
-						<li>
-							<a href="#browser-support">
-								Browser Support
-							</a>
-						</li> -->
 					</ul>
 				</div>
 				<div class="gcd-3of4 gct-2of3">
@@ -438,46 +437,46 @@ $grid-flush-suffix: 'flush';
 						<ul class="gd__flex--thirds gt__flex--thirds gm__flex--halves grid-display justify-center align-center">
 							<li>
 								<div>
-									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23f7f7f7'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
+									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23eeeeee'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
 								</div>
 							</li>
 							<li>
 								<div>
-									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23f7f7f7'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
+									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23eeeeee'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
 									<p>Varying heights.</p>
 								</div>
 							</li>
 							<li>
 								<div>
-									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23f7f7f7'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
+									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23eeeeee'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
 								</div>
 							</li>
 							<li>
 								<div>
-									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23f7f7f7'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
+									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23eeeeee'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 									tempor incididunt ut labore et dolore magna aliqua.</p>
 								</div>
 							</li>
 							<li>
 								<div>
-									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23f7f7f7'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
+									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23eeeeee'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
 								</div>
 							</li>
 							<li>
 								<div>
-									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23f7f7f7'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
+									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23eeeeee'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
 									<p>Lorem ipsum dolor.</p>
 								</div>
 							</li>
 							<li>
 								<div>
-									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23f7f7f7'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
+									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23eeeeee'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
 								</div>
 							</li>
 							<li>
 								<div>
-									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23f7f7f7'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
+									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23eeeeee'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
 								</div>
 							</li>
 						</ul>
@@ -740,6 +739,69 @@ $grid-flush-suffix: 'flush';
 								<p>A great library for displaying elements that you need only on certain viewports. This is great for video on desktop, and static images on mobile.</p>
 							</div>
 						</div>
+					</section>
+					<section class="requirements" id="requirements">
+						<h2 class="primary-heading">
+							Requirements
+						</h2>
+						<table class="colored-table">
+	                        <tbody>
+								<tr>
+									<td><strong>Xcode</strong></td>
+									<td>Used to view differences in code; also used in some variations of iconfont generation.</td>
+								</tr>
+								<tr>
+									<td scope="col"><strong>node-js</strong></td>
+									<td>Allows access to the Node Package Manager (NPM) for dependencies and gulp install.</td>
+								</tr>
+								<tr>
+									<td><strong>Gulp</strong></td>
+									<td>Automates workflow and handles all of BOLT's tasks.</td>
+								</tr>
+							</tbody>
+	                    </table>
+					</section>
+					<section class="browser-support" id="browser-support">
+						<h2 class="primary-heading">
+							Browser Support
+						</h2>
+
+						<table class="colored-table">
+	                        <thead>
+	                            <tr>
+	                                <th scope="col">Internet Explorer</th>
+	                                <th scope="col">Chrome</th>
+	                                <th scope="col">Firefox</th>
+	                                <th scope="col">Safari</th>
+	                                <th scope="col">iOS</th>
+	                                <th scope="col">Android</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <tr>
+	                                <td data-th="Internet Explorer">
+	                                    9+
+	                                </td>
+	                                <td data-th="Chrome">
+	                                    All
+	                                </td>
+	                                <td data-th="Firefox">
+	                                    17.0+
+	                                </td>
+	                                <td data-th="Safari">
+	                                    4.0+
+	                                </td>
+	                                <td data-th="iOS">
+	                                    8.0+
+	                                </td>
+	                                <td data-th="Android">
+	                                    2.4+
+	                                </td>
+	                            </tr>
+	                        </tbody>
+	                    </table>
+
+						
 					</section>
 				</div>
 			</section>
