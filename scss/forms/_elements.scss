@@ -73,35 +73,3 @@ Input Label Elements
         @include margin-vertical(0.5);
     }
 }
-
-/*!
-
-Select Box
-
-* Wrap your select with the class of `select-box` to have a clean and simple dropdown with pure CSS.
-
-*/
-.select-box {
-    @extend %relative-container;
-
-    select {
-        width: 100%;
-        background: none;
-        min-height: px($input-top-padding * 4);
-        appearance: none;
-    }
-
-    // Create Arrow
-    &:after {
-        content:"";
-        width: 0; 
-        height: 0; 
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 5px solid $black;
-        position: absolute;
-        top: 50%;
-        right: px(10);
-        transform: translateY(-50%);
-    }
-}
