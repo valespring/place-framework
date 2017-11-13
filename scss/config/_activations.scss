@@ -6,7 +6,7 @@ $grid-flex: true;
 // Grid Flex Fallback
 // * Set to `true` to have flex fallback for older browsers. Recommended if `grid-flex` is true.
 
-$grid-lte9: true;
+$grid-ie-fallback: true;
 
 // Grid Offset
 // * Set to `true` to have offset grid classes.

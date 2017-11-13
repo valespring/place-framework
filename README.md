@@ -62,7 +62,6 @@ The configuration for the project. This is where boolean and path variables for 
 
 Variable                      | Description
 ------------------------------|------------------------------
-`config.critical`| Set to `true` to inline above-the-fold CSS for page speed optimization.
 `config.sourcemaps`| Set to `true` to include sourcemaps.
 `config.production`| Set to `true` to minify all output and remove comments.
 
@@ -187,7 +186,7 @@ There's a handful of boolean variables that affect the final output of your CSS 
 Variable                       | Description
 ------------------------------|------------------------------
 `$grid-flex`| Set to `true` to have the option of flex grids.
-`$grid-lte8`| Set to `true` to have flex fallback for older browsers (IE). Recommended if `grid-flex` is true.
+`$grid-ie-fallback`| Set to `true` to have flex fallback for older browsers (IE). Recommended if `grid-flex` is true.
 `$grid-offset`| Set to `true` to have offset grid classes.
 `$viewport-helpers`| Set to `true` to have specific viewport utility classes, such as `is-hidden-lg` to hide something in a large viewport, or `float-left--sm` to float left only in a small viewport.
 `$flex-helpers`| Set to `true` to have flex helpers for `display:flex` or `flex-grow`.
