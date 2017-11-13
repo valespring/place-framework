@@ -32,11 +32,11 @@
 }
 
 [class*="pre-icon--"]:before {
-	padding-right: px(5);
+	padding-right: px(4);
 }
 
 [class*="post-icon--"]:after {
-	padding-left: px(5);
+	padding-left: px(4);
 }
 
 @mixin icon-char($filename) {
@@ -57,40 +57,44 @@
 			content: "\E004";
 		}
 	
-		@if checkmark == $filename {
+		@if bolt == $filename {
 			content: "\E005";
 		}
 	
-		@if email == $filename {
+		@if checkmark == $filename {
 			content: "\E006";
 		}
 	
-		@if facebook == $filename {
+		@if email == $filename {
 			content: "\E007";
 		}
 	
-		@if info == $filename {
+		@if facebook == $filename {
 			content: "\E008";
 		}
 	
-		@if instagram == $filename {
+		@if info == $filename {
 			content: "\E009";
 		}
 	
-		@if menu == $filename {
+		@if instagram == $filename {
 			content: "\E00A";
 		}
 	
-		@if pinterest == $filename {
+		@if menu == $filename {
 			content: "\E00B";
 		}
 	
-		@if search == $filename {
+		@if pinterest == $filename {
 			content: "\E00C";
 		}
 	
-		@if twitter == $filename {
+		@if search == $filename {
 			content: "\E00D";
+		}
+	
+		@if twitter == $filename {
+			content: "\E00E";
 		}
 	
 }
@@ -122,6 +126,13 @@
 .pre-icon--arrow-up:before,
 .post-icon--arrow-up:after {
 	@include icon-char(arrow-up);
+}
+
+
+.icon--bolt:before,
+.pre-icon--bolt:before,
+.post-icon--bolt:after {
+	@include icon-char(bolt);
 }
 
 

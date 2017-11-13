@@ -32,11 +32,11 @@
 }
 
 [class*="pre-icon--"]:before {
-	padding-right: px(5);
+	padding-right: px(4);
 }
 
 [class*="post-icon--"]:after {
-	padding-left: px(5);
+	padding-left: px(4);
 }
 
 @mixin icon-char($filename) {

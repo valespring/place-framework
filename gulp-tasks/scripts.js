@@ -12,7 +12,7 @@ module.exports = function ( gulp, config, $ ) {
 			src: [
 				task.src + "vendor/modernizr.js",
 				task.src + "vendor/viewport.js",
-				task.src + "vendor/responsive-comments.js"
+				//task.src + "vendor/responsive-comments.js"
 			],
 			name: config.tag + '.helpers.js'
 		},
@@ -33,12 +33,6 @@ module.exports = function ( gulp, config, $ ) {
 		   	gulp.src( scripts.main.src )
 		   		.pipe($.if( config.sourcemaps, $.sourcemaps.init()) )
 		   		.pipe($.concat( scripts.main.name ))
-		   		.pipe($.if( config.production, $.uglify()) )
-		   		.pipe($.if( config.sourcemaps, $.sourcemaps.write()) )
-		      	.pipe(gulp.dest( task.dest ));
-      		gulp.src( scripts.lte8.src )
-		   		.pipe($.if( config.sourcemaps, $.sourcemaps.init()) )
-		   		.pipe($.concat( scripts.lte8.name ))
 		   		.pipe($.if( config.production, $.uglify()) )
 		   		.pipe($.if( config.sourcemaps, $.sourcemaps.write()) )
 		      	.pipe(gulp.dest( task.dest ));

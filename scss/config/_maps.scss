@@ -42,15 +42,12 @@ $helper-breakpoint-suffix: (
 	#{$large-screens-min}: 'lg'
 );
 
-// Fraction Map
-$fraction-map: (
+// Vertical Rhythm Map
+$rhythm-map: (
 	quarter: 4,
 	third: 3,
 	half: 2
 );
-
-// Vertical Rhythm Map
-$rhythm-map: $fraction-map;
 
 // Quick Grid Map
 $quick-grid-map: (

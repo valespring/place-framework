@@ -33,7 +33,7 @@
 
 
 // Type Size
-// * Combine the font sizing mixin with the line-height one. Package deal.
+// * Combine the font sizing mixin with the line-height one. 
 
 @mixin type-size($font-size, $round: $round-to-nearest) {
 	@include size-for-font($font-size);

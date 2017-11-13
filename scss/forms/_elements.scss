@@ -4,10 +4,8 @@ input,
 textarea,
 select {
 
-    @if $input-border {
-        border: solid 1px $input-border-color;
-    }
-
+    border: solid 1px $input-border-color;
+    
     @if $input-border-radius > 0 {
         border-radius: px($input-border-radius);
     }
