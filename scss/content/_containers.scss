@@ -8,8 +8,8 @@ Container
 
 
 .#{$wrapper-name},
-.#{$wrapper-name}--wide {
-	width: 92%;
+.#{$wrapper-name}--fluid {
+	width: percentage( $wrapper-width / 100 );
 	margin-left: auto;
 	margin-right: auto;
 }

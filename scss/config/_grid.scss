@@ -32,3 +32,11 @@ $tablet-columns: 9;
 $mobile-column: 136;
 $mobile-margin: 24;
 $mobile-columns: 4;
+
+// Quick Grid Descendant Selectors 
+// * For the quick grid (so we don't have to use the expensive `*` selector).
+$quick-grid-selectors: (
+	section,
+	li,
+	div
+);

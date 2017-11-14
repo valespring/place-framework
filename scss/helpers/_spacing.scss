@@ -12,6 +12,9 @@ Spacing Helpers
 
 */
 
+
+// Spacing Positions
+// * Default positions used in the spacing helpers loop.
 $spacing-positions: (
     t: top,
     r: right,
@@ -19,12 +22,16 @@ $spacing-positions: (
     l: left
 );
 
+// Spacing Combined
+// * Combined positions used in the spacing helpers loop.
 $spacing-combined: (
     v: vertical,
     h: horizontal,
     a: all
 );
 
+// Spacing Values
+// * Spacing values used in the spacing helpers loop.
 $spacing-values: (
     n: 0,
     s: $quarter-vertical,

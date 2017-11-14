@@ -114,7 +114,7 @@ dl,
 table,
 figure {
   /* Display & Box Model */
-  margin: 1.42857em 0 0 0;
+  margin: 1.25em 0 0 0;
   /* Other */
   font-size: 1em;
 }
@@ -127,8 +127,8 @@ ul {
 
 li ul,
 li ol {
-  margin-top: 0.71429em;
-  margin-bottom: 0.71429em;
+  margin-top: 0.625em;
+  margin-bottom: 0.625em;
 }
 
 dd {
@@ -301,15 +301,15 @@ Spacing Helpers
 }
 
 .pts, .pvs, .pas {
-  padding-top: 0.35714em !important;
+  padding-top: 0.3125em !important;
 }
 
 .ptm, .pvm, .pam {
-  padding-top: 0.71429em !important;
+  padding-top: 0.625em !important;
 }
 
 .ptl, .pvl, .pal {
-  padding-top: 1.42857em !important;
+  padding-top: 1.25em !important;
 }
 
 .prn, .phn, .pan {
@@ -317,15 +317,15 @@ Spacing Helpers
 }
 
 .prs, .phs, .pas {
-  padding-right: 0.35714em !important;
+  padding-right: 0.3125em !important;
 }
 
 .prm, .phm, .pam {
-  padding-right: 0.71429em !important;
+  padding-right: 0.625em !important;
 }
 
 .prl, .phl, .pal {
-  padding-right: 1.42857em !important;
+  padding-right: 1.25em !important;
 }
 
 .pbn, .pvn, .pan {
@@ -333,15 +333,15 @@ Spacing Helpers
 }
 
 .pbs, .pvs, .pas {
-  padding-bottom: 0.35714em !important;
+  padding-bottom: 0.3125em !important;
 }
 
 .pbm, .pvm, .pam {
-  padding-bottom: 0.71429em !important;
+  padding-bottom: 0.625em !important;
 }
 
 .pbl, .pvl, .pal {
-  padding-bottom: 1.42857em !important;
+  padding-bottom: 1.25em !important;
 }
 
 .pln, .phn, .pan {
@@ -349,15 +349,15 @@ Spacing Helpers
 }
 
 .pls, .phs, .pas {
-  padding-left: 0.35714em !important;
+  padding-left: 0.3125em !important;
 }
 
 .plm, .phm, .pam {
-  padding-left: 0.71429em !important;
+  padding-left: 0.625em !important;
 }
 
 .pll, .phl, .pal {
-  padding-left: 1.42857em !important;
+  padding-left: 1.25em !important;
 }
 
 .mtn, .mvn, .man {
@@ -365,15 +365,15 @@ Spacing Helpers
 }
 
 .mts, .mvs, .mas {
-  margin-top: 0.35714em !important;
+  margin-top: 0.3125em !important;
 }
 
 .mtm, .mvm, .mam {
-  margin-top: 0.71429em !important;
+  margin-top: 0.625em !important;
 }
 
 .mtl, .mvl, .mal {
-  margin-top: 1.42857em !important;
+  margin-top: 1.25em !important;
 }
 
 .mrn, .mhn, .man {
@@ -381,15 +381,15 @@ Spacing Helpers
 }
 
 .mrs, .mhs, .mas {
-  margin-right: 0.35714em !important;
+  margin-right: 0.3125em !important;
 }
 
 .mrm, .mhm, .mam {
-  margin-right: 0.71429em !important;
+  margin-right: 0.625em !important;
 }
 
 .mrl, .mhl, .mal {
-  margin-right: 1.42857em !important;
+  margin-right: 1.25em !important;
 }
 
 .mbn, .mvn, .man {
@@ -397,15 +397,15 @@ Spacing Helpers
 }
 
 .mbs, .mvs, .mas {
-  margin-bottom: 0.35714em !important;
+  margin-bottom: 0.3125em !important;
 }
 
 .mbm, .mvm, .mam {
-  margin-bottom: 0.71429em !important;
+  margin-bottom: 0.625em !important;
 }
 
 .mbl, .mvl, .mal {
-  margin-bottom: 1.42857em !important;
+  margin-bottom: 1.25em !important;
 }
 
 .mln, .mhn, .man {
@@ -413,15 +413,15 @@ Spacing Helpers
 }
 
 .mls, .mhs, .mas {
-  margin-left: 0.35714em !important;
+  margin-left: 0.3125em !important;
 }
 
 .mlm, .mhm, .mam {
-  margin-left: 0.71429em !important;
+  margin-left: 0.625em !important;
 }
 
 .mll, .mhl, .mal {
-  margin-left: 1.42857em !important;
+  margin-left: 1.25em !important;
 }
 
 /*!
@@ -949,9 +949,9 @@ Typographic Scale
 body,
 .body-text, .wysiwyg h4,
 [class*="normal-text"] {
-  font-size: 14px;
-  font-size: 0.875rem;
-  line-height: 1.42857;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
 }
 
 .wysiwyg h5,
@@ -987,7 +987,7 @@ body,
     font-size: 1.81452vw;
   }
   .responsive-normal-text {
-    font-size: 1.41129vw;
+    font-size: 1.6129vw;
   }
   .responsive-petite-text {
     font-size: 1.20968vw;
@@ -1094,11 +1094,11 @@ body,
 }
 
 [class*="pre-icon--"]:before {
-  padding-right: 0.28571em;
+  padding-right: 0.25em;
 }
 
 [class*="post-icon--"]:after {
-  padding-left: 0.28571em;
+  padding-left: 0.25em;
 }
 
 .icon--arrow-down:before,
@@ -1209,12 +1209,12 @@ Buttons
   vertical-align: middle;
   display: inline-block;
   text-align: center;
-  padding: 0.71429em 1.28571em;
-  margin-top: 1.42857em;
+  padding: 0.625em 1.125em;
+  margin-top: 1.25em;
 }
 
 .btn--tiny {
-  padding: 0.35714em 0.64286em;
+  padding: 0.3125em 0.5625em;
 }
 
 .btn--full {
@@ -1275,13 +1275,13 @@ input,
 textarea,
 select {
   border: solid 1px #cfcdcd;
-  border-radius: 0.21429em;
+  border-radius: 0.1875em;
 }
 
 input,
 textarea,
 select {
-  padding: 0.57143em 0.85714em;
+  padding: 0.5em 0.75em;
   outline: none;
   width: 100%;
   font-size: 1em;
@@ -1303,7 +1303,7 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 textarea {
-  height: 5.71429em;
+  height: 5em;
 }
 
 select {
@@ -1328,27 +1328,27 @@ select {
 }
 
 .input--xxxs {
-  max-width: 2.14286em;
+  max-width: 1.875em;
 }
 
 .input--xxs {
-  max-width: 3.57143em;
+  max-width: 3.125em;
 }
 
 .input--xs {
-  max-width: 7.14286em;
+  max-width: 6.25em;
 }
 
 .input--s {
-  max-width: 12.5em;
+  max-width: 10.9375em;
 }
 
 .input--m {
-  max-width: 17.85714em;
+  max-width: 15.625em;
 }
 
 .input--l {
-  max-width: 25em;
+  max-width: 21.875em;
 }
 
 /*!
@@ -1361,8 +1361,8 @@ Input Label Elements
 .input-label input,
 .input-label textarea,
 .input-label select {
-  margin-top: 0.71429em;
-  margin-bottom: 0.71429em;
+  margin-top: 0.625em;
+  margin-bottom: 0.625em;
 }
 
 /*!
@@ -1378,7 +1378,7 @@ Input Label
 
 */
 .input-label {
-  padding-top: 1.42857em;
+  padding-top: 1.25em;
 }
 
 /*!
@@ -1389,8 +1389,8 @@ Fieldsets
 
 */
 .fieldset {
-  margin-top: 1.42857em;
-  padding-bottom: 1.42857em;
+  margin-top: 1.25em;
+  padding-bottom: 1.25em;
 }
 
 /*!
@@ -1429,12 +1429,12 @@ Grid
 */
 @media all and (max-width: 47.9375em) {
   [class*="gcm"], [class*="gm__flex"] > section, [class*="gm__flex"] > li, [class*="gm__flex"] > div {
-    padding-left: 0.85714em;
-    padding-right: 0.85714em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
     min-height: 1px;
   }
   [class*="gm__flex"] > section, [class*="gm__flex"] > li, [class*="gm__flex"] > div {
-    margin-top: 2.57143em;
+    margin-top: 2.25em;
   }
   [class*="gm-row__flex"] > [class*="gm"],
   [class*="gm-row__flex"] > [class*="gcm"], [class*="gm__flex"] > section, [class*="gm__flex"] > li, [class*="gm__flex"] > div {
@@ -1578,8 +1578,8 @@ Grid
   .gm-row,
   .gm-row--ltr,
   .gm-row--rtl {
-    margin-left: -0.85714em;
-    margin-right: -0.85714em;
+    margin-left: -0.75em;
+    margin-right: -0.75em;
   }
   .gm-row--rtl > [class*="gcm"] {
     display: inline;
@@ -1606,25 +1606,25 @@ Grid
   }
   .gm-row__flex,
   [class*="gm__flex"] {
-    margin-left: -0.85714em;
-    margin-right: -0.85714em;
+    margin-left: -0.75em;
+    margin-right: -0.75em;
   }
   .lte9 [class*="gm__flex"],
   .lte9 [class*="gm-row__flex"] {
-    letter-spacing: -0.28571em;
-    word-spacing: -0.42857em;
+    letter-spacing: -0.25em;
+    word-spacing: -0.375em;
     text-rendering: optimizespeed;
   }
 }
 
 @media all and (min-width: 48em) and (max-width: 61.9375em) {
   [class*="gct"], [class*="gt__flex"] > section, [class*="gt__flex"] > li, [class*="gt__flex"] > div {
-    padding-left: 1.14286em;
-    padding-right: 1.14286em;
+    padding-left: 1em;
+    padding-right: 1em;
     min-height: 1px;
   }
   [class*="gt__flex"] > section, [class*="gt__flex"] > li, [class*="gt__flex"] > div {
-    margin-top: 2.57143em;
+    margin-top: 2.25em;
   }
   [class*="gt-row__flex"] > [class*="gt"],
   [class*="gt-row__flex"] > [class*="gct"], [class*="gt__flex"] > section, [class*="gt__flex"] > li, [class*="gt__flex"] > div {
@@ -2047,8 +2047,8 @@ Grid
   .gt-row,
   .gt-row--ltr,
   .gt-row--rtl {
-    margin-left: -1.14286em;
-    margin-right: -1.14286em;
+    margin-left: -1em;
+    margin-right: -1em;
   }
   .gt-row--rtl > [class*="gct"] {
     display: inline;
@@ -2075,25 +2075,25 @@ Grid
   }
   .gt-row__flex,
   [class*="gt__flex"] {
-    margin-left: -1.14286em;
-    margin-right: -1.14286em;
+    margin-left: -1em;
+    margin-right: -1em;
   }
   .lte9 [class*="gt__flex"],
   .lte9 [class*="gt-row__flex"] {
-    letter-spacing: -0.28571em;
-    word-spacing: -0.42857em;
+    letter-spacing: -0.25em;
+    word-spacing: -0.375em;
     text-rendering: optimizespeed;
   }
 }
 
 @media all and (min-width: 62em) {
   [class*="gcd"], [class*="gd__flex"] > section, [class*="gd__flex"] > li, [class*="gd__flex"] > div {
-    padding-left: 1.28571em;
-    padding-right: 1.28571em;
+    padding-left: 1.125em;
+    padding-right: 1.125em;
     min-height: 1px;
   }
   [class*="gd__flex"] > section, [class*="gd__flex"] > li, [class*="gd__flex"] > div {
-    margin-top: 2.57143em;
+    margin-top: 2.25em;
   }
   [class*="gd-row__flex"] > [class*="gd"],
   [class*="gd-row__flex"] > [class*="gcd"], [class*="gd__flex"] > section, [class*="gd__flex"] > li, [class*="gd__flex"] > div {
@@ -2750,8 +2750,8 @@ Grid
   .gd-row,
   .gd-row--ltr,
   .gd-row--rtl {
-    margin-left: -1.28571em;
-    margin-right: -1.28571em;
+    margin-left: -1.125em;
+    margin-right: -1.125em;
   }
   .gd-row--rtl > [class*="gcd"] {
     display: inline;
@@ -2778,13 +2778,13 @@ Grid
   }
   .gd-row__flex,
   [class*="gd__flex"] {
-    margin-left: -1.28571em;
-    margin-right: -1.28571em;
+    margin-left: -1.125em;
+    margin-right: -1.125em;
   }
   .lte9 [class*="gd__flex"],
   .lte9 [class*="gd-row__flex"] {
-    letter-spacing: -0.28571em;
-    word-spacing: -0.42857em;
+    letter-spacing: -0.25em;
+    word-spacing: -0.375em;
     text-rendering: optimizespeed;
   }
 }
@@ -2797,14 +2797,14 @@ Container
 
 */
 .container,
-.container--wide {
+.container--fluid {
   width: 92%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .container {
-  max-width: 88.57143em;
+  max-width: 77.5em;
 }
 
 /*!
@@ -2877,7 +2877,7 @@ table {
 
 th,
 td {
-  padding: 0.71429em 0.64286em;
+  padding: 0.625em 0.5625em;
   text-align: left;
 }
 
@@ -2901,7 +2901,7 @@ td {
     visibility: hidden;
   }
   tr {
-    margin-top: 1.42857em;
+    margin-top: 1.25em;
   }
   td[data-th]:before {
     content: attr(data-th) ": ";
@@ -2916,7 +2916,7 @@ td {
 @media all and (min-width: 48em) {
   th,
   td {
-    padding: 0.71429em 1.28571em;
+    padding: 0.625em 1.125em;
   }
 }
 

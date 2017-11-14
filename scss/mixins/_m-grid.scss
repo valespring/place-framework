@@ -178,7 +178,7 @@
                                 }
 
                                 .#{$grid-prefix}#{$prefix}__#{$grid-flex-suffix}--#{$fraction-suffix} {
-                                    @each $selector in $descendant-selectors {
+                                    @each $selector in $quick-grid-selectors {
                                         > #{$selector} {
                                             @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}#{$grid-width-separator}#{$t};
                                         }
@@ -335,7 +335,7 @@
 
         // Extend to descendants
         [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-             @each $selector in $descendant-selectors {
+             @each $selector in $quick-grid-selectors {
                 > #{$selector} {
                     @extend %flex-display-#{$grid-viewport-infix};
                 }
@@ -371,7 +371,7 @@
 
         // Invite Descendants To The Party
         [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-            @each $selector in $descendant-selectors {
+            @each $selector in $quick-grid-selectors {
                 > #{$selector} {
                     // Extend
                     @extend %grid-column-item-#{$grid-viewport-infix};
@@ -401,7 +401,7 @@
 
                 // Quick Grid Items
                 [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-                    @each $selector in $descendant-selectors {
+                    @each $selector in $quick-grid-selectors {
                         > #{$selector} {
                             @extend %grid-flex-item-lte8-#{$grid-viewport-infix};
                         }
@@ -411,7 +411,7 @@
                 // Quick Grid Widths
                 @each $suffix, $value in $quick-grid-map {
                     .#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}--#{$suffix} {
-                        @each $selector in $descendant-selectors {
+                        @each $selector in $quick-grid-selectors {
                             > #{$selector} {
                                 @extend %#{$grid-viewport-infix}-1#{$grid-width-separator}#{$value};
                             }

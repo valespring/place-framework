@@ -320,18 +320,6 @@ $quick-grid-widths: (
 );
 ```
 
-#### Descendant Selectors 
-
-This is used in the flex quick grid, and will target only these elements (so we don't have to use the expensive `*` selector).
-
-```css
-$descendant-selectors: (
-    section,
-    li,
-    div
-);
-```
-
 #### Input Static Width Map
 
 Set pixel specific widths for inputs. Keys are the class suffixes, while the values are the associated width(s).

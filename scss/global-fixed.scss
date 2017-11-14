@@ -8,11 +8,11 @@ body {
 }
 
 .#{$wrapper-name},
-.#{$wrapper-name}--wide {
+.#{$wrapper-name}--fluid {
     width: 1em * ($wrapper-max-width / $base-text-size);
 }
 
-// `@media` responsive string reset
+// Reset Media Queries
 
 // Small
 $small-screens-min: "all";
