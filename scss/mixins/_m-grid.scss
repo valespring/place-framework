@@ -378,6 +378,7 @@
                     @extend %grid-flex-item-#{$grid-viewport-infix};
                     @extend %grid-list-margin-#{$grid-viewport-infix};
                     @extend %flex-display-#{$grid-viewport-infix};
+                    @extend %flex-column-#{$grid-viewport-infix};
                 }
             }
         }
