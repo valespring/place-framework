@@ -350,7 +350,7 @@ $grid-flush-suffix: 'flush';
 					<section class="flex-flush-grid">
 						<h3 class="primary-heading">Flex Flush Grid</h3>
 
-						<p>Have a flexible flush layout, without the padding of a standard grid. Add the class of <code>-grow</code> with the preceding grid and viewport prefixes for the content to grow within the column classes.</p>
+						<p>Have a flexible flush layout, without the padding of a standard grid. Add the helper class of <code>flex-grow</code> inside the column classes for content to grow to the same height.</p>
 
 						<ul class="gd-row__flex--flush gt-row__flex--flush gm-row__flex--flush grid-display align-center">
 							<li class="gd-quarter gt-quarter gm-half">
@@ -403,19 +403,19 @@ $grid-flush-suffix: 'flush';
 
 						<p>Just an extenuation of the flush grid, this mosaic grid example allows you to have the flexibility for an even height layout with multiple items.</p>
 
-						<div class="gd-row__flex--flush gt-row__flex--flush grid-display align-center">
-							<div class="gd-third gt-third">
+						<div class="gd-row__flex--flush gt-row__flex--flush gm-row__flex--flush grid-display align-center">
+							<div class="gd-third gt-third gm-half">
 								<div class="grid-display-item flex-grow">
 									Item 1
 								</div>
 								<div class="grid-display-item flex-grow">
 									Item 2
 								</div>
-							</div>
-							<div class="gd-2of3 gt-2of3">
 								<div class="grid-display-item flex-grow">
 									Item 3
 								</div>
+							</div>
+							<div class="gd-2of3 gt-2of3 gm-half">
 								<div class="grid-display-item flex-grow">
 									Item 4
 								</div>
@@ -437,7 +437,7 @@ $grid-flush-suffix: 'flush';
 							<li>
 								<div>
 									<img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'300'%20height%3D'200'%3E%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23eeeeee'%2F%3E%3Ctext%20x%3D'150'%20y%3D'105'%20font-size%3D'20'%20font%3D'Verdana%2C%20sans-serif'%20fill%3D'%23b7b6b5'%20text-anchor%3D'middle'%3Eimg%3C%2Ftext%3E%3C%2Fsvg%3E">
-									<p>Varying heights.</p>
+									<p>Varying heights automatically supported without <code>flex-grow</code> in all non-IE browsers.</p>
 								</div>
 							</li>
 							<li>
@@ -639,8 +639,7 @@ $grid-flush-suffix: 'flush';
 									<i class="icon--arrow-right"></i>
 									<i class="icon--arrow-down"></i>
 									<i class="icon--arrow-left"></i>
-									<i class="icon--checkmark"></i>
-									<i class="icon--email"></i>
+									<i class="icon--mail"></i>
 									<i class="icon--info"></i>
 									<i class="icon--menu"></i>
 									<i class="icon--search"></i>

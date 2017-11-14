@@ -10,10 +10,9 @@
 
 @mixin icon-styles {
 	font-family: "bolt-icons";
-	font-style: normal;
-	font-variant: normal;
-	font-size: 1.5em;
+	font-size: 1em;
 	font-weight: normal;
+	font-style: normal;
 	line-height: 1;
 	text-decoration: none;
 	text-rendering: optimizeLegibility;
@@ -61,40 +60,36 @@
 			content: "\E005";
 		}
 	
-		@if checkmark == $filename {
+		@if facebook == $filename {
 			content: "\E006";
 		}
 	
-		@if email == $filename {
+		@if info == $filename {
 			content: "\E007";
 		}
 	
-		@if facebook == $filename {
+		@if instagram == $filename {
 			content: "\E008";
 		}
 	
-		@if info == $filename {
+		@if mail == $filename {
 			content: "\E009";
 		}
 	
-		@if instagram == $filename {
+		@if menu == $filename {
 			content: "\E00A";
 		}
 	
-		@if menu == $filename {
+		@if pinterest == $filename {
 			content: "\E00B";
 		}
 	
-		@if pinterest == $filename {
+		@if search == $filename {
 			content: "\E00C";
 		}
 	
-		@if search == $filename {
-			content: "\E00D";
-		}
-	
 		@if twitter == $filename {
-			content: "\E00E";
+			content: "\E00D";
 		}
 	
 }
@@ -136,20 +131,6 @@
 }
 
 
-.icon--checkmark:before,
-.pre-icon--checkmark:before,
-.post-icon--checkmark:after {
-	@include icon-char(checkmark);
-}
-
-
-.icon--email:before,
-.pre-icon--email:before,
-.post-icon--email:after {
-	@include icon-char(email);
-}
-
-
 .icon--facebook:before,
 .pre-icon--facebook:before,
 .post-icon--facebook:after {
@@ -168,6 +149,13 @@
 .pre-icon--instagram:before,
 .post-icon--instagram:after {
 	@include icon-char(instagram);
+}
+
+
+.icon--mail:before,
+.pre-icon--mail:before,
+.post-icon--mail:after {
+	@include icon-char(mail);
 }
 
 

@@ -9,7 +9,7 @@ body {
 
 .#{$wrapper-name},
 .#{$wrapper-name}--fluid {
-    width: 1em * ($wrapper-max-width / $base-text-size);
+    max-width: 1em * ($wrapper-max-width / $base-text-size);
 }
 
 // Reset Media Queries

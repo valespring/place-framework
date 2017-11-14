@@ -1,6 +1,10 @@
 img {
     max-width: 100%;
     border: 0;
+
+    [src$=".svg"] {
+    	width: 100%;
+    }
 }
 svg:not(:root) {
     overflow: hidden;
