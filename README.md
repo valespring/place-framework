@@ -581,7 +581,7 @@ Similar to the default grid, the flex grid eliminates floats and utilizes flexbo
                         
 #### Description
 
-A quick grid that only requires a class on the parent selector and targets any immediate child element in `$descendant-selectors`. *(Desktop: 33%, Tablet: 33%, Mobile: 50%)*.
+A quick grid that only requires a class on the parent selector and targets any immediate child element in `$quick-grid-selectors`. *(Desktop: 33%, Tablet: 33%, Mobile: 50%)*.
 
 ### Flex Flush Grid
 
