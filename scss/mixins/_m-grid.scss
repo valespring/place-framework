@@ -385,7 +385,7 @@
         // Fallbacks
         @if $grid-ie-fallback {
             // Default Fallback
-            .lte8 {
+            .lte9 {
 
                 // Row
                 [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
