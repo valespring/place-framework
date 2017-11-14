@@ -384,7 +384,21 @@
 
         // Fallbacks
         @if $grid-ie-fallback {
-            // Default Fallback
+            // All IE
+            .ie {
+                // Quick Grid Widths
+                @each $suffix, $value in $quick-grid-map {
+                    .#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}--#{$suffix} {
+                        @each $selector in $quick-grid-selectors {
+                            > #{$selector} {
+                                @extend %#{$grid-viewport-infix}-1#{$grid-width-separator}#{$value};
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Less than or equal to IE9
             .lte9 {
 
                 // Row
@@ -404,17 +418,6 @@
                     @each $selector in $quick-grid-selectors {
                         > #{$selector} {
                             @extend %grid-flex-item-lte8-#{$grid-viewport-infix};
-                        }
-                    }
-                }
-
-                // Quick Grid Widths
-                @each $suffix, $value in $quick-grid-map {
-                    .#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}--#{$suffix} {
-                        @each $selector in $quick-grid-selectors {
-                            > #{$selector} {
-                                @extend %#{$grid-viewport-infix}-1#{$grid-width-separator}#{$value};
-                            }
                         }
                     }
                 }
