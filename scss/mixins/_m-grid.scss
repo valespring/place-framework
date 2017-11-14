@@ -70,18 +70,18 @@
     float:none;
 }
 
-@mixin grid-row-ie {
+@mixin grid-row-lte9 {
     // Variables
-    $ie-ltr-spacing: px(4);
-    $ie-word-spacing: px(6);
+    $lte9-ltr-spacing: px(4);
+    $lte9-word-spacing: px(6);
 
     // Style
-    letter-spacing: -$ie-ltr-spacing;
-    word-spacing: -$ie-word-spacing;
+    letter-spacing: -$lte9-ltr-spacing;
+    word-spacing: -$lte9-word-spacing;
     text-rendering: optimizespeed;
 }
 
-@mixin grid-item-ie {
+@mixin grid-item-lte9 {
     display: inline-block;
     letter-spacing: normal;
     word-spacing: normal;
@@ -114,8 +114,8 @@
         @include grid-flex-item();
     }
 
-    %grid-flex-item-ie-#{$prefix} {
-        @include grid-item-ie();
+    %grid-flex-item-lte9-#{$prefix} {
+        @include grid-item-lte9();
     }
 
     %flex-display-#{$prefix} {
@@ -399,25 +399,25 @@
             }
 
             // Less than or equal to IE9
-            .ie {
+            .lte9 {
 
                 // Row
                 [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
                 [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] {
-                    @include grid-row-ie();
+                    @include grid-row-lte9();
                 }
 
                 // Grid Columns
                 [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-column-class}"],
                 [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}"]{
-                    @extend %grid-flex-item-ie-#{$grid-viewport-infix};
+                    @extend %grid-flex-item-lte9-#{$grid-viewport-infix};
                 }
 
                 // Quick Grid Items
                 [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
                     @each $selector in $quick-grid-selectors {
                         > #{$selector} {
-                            @extend %grid-flex-item-ie-#{$grid-viewport-infix};
+                            @extend %grid-flex-item-lte9-#{$grid-viewport-infix};
                         }
                     }
                 }
