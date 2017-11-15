@@ -15,8 +15,5 @@
    "bugs": {
     "url": "https://github.com/Woodbolt-International/bolt-framework/issues"
   },
-  "author": "Nutrabolt",
-  "dependencies": {
-    "gulp": "^3.9.1"
-  }
+  "author": "Nutrabolt"
 }
