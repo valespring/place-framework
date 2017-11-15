@@ -1,5 +1,5 @@
 {
-  "name": "bolt",
+  "name": "bolt-framework",
   "version": "1.1.0",
   "main": "index.js",
   "license": "UNLICENSED",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Woodbolt-International/bolt-framework"
+    "url": "git+https://github.com/Woodbolt-International/bolt-framework.git"
   },
-  "browserslist": [
-    "> 1%",
-    "last 6 versions",
-    "not ie < 8"
-  ],
+  "description": "A modular and flexible CSS framework created for developers, by developers.",
+  "homepage": "https://github.com/Woodbolt-International/bolt-framework#readme",
+   "bugs": {
+    "url": "https://github.com/Woodbolt-International/bolt-framework/issues"
+  },
   "author": "Nutrabolt",
-  "devDependencies": {
+  "dependencies": {
     "critical": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
