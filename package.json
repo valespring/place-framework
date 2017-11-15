@@ -2,7 +2,7 @@
   "name": "bolt-framework",
   "version": "1.1.0",
   "main": "index.js",
-  "license": "UNLICENSED",
+  "license": "MIT Open Source",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,8 +16,7 @@
     "url": "https://github.com/Woodbolt-International/bolt-framework/issues"
   },
   "author": "Nutrabolt",
-  "dependencies": {
-    "critical": "^1.0.0",
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.4.0",
