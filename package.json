@@ -16,21 +16,7 @@
     "url": "https://github.com/Woodbolt-International/bolt-framework/issues"
   },
   "author": "Nutrabolt",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-clean-css": "^3.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-iconfont": "^8.0.1",
-    "gulp-iconfont-css": "^2.1.0",
-    "gulp-if": "^2.0.2",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-require-tasks": "^1.1.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "gulp-watch": "^4.3.9"
+  "dependencies": {
+    "gulp": "^3.9.1"
   }
 }
