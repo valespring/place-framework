@@ -1,4 +1,7 @@
-// Import Base
+// Functions
+@import "config/_functions";
+
+// Config
 @import "config/_activations";
 @import "config/_breakpoints";
 @import "config/_colors";
@@ -8,4 +11,7 @@
 @import "config/_type";
 @import "config/_paths";
 @import "config/_borders";
+@import "config/_forms";
+
+// Vars
 @import "config/_forms";
