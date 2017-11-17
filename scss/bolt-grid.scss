@@ -3,11 +3,12 @@
 // Mixins
 @import "mixins/mixins";
 
+// Normalize
+@import "normalize/normalize";
+
 // Layout
 @import "layout/_lists";
 @import "layout/_grid";
 
-// Print	
-@media print {
-    @import "site/_print";
-}
+// Structure
+@import "structure/_containers";
