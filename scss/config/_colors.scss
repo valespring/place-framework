@@ -65,6 +65,11 @@ $quarternary-color: #c0e5e4;
 $primary-border-color: darken($primary-color, 25%);
 $secondary-border-color: darken($secondary-color, 25%);
 
+// Heading Colors
+$primary-heading-color: $primary-color;
+$secondary-heading-color: $secondary-color;
+$tertiary-heading-color: $tertiary-color;
+
 // Link Color Variables
 $primary-link-color: $primary-color;
 $primary-link-hover: darken($primary-color, 15%);

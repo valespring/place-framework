@@ -53,16 +53,17 @@ h6 {
 
 .primary-heading {
     @extend [class*="#{$primary-heading-size}"];
-    color: $primary-color;
+    color: $primary-heading-color;
 }
 
 .secondary-heading  {
     @extend [class*="#{$secondary-heading-size}"];
-    color: $secondary-color;
+    color: $secondary-heading-color;
 }
 
 .tertiary-heading {
-    color: $tertiary-color;
+    @extend [class*="#{$tertiary-heading-size}"];
+    color: $tertiary-heading-color;
 }
 
  body,
