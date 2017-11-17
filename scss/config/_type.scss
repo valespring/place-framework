@@ -11,11 +11,8 @@ $stack-slab-serif: "Courier New", Courier, serif;
 $stack-mono: Courier, monospace;
 $stack-icons: "icons";
 
-// Custom Fonts
-$nunito: 'Nunito', $stack-sans-serif;
-
 // Font Declarations
-$primary-font: $nunito;
+$primary-font: $stack-sans-serif;
 $secondary-font: $stack-sans-serif;
 $body-font: $primary-font;
 $body-font-fallback: $stack-sans-serif;
