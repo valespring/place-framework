@@ -4,10 +4,6 @@ BOLT CSS Framework Documentation
 ## Table of Contents
 
 * [Introduction](#introduction)
-* [Installation](#installation)
-* [Task Runner Configuration](#task-runner-configuration)
-* [Task Runner Commands](#task-runner-commands)
-* [Folder Structure](#folder-structure)
 * [Ethos](#ethos)
 * [Variable Configuration](#variable-configuration)
 * [Functions](#functions)
@@ -18,110 +14,13 @@ BOLT CSS Framework Documentation
 
 ## Introduction
 
-The premise of BOLT is to have a truly modular and customizable CSS framework with minimal markup, devoid of combing through the core for manipulation. This is achieved in a variety of ways, allowing you to develop faster than ever before.
+The premise of BOLT is to have a truly modular and customizable CSS framework with minimal markup, devoid of combing through the core for manipulation. This package contains all the core files that are effectively inserted into the following varieties:
 
-BOLT is developed with Object Oriented CSS (OOCSS), when applicable, to give any developer a good understanding of a class' function at a quick glance. 
+### HTML
 
-## Installation
+**Link:** [https://github.com/Woodbolt-International/bolt-framework-html](https://github.com/Woodbolt-International/bolt-framework-html)
 
-### Requirements
-
-Name                       | Description
-------------------------------|------------------------------
-[Xcode](https://developer.apple.com/xcode/)| Used to view differences in code; also used in some variations of iconfont generation.
-[node-js](https://www.nodejs.org)| Allows access to the Node Package Manager (NPM) for dependencies and gulp install.
-[Gulp](https://gulpjs.com/)| Automates workflow and handles all of BOLT's tasks.
-
-### Quick Install
-While the above is the bare minimum needed to work within BOLT, here is a quick way to install everything you need through the command line.
-
-1. Install XCode. `xcode-select --install`
-2. Install Brew. `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-`
-3. Install Node. `brew install node`
-4. Install Gulp. `npm install -g grunt-cli`
-
-### Package Install
-After you have all the requirements installed, simply run `npm install` inside your project folder to load in all necessary packages.
-
-
-## Task Runner Configuration
-
-BOLT uses Gulp to run the tasks within. However, instead of everything being contained within one file, they are separated to keep the project tidy.
-
-### Gulp File
-
-**Location:** `Gulpfile.js`
-
-The main Gulp file. This is where we tasks are loaded and set.
-
-### Gulp Config
-**Location:** `gulp-config.js`
-
-The configuration for the project. This is where boolean and path variables for the project are located.
-
-Variable                      | Description
-------------------------------|------------------------------
-`config.sourcemaps`| Set to `true` to include sourcemaps.
-`config.production`| Set to `true` to minify all output and remove comments.
-
-### Gulp Tasks
-
-**Location:** `/gulp-tasks/*`
-
-Each task is separated into their own file. This makes it simple to find and configure, for example, the `iconfont` task, if you wanted to change the output format(s).
-
-### Dependencies
-
-Classes                       | Description
-------------------------------|------------------------------
-[gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)| Autoprefixes CSS automatically to support more browsers.
-[gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)| "Cleans" our CSS and minifies it if the `config.production` value is set to `true`.
-[gulp-concat](https://www.npmjs.com/package/gulp-concat)| Concatenates our JS into a neat file.
-[gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont)| Creates custom icon font files for us to reference.
-[gulp-iconfont-css](https://www.npmjs.com/package/gulp-iconfont-css)| Creates CSS output for icons generated.
-[gulp-if](https://www.npmjs.com/package/gulp-if)| Used to activate minification or sourcemaps through simple boolean activations in the `gulp-config.js` file.
-[gulp-load-plugins](https://www.npmjs.com/package/gulp-load-plugins)| Allows us to have all of our Gulp plugins from the `package.json` accessible across our Gulp workflow.
-[gulp-plumber](https://www.npmjs.com/package/gulp-plumber)| 'Eats' the errors and continues watching files when an error occurs.
-[gulp-require-tasks](https://www.npmjs.com/package/gulp-require-tasks)| Allows us to load Gulp tasks from the multiple individual files inside a defined directory.
-[gulp-plumber](https://www.npmjs.com/package/gulp-plumber)| 'Eats' the errors and continues watching files when an error occurs.
-[gulp-sass](https://www.npmjs.com/package/gulp-sass)| Kinda needed.
-[gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)| Generates sourcemaps if `config.sourcemaps` is `true`.
-[gulp-uglify](https://www.npmjs.com/package/gulp-uglify)| Used for minifying JS.
-[gulp-watch](https://www.npmjs.com/package/gulp-watch)| For watching for changes in files.
-
-## Task Runner Commands
-
-Command                       | Description
-------------------------------|------------------------------
-`gulp`| Compiles SCSS and JS with the active configuration variables.
-`gulp js`| Compiles JS with the active configuration variables.
-`gulp iconfont`| Generates font files from SVG files within a folder, along with appropriate mixins and classes with the active configuration variables.
-`gulp watch`| Watches for changes in .scss and .js files and effectively runs the appropriate tasks.
-
-## Folder Structure
-
-BOLT's Folder Structure is setup in an effort to keep everything separated by its function. Import partials are prefaced with an underscore.
-
-    + scss
-        + config
-        + content
-        + forms
-        + helpers
-        + interactive
-        + layout
-        + mixins
-        + modules
-        + normalize
-        + site
-        + type
-        - _vars.less
-        - _config.scss
-        - _functions.scss
-        - global.scss
-        - global-fixed.scss
-        
-        
+**Description:** For simple projects containing a handful of pages, this can be utilized in most scenarios not dependent on a CMS. 
 
 ## Ethos
 
