@@ -8,7 +8,7 @@ $type-scale: (
 	normal-text: 16,
 	petite-text: 12,
 	minion-text: 10
-);
+) !default;
 
 // Typographic Weights
 $type-weights: (
@@ -16,13 +16,13 @@ $type-weights: (
 	normal: 400,
 	semibold: 600,
 	bold: 700
-);
+) !default;
 
 // Typographic Text Color Helpers
 $type-quick-colors: (
 	black-text: $black,
 	white-text: $white
-);
+) !default;
 
 // WYSWIYG (Blog) Scale
 // * Use the keys from `type-scale` to set the heading sizes.
@@ -33,28 +33,28 @@ $wysiwyg-scale: (
 	h4: normal-text,
 	h5: petite-text,
 	h6: minion-text
-);
+) !default;
 
 // Helper Breakpoint Suffixes
 $helper-breakpoint-suffix: (
 	#{$small-screens-max}: 'sm',
 	#{$medium-screens-only}: 'md',
 	#{$large-screens-min}: 'lg'
-);
+) !default;
 
 // Vertical Rhythm Map
 $rhythm-map: (
 	quarter: 4,
 	third: 3,
 	half: 2
-);
+) !default;
 
 // Quick Grid Map
 $quick-grid-map: (
 	quarters: 4,
 	thirds: 3,
 	halves: 2
-);
+) !default;
 
 // Extended Width Map
 // * Extends widths to quick classes, so you can use `third` in addition to `1of3` if desired.
@@ -65,7 +65,7 @@ $quick-grid-widths: (
 	third: 1/3,
 	two-thirds: 2/3,
 	half: 1/2
-);
+) !default;
 
 // Input Static Width Map
 $input-static-widths: (
@@ -75,4 +75,4 @@ $input-static-widths: (
     s: 175,
     m: 250,
     l: 350
-);
+) !default;

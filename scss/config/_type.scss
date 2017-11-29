@@ -1,40 +1,34 @@
-// Typographic Variables
-$primary-text-color: $light-black;
-$secondary-text-color: $dark-grey;
-$inverse-text-color: $white;
-$button-color: $inverse-text-color;
+// Font Declarations
+$stack-serif: "Times New Roman", Times, Georgia, serif !default;
+$stack-sans-serif: Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", sans-serif !default;
+$stack-slab-serif: "Courier New", Courier, serif !default;
+$stack-mono: Courier, monospace !default;
+$stack-icons: "icons" !default;
 
 // Font Declarations
-$stack-serif: "Times New Roman", Times, Georgia, serif;
-$stack-sans-serif: Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", sans-serif;
-$stack-slab-serif: "Courier New", Courier, serif;
-$stack-mono: Courier, monospace;
-$stack-icons: "icons";
-
-// Font Declarations
-$primary-font: $stack-sans-serif;
-$secondary-font: $stack-sans-serif;
-$body-font: $primary-font;
-$body-font-fallback: $stack-sans-serif;
-$heading-font: $primary-font;
-$print-font: $stack-sans-serif;
+$primary-font: $stack-sans-serif !default;
+$secondary-font: $stack-sans-serif !default;
+$body-font: $primary-font !default;
+$body-font-fallback: $stack-sans-serif !default;
+$heading-font: $primary-font !default;
+$print-font: $stack-sans-serif !default;
 
 // @font-face Display
-$font-face-display: fallback;
+$font-face-display: fallback !default;
 
 // Heading Sizes
-$primary-heading-size: paragon-text;
-$secondary-heading-size: tertia-text;
-$tertiary-heading-size: normal-text;
+$primary-heading-size: paragon-text !default;
+$secondary-heading-size: tertia-text !default;
+$tertiary-heading-size: normal-text !default;
 
 // Baseline Typography
-$base-text-size: map-get($type-scale, normal-text);
+$base-text-size: map-get($type-scale, normal-text) !default;
 
 // Line Height
-$round-to-nearest: map-get($rhythm-map, quarter);
+$round-to-nearest: map-get($rhythm-map, quarter) !default;
 
 // Line Height
-$long-line-height: 1.75;
+$long-line-height: 1.75 !default;
 
 // Vertical Rhythm
-$base-vertical: 20;
+$base-vertical: 20 !default;

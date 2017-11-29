@@ -1,9 +1,9 @@
 // Form Variables
-$input-border: $default-border-width;
-$input-border-radius: $default-border-radius;
-$input-background-color: $white;
-$input-border-color: $light-grey;
-$input-placeholder-color: $light-grey;
-$label-required-color: $blue;
-$input-top-padding: 8;
-$input-side-padding: 12;
+$input-border: $default-border-width !default;
+$input-border-radius: $default-border-radius !default;
+$input-background-color: $white !default;
+$input-border-color: $light-grey !default;
+$input-placeholder-color: $light-grey !default;
+$label-required-color: $blue !default;
+$input-top-padding: 8 !default;
+$input-side-padding: 12 !default;

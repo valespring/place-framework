@@ -1,35 +1,35 @@
 // Grid Flex
 // * Set to `true` to have the option of flex grids.
 
-$grid-flex: true;
+$grid-flex: true !default;
 
 // Grid Flex Fallback
 // * Set to `true` to have flex fallback for older browsers. Recommended if `grid-flex` is true.
 
-$grid-ie-fallback: true;
+$grid-ie-fallback: true !default;
 
 // Grid Offset
 // * Set to `true` to have offset grid classes.
 
-$grid-offset: true;
+$grid-offset: true !default;
 
 // Viewport Helpers
 // * Set to `true` to have specific viewport utility classes, such as `is-hidden-lg` to hide something in a large viewport, or `float-left--sm` to float left only in a small viewport.
 
-$viewport-helpers: true;
+$viewport-helpers: true !default;
 
 // Flex Helpers
 // * Set to `true` to have flex helpers for `display:flex` or `flex-grow`.
 
-$flex-helpers: true;
+$flex-helpers: true !default;
 
 // Spacing Helpers
 // * Set to `true` to have spacing helpers to quickly add margin or padding to an element. 
 // * Recommended, at least at the beginning of a project.
 
-$spacing-helpers: true;
+$spacing-helpers: true !default;
 
 // Type Color Helpers
 // * Set to `true` to activate helper classes like `white-text` from the map `type-quick-colors`.
 
-$type-color-helpers: true;
+$type-color-helpers: true !default;

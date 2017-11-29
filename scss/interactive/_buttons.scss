@@ -55,10 +55,10 @@ Buttons
 
 // Button Primary
 .btn--primary {
-    @include m-button-color( $primary-color, $primary-border-color, $button-color);
+    @include m-button-color( $primary-button-color, $primary-border-color, $button-color);
 }
 
 // Button Secondary
 .btn--secondary {
-    @include m-button-color( $secondary-color, $secondary-border-color, $button-color);
+    @include m-button-color( $secondary-button-color, $secondary-border-color, $button-color);
 }

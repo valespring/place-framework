@@ -1,37 +1,37 @@
 // Grid Name Variables
-$grid-prefix: "g";
-$grid-offset-prefix: "os";
-$grid-column-infix: "c";
-$grid-column-prefix: "#{$grid-prefix}#{$grid-column-infix}";
+$grid-prefix: "g" !default;
+$grid-offset-prefix: "os" !default;
+$grid-column-infix: "c" !default;
+$grid-column-prefix: "#{$grid-prefix}#{$grid-column-infix}" !default;
 
 // Grid Width Separator
 // * This goes in between the numerator and denominator.
-$grid-width-separator: "of";
+$grid-width-separator: "of" !default;
 
 // Row Variables
-$grid-row-suffix: "row";
-$grid-flex-suffix: "flex";
-$grid-flush-suffix: "flush";
+$grid-row-suffix: "row" !default;
+$grid-flex-suffix: "flex" !default;
+$grid-flush-suffix: "flush" !default;
 
 // Grid Viewport Variables
-$grid-viewport-desktop-infix: "d";
-$grid-viewport-tablet-infix: "t";
-$grid-viewport-mobile-infix: "m";
+$grid-viewport-desktop-infix: "d" !default;
+$grid-viewport-tablet-infix: "t" !default;
+$grid-viewport-mobile-infix: "m" !default;
 
 // Column Variables
-$base-column: 47;
-$base-margin: 36;
-$total-columns: 12;
+$base-column: 47 !default;
+$base-margin: 36 !default;
+$total-columns: 12 !default;
 
 // Tablet Grid
-$tablet-column: 50;
-$tablet-margin: 32;
-$tablet-columns: 9;
+$tablet-column: 50 !default;
+$tablet-margin: 32 !default;
+$tablet-columns: 9 !default;
 
 // Mobile Grid
-$mobile-column: 136;
-$mobile-margin: 24;
-$mobile-columns: 4;
+$mobile-column: 136 !default;
+$mobile-margin: 24 !default;
+$mobile-columns: 4 !default;
 
 // Quick Grid Descendant Selectors 
 // * For the quick grid (so we don't have to use the expensive `*` selector).
@@ -39,4 +39,4 @@ $quick-grid-selectors: (
 	section,
 	li,
 	div
-);
+) !default;
