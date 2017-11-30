@@ -4,7 +4,7 @@
 $grid-flex: true !default;
 
 // Grid Flex Fallback
-// * Set to `true` to have flex fallback for older browsers. Recommended if `grid-flex` is true.
+// * Set to `true` to have flex fallback for older browsers. Recommended if `grid-flex` is true. Use the class `lte9` on your `html` element.
 
 $grid-ie-fallback: true !default;
 

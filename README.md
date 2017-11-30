@@ -240,13 +240,7 @@ $input-static-widths: (
 
 Takes px values in relation to `$base-text-size` and converts them to em units.
 
-**How to call function:** `px(value)`
-
-### String Replace
-
-Searches for a string of a specified value and replaces it with another.
-
-**How to call function:** `str-replace($string, $search, $replace)`
+**How to call function:** `px(integer)`
 
 ## Modules
 
@@ -256,18 +250,45 @@ Modules are small additions to the framework that aren't necessary to the framew
 
 This leverages a container to wrap around your `embed`, `video`, or `iframe` to respond to the viewport accordingly.
 
-### Keyframes
+#### Usage
 
-Set keyframes here via the mixin.
+```html
+<div class="embed-container">
+    <iframe src="yoursourcehere.com">
+</div>
+```
 
 ### Transitions
 
 A handful of cubic-bezier transitions in both variable and placeholder class format.
 
+#### Usage
+```css
+// Placeholder Class Usage (All)
+.element-one {
+    opacity: 0.5;
+    
+    @extend %ease-in-out-expo;
+    
+    &:hover {
+        opacity: 1;
+        
+        @extend %ease-in-out-expo;
+    }
+}   
+
+// Variable Usage (User-Defined)
+.element-one {
+    opacity: 0.5;
+
+    transition: opacity map-get($ease-in, circ);
+}   
+```
+
 ## Grid
 
 ### Intro
-BOLT's grid system relies on specific viewport targeting. This is to eliminate overrides, such as `!important`, and let the developer decide every single viewport they need the grid active. For example, let's consider a simple scenario where we need a 1/2 column layout in tablet and desktop only. 
+BOLT's grid system utilizes specific viewport targeting. This is to eliminate overrides, such as `!important`, and let the developer decide every single viewport they need the grid active. For example, let's consider a simple scenario where we need a 1/2 column layout in tablet and desktop only. 
 
 ```html
 <div class="gd-row gt-row">
@@ -523,7 +544,6 @@ Thanks to the following developers to make this project a reality.
 * [OOCSS](https://github.com/stubbornella/oocss)
 * [BEM](http://bem.info/method/)
 * [Modernizr](http://modernizr.com)
-* [Responsive Comments](http://responsivecomments.com/)
 
 ## License
 
