@@ -24,6 +24,10 @@ $tertiary-heading-size: normal-text !default;
 // Baseline Typography
 $base-text-size: map-get($type-scale, normal-text) !default;
 
+// Button Sizes
+$small-button-text-size: map-get($type-scale, petite-text) !default;
+$large-button-text-size: map-get($type-scale, tertia-text) !default;
+
 // Line Height
 $round-to-nearest: map-get($rhythm-map, quarter) !default;
 
