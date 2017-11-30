@@ -1,4 +1,4 @@
 // Pixel Equivalents
 @function px( $value ) {
-	@return ( 1em * ($value / $base-text-size) ) !default;
+	@return ( 1em * ($value / $base-text-size) );
 }
