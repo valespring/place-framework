@@ -46,7 +46,7 @@ Literally - just the name of a class should be descriptive and concise enough to
 
 #### OOCSS / BEM
 
-A now established concept, but foreign to a good number of developers, object-oriented CSS displays the relationship of a class by using element and modifier suffixes. Consider the class `.is-hidden--sm`. A seasoned developer will know immediately that this is a hide of some sort in a smaller viewport. While BOLT typically only uses modifier suffixes because of its light weight, it is encouraged you leverage this style throughout your project.
+A now established concept, but foreign to a good number of developers, object-oriented CSS displays the relationship of a class by using element and modifier suffixes. Consider the class `.is-hidden--sm`. A seasoned developer will know immediately that this is a hide of some sort in a smaller viewport. While BOLT doesn't employ this for all classes, it is encouraged you leverage this style throughout your project.
 
 **Source:** [https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 
