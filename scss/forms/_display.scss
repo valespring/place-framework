@@ -12,7 +12,7 @@ Input Label
 */
 
 .input-label {
-    @extend %new-line;
+    @extend %display-block;
 
     @include padding-leader(1);
 }

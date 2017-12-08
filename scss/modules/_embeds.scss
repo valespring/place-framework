@@ -17,7 +17,7 @@ Embed Container
         content: "";
 
         // Extend display block
-        @extend %new-line;
+        @extend %display-block;
 
         // Vars
         $landscape-ratio: ( 100% * ( 9 / 16 ) );
