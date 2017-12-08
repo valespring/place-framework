@@ -61,15 +61,29 @@ Floats
 
 /*!
 
-New Line
+Display Block
 
 * Applies `display:block;` to apply a new line.
 
 */
 
-%new-line,
+%display-block,
+.display-block,
 .new-line {
     display: block;
+}
+
+/*!
+
+Inline Block
+
+* Applies `display:inline-block;` to apply a new line.
+
+*/
+
+%inline-block,
+.inline-block {
+    display: inline-block;
 }
 
 /*!

@@ -12,7 +12,7 @@
   },
   "description": "A modular and flexible CSS framework created for developers, by developers.",
   "homepage": "https://github.com/Woodbolt-International/bolt-framework#readme",
-   "bugs": {
+  "bugs": {
     "url": "https://github.com/Woodbolt-International/bolt-framework/issues"
   },
   "author": "Nutrabolt"

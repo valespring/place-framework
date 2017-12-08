@@ -16,11 +16,6 @@ $print-font: $stack-sans-serif !default;
 // @font-face Display
 $font-face-display: fallback !default;
 
-// Heading Sizes
-$primary-heading-size: paragon-text !default;
-$secondary-heading-size: tertia-text !default;
-$tertiary-heading-size: normal-text !default;
-
 // Baseline Typography
 $base-text-size: map-get($type-scale, normal-text) !default;
 

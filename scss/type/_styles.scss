@@ -7,6 +7,19 @@
     font-family: $secondary-font;
 }
 
+// Case Helpers
+.lowercase-text {
+    text-transform: lowercase;
+}
+
+.normal-text {
+    text-transform: none;
+}
+
+.uppercase-text {
+    text-transform: uppercase;
+}
+
 // Font Styles
 // * Create font weight classes based on the map.
 @each $weight, $value in $type-weights {
@@ -45,24 +58,15 @@ h6 {
 
 // Heading Types
 
-.primary-heading,
-.secondary-heading,
-.tertiary-heading {
-    @extend .semibold-weight;
-}
-
 .primary-heading {
-    @extend [class*="#{$primary-heading-size}"];
     color: $primary-heading-color;
 }
 
 .secondary-heading  {
-    @extend [class*="#{$secondary-heading-size}"];
     color: $secondary-heading-color;
 }
 
 .tertiary-heading {
-    @extend [class*="#{$tertiary-heading-size}"];
     color: $tertiary-heading-color;
 }
 

@@ -52,13 +52,3 @@ Buttons
     padding-left: 0;
     padding-right: 0;
 }
-
-// Button Primary
-.btn--primary {
-    @include m-button-color( $primary-button-color, $primary-border-color, $button-color);
-}
-
-// Button Secondary
-.btn--secondary {
-    @include m-button-color( $secondary-button-color, $secondary-border-color, $button-color);
-}
