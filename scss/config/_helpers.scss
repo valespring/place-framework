@@ -1,0 +1,28 @@
+// Spacing Positions
+// * Default positions used in the spacing helpers loop.
+// * You can change ONLY keys.
+$spacing-positions: (
+    t: top,
+    r: right,
+    b: bottom,
+    l: left
+);
+
+// Spacing Combined
+// * Combined positions used in the spacing helpers loop.
+// * You can change ONLY keys.
+$spacing-combined: (
+    v: vertical,
+    h: horizontal,
+    a: all
+);
+
+// Spacing Values
+// * Spacing values used in the spacing helpers loop. Can change keys and values.
+// * You can change keys AND values.
+$spacing-values: (
+    n: 0,
+    s: 10,
+    m: 20,
+    l: 30
+);

@@ -18,13 +18,11 @@ Typographic Scale
 	// Create placeholder class and class
 	%#{$size},
   	[class*="#{$size}"] {
-  		@include type-size( $value );
+  		@include type-size( $size, $value );
   	}
 }
 
 // VW Type Scale (Responsive)
-$responsive-type-min: $large-screens-min;
-
 @media #{$responsive-type-min} {
 	@each $type, $value in $type-scale {
 	    .responsive-#{$type} {

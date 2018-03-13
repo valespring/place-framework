@@ -8,10 +8,15 @@ Container
 
 
 .#{$wrapper-name},
-.#{$wrapper-name}--fluid {
+.#{$wrapper-name}-wide,
+.#{$wrapper-name}-fluid {
 	width: percentage( $wrapper-width / 100 );
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.#{$wrapper-name}-wide {
+	max-width: 1em * ($wrapper-wide-max-width / $base-text-size);
 }
 
 .#{$wrapper-name} {

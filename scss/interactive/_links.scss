@@ -18,11 +18,14 @@ a,
 	text-decoration: none;
 }
 
-.unlink-all {
+%unlink-all {
 
 	&,
+	&:link,
 	&:hover,
+	&:visited,
+	&:active,
 	&:focus {
-		@extend .unlink;
+		text-decoration: none;
 	}
 }

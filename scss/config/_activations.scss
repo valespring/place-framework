@@ -1,20 +1,35 @@
+// Default Grid
+// * Set to `true` to utilize the default grid with floats. 
+// * Recommended.
+$default-grid: true;
+
+// CSS Grid
+// * Set to `true` to utilize css grid. By default, quick grid classes are created, and placeholder classes are created to extend within your file(s).
+// * Recommended.
+$css-grid: true;
+
 // Grid Flex
 // * Set to `true` to have the option of flex grids.
 
-$grid-flex: true !default;
+$flex-grid: true !default;
 
-// Grid Flex Fallback
-// * Set to `true` to have flex fallback for older browsers. Recommended if `grid-flex` is true. Use the class `lte9` on your `html` element.
+// Grid IE Fallback
+// * Set to `true` to have css grid and flex fallback for Edge and older IE versions dating back to IE9. 
+// * Recommended. Use your `$grid-lte9-class` on your `html` element. Edge is targeted through `supports`.
 
-$grid-ie-fallback: true !default;
+$grid-ie-fallback: false !default;
 
 // Grid Offset
-// * Set to `true` to have offset grid classes.
+// * Set to `true` to have offset "margin-left" grid classes.
 
-$grid-offset: true !default;
+$offset-grid: true !default;
+
+// WYSIWYG Styles
+// * Set to `true` to utilize the WYSIWYG scale from the variable map.
+$wysiwyg-type: false !default;
 
 // Viewport Helpers
-// * Set to `true` to have specific viewport utility classes, such as `is-hidden-lg` to hide something in a large viewport, or `float-left--sm` to float left only in a small viewport.
+// * Set to `true` to have specific viewport utility classes, such as `is-hidden-lg` to hide something in a large viewport, or `float-left-sm` to float left only in a small viewport.
 
 $viewport-helpers: true !default;
 
@@ -28,6 +43,12 @@ $flex-helpers: true !default;
 // * Recommended, at least at the beginning of a project.
 
 $spacing-helpers: true !default;
+
+// Type Viewport Helpers
+// * Set to `true` to have viewport helpers for each size. Typically used to downscale a larger font.
+// * Default map is for mobile and tablet up.
+
+$type-viewport-helpers: false !default;
 
 // Type Color Helpers
 // * Set to `true` to activate helper classes like `white-text` from the map `type-quick-colors`.

@@ -1,3 +1,5 @@
+@if $wysiwyg-type {
+
 /*!
 
 WYSIWYG
@@ -9,27 +11,27 @@ WYSIWYG
     </div>
 
 */
+    .wysiwyg {
 
-.wysiwyg {
+        // Set Spacing
+        h1 {
+            margin-top: 0;
+        }
+        h2,
+        h3,
+        h4,
+        h5,
+        h6  {
+            margin-top: 1.5em;
+        }
 
-    // Set Spacing
-    h1 {
-        margin-top: 0;
-    }
-    h2,
-    h3,
-    h4,
-    h5,
-    h6  {
-        margin-top: 1.5em;
-    }
+        // Set size based on scale
+        @each $heading, $scale in $wysiwyg-scale {
+            $i: index($wysiwyg-scale, $scale);
 
-    // Set size based on scale
-    @each $heading, $scale in $wysiwyg-scale {
-        $i: index($wysiwyg-scale, $scale);
-
-        #{$heading} { 
-            @extend %#{$scale};
+            #{$heading} { 
+                @extend %#{$scale};
+            }
         }
     }
 }

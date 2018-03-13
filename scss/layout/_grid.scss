@@ -9,12 +9,12 @@ Grid
 // Mobile 
 @media #{$small-screens-max} {
     @include create-grid-placeholders( 
-        $grid-viewport-mobile-infix, 
+        $grid-viewport-mobile-identifier, 
         $mobile-columns, 
         $mobile-margin 
     );
     @include create-grid( 
-        $grid-viewport-mobile-infix, 
+        $grid-viewport-mobile-identifier, 
         $mobile-columns, 
         $mobile-margin
     );
@@ -23,12 +23,12 @@ Grid
 // Tablet
 @media #{$medium-screens-only} {
     @include create-grid-placeholders( 
-        $grid-viewport-tablet-infix, 
+        $grid-viewport-tablet-identifier, 
         $tablet-columns, 
         $tablet-margin 
     );
     @include create-grid( 
-        $grid-viewport-tablet-infix, 
+        $grid-viewport-tablet-identifier, 
         $tablet-columns, 
         $tablet-margin
     );
@@ -37,12 +37,12 @@ Grid
 // Desktop
 @media #{$large-screens-min} {
     @include create-grid-placeholders( 
-        $grid-viewport-desktop-infix, 
+        $grid-viewport-desktop-identifier, 
         $total-columns, 
         $base-margin 
     );
     @include create-grid( 
-        $grid-viewport-desktop-infix, 
+        $grid-viewport-desktop-identifier, 
         $total-columns, 
         $base-margin
     );

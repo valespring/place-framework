@@ -2,3 +2,66 @@
 @function px( $value ) {
 	@return ( 1em * ($value / $base-text-size) );
 }
+
+// String Replacement
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+// Square Root
+
+@function square-root($integer) {
+  $x0: 1;
+  $x1: $x0;
+ 
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($integer)) / (2 * $x0);
+    $x0: $x1;
+  }
+ 
+  @return $x1;
+}
+
+// Power
+@function power($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
+
+// Template Class Creation
+@function template-class( $pattern, $base: null, $viewport: null, $modifier: null, $partial: null, $total: null) {
+
+	$class: $pattern;
+
+	$template-map: (
+		"B": $base,
+		"V": $viewport,
+		"M": $modifier,
+		"P": $partial,
+		"T": $total,
+	);
+
+	@each $key, $value in $template-map {
+
+		@if $value != null {
+			@if (str-index($class, $key) ) {
+				$class: str-replace($class, $key, $value);
+			}
+		}
+	}
+
+	@return $class;
+}

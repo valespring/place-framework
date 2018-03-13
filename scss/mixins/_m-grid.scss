@@ -13,9 +13,13 @@
     }
 }
 
-@mixin grid-list-clear {
+@mixin clearfix-list {
     @at-root ul#{&} {
+        // Mixins
         @include unstyled-list();
+
+        // Style
+        margin-top: 0;
     }
 }
 
@@ -39,7 +43,7 @@
 }
 // Grid Padding
 
-@mixin grid-padding($mar: $base-margin)   {
+@mixin grid-item-padding($mar: $base-margin)   {
     
     // Variables
     $grid-margin: 1em * (($mar / 2) / $base-text-size);
@@ -50,35 +54,38 @@
 }
 
 // Grid List Margin
-@mixin grid-list-margin($mar: $base-margin) {
-    // Variables
-    $list-margin: (1em * (($mar / 2) / $base-text-size) * 2);
+@mixin grid-list-item-margin($mar: $base-margin) {
+    // Variable
+    $m: (1em * ($mar / 2) / $base-text-size);
 
-    margin-top: $list-margin;
+    // Output
+    margin-top: $m;
+    margin-bottom: $m;
 }
 
-@mixin grid-flex-row {
+// Flex
+
+@mixin grid-flex-wrap {
     flex-flow: row wrap;
     align-items: stretch;
     align-content: space-between;
 }
 
 @mixin grid-flex-item {
-    box-flex: 0;
-    flex-grow: 0;
+    box-flex: 1;
+    flex-grow: 1;
     flex-shrink: 0;
     float:none;
 }
 
-@mixin grid-row-lte9 {
+@mixin grid-wrap-lte9 {
     // Variables
-    $lte9-ltr-spacing: px(4);
-    $lte9-word-spacing: px(6);
+    $lte9-letter-spacing: 0.31em;
 
     // Style
-    letter-spacing: -$lte9-ltr-spacing;
-    word-spacing: -$lte9-word-spacing;
+    letter-spacing: -$lte9-letter-spacing;
     text-rendering: optimizespeed;
+    display: block;
 }
 
 @mixin grid-item-lte9 {
@@ -90,48 +97,159 @@
 }
 
 @mixin create-grid-placeholders( $prefix, $columns, $margin ) {
+    // Create Placeholders
     @include grid-display-placeholders( $prefix, $margin );
     @include grid-width-placeholders( $prefix, $columns);
+    @include css-grid-placeholders( $prefix, $columns );
 }
 
-@mixin grid-display-placeholders ( $prefix, $margin ) {
+@mixin grid-display-placeholders ( $identifier, $margin ) {
 
-    %grid-column-item-#{$prefix} {
-        @include grid-padding($margin);
+    // Default Grid Placeholders
+    %#{$identifier}-grid-column-item {
+        @include grid-item-padding($margin);
 
         min-height: 1px;
     }
 
-    %grid-list-margin-#{$prefix} {
-        @include grid-list-margin();
+    %#{$identifier}-grid-list-item-margin {
+        @include grid-list-item-margin();
     }
 
-    %grid-list-clear-#{$prefix} {
-        @include grid-list-clear();
+    %#{$identifier}-grid-column-ltr {
+        @include grid-column(left);
     }
 
-    %grid-flex-item-#{$prefix} {
+    %#{$identifier}-grid-column-rtl {
+        @include grid-column(right);
+    }
+
+    %#{$identifier}-clear {
+        @include clearfix();
+    }
+
+    %#{$identifier}-clear-list {
+        @include clearfix-list();
+    }
+
+    %#{$identifier}-row {
+        @include grid-row($margin);
+    }
+
+    // Flex Placeholders
+    %#{$identifier}-grid-flex-item {
         @include grid-flex-item();
     }
 
-    %grid-flex-item-lte9-#{$prefix} {
+    %#{$identifier}-grid-wrap-lte9 {
+        @include grid-wrap-lte9();
+    }
+
+    %#{$identifier}-grid-item-lte9 {
         @include grid-item-lte9();
     }
 
-    %flex-display-#{$prefix} {
+    %#{$identifier}-flex-display {
         display: flex;
     }
 
-    %flex-column-#{$prefix} {
+    %#{$identifier}-flex-wrap {
+        @include grid-flex-wrap();
+    }
+
+    %#{$identifier}-flex-column {
         flex-direction: column;
     }
 
-    %flex-grow-#{$prefix} {
+    %#{$identifier}-flex-grow {
         flex-grow: 1;
+    }
+
+    // CSS Grid
+    %#{$identifier}-css-grid-display {
+        display: grid;
     }
 }
 
-@mixin grid-width-placeholders ( $prefix, $columns ) {
+
+@mixin create-quick-css-grid ( $class, $margin ) {
+    @each $prefix, $value in $quick-grid-map {
+        // Class Variable
+        $quick-css-grid-class: template-class( 
+            $quick-css-grid-wrapper-pattern, 
+            $base: $class, 
+            $total: $prefix
+        );
+
+        $gap-css-grid-class: template-class( 
+            $quick-css-grid-gap-pattern, 
+            $base: $class, 
+            $total: $prefix,
+            $modifier: $grid-gap-modifier
+        );
+
+        // Classes
+        .#{$quick-css-grid-class},
+        .#{$gap-css-grid-class} {   
+            grid-template-columns: repeat($value, 1fr);
+        }
+    }
+}
+
+@mixin css-grid-placeholders ( $prefix, $columns ) {
+
+    // Loop Generics
+    @for $r from 1 through $css-grid-max-rows {
+        %#{$prefix}-grid-row-#{$r} {
+            grid-row: #{$r};
+        }
+    }
+
+    // Loop Specifics
+    $col-widths: ();
+
+    @for $t from 1 through $columns {
+        @for $p from 1 through $t {
+            $w: ($p / $t);
+
+            @if not index($col-widths, $w) {
+                @if $p != $t {
+                    //.#{$prefix}-grid-row-#{$p}-#{$t},
+                    %#{$prefix}-grid-row-#{$p}-#{$t} {
+                        grid-row: #{$p} / #{$t};
+                    }
+
+                    //.#{$prefix}-grid-column-#{$p}-#{$t},
+                    %#{$prefix}-grid-column-#{$p}-#{$t} {
+                        grid-column: #{$p} / #{$t};
+                    }
+                } @else {
+                    %#{$prefix}-grid-row-start-#{$t} {
+                        grid-row-start: #{$t};
+                    }
+
+                    %#{$prefix}-grid-row-end-#{$t} {
+                        grid-row-end: #{$t};
+                    }
+
+                    %#{$prefix}-grid-column-start-#{$t} {
+                        grid-column-start: #{$t};
+                    }
+
+                    %#{$prefix}-grid-column-end-#{$t} {
+                        grid-column-end: #{$t};
+                    }
+
+                    %#{$prefix}-grid-column-#{$t} {
+                        grid-column: $p;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin grid-width-placeholders ( $identifier, $columns ) {
     $col-widths: ();
 
     @for $t from 1 through $columns {
@@ -139,17 +257,17 @@
             $w: ($p / $t);
 
             // Flex Placeholders
-            %#{$prefix}-#{$grid-flex-suffix}-#{$p}#{$grid-width-separator}#{$t} {
+            %#{$identifier}-#{$grid-flex-modifier}-#{$p}-#{$t} {
                 flex-basis: $w * 100%;
             }
 
             // Offset Placeholders
-            %#{$prefix}-#{$grid-offset-prefix}-#{$p}#{$grid-width-separator}#{$t} {
+            %#{$identifier}-#{$grid-offset-identifier}-#{$p}-#{$t} {
                 margin-left: $w * 100%;
             }
 
             // Width Placeholders
-            %#{$prefix}-#{$p}#{$grid-width-separator}#{$t} {
+            %#{$identifier}-#{$p}-#{$t} {
                 width: $w * 100%;
                 max-width: $w * 100%;
             }
@@ -157,48 +275,62 @@
     }
 }
 
-@mixin create-grid-flex-widths($row-class, $prefix, $columns) {
+@mixin create-grid-flex-widths($container-class, $identifier, $columns) {
     $col-widths: ();
 
     @for $t from 1 through $columns {
         @for $p from 1 through $t {
+            // Width
             $w: ($p/$t);
 
-            @if not index($col-widths, $w) {
-                @if $p != $t {
-                    @if $p == 1 {
-                        @each $desc, $value in $quick-grid-map {
-                            $fraction-suffix: $desc;
+            // Class
+            $grid-column-width-class: template-class( 
+                $grid-column-width-pattern, 
+                $base: $grid-column-identifier, 
+                $viewport: $identifier,
+                $partial: $p,
+                $total: $t
+            );
 
-                            @if $value == $t {
-                                [class*="#{$row-class}__#{$grid-flex-suffix}"] {
-                                    > .#{$prefix}-#{$p}#{$grid-width-separator}#{$t} {
-                                        @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}#{$grid-width-separator}#{$t};
-                                    }
-                                }
+            $grid-full-column-width-class: template-class( 
+                $grid-concise-column-width-pattern, 
+                $base: $grid-column-identifier, 
+                $viewport: $identifier,
+                $modifier: $grid-full-modifier
+            );
 
-                                .#{$grid-prefix}#{$prefix}__#{$grid-flex-suffix}--#{$fraction-suffix} {
-                                    @each $selector in $quick-grid-selectors {
-                                        > #{$selector} {
-                                            @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}#{$grid-width-separator}#{$t};
-                                        }
-                                    }
+            .#{$container-class} {
+
+                @if not index($col-widths, $w) {
+
+                    @if $p != $t {
+                        @each $fraction, $value in $quick-grid-widths {
+
+                            // Class
+                            $grid-fraction-column-width-class: template-class( 
+                                $grid-concise-column-width-pattern, 
+                                $base: $grid-column-identifier, 
+                                $viewport: $identifier,
+                                $modifier: $fraction
+                            );
+
+                            @if $value == ($p/$t) {
+                                > .#{$grid-column-width-class},
+                                > .#{$grid-fraction-column-width-class} {
+                                    // Width
+                                    @extend %#{$identifier}-#{$grid-flex-modifier}-#{$p}-#{$t};
                                 }
                             }
                         }
                     } @else {
-                        [class*="#{$row-class}__#{$grid-flex-suffix}"] > .#{$grid-prefix}#{$prefix}-#{$p}#{$grid-width-separator}#{$t},
-                        [class*="#{$row-class}__#{$grid-flex-suffix}"] > .#{$grid-column-prefix}#{$prefix}-#{$p}#{$grid-width-separator}#{$t} {
-                            @extend %#{$prefix}-#{$grid-flex-suffix}-#{$p}#{$grid-width-separator}#{$t};
+                        > .#{$grid-full-column-width-class} {
+                            // Width
+                            @extend %#{$identifier}-#{$grid-flex-modifier}-1-1;
                         }
                     }
+                } 
 
-                    $col-widths: append($col-widths, $w, comma);
-                } @else {
-                    [class*="#{$row-class}__#{$grid-flex-suffix}"] > [class*="#{$prefix}-full"] {
-                        @extend %#{$prefix}-#{$grid-flex-suffix}-1#{$grid-width-separator}1;
-                    }
-                }
+                $col-widths: append($col-widths, $w, comma);
             }
         }
     }
@@ -213,225 +345,392 @@
 
             @if not index($col-widths, $w) {
                 @if $p != $t {
-                    .#{$grid-offset-prefix}#{$prefix}-#{$p}#{$grid-width-separator}#{$t} {
-                        @extend %#{$prefix}-#{$grid-offset-prefix}-#{$p}#{$grid-width-separator}#{$t};
+                    .#{$grid-offset-identifier}-#{$prefix}-#{$p}of#{$t} {
+                        @extend %#{$prefix}-#{$grid-offset-identifier}-#{$p}-#{$t};
                     }
 
                     $col-widths: append($col-widths, $w, comma);
 
                     @each $fraction, $value in $quick-grid-widths {
                         @if $value == ($p/$t) {
-                            .#{$grid-offset-prefix}#{$prefix}-#{$fraction} {
-                                @extend %#{$prefix}-#{$grid-offset-prefix}-#{$p}#{$grid-width-separator}#{$t};
+                            .#{$grid-offset-identifier}-#{$prefix}-#{$fraction} {
+                                @extend %#{$prefix}-#{$grid-offset-identifier}-#{$p}-#{$t};
                             }
                         }
                     }
-                    
                 }
             }
         }
     }
 }
 
-@mixin create-grid-widths($prefix, $columns) {
+@mixin create-grid-widths($identifier, $columns) {
     $col-widths: ();
 
     @for $t from 1 through $columns {
         @for $p from 1 through $t {
+            // Width
             $w: ($p/$t);
 
+            // Class
+            $grid-width-class: template-class( 
+                $grid-width-pattern, 
+                $base: $grid-column-identifier, 
+                $viewport: $identifier,
+                $partial: $p,
+                $total: $t
+            );
+
+            $grid-column-width-class: template-class( 
+                $grid-column-width-pattern, 
+                $base: $grid-column-identifier, 
+                $viewport: $identifier,
+                $partial: $p,
+                $total: $t
+            );
+
+            // Loop
             @if not index($col-widths, $w) {
                 @if $p != $t {
-                    .#{$grid-prefix}#{$prefix}-#{$p}#{$grid-width-separator}#{$t},
-                    .#{$grid-column-prefix}#{$prefix}-#{$p}#{$grid-width-separator}#{$t} {
-                        @extend %#{$prefix}-#{$p}#{$grid-width-separator}#{$t};
+
+                    .#{$grid-width-class},
+                    .#{$grid-column-width-class} {
+                        width: $w * 100%;
+                        max-width: $w * 100%;
+                        flex-basis: $w * 100%;
+                        //@extend %#{$identifier}-#{$p}-#{$t};
+                        //@extend %#{$identifier}-#{$grid-flex-modifier}-#{$p}-#{$t};
                     }
 
-                    $col-widths: append($col-widths, $w, comma);
+                    //$col-widths: append($col-widths, $w, comma);
 
                     @each $fraction, $value in $quick-grid-widths {
+
+                        // Class
+                        $grid-quick-width-class: template-class( 
+                            $grid-quick-width-pattern, 
+                            $base: $grid-column-identifier, 
+                            $viewport: $identifier,
+                            $total: $fraction
+                        );
+
+                        $grid-quick-column-width-class: template-class( 
+                            $grid-quick-column-width-pattern, 
+                            $base: $grid-column-identifier, 
+                            $viewport: $identifier,
+                            $total: $fraction
+                        );
+
                         @if $value == ($p/$t) {
-                            .#{$grid-column-prefix}#{$prefix}-#{$fraction},
-                            .#{$grid-prefix}#{$prefix}-#{$fraction} {
-                                @extend .#{$grid-prefix}#{$prefix}-#{$p}#{$grid-width-separator}#{$t};
+                            .#{$grid-quick-width-class},
+                            .#{$grid-quick-column-width-class} {
+                                @extend .#{$grid-width-class};
                             }
-                        }
+                        } 
                     }
                     
                 } @else {
-                     .#{$grid-prefix}#{$prefix}-full,
-                     .#{$grid-column-prefix}#{$prefix}-full {
-                        @extend %#{$prefix}-1#{$grid-width-separator}1;
+                    .#{$identifier}-full,
+                    .#{$grid-column-identifier}-#{$identifier}-full {
+                        @extend %#{$identifier}-1-1;
+                        @extend %#{$identifier}-#{$grid-flex-modifier}-1-1;
                     }
                 }
             }
+
+             $col-widths: append($col-widths, $w, comma);
         }
+
     }
 }
 
-@mixin create-grid ( $grid-viewport-infix, $grid-columns: $total-columns, $grid-margin: $base-margin ) {
-    $grid-row-class: "#{$grid-prefix}#{$grid-viewport-infix}-#{$grid-row-suffix}";
-    $grid-column-class: "#{$grid-column-prefix}#{$grid-viewport-infix}";
+@mixin create-grid ( $grid-viewport-identifier, $grid-columns: $total-columns, $grid-margin: $base-margin ) {
+    
+    // Row Class Name Variables
+    $grid-row-class: template-class( 
+        $grid-row-pattern, 
+        $base: $grid-row-identifier, 
+        $viewport: $grid-viewport-identifier
+    );
+
+    $grid-row-ltr-class: template-class( 
+        $grid-orientation-pattern, 
+        $base: $grid-row-identifier, 
+        $viewport: $grid-viewport-identifier,
+        $modifier: $grid-ltr-modifier
+    );
+
+    $grid-row-rtl-class: template-class( 
+        $grid-orientation-pattern, 
+        $base: $grid-row-identifier, 
+        $viewport: $grid-viewport-identifier,
+        $modifier: $grid-rtl-modifier
+    );
+
+    // Column Class Name Variables
+    $grid-column-class: template-class( 
+        $grid-column-pattern, 
+        $base: $grid-column-identifier, 
+        $viewport: $grid-viewport-identifier
+    );
+
+    // Flex Class
+    $flex-grid-row-class: template-class( 
+        $flex-grid-row-pattern, 
+        $base: $grid-row-identifier, 
+        $viewport: $grid-viewport-identifier,
+        $modifier: $grid-flex-modifier
+    );
+
+    $flex-flush-grid-row-class: template-class( 
+        $flex-grid-row-pattern, 
+        $base: $grid-row-identifier, 
+        $viewport: $grid-viewport-identifier,
+        $modifier: $grid-flex-flush-modifier
+    );
+
+    // CSS Grid Name Variables
+    $css-grid-wrapper-class: template-class( 
+        $css-grid-wrapper-pattern, 
+        $base: $css-grid-identifier, 
+        $viewport: $grid-viewport-identifier
+    );
 
     // Widths
-    @include create-grid-widths( $grid-viewport-infix, $grid-columns );
+    @include create-grid-widths( $grid-viewport-identifier, $grid-columns );
+
+    @if $default-grid {
+        [class*="#{$grid-row-class}"] {
+            @extend %#{$grid-viewport-identifier}-clear;
+            @extend %#{$grid-viewport-identifier}-clear-list;
+        }
+
+        // Row
+        .#{$grid-row-class},
+        .#{$grid-row-ltr-class},
+        .#{$grid-row-rtl-class} {
+            @extend %#{$grid-viewport-identifier}-row;
+        }
+
+        // Columns
+        .#{$grid-row-class},
+        .#{$grid-row-ltr-class},
+        .#{$grid-row-rtl-class} {
+            > [class*="#{$grid-column-class}"] {
+                @extend %#{$grid-viewport-identifier}-grid-column-item;
+            }
+        }
+
+        // Alignments
+        .#{$grid-row-class},
+        .#{$grid-row-ltr-class} {
+            > [class*="#{$grid-column-class}"] {
+                @extend %#{$grid-viewport-identifier}-grid-column-ltr;
+            }
+        }
+
+        .#{$grid-row-ltr-class} {
+            > [class*="#{$grid-column-class}"] {
+                @extend %#{$grid-viewport-identifier}-grid-column-rtl;
+            }
+        }
+    }
 
     // Offset
-    @if $grid-offset {
-        @include create-grid-offsets( $grid-viewport-infix, $grid-columns );
+    @if $offset-grid {
+        @include create-grid-offsets( $grid-viewport-identifier, $grid-columns );
     }
 
-    [class*="#{$grid-row-class}"] {
-        @include clearfix();
-        @include grid-list-clear();
-    }
-
-    // Row
-    .#{$grid-row-class},
-    .#{$grid-row-class}--ltr,
-    .#{$grid-row-class}--rtl {
-        @include grid-row($grid-margin);
-    }
-
-    // Column
-    [class*="#{$grid-column-class}"] {
-        @extend %grid-column-item-#{$grid-viewport-infix};
-    }
-
-    // Alignments
-    .#{$grid-row-class} {
-        &--rtl {
-            > [class*="#{$grid-column-class}"] {
-                @include grid-column(right);
-            }
-        }
-
-        &,
-        &--ltr {
-            > [class*="#{$grid-column-class}"] {
-                @include grid-column(left);
-            }
-        }
-    }
-
-    @if $grid-flex {
-        // Create Widths
-        @include create-grid-flex-widths( 
-            $grid-row-class,
-            $grid-viewport-infix, 
-            $grid-columns 
-        );
-
-        // Flex Grow Helper Class
-        .#{$grid-prefix}#{$grid-viewport-infix}-grow {
-            @extend %flex-grow-#{$grid-viewport-infix};
-        }
-
-        // Display Flex
-        [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
-        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] {
-            @extend %flex-display-#{$grid-viewport-infix};
-        }
-
-        // Extend to descendants
-        [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-             @each $selector in $quick-grid-selectors {
-                > #{$selector} {
-                    @extend %flex-display-#{$grid-viewport-infix};
-                }
-            }
-        }
-
-        // Extend Row Clears
-        [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-            @extend [class*="#{$grid-row-class}"];
-        }
+    // CSS Grid
+    @if $css-grid {
+        // Variables
+        $gap: 1em * (($css-grid-gap / 2) / $base-text-size) / 2;
         
-        // Flex wrap all row variations
-        [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
-        .#{$grid-row-class}__#{$grid-flex-suffix},
-        .#{$grid-row-class}__#{$grid-flex-suffix}--#{$grid-flush-suffix} {
-            @include grid-flex-row();
+        // Set Baseline
+        [class*="#{$css-grid-wrapper-class}"] {
+            // Extend
+            @extend %#{$grid-viewport-identifier}-clear-list;
+            @extend %#{$grid-viewport-identifier}-css-grid-display;
+
+            // Style
+            grid-row-start: auto;
         }
 
-        // If listing, display as row
-        .#{$grid-row-class}__#{$grid-flex-suffix},
-        [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-            @include grid-row($grid-margin);
+        // Grid Gap
+        [class$="#{$grid-gap-modifier}"] {
+            grid-gap: $gap;
+        }
+
+        // Quick Grid
+        @include create-quick-css-grid( $css-grid-wrapper-class, $grid-margin );
+    }
+
+    @if $flex-grid {
+
+        // Flex Display Row
+        .#{$flex-grid-row-class},
+        .#{$flex-flush-grid-row-class} {
+            @extend %#{$grid-viewport-identifier}-flex-display;
+            @extend %#{$grid-viewport-identifier}-flex-wrap;
+        }
+
+        .#{$flex-grid-row-class} {
+            @extend %#{$grid-viewport-identifier}-row;
+        }
+
+        .#{$flex-grid-row-class} {
+            > [class*="#{$grid-column-class}"] {
+                @extend %#{$grid-viewport-identifier}-grid-column-item;
+            }
         }
 
         // Set the flex item base
-        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}"],
-        [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-column-class}"] {
+        .#{$flex-grid-row-class},   
+        .#{$flex-flush-grid-row-class} {
 
-            // Extend placeholders
-            @extend %grid-flex-item-#{$grid-viewport-infix};
-            @extend %flex-display-#{$grid-viewport-infix};
-            @extend %flex-column-#{$grid-viewport-infix};
-        }
+            > [class*="#{$grid-column-class}"] {
 
-        // Invite Descendants To The Party
-        [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-            @each $selector in $quick-grid-selectors {
-                > #{$selector} {
-                    // Extend
-                    @extend %grid-column-item-#{$grid-viewport-infix};
-                    @extend %grid-flex-item-#{$grid-viewport-infix};
-                    @extend %grid-list-margin-#{$grid-viewport-infix};
-                    @extend %flex-display-#{$grid-viewport-infix};
-                }
+                // Extend placeholders
+                @extend %#{$grid-viewport-identifier}-grid-flex-item;
+                @extend %#{$grid-viewport-identifier}-flex-display;
+                @extend %#{$grid-viewport-identifier}-flex-column;
             }
         }
+    }
 
-        @each $suffix, $value in $quick-grid-map {
-            .#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}--#{$suffix} {
-                @each $selector in $quick-grid-selectors {
-                    > #{$selector} {
-                        @extend %#{$grid-viewport-infix}-1#{$grid-width-separator}#{$value};
+    // Fallbacks
+    @if $grid-ie-fallback {
+
+        // Class Target
+        .#{$grid-lte9-class} {
+
+            // Flex
+            .#{$flex-grid-row-class},
+            .#{$flex-flush-grid-row-class} {
+                @extend %#{$grid-viewport-identifier}-grid-wrap-lte9;
+
+                > [class*="#{$grid-column-class}"] {
+                   @extend %#{$grid-viewport-identifier}-grid-item-lte9;
+                }
+            }
+
+            // CSS Grid
+            [class*="#{$css-grid-wrapper-class}"] {
+                @extend %#{$grid-viewport-identifier}-grid-wrap-lte9;
+
+                > * {
+                    @extend %#{$grid-viewport-identifier}-grid-item-lte9;
+                }
+            }
+
+            // Quick CSS Grid
+            @each $identifier, $value in $quick-grid-map {
+                $quick-css-grid-class: template-class( 
+                    $quick-css-grid-wrapper-pattern, 
+                    $base: $css-grid-wrapper-class, 
+                    $total: $identifier
+                );
+
+                $gap-css-grid-class: template-class( 
+                    $quick-css-grid-gap-pattern, 
+                    $base: $css-grid-wrapper-class, 
+                    $total: $identifier,
+                    $modifier: $grid-gap-modifier
+                );
+
+                .#{$quick-css-grid-class},
+                .#{$gap-css-grid-class} {
+                    @extend %#{$grid-viewport-identifier}-clear;
+                    @extend %#{$grid-viewport-identifier}-clear-list;
+
+                    > * {
+                        width: percentage( 1 / $value );
+                    }
+                }
+
+                .#{$gap-css-grid-class} {
+                    @extend %#{$grid-viewport-identifier}-row;
+
+                    > * {
+                        @extend %#{$grid-viewport-identifier}-grid-column-item;
+                        @extend %#{$grid-viewport-identifier}-grid-list-item-margin;
                     }
                 }
             }
         }
 
-        // Fallbacks
-        @if $grid-ie-fallback {
-            // IE10 +
-            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-                 @each $suffix, $value in $quick-grid-map {
-                    .#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}--#{$suffix} {
-                        @each $selector in $quick-grid-selectors {
-                            > #{$selector} {
-                                flex-direction: column;   
-                           }
-                        }
-                    }
-                }
+        // Variables
+        $ie-10-target: all and (-ms-high-contrast: none), (-ms-high-contrast: active);
+        $ie-13-14-target: (-ms-ime-align: auto);
+
+        // IE 10+
+        @include target-ie-edge-fallbacks( 
+            $type: media, 
+            $query: $ie-10-target,
+            $target-wrapper-class: $css-grid-wrapper-class
+        );
+
+        // IE 13/14
+        @include target-ie-edge-fallbacks( 
+            $type: supports, 
+            $query: $ie-13-14-target,
+            $target-wrapper-class: $css-grid-wrapper-class
+        );
+    }
+}
+
+@mixin create-ie-edge-fallbacks( $wrapper-class ) {
+    [class*="#{$wrapper-class}"] {
+        @include grid-wrap-lte9();
+
+        > * {
+            @include grid-item-lte9();
+        }
+    }
+
+    [class$="#{$grid-gap-modifier}"] { 
+        @include grid-row();
+
+        > * {
+            // TODO: Grid gap default divide by 2?
+            @include grid-list-item-margin();
+            @include grid-item-padding();
+            @include grid-item-lte9();
+        }
+    }
+
+    @each $identifier, $value in $quick-grid-map {
+        $quick-css-grid-class: template-class( 
+            $quick-css-grid-wrapper-pattern, 
+            $base: $wrapper-class, 
+            $total: $identifier
+        );
+
+        $gap-css-grid-class: template-class( 
+            $quick-css-grid-gap-pattern, 
+            $base: $wrapper-class, 
+            $total: $identifier,
+            $modifier: $grid-gap-modifier
+        );
+
+        .#{$quick-css-grid-class},
+        .#{$gap-css-grid-class} {
+            > * {
+                width: percentage( 1 / $value );
             }
+        } 
+    }
+}
 
-            // <= IE9
-            .lte9 {
+@mixin target-ie-edge-fallbacks($type, $query, $target-wrapper-class ) {
 
-                // Row
-                [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"],
-                [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] {
-                    @include grid-row-lte9();
-                }
-
-                // Grid Columns
-                [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-column-class}"],
-                [class*="#{$grid-row-class}__#{$grid-flex-suffix}"] > [class*="#{$grid-prefix}#{$grid-viewport-infix}"]{
-                    @extend %grid-flex-item-lte9-#{$grid-viewport-infix};
-                }
-
-                // Quick Grid Items
-                [class*="#{$grid-prefix}#{$grid-viewport-infix}__#{$grid-flex-suffix}"] {
-                    @each $selector in $quick-grid-selectors {
-                        > #{$selector} {
-                            @extend %grid-flex-item-lte9-#{$grid-viewport-infix};
-                        }
-                    }
-                }
-            }
+    @if $type == media {
+        @media #{$query} {
+            @include create-ie-edge-fallbacks($target-wrapper-class);
+        }
+    } @else if $type == supports {
+        @supports #{$query} {
+            @include create-ie-edge-fallbacks($target-wrapper-class);
         }
     }
 }

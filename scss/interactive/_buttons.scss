@@ -36,11 +36,11 @@ Buttons
 
 .btn--tiny,
 .btn--small {
-    @include type-size( $small-button-text-size );
+    @include size-for-font( $small-button-text-size );
 }
 
 .btn--large {
-    @include type-size( $large-button-text-size );
+    @include size-for-font( $large-button-text-size );
 }
 
 .btn--tiny {

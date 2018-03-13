@@ -14,41 +14,45 @@
 	font-size: #{$size}vw;
 }
 
-// Vertical Rhythm
-// * Calculate the minimum multiple of rhythm units needed to contain the font-size.
-// * You can also specify a custom line-height (sans unit).
+// Golden Ratio Line-Height
+//* https://pearsonified.com/2011/12/golden-ratio-typography.php
+@mixin line-height-for-font($size-key, $size-value) {
 
-@mixin lines-for-font-size($font-size, $line-height, $round: false) {
-	$unit: $base-vertical;
+	$h: map-get($type-line-height, $size-key);
+	$p: $golden-ratio;
+	$s: $size-value;
+	
+	$w: $base-content-width;
+	$wp: power( ($s * $p), 2 );
 
-	@each $rhythm, $value in $rhythm-map {
-		@if $round && $round == $value {
-			$unit: $base-vertical / $value;
-		}
+	$lh: $p - 1 / (2 * $p) * ( 1 - ($w / $wp));
+
+	@if $h {
+		line-height: ($h / $s);
+	} @else {
+		line-height: $lh;
 	}
-
-	$ceil:			ceil( $font-size / $unit );
-	line-height:	( $ceil * $unit ) / $font-size;
 }
 
 
 // Type Size
-// * Combine the font sizing mixin with the line-height one. 
+// * Combine both mixins.
 
-@mixin type-size($font-size, $round: $round-to-nearest) {
+@mixin type-size($key, $font-size) {
 	@include size-for-font($font-size);
-	@include lines-for-font-size($font-size, $round);
+	@include line-height-for-font($key, $font-size);
+	//@include lines-for-font-size($font-size, $round);
 }
 
 // Lists
-@mixin unstyled-list()		{
-	padding-left:			0;
-	list-style:				none outside none;
+@mixin unstyled-list {
+	padding-left:0;
+	list-style:	none outside none;
 }
 
 
 // Webfonts
-// * Mixins to generate `@font-face` code, with and sans SVG.
+// * Mixins to generate `@font-face` code.
 
 @mixin web-font($name: "Web Font", $folder: folder, $filename: webfont) {
 	font-family:	"#{$name}";

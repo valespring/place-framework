@@ -24,10 +24,13 @@ $small-button-text-size: map-get($type-scale, petite-text) !default;
 $large-button-text-size: map-get($type-scale, tertia-text) !default;
 
 // Line Height
-$round-to-nearest: map-get($rhythm-map, quarter) !default;
-
-// Line Height
-$long-line-height: 1.75 !default;
+$long-line-height: 2 !default;
 
 // Vertical Rhythm
 $base-vertical: 20 !default;
+
+// Responsive Type Min
+$responsive-type-min: $large-screens-min;
+
+// Golden Ratio
+$golden-ratio: (1 + square-root(5)) / 2;

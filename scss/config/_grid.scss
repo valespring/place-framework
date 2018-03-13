@@ -1,42 +1,44 @@
-// Grid Name Variables
-$grid-prefix: "g" !default;
-$grid-offset-prefix: "os" !default;
-$grid-column-infix: "c" !default;
-$grid-column-prefix: "#{$grid-prefix}#{$grid-column-infix}" !default;
+// Identifiers & Modifiers
+// * Aim to use identifiers and modifiers that will not conflict within a typical project.
 
-// Grid Width Separator
-// * This goes in between the numerator and denominator.
-$grid-width-separator: "of" !default;
-
-// Row Variables
-$grid-row-suffix: "row" !default;
-$grid-flex-suffix: "flex" !default;
-$grid-flush-suffix: "flush" !default;
+// Grid Base Classes
+$grid-row-identifier: "row" !default;
+$grid-column-identifier: "col" !default;
+$grid-offset-identifier: "os" !default;
+$css-grid-identifier: "grid" !default;
 
 // Grid Viewport Variables
-$grid-viewport-desktop-infix: "d" !default;
-$grid-viewport-tablet-infix: "t" !default;
-$grid-viewport-mobile-infix: "m" !default;
+$grid-viewport-desktop-identifier: "lg" !default;
+$grid-viewport-tablet-identifier: "md" !default;
+$grid-viewport-mobile-identifier: "sm" !default;
+
+// Grid Modifier Classes
+$grid-flex-modifier: "flex" !default;
+$grid-flex-flush-modifier: "flush" !default;
+$grid-ltr-modifier: "ltr" !default;
+$grid-rtl-modifier: "rtl" !default;
+$grid-full-modifier: "full" !default;
+$grid-gap-modifier: "spaced" !default;
+
+// Grid Fallback Variables
+$grid-lte9-class: 'lte9';
 
 // Column Variables
 $base-column: 47 !default;
-$base-margin: 36 !default;
+$base-margin: 24 !default;
 $total-columns: 12 !default;
 
 // Tablet Grid
 $tablet-column: 50 !default;
-$tablet-margin: 32 !default;
+$tablet-margin: 20 !default;
 $tablet-columns: 9 !default;
 
 // Mobile Grid
 $mobile-column: 136 !default;
-$mobile-margin: 24 !default;
+$mobile-margin: 16 !default;
 $mobile-columns: 4 !default;
 
-// Quick Grid Descendant Selectors 
-// * For the quick grid (so we don't have to use the expensive `*` selector).
-$quick-grid-selectors: (
-	section,
-	li,
-	div
-) !default;
+// CSS Grid
+// Don't use `fr` units with thoughts to fallbacks.
+$css-grid-max-rows: 12 !default;
+$css-grid-gap: ($base-margin * 3) !default;

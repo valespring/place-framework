@@ -6,6 +6,7 @@ Unstyled List
 
 */
 
+%list--unstyled,
 .list--unstyled {
     @include unstyled-list();
 }
@@ -18,6 +19,7 @@ Inline List
 
 */
 
+%list--inline,
 .list--inline {
     @extend .list--unstyled;
 
