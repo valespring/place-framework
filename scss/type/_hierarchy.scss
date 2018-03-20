@@ -16,9 +16,8 @@ Typographic Scale
 // Hierarchy List Classes
 @each $size, $value in $type-scale {
 	// Create placeholder class and class
-	%#{$size},
   	[class*="#{$size}"] {
-  		@include type-size( $size, $value );
+  		@extend %#{$size};
   	}
 }
 

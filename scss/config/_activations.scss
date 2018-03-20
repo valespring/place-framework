@@ -1,12 +1,12 @@
 // Default Grid
 // * Set to `true` to utilize the default grid with floats. 
 // * Recommended.
-$default-grid: true;
+$default-grid: true !default;
 
 // CSS Grid
 // * Set to `true` to utilize css grid. By default, quick grid classes are created, and placeholder classes are created to extend within your file(s).
 // * Recommended.
-$css-grid: true;
+$css-grid: true !default;
 
 // Grid Flex
 // * Set to `true` to have the option of flex grids.

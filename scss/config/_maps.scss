@@ -54,6 +54,7 @@ $helper-breakpoints: (
 	#{$large-screens-min}: 'lg'
 ) !default;
 
+// Type Helper Breakpoint Suffixes
 $type-helper-breakpoints: (
 	#{$small-screens-max}: 'sm',
 	#{$medium-screens-min}: 'md'

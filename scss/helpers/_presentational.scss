@@ -6,34 +6,28 @@ Alignment
 
 */
 
-%align-left,
 .align-left {
-    text-align: left;
+    @extend %align-left;
 }
 
-%align-center,
 .align-center {
-    text-align: center;
+    @extend %align-center;
 }
 
-%align-right,
 .align-right {
-    text-align: right;
+    @extend %align-right;
 }
 
-%align-sub,
 .align-sub {
-    vertical-align: sub;
+    @extend %align-sub;
 }
 
-%align-middle,
 .align-middle {
-    vertical-align: middle;
+    @extend %align-middle;
 }
 
-%align-top,
 .align-top {
-    vertical-align: top;
+    @extend %align-top;
 }
 
 /*!
@@ -44,30 +38,24 @@ Floats
 
 */
 
-%float-left,
 .float-left {
-    float:left;
+    @extend %float-left;
 }
 
-%float-center,
 .float-center {
-    margin-left: auto;
-    margin-right: auto;
+    @extend %float-center;
 }
 
-%float-right,
 .float-right {
-    float:right;
+    @extend %float-right;
 }
 
-%float-none,
 .float-none {
-    float:none;
+    @extend %float-none;
 }
 
-%clear,
 .clear {
-    clear: both;
+    @extend %clear;
 }
 
 /*!
@@ -78,10 +66,9 @@ Display Block
 
 */
 
-%display-block,
 .display-block,
 .new-line {
-    display: block;
+    @extend %display-block;
 }
 
 /*!
@@ -92,9 +79,8 @@ Inline Block
 
 */
 
-%inline-block,
 .inline-block {
-    display: inline-block;
+    @extend %inline-block;
 }
 
 /*!
@@ -105,9 +91,8 @@ Group
 
 */
 
-%group,
 .group {
-    @include clearfix();
+    @extend %group;
 }
 
 /*!
@@ -118,16 +103,12 @@ Hides content while making it accessible to screen readers.
 
 */
 
-%is-hidden,
 .is-hidden {
-    @include visually-hidden();
+    @extend %is-hidden;
 }
 
-%isnt-hidden,
 .isnt-hidden {
-
-    /* Mixins */
-    @include show-hidden();
+    @extend %isnt-hidden;
 }
 
 /*!
@@ -138,14 +119,12 @@ Set the position on an element.
 
 */
 
-%relative-container,
 .relative-container {
-    position: relative;
+    @extend %relative-container;
 }
 
-%absolute-container,
 .absolute-container {
-    position: absolute;
+    @extend %absolute-container;
 }
 
 @if flex-helpers {
@@ -157,35 +136,32 @@ Flex Helpers
 Misc. flex helpers along with justify, for justifying the content inside the element.
 
 */
-
-    %flex-display,
     .flex-display {
-        display: flex;
+        @extend %flex-display;
     }
 
-    %flex-grow,
     .flex-grow {
-        flex-grow: 1;
+        @extend %flex-grow;
     }
 
     .justify-start {
-        justify-content: flex-start;
+        @extend %justify-start;
     }
 
     .justify-end {
-        justify-content: flex-end;
+        @extend %justify-end;
     }
 
     .justify-center {
-        justify-content: center;
+        @extend %justify-center;
     }
 
     .justify-space-around {
-        justify-content: space-around;
+        @extend %justify-space-around;
     }
 
     .justify-space-between {
-        justify-content: space-between;
+        @extend %justify-space-between;
     }
 }
 
@@ -202,80 +178,65 @@ Media Query Helpers
 
         @media #{$breakpoint} {
             // Hides
-            %is-hidden-#{$suffix},
             .is-hidden-#{$suffix} {
-                @include visually-hidden();
+                @extend %is-hidden-#{$suffix};
             }
 
             // Alignment
-            %align-left-#{$suffix},
             .align-left-#{$suffix} {
-                text-align: left;
+                @extend %align-left-#{$suffix};
             }
 
-            %align-center-#{$suffix},
             .align-center-#{$suffix} {
-                text-align: center;
+                @extend %align-center-#{$suffix};
             }
 
-            %align-right-#{$suffix},
             .align-right-#{$suffix} {
-                text-align: right;
+                @extend %align-right-#{$suffix};
             }
 
             // Floats
-            %float-left-#{$suffix},
             .float-left-#{$suffix} {
-                float:left;
+                @extend %float-left-#{$suffix};
             }
 
-            %float-center-#{$suffix},
             .float-center-#{$suffix} {
-                margin-left: auto;
-                margin-right: auto;
+                @extend %float-center-#{$suffix};
             }
 
-            %float-right-#{$suffix},
             .float-right-#{$suffix} {
-                float:right;
+                @extend %float-right-#{$suffix};
             }
 
             // Flex 
 
             @if flex-helpers {
-                %flex-display-#{$suffix},
                 .flex-display-#{$suffix} {
-                    display: flex;
+                    @extend %flex-display-#{$suffix};
                 }
 
-                %flex-grow-#{$suffix},
                 .flex-grow-#{$suffix} {
-                    flex-grow: 1;
+                    @extend %flex-grow-#{$suffix};
                 }
                 
-                %justify-start-#{$suffix},
                 .justify-start-#{$suffix} {
-                    justify-content: start;
+                    @extend %justify-start-#{$suffix};
                 }
 
-                %justify-end-#{$suffix},
                 .justify-end-#{$suffix} {
-                    justify-content: end;
+                    @extend %justify-end-#{$suffix};
                 }
 
-                %justify-center-#{$suffix},
                 .justify-center-#{$suffix} {
-                    justify-content: center;
+                    @extend %justify-center-#{$suffix};
                 }
 
-                %justify-space-around-#{$suffix},
                 .justify-space-around-#{$suffix} {
-                    justify-content: space-around;
+                    @extend %justify-space-around-#{$suffix};
                 }
 
-                %justify-space-between-#{$suffix},
                 .justify-space-between-#{$suffix} {
-                    justify-content: space-between;
+                    @extend %justify-space-between-#{$suffix};
                 }
             }
         } 
