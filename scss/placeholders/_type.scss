@@ -33,3 +33,11 @@
   		@include type-size( $size, $value );
   	}
 }
+
+// Font Styles
+// * Create font weight classes based on the map.
+@each $weight, $value in $type-weights {
+    %#{$weight}-weight {
+        font-weight: $value;
+    }
+}

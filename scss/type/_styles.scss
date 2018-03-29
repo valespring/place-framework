@@ -27,7 +27,7 @@
         @if $weight == bold {
             @extend strong;
         } @else {
-            font-weight: $value;
+            @extend %#{$weight}-weight;
         }
     }
 }

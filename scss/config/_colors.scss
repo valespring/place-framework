@@ -61,10 +61,6 @@ $tertiary-color: #a9a6a7 !default;
 $quarternary-color: #c0e5e4 !default;
 //$quinary-color: -- !default;
 
-// Border Color Variables
-$primary-border-color: darken($primary-color, 25%) !default;
-$secondary-border-color: darken($secondary-color, 25%) !default;
-
 // Link Color Variables
 $primary-link-color: $primary-color !default;
 $primary-link-hover: darken($primary-color, 15%) !default;

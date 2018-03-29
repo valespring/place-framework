@@ -529,7 +529,7 @@
             }
         }
 
-        .#{$grid-row-ltr-class} {
+        .#{$grid-row-rtl-class} {
             > [class*="#{$grid-column-class}"] {
                 @extend %#{$grid-viewport-identifier}-grid-column-rtl;
             }

@@ -55,21 +55,3 @@ select {
         max-width: px($value);
     }
 };
-
-/*!
-
-Input Label Elements
-
-* Wrap form elements in the `input-label` tag to add a bit of extra styling to maintain consistency.
-
-*/
-
-.input-label {
-
-    input,
-    textarea,
-    select {
-        // Mixins
-        @include margin-vertical(0.5);
-    }
-}
