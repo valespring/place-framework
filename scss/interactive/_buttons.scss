@@ -31,24 +31,3 @@ Buttons
     
     @include margin-leader();
 }
-
-// Btn Sizes
-
-.btn--tiny,
-.btn--small {
-    @include type-size( $small-button-text-size );
-}
-
-.btn--large {
-    @include type-size( $large-button-text-size );
-}
-
-.btn--tiny {
-    padding: $quarter-vertical $half-side;
-}
-
-.btn--full { 
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-}

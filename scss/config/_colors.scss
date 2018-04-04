@@ -61,15 +61,6 @@ $tertiary-color: #a9a6a7 !default;
 $quarternary-color: #c0e5e4 !default;
 //$quinary-color: -- !default;
 
-// Border Color Variables
-$primary-border-color: darken($primary-color, 25%) !default;
-$secondary-border-color: darken($secondary-color, 25%) !default;
-
-// Heading Colors
-$primary-heading-color: $primary-color !default;
-$secondary-heading-color: $secondary-color !default;
-$tertiary-heading-color: $tertiary-color !default;
-
 // Link Color Variables
 $primary-link-color: $primary-color !default;
 $primary-link-hover: darken($primary-color, 15%) !default;
@@ -81,12 +72,3 @@ $table-border-color: $light-grey !default;
 $primary-text-color: $light-black !default;
 $secondary-text-color: $dark-grey !default;
 $inverse-text-color: $white !default;
-
-// Button Colors
-$primary-button-color: $primary-color !default;
-$secondary-button-color: $secondary-color !default;
-$button-color: $inverse-text-color !default;
-
-// Button Border Colors
-$primary-button-border-color: $primary-border-color !default;
-$secondary-button-border-color: $secondary-border-color !default;

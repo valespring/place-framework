@@ -1,14 +1,12 @@
 // Global Creation Stylesheet
 
-// Mixins
-@import "mixins/mixins";
-
 // Normalize
 @import "normalize/normalize";
 
 // Helper Classes
 @import "helpers/_spacing";
 @import "helpers/_presentational";
+@import "helpers/_type";
 
 // Typography
 @import "type/_font-face";

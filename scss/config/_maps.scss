@@ -1,13 +1,25 @@
 // Typographic Scale
 $type-scale: (
-    inch-text: 72,
-	canon-text: 38,
+    inch-text: 56,
+	canon-text: 42,
 	paragon-text: 30,
 	primer-text: 24,
 	tertia-text: 18,
 	normal-text: 16,
 	petite-text: 12,
 	minion-text: 10
+) !default;
+
+// Typographic Line Height Overrides
+$type-line-height: (
+    inch-text: false,
+	canon-text: false,
+	paragon-text: false,
+	primer-text: false,
+	tertia-text: false,
+	normal-text: false,
+	petite-text: false,
+	minion-text: false
 ) !default;
 
 // Typographic Weights
@@ -36,20 +48,22 @@ $wysiwyg-scale: (
 ) !default;
 
 // Helper Breakpoint Suffixes
-$helper-breakpoint-suffix: (
+// * Global breakpoint suffixes attached to the corresponding viewport.
+$helper-breakpoints: (
 	#{$small-screens-max}: 'sm',
 	#{$medium-screens-only}: 'md',
 	#{$large-screens-min}: 'lg'
 ) !default;
 
-// Vertical Rhythm Map
-$rhythm-map: (
-	quarter: 4,
-	third: 3,
-	half: 2
+// Type Helper Breakpoint Suffixes
+// * Used for specific sizes in these viewports.
+$type-helper-breakpoints: (
+	#{$small-screens-max}: 'sm',
+	#{$medium-screens-min}: 'md'
 ) !default;
 
 // Quick Grid Map
+// * Utilized with CSS grid to get a quick layout from applying the class to the container.
 $quick-grid-map: (
 	quarters: 4,
 	thirds: 3,

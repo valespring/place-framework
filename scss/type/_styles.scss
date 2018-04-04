@@ -27,18 +27,7 @@
         @if $weight == bold {
             @extend strong;
         } @else {
-            font-weight: $value;
-        }
-    }
-}
-
-// Font Colors
-// * Generate helper classes based on the SASS map.
-@if $type-color-helpers {
-    @each $color, $value in $type-quick-colors {
-        %#{$color},
-        .#{$color}{
-            color: $value !important;
+            @extend %#{$weight}-weight;
         }
     }
 }
@@ -54,20 +43,6 @@ h6 {
     margin-top: 1.75em;
     font-weight: normal;
     font-family: $heading-font;
-}
-
-// Heading Types
-
-.primary-heading {
-    color: $primary-heading-color;
-}
-
-.secondary-heading  {
-    color: $secondary-heading-color;
-}
-
-.tertiary-heading {
-    color: $tertiary-heading-color;
 }
 
  body,
