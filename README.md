@@ -14,13 +14,7 @@ BOLT CSS Framework Documentation
 
 ## Introduction
 
-The premise of BOLT is to have a truly modular and customizable CSS framework with minimal markup, devoid of combing through the core for manipulation. This package contains all the core files that are effectively inserted into the following varieties:
-
-### HTML
-
-**Link:** [https://github.com/Woodbolt-International/bolt-framework-html](https://github.com/Woodbolt-International/bolt-framework-html)
-
-**Description:** For simple projects containing a handful of pages, this can be utilized in most scenarios not dependent on a CMS. 
+The premise of BOLT is to have a truly modular and customizable CSS framework with minimal markup, devoid of combing through the core for manipulation. This package contains all the core files that are effectively inserted into your development environment.
 
 ## Ethos
 
@@ -95,7 +89,7 @@ Variable                       | Description
 
 ### Class Template Patterns
 
-Class template patterns are an exciting feature of BOLT. This will allow you to tailor the output without digging into the core. Patterns utilize the `template-class` function to create a pattern that makes sense for you(r) build.
+Class template patterns are an exciting feature of BOLT. This will allow you to tailor the output without digging into the core. Patterns utilize the `template-class` function to create a pattern that makes sense for you(r build).
 
 * B - Base
 * V - Viewport
@@ -204,27 +198,26 @@ $wysiwyg-scale: (
 If `$viewport-helpers` is `true`, these are the suffixes attached to the helpers with modifier BEM syntax for each query. The value corresponds to the media query variable that it will be active there within.
 
 ```css
-$helper-breakpoint-suffix: (
+$helper-breakpoints: (
     #{$small-screens-max}: 'sm',
     #{$medium-screens-only}: 'md',
     #{$large-screens-min}: 'lg'
 );
 ```
 
-#### Vertical Rhythm Map
+#### Type Helper Breakpoints
+If `$type-viewport-helpers` is `true`, viewport specific sizing will be accessible through the way of classes. For example, for `tertia-text` in mobile, the class would be `.tertia-text-sm`.
 
-Used in line-height mixins to maintain vertical rhythm. They are essentially quick calls that are used to round off vertical distance.
 
 ```css
-$rhythm-map: (
-    quarter: 4,
-    third: 3,
-    half: 2
-);
+$type-helper-breakpoints: (
+    #{$small-screens-max}: 'sm',
+    #{$medium-screens-min}: 'md'
+) !default;
 ```
 
 #### Quick Grid Map
-Used with the flex grid option, the quick grid is the suffix appended to the end of a row to determine width. For example, `.gd__flex--quarters` will create 4 items in the desktop viewport.
+Used with the flex grid option, the quick grid is the suffix appended to the end of a row to determine width. For example, `.grid-lg-quarters` will create 4 items in the desktop viewport.
 
 ```css
 $quick-grid-map: (
@@ -320,68 +313,49 @@ A handful of cubic-bezier transitions in both variable and placeholder class for
 BOLT's grid system utilizes specific viewport targeting. This is to eliminate overrides, such as `!important`, and let the developer decide every single viewport they need the grid active. For example, let's consider a simple scenario where we need a 1/2 column layout in tablet and desktop only. 
 
 ```html
-<div class="gd-row gt-row">
-    <div class="gcd-half gct-half">
+<div class="row-lg row-md">
+    <div class="col-lg-half col-md-half">
         Content 1
     </div>
-    <div class="gcd-half gct-half">
+    <div class="col-lg-half col-md-half">
         Content 2
     </div>
 </div>
 ``` 
 
-Knowing that `d` stands for desktop, and `t` for tablet, we know immediately that anything containing those infixes only applies to those two viewports. This will allow the divs to stack normally (100%) in mobile (reverting to their default/initial styles) without any added markup or overrides.
-
-### Grid Options
-
-Active Variables                     | Default
-------------------------------|------------------------------
-`$grid-prefix`| "g"
-`$grid-offset-prefix`| "os"
-`$grid-column-infix`| "c"
-`$grid-column-prefix`| "gc"
-`$grid-width-separator`| "of"
-`$grid-row-suffix`| "row"
-`$grid-flex-suffix`| "flex"
-`$grid-flush-suffix`| "flush"
-`$grid-viewport-desktop-infix`| "d"
-`$grid-viewport-tablet-infix`| "t"
-`$grid-viewport-mobile-infix`| "m"
+Knowing that `lg` stands for desktop, and `md` for tablet, we know immediately that anything containing those infixes only applies to those two viewports. This will allow the divs to stack normally (100%) in mobile (reverting to their default/initial styles) without any added markup or overrides.
 
 
 ### Grid Generation
 
 #### Rows
 
-Row generation combines the grid prefix, the viewport infix, and the grid row suffix. Rows are made to contain the column classes and floats therein.
+Row generation combines the grid row identifer and the viewport identifier. Rows are made to contain the column classes and floats therein.
 
 
 
 Viewport                 | Default Class
 ------------------------------|------------------------------
-Desktop| `.gd-row`
-Tablet| `.gt-row`
-Mobile| `.gm-row`
+Desktop| `.row-lg`
+Tablet| `.row-md`
+Mobile| `.row-sm`
 
 #### Columns
 
-Column generation takes the grid column prefix and attaches the viewport infix at the end.
+Column generation takes the grid column identifier and attaches the viewport identifier at the end.
 
 Active Variables                     | Default
 ------------------------------|------------------------------
-`$grid-prefix`| 'g'
-`$grid-offset-prefix`| 'os'
-`$grid-column-infix`| 'c'
-`$grid-column-prefix`*| 'gc'
-`$grid-viewport-desktop-infix`| 'd'
-`$grid-viewport-tablet-infix`| 't'
-`$grid-viewport-mobile-infix`| 'm'
+`$grid-column-identifier`| 'col'
+`$grid-viewport-desktop-identifier`| 'lg'
+`$grid-viewport-tablet-identifier`| 'md'
+`$grid-viewport-mobile-identifier`| 'sm'
 
 Viewport                | Default Class
 ------------------------------|------------------------------
-Desktop| `[class*="gcd"]`
-Tablet| `[class*="gct"]`
-Mobile| `[class*="gcm"]`
+Desktop| `[class*="col-lg"]`
+Tablet| `[class*="col-md"]`
+Mobile| `[class*="col-sm"]`
 
 #### Widths
 
@@ -392,15 +366,15 @@ Active Variables                     | Default
 `$total-columns`| 12
 `$tablet-columns`| 9
 `$mobile-columns`| 4
-`$grid-viewport-desktop-infix`| 'd'
-`$grid-viewport-tablet-infix`| 't'
-`$grid-viewport-mobile-infix`| 'm'
+`$grid-viewport-desktop-identifier`| 'lg'
+`$grid-viewport-tablet-identifier`| 'md'
+`$grid-viewport-mobile-identifier`| 'sm'
 
-Viewport                 | Default Class
+Viewport                 | Default Classes
 ------------------------------|------------------------------
-Desktop| `[class*="d-#{numerator}of12"]`
-Tablet| `[class*="t-#{numerator}of9"]`
-Mobile| `[class*="m-#{numerator}of4"]`
+Desktop| `.lg-#{numerator}of12` `.col-lg-#{numerator}of12`
+Tablet| `.md-#{numerator}of9` `.col-md-#{numerator}of9`
+Mobile| `.sm-#{numerator}of4` `.col-sm-#{numerator}of4`
 
 ## Examples
 
@@ -409,23 +383,23 @@ Mobile| `[class*="m-#{numerator}of4"]`
 ### Default Grid
 
 ```html
-<div class="gd-row gt-row gm-row">
-    <div class="gcd-quarter gct-third gcm-half">
+<div class="row-lg row-md row-sm">
+    <div class="col-lg-quarter col-md-third col-sm-half">
         <div>
             Item 1
         </div>
     </div>
-    <div class="gcd-quarter gct-third gcm-half">
+    <div class="col-lg-quarter col-md-third col-sm-half">
         <div>
             Item 2
         </div>
     </div>
-    <div class="gcd-quarter gct-third gcm-half">
+    <div class="col-lg-quarter col-md-third col-sm-half">
         <div>
             Item 3
         </div>
     </div>
-    <div class="gcd-quarter gct-third gcm-half">
+    <div class="col-lg-quarter col-md-third col-sm-half">
         <div>
             Item 4
         </div>
@@ -441,18 +415,18 @@ A default grid example. Every item floats left but has variable width in every v
 ### Default Grid (Reverse Order)
 
 ```html
-<div class="gd-row--rtl gt-row--rtl">
-    <div class="gcd-quarter gct-third">
+<div class="row-lg--rtl row-md--rtl">
+    <div class="col-lg-quarter col-md-third">
         <div>
             Item 3
         </div>
     </div>
-    <div class="gcd-quarter gct-third">
+    <div class="col-lg-quarter col-md-third">
         <div>
             Item 2
         </div>
     </div>
-    <div class="gcd-quarter gct-third">
+    <div class="col-lg-quarter col-md-third">
         <div>
             Item 1
         </div>
@@ -464,26 +438,47 @@ A default grid example. Every item floats left but has variable width in every v
 
 A reverse grid layout. Every item has variable width in every viewport *(Desktop: 25%, Tablet: 33%, Mobile: 100%)*. However, in desktop and tablet viewports, floats are reversed resulting in this order visually: Item 1, Item 2, Item 3.
 
-### Flex Grid
+### Default Grid Plus Offsets
 
 ```html
-<div class="gd-row__flex gt-row__flex gm-row__flex">
-    <div class="gcd-quarter gct-quarter gcm-half">
+<div class="row-lg row-md">
+    <div class="col-lg-half col-md-half os-lg-quarter os-md-quarter">
         <div>
             Item 1
         </div>
     </div>
-    <div class="gcd-quarter gct-quarter gcm-half">
+    <div class="col-lg-quarter col-md-quarter">
         <div>
             Item 2
         </div>
     </div>
-    <div class="gcd-quarter gct-quarter gcm-half">
+</div>
+```
+
+#### Description
+
+Grid with offset classes. Every item floats left but has an offset margin on item 1. Notice that the width with offsets from ALL items totals 100%. *(Desktop: 50% width & 25% offset, Tablet: 50% & 25% offset, Mobile: 100% width)*.
+
+### Flex Grid
+
+```html
+<div class="row-lg__flex row-md__flex row-sm__flex">
+    <div class="col-lg-quarter col-md-quarter col-sm-half">
+        <div>
+            Item 1
+        </div>
+    </div>
+    <div class="col-lg-quarter col-md-quarter col-sm-half">
+        <div>
+            Item 2
+        </div>
+    </div>
+    <div class="col-lg-quarter col-md-quarter col-sm-half">
         <div>
             Item 3
         </div>
     </div>
-    <div class="gcd-quarter gct-quarter gcm-half">
+    <div class="col-lg-quarter col-md-quarter col-sm-half">
         <div>
             Item 4
         </div>
@@ -495,11 +490,42 @@ A reverse grid layout. Every item has variable width in every viewport *(Desktop
 
 Similar to the default grid, the flex grid eliminates floats and utilizes flexbox to set the grid. *(Desktop: 25%, Tablet: 25%, Mobile: 50%)*.
 
-
-### Flex Quick Grid
+### Flex Flush Grid
 
 ```html
-<ul class="gd__flex--thirds gt__flex--thirds gm__flex--halves">
+<ul class="row-lg__flush row-md__flush row-sm__flush">
+    <li class="col-lg-quarter col-md-quarter col-sm-half">
+        <div class="flex-grow">
+            Item 1
+        </div>
+    </li>
+    <li class="col-lg-quarter col-md-quarter col-sm-half">
+        <div class="flex-grow">
+            Item 2
+        </div>
+    </li>
+    <li class="col-lg-quarter col-md-quarter col-sm-half">
+        <div class="flex-grow">
+            Item 3
+        </div>
+    </li>
+    <li class="col-lg-quarter col-md-quarter col-sm-half">
+        <div class="flex-grow">
+            Item 4
+        </div>
+    </li>
+</ul>
+```
+
+#### Description
+
+A flex grid layout without padding or gutters, resulting in each grid column to be flush. Apply the class of `flex-grow` (if `$flex-helpers` is `true`) to have the item grow to stretch/grow within the container. *(Desktop: 25%, Tablet: 25%, Mobile: 50%)*.
+
+
+### 'CSS Grid' Quick Grid
+
+```html
+<ul class="grid-lg-quarters grid-md-halves grid-sm-halves">
     <li>
         <div>
             Item 1
@@ -530,38 +556,43 @@ Similar to the default grid, the flex grid eliminates floats and utilizes flexbo
                         
 #### Description
 
-A quick grid that only requires a class on the parent selector and targets any immediate child element in `$quick-grid-selectors`. *(Desktop: 33%, Tablet: 33%, Mobile: 50%)*.
+A quick grid that only requires a class on the parent selector and targets any immediate child element in `$quick-grid-selectors`. *(Desktop: 25%, Tablet: 50%, Mobile: 50%)*.
 
-### Flex Flush Grid
+### 'CSS Grid' Quick Spaced Grid
 
 ```html
-<ul class="gd-row__flex--flush gt-row__flex--flush gm-row__flex--flush">
-    <li class="gd-quarter gt-quarter gm-half">
-        <div class="flex-grow">
+<ul class="grid-lg-thirds--spaced grid-md-thirds--spaced grid-sm-halves--spaced">
+    <li>
+        <div>
             Item 1
         </div>
     </li>
-    <li class="gd-quarter gt-quarter gm-half">
-        <div class="flex-grow">
+    <li>
+        <div>
             Item 2
         </div>
     </li>
-    <li class="gd-quarter gt-quarter gm-half">
-        <div class="flex-grow">
+    <li>
+        <div>
             Item 3
         </div>
     </li>
-    <li class="gd-quarter gt-quarter gm-half">
-        <div class="flex-grow">
+    <li>
+        <div>
             Item 4
+        </div>
+    </li>
+    <li>
+        <div>
+            Item 5
         </div>
     </li>
 </ul>
 ```
-
+                        
 #### Description
 
-A flex grid layout without padding or gutters, resulting in each grid column to be flush. Apply the class of `flex-grow` (if `$flex-helpers` is `true`) to have the item grow to fit within the container. *(Desktop: 25%, Tablet: 25%, Mobile: 50%)*.
+A quick grid like the above, but targets the `$grid-gap-modifier` to apply gutters for spacing. Note that the element must end with the modifier ( default: `--spaced` ) *(Desktop: 33%, Tablet: 33%, Mobile: 50%)*.
                         
 ## Acknowledgements
 
@@ -572,7 +603,6 @@ Thanks to the following developers to make this project a reality.
 * [Gulp](https://gulpjs.com/)
 * [OOCSS](https://github.com/stubbornella/oocss)
 * [BEM](http://bem.info/method/)
-* [Modernizr](http://modernizr.com)
 
 ## License
 

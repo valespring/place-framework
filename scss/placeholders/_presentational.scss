@@ -1,3 +1,18 @@
+// Display
+
+%display-initial {
+    display: initial;
+}
+
+%display-block {
+    display: block;
+}
+
+%display-inline-block,
+%inline-block {
+    display: inline-block;
+}
+
 // Aligns
 
 %align-left {
@@ -107,6 +122,15 @@
 @each $breakpoint, $suffix in $helper-breakpoints {
 
     @media #{$breakpoint} {
+        // Display
+        %display-block-#{$suffix} {
+            display: block;
+        }
+
+        %inline-block-#{$suffix} {
+            display: inline-block;
+        }
+
         // Hides
         %is-hidden-#{$suffix} {
             @include visually-hidden();

@@ -48,6 +48,7 @@ $wysiwyg-scale: (
 ) !default;
 
 // Helper Breakpoint Suffixes
+// * Global breakpoint suffixes attached to the corresponding viewport.
 $helper-breakpoints: (
 	#{$small-screens-max}: 'sm',
 	#{$medium-screens-only}: 'md',
@@ -55,6 +56,7 @@ $helper-breakpoints: (
 ) !default;
 
 // Type Helper Breakpoint Suffixes
+// * Used for specific sizes in these viewports.
 $type-helper-breakpoints: (
 	#{$small-screens-max}: 'sm',
 	#{$medium-screens-min}: 'md'

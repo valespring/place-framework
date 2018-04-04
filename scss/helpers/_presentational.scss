@@ -177,6 +177,15 @@ Media Query Helpers
     @each $breakpoint, $suffix in $helper-breakpoints {
 
         @media #{$breakpoint} {
+            // Display
+            .display-block-#{$suffix} {
+                @extend %display-block-#{$suffix};
+            }
+
+            .inline-block-#{$suffix} {
+                @extend %inline-block-#{$suffix};
+            }
+            
             // Hides
             .is-hidden-#{$suffix} {
                 @extend %is-hidden-#{$suffix};
