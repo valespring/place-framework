@@ -26,10 +26,3 @@ $full-vertical-bordered: 1em * (($base-vertical - $default-border-width) / $base
 $half-vertical-bordered: 1em * ((($base-vertical / 2) - $default-border-width) / $base-text-size) !default;
 $quarter-vertical-bordered: 1em * ((($base-vertical / 4) - $default-border-width) / $base-text-size) !default;
 $double-vertical-bordered: 1em * ((($base-vertical * 2) - $default-border-width) / $base-text-size) !default;
-
-// Misc
-
-$default-radius: 1em * ($default-border-radius / $base-text-size) !default;
-$border-width: 1em * ($default-border-width / $base-text-size) !default;
-$grid-width: 1em * (((($base-column + $base-margin) * $total-columns) - $base-margin) / $base-text-size) !default;
-$full-grid-width: 1em * ((($base-column + $base-margin) * $total-columns) / $base-text-size) !default;

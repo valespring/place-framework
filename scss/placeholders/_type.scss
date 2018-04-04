@@ -1,0 +1,43 @@
+// Font Sizes
+// * Generate helper classes based on the SASS map.
+
+@each $breakpoint, $suffix in $type-helper-breakpoints {
+
+    @media #{$breakpoint} {
+
+		// Hierarchy List Classes
+		@each $size, $value in $type-scale {
+			// Create placeholder class and class
+			%#{$size}-#{$suffix} {
+		  		@include type-size( $size, $value );
+		  	}
+		}
+	}
+}
+
+// Font Colors
+// * Generate helper classes based on the SASS map.
+@if $type-color-helpers {
+    @each $color, $value in $type-quick-colors {
+        %#{$color} {
+            color: $value !important;
+        }
+    }
+}
+
+// Type Sizes
+// * Generate sizes from type scale.
+@each $size, $value in $type-scale {
+	// Create placeholder class and class
+	%#{$size} {
+  		@include type-size( $size, $value );
+  	}
+}
+
+// Font Styles
+// * Create font weight classes based on the map.
+@each $weight, $value in $type-weights {
+    %#{$weight}-weight {
+        font-weight: $value;
+    }
+}

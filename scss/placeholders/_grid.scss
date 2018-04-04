@@ -1,34 +1,26 @@
-/*!
-
-Grid
-
-* Extend grid placeholder classes first to extend later on within the media directive. Then create the grid markup in its entirety, with an option for all types of grids with fallback.
-
-*/
-
 // Mobile 
 @media #{$small-screens-max} {
-    @include create-grid( 
+    @include create-grid-placeholders( 
         $grid-viewport-mobile-identifier, 
         $mobile-columns, 
-        $mobile-margin
+        $mobile-margin 
     );
 }
 
 // Tablet
 @media #{$medium-screens-only} {
-    @include create-grid( 
+    @include create-grid-placeholders( 
         $grid-viewport-tablet-identifier, 
         $tablet-columns, 
-        $tablet-margin
+        $tablet-margin 
     );
 }
 
 // Desktop
 @media #{$large-screens-min} {
-    @include create-grid( 
+    @include create-grid-placeholders( 
         $grid-viewport-desktop-identifier, 
         $total-columns, 
-        $base-margin
+        $base-margin 
     );
 }

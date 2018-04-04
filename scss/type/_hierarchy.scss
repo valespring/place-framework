@@ -16,15 +16,12 @@ Typographic Scale
 // Hierarchy List Classes
 @each $size, $value in $type-scale {
 	// Create placeholder class and class
-	%#{$size},
   	[class*="#{$size}"] {
-  		@include type-size( $value );
+  		@extend %#{$size};
   	}
 }
 
 // VW Type Scale (Responsive)
-$responsive-type-min: $large-screens-min;
-
 @media #{$responsive-type-min} {
 	@each $type, $value in $type-scale {
 	    .responsive-#{$type} {

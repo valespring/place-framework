@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Woodbolt-International/bolt-framework/issues"
   },
-  "author": "Nutrabolt"
+  "author": "Nutrabolt",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-autoprefixer": "^4.0.0"
+  }
 }

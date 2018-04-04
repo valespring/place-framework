@@ -13,53 +13,41 @@ Spacing Helpers
 */
 
 
-// Spacing Positions
-// * Default positions used in the spacing helpers loop.
-$spacing-positions: (
-    t: top,
-    r: right,
-    b: bottom,
-    l: left
-);
-
-// Spacing Combined
-// * Combined positions used in the spacing helpers loop.
-$spacing-combined: (
-    v: vertical,
-    h: horizontal,
-    a: all
-);
-
-// Spacing Values
-// * Spacing values used in the spacing helpers loop.
-$spacing-values: (
-    n: 0,
-    s: $quarter-vertical,
-    m: $half-vertical,
-    l: $full-vertical
-);
-
 // Mixin for creating helpers
 @mixin m-spacing-loop( $prefix, $property ) {
-    @each $infix, $position  in $spacing-positions {
+    @each $infix, $position in $spacing-positions {
 
         @each $suffix, $value in $spacing-values {
-            .#{$prefix}#{$infix}#{$suffix} {
-                #{$property}-#{$position}: $value !important;
+
+            // Variables
+            $spacing-class: template-class(
+                $spacing-class-pattern,
+                $base: $prefix,
+                $total: $infix,
+                $modifier: $suffix
+            );
+            $converted-value: $value;
+
+            @if $value != 0 {
+                $converted-value: 1em * ($value / $base-text-size);
+            } 
+
+            .#{$spacing-class} {
+                #{$property}-#{$position}: $converted-value !important;
             }
 
             @each $c, $alignment in $spacing-combined {
                 .#{$prefix}#{$c}#{$suffix} {
                     @if $alignment == vertical {
                         @if $position == top or $position == bottom {
-                            @extend .#{$prefix}#{$infix}#{$suffix};
+                            @extend .#{$spacing-class};
                         }
                     } @else if $alignment == horizontal {
                         @if $position == left or $position == right {
-                            @extend .#{$prefix}#{$infix}#{$suffix};
+                            @extend .#{$spacing-class};
                         }
                     } @else if $alignment == all {
-                        @extend .#{$prefix}#{$infix}#{$suffix};
+                        @extend .#{$spacing-class};
                     }
                 }
             }

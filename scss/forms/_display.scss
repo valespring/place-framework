@@ -1,25 +1,5 @@
 /*!
 
-Input Label
-
-* Add the class `input-label` to the surrounding element to add additional styling.
-
-<label class="input-label">
-    Text Field
-    <input type="text" name="text" required>
-</label>
-
-*/
-
-.input-label {
-    @extend %display-block;
-
-    @include padding-leader(1);
-}
-
-
-/*!
-
 Fieldsets
 
 * Add to fieldsets for more spacing.

@@ -17,12 +17,3 @@ a,
 .unlink {
 	text-decoration: none;
 }
-
-.unlink-all {
-
-	&,
-	&:hover,
-	&:focus {
-		@extend .unlink;
-	}
-}

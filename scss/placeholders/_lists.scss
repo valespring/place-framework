@@ -1,0 +1,19 @@
+// Unstyled List
+
+%list--unstyled {
+    @include unstyled-list();
+}
+
+// Inline List
+
+%list--inline {
+    @extend %list--unstyled;
+
+    li {
+        display: inline;
+    }
+
+    a {
+        display: inline-block;
+    }
+}

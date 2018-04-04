@@ -1,2 +1,8 @@
 node_modules
 npm-debug.log
+
+css
+scss/global.scss
+scss/_proto.scss
+gulpfile.js
+*.html
