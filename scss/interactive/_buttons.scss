@@ -8,6 +8,11 @@ Buttons
 
 [class*="#{$button-global-class}"] {
 
+    // Variables
+    $button-vertical: 1em * ($button-vertical-padding / $base-text-size);
+    $button-side: 1em * ($button-side-padding / $base-text-size);
+
+
     // Baseline
     width: auto;
     height: auto;
@@ -27,7 +32,7 @@ Buttons
     vertical-align: middle;
     display: inline-block;
     text-align: center; 
-    padding: $button-vertical-padding $button-side-padding;
+    padding: $button-vertical $button-side;
     
     @include margin-leader();
 }

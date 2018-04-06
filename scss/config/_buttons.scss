@@ -1,6 +1,6 @@
 // Button Class Name
-$button-global-class: 'btn';
+$button-global-class: 'btn' !default;
 
-// Button Spacing
-$button-vertical-padding: $half-vertical;
-$button-side-padding: $full-side;
+// Button Padding
+$button-vertical-padding: 10 !default;
+$button-side-padding: 20 !default;
