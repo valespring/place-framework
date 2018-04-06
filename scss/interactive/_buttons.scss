@@ -6,7 +6,7 @@ Buttons
 
 */
 
-[class*="btn"] {
+[class*="#{$button-global-class}"] {
 
     // Baseline
     width: auto;
@@ -27,7 +27,8 @@ Buttons
     vertical-align: middle;
     display: inline-block;
     text-align: center; 
-    padding: $half-vertical $full-side;
+    padding: $button-vertical-padding $button-side-padding;
     
     @include margin-leader();
 }
+

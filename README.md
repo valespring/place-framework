@@ -99,7 +99,7 @@ Class template patterns are an exciting feature of BOLT. This will allow you to 
 
 #### Example 1
 ```css
-$quick-css-grid-gap-pattern: "B-T--M" !default;
+$quick-css-grid-gap-pattern: "B-T--M";
 
 ```
 
@@ -107,7 +107,7 @@ Example Output: `.grid-quarters--spaced`
 
 #### Example 2
 ```css
-$grid-column-width-pattern: "B-V-PofT" !default;
+$grid-column-width-pattern: "B-V-PofT";
 
 ```
 
@@ -152,7 +152,7 @@ $type-scale: (
     normal-text: 16,
     petite-text: 12,
     minion-text: 10
-) !default;
+);
 ```
 
 #### Typographic Weights
@@ -213,7 +213,7 @@ If `$type-viewport-helpers` is `true`, viewport specific sizing will be accessib
 $type-helper-breakpoints: (
     #{$small-screens-max}: 'sm',
     #{$medium-screens-min}: 'md'
-) !default;
+);
 ```
 
 #### Quick Grid Map

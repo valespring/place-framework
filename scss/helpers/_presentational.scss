@@ -97,6 +97,18 @@ Group
 
 /*!
 
+Full Width
+
+* Duh.
+
+*/
+
+.full-width {
+    @extend %full-width;
+}
+
+/*!
+
 Hides and Unhides
 
 Hides content while making it accessible to screen readers.

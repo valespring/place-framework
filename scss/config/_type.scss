@@ -19,10 +19,6 @@ $font-face-display: fallback !default;
 // Baseline Typography
 $base-text-size: map-get($type-scale, normal-text) !default;
 
-// Button Sizes
-$small-button-text-size: map-get($type-scale, petite-text) !default;
-$large-button-text-size: map-get($type-scale, tertia-text) !default;
-
 // Line Height
 $long-line-height: 2 !default;
 

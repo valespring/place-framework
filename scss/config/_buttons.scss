@@ -1,0 +1,10 @@
+// Button Class Name
+$button-global-class: 'btn';
+
+// Button Sizes
+$small-button-text-size: map-get($type-scale, petite-text) !default;
+$large-button-text-size: map-get($type-scale, tertia-text) !default;
+
+// Button Spacing
+$button-vertical-padding: $half-vertical;
+$button-side-padding: $full-side;
