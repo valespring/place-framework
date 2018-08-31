@@ -54,23 +54,12 @@
 // Webfonts
 // * Mixins to generate `@font-face` code.
 
-@mixin web-font($name: "Web Font", $folder: folder, $filename: webfont) {
+@mixin web-font($name: "Web Font", $folder: folder, $filename: webfont ) {
 	font-family:	"#{$name}";
-	src:			url("#{$font-path}/#{$folder}/#{$filename}.eot");
-	src:			url("#{$font-path}/#{$folder}/#{$filename}.eot?#iefix") format('embedded-opentype'),
-					url("#{$font-path}/#{$folder}/#{$filename}.woff") format('woff'),
-					url("#{$font-path}/#{$folder}/#{$filename}.ttf") format('truetype');
-	font-weight:	normal;
-	font-style:		normal;
-}
-
-@mixin web-font-svg($name: "Web Font", $folder: folder, $filename: webfont, $svg-name: WebFont) {
-	font-family:	"#{$name}";
-	src:			url("#{$font-path}/#{$folder}/#{$filename}.eot");
-	src:			url("#{$font-path}/#{$folder}/#{$filename}.eot?#iefix") format('embedded-opentype'),
-					url("#{$font-path}/#{$folder}/#{$filename}.woff") format('woff'),
-					url("#{$font-path}/#{$folder}/#{$filename}.ttf") format('truetype'),
-					url("#{$font-path}/#{$folder}/#{$filename}.svg##{$svg-name}") format('svg');
+	src:			url("#{$folder}/#{$filename}.eot");
+	src:			url("#{$folder}/#{$filename}.eot?#iefix") format('embedded-opentype'),
+					url("#{$folder}/#{$filename}.woff") format('woff'),
+					url("#{$folder}/#{$filename}.ttf") format('truetype');
 	font-weight:	normal;
 	font-style:		normal;
 }

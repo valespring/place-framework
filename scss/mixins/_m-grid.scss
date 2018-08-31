@@ -557,7 +557,7 @@
         }
 
         // Grid Gap
-        [class$="#{$grid-gap-modifier}"] {
+        [class*="#{$grid-gap-modifier}"] {
             grid-gap: $gap;
         }
 

@@ -4,6 +4,7 @@ BOLT CSS Framework Documentation
 ## Table of Contents
 
 * [Introduction](#introduction)
+* [Implementation](#implementation)
 * [Ethos](#ethos)
 * [Variable Configuration](#variable-configuration)
 * [Functions](#functions)
@@ -16,7 +17,17 @@ BOLT CSS Framework Documentation
 
 The premise of BOLT is to have a truly modular and customizable CSS framework with minimal markup, devoid of combing through the core for manipulation. This package contains all the core files that are effectively inserted into your development environment.
 
+## Implementation
+
+BOLT is meant to be utilized with a task runner of your choice by lieu of the `includePaths` option in any of the SASS libraries (e.g `gulp-sass`). Include the path in your task before final compilation output.
+
 ## Ethos
+
+### Placeholders
+
+BOLT is built pretty much entirely on placeholder classes. This allows us to `@extend` such classes to, of course, create our utility classes, while also giving us the flexibility of extending the same class to a custom class name you define. This helps us avoid the constraints of a typical `@extend` use case, and keep our classes clean and concise.
+
+**Source:** [https://www.smashingmagazine.com/2015/05/extending-in-sass-without-mess/](https://www.smashingmagazine.com/2015/05/extending-in-sass-without-mess/)
 
 ### Modularity
 
@@ -58,7 +69,7 @@ There are a few selectors written to target multiple instances of that class to 
 
 #### Example 2
 ```css
-.grid-lg-quarters, .grid-lg-quarters--spaced, .grid-lg-thirds, .grid-lg-thirds--spaced, .grid-lg-halves, .grid-lg-halves--spaced {
+.grid-lg-quarters, .grid-lg-quarters--gapped, .grid-lg-thirds, .grid-lg-thirds--gapped, .grid-lg-halves, .grid-lg-halves--gapped {
     display: grid;
 }   
 
@@ -103,7 +114,7 @@ $quick-css-grid-gap-pattern: "B-T--M";
 
 ```
 
-Example Output: `.grid-quarters--spaced`
+Example Output: `.grid-quarters--gapped`
 
 #### Example 2
 ```css
@@ -561,7 +572,7 @@ A quick grid that only requires a class on the parent selector and targets any i
 ### 'CSS Grid' Quick Spaced Grid
 
 ```html
-<ul class="grid-lg-thirds--spaced grid-md-thirds--spaced grid-sm-halves--spaced">
+<ul class="grid-lg-thirds--gapped grid-md-thirds--gapped grid-sm-halves--gapped">
     <li>
         <div>
             Item 1
@@ -592,7 +603,7 @@ A quick grid that only requires a class on the parent selector and targets any i
                         
 #### Description
 
-A quick grid like the above, but targets the `$grid-gap-modifier` to apply gutters for spacing. Note that the element must end with the modifier ( default: `--spaced` ) *(Desktop: 33%, Tablet: 33%, Mobile: 50%)*.
+A quick grid like the above, but targets the `$grid-gap-modifier` to apply gutters for spacing. Note that the element must end with the modifier ( default: `--gapped` ) *(Desktop: 33%, Tablet: 33%, Mobile: 50%)*.
                         
 ## Acknowledgements
 
