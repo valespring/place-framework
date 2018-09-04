@@ -611,7 +611,6 @@ Thanks to the following developers to make this project a reality.
 
 * [SASS](http://sass-lang.com/)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
-* [Gulp](https://gulpjs.com/)
 * [OOCSS](https://github.com/stubbornella/oocss)
 * [BEM](http://bem.info/method/)
 
