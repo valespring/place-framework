@@ -19,13 +19,13 @@ The premise of BOLT is to have a truly modular and customizable CSS framework wi
 
 ## Implementation
 
-BOLT is meant to be utilized with a task runner of your choice by lieu of the `includePaths` option in any of the SASS libraries (e.g `gulp-sass`). Include the path in your task before final compilation output.
+BOLT is meant to be utilized with a task runner of your choice (Gulp, Grunt, Webpack etc.) by lieu of the `includePaths` option in any of the SASS libraries (e.g `gulp-sass`). Include the path in your task before final compilation output.
 
 ## Ethos
 
 ### Placeholders
 
-BOLT is built pretty much entirely on placeholder classes. This allows us to `@extend` such classes to, of course, create our utility classes, while also giving us the flexibility of extending the same class to a custom class name you define. This helps us avoid the constraints of a typical `@extend` use case, and keep our classes clean and concise.
+BOLT is built pretty much entirely on placeholder classes. This allows us to `@extend` such classes to, of course, create our utility classes, while also giving us the flexibility of extending the same class to a custom class name you define. This helps us avoid the constraints of a typical `@extend` use case, and keep our classes isolated of any style creep.
 
 **Source:** [https://www.smashingmagazine.com/2015/05/extending-in-sass-without-mess/](https://www.smashingmagazine.com/2015/05/extending-in-sass-without-mess/)
 
@@ -47,7 +47,7 @@ Each class name should be descriptive and quietly tell any developer new to the 
 
 #### Naming
 
-Literally - just the name of a class should be descriptive and concise enough to describe its function. There's no reason to name have a protracted class name if it creates more keystrokes. For example, `align-right` vs `text-align-right`, a difference of 5 characters each time it's used.
+The name of a class should be descriptive and concise enough to describe its function. There's no reason to name have a protracted class name if it creates more keystrokes. For example, `align-right` vs `text-align-right`, a difference of 5 characters each time it's used.
 
 #### OOCSS / BEM
 
