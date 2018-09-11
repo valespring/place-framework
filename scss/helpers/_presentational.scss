@@ -1,10 +1,5 @@
-/*!
-
-Alignment
-
-* These can be added to individual elements or on parent elements to adjust the content inside.
-
-*/
+// Alignment
+// * These can be added to individual elements or on parent elements to adjust the content inside.
 
 .align-left {
     @extend %align-left;
@@ -30,13 +25,8 @@ Alignment
     @extend %align-top;
 }
 
-/*!
-
-Floats
-
-* Glub glub glub. Like it sounds. 
-
-*/
+// Floats
+// * Glub glub glub. Like it sounds. 
 
 .float-left {
     @extend %float-left;
@@ -58,13 +48,8 @@ Floats
     @extend %clear;
 }
 
-/*!
-
-Display Block
-
-* Applies `display:block;` to apply a new line.
-
-*/
+// Display Block
+// * Applies `display:block;` to apply a new line.
 
 .display-block,
 .new-line {
@@ -83,37 +68,23 @@ Inline Block
     @extend %inline-block;
 }
 
-/*!
+// Group
 
-Group
-
-* When you may not need a grid, but need your (clear)fix.
-
-*/
+// * When you may not need a grid, but need your (clear)fix.
 
 .group {
     @extend %group;
 }
 
-/*!
+// Full Width
 
-Full Width
-
-* Duh. Be careful.
-
-*/
+// * Duh. Be careful.
 
 .full-width {
     @extend %full-width;
 }
-
-/*!
-
-Hides and Unhides
-
-* Hides content while making it accessible to screen readers.
-
-*/
+// Hides and Unhides
+// * Hides content while making it accessible to screen readers.
 
 .is-hidden {
     @extend %is-hidden;
@@ -123,13 +94,8 @@ Hides and Unhides
     @extend %isnt-hidden;
 }
 
-/*!
-
-Position
-
-* Set the position on an element.
-
-*/
+// Position
+// * Set the position on an element.
 
 .relative-container {
     @extend %relative-container;
@@ -141,13 +107,10 @@ Position
 
 @if flex-helpers {
 
-/*!
+// Flex Helpers
 
-Flex Helpers
+// * Misc. flex helpers along with justify, for justifying the content inside the element.
 
-* Misc. flex helpers along with justify, for justifying the content inside the element.
-
-*/
     .flex-display {
         @extend %flex-display;
     }
@@ -180,11 +143,7 @@ Flex Helpers
 
 @if $viewport-helpers {
 
-/*!
-
-Media Query Helpers
-
-*/
+// Media Query Helpers
 
     @each $breakpoint, $suffix in $helper-breakpoints {
 

@@ -1,17 +1,12 @@
-/*!
+// Spacing Helpers
 
-Spacing Helpers
+// * Spacing helpers to quickly apply extra margin or padding to an element to quickly prototype, or leave in (it's your life).
 
-* Spacing helpers to quickly apply extra margin or padding to an element to quickly prototype, or leave in (it's your life).
+// * Default Prefixes: `p, m`
+// * Default Infixes: `t, r, b, l, h, v`
+// * Default Suffixes: `s, m, l`
 
-* Default Prefixes: `p, m`
-* Default Infixes: `t, r, b, l, h, v`
-* Default Suffixes: `s, m, l`
-
-* Change the maps in the configuration to change the default output.
-
-*/
-
+// * Change the maps in the configuration to change the default output.
 
 // Mixin for creating helpers
 @mixin m-spacing-loop( $prefix, $property ) {

@@ -1,18 +1,3 @@
-/*
-
-Typographic Scale
-
-````
-<p class="canon-text">Canon Text</p>
-<p class="paragon-text">Paragon Text</p>
-<p class="primer-text">Primer Text</p>
-<p class="tertia-text">Tertia Text</p>
-<p class="normal-text">Normal Text</p>
-<p class="petite-text">Petite Text</p>
-````
-
-*/
-
 // Hierarchy List Classes
 @each $size, $value in $type-scale {
 	// Create placeholder class and class
@@ -30,13 +15,8 @@ Typographic Scale
 	}
 }
 
-/*!
-
-Long Modifiers
-
-Type sizes are given the `--long` modifier, allowing you to use each type size with a larger line height.
-
-*/
+// Long Modifiers
+// * Type sizes are given the `--long` modifier, allowing you to use each type size with a larger line height.
 
 [class*="text--long"]{
     line-height: $long-line-height;

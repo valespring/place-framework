@@ -1,10 +1,5 @@
-/*!
-
-Cubic-Bezier
-
-* https://matthewlein.com/tools/ceaser
-
-*/
+// Cubic-Bezier
+// * https://matthewlein.com/tools/ceaser
 
 $ease-in: (
 	circ: cubic-bezier(0.600, 0.040, 0.980, 0.335),
@@ -59,26 +54,3 @@ $ease-in-out: (
 		transition: all $transition;
 	}
 }
-
-/*!
-
-Transitions
-
-* Insert transitions here.
-
-* If you want to utilize a `cubic-bezier` transition, simply extend the placeholder class.
-
-* For example, if you wanted `ease-in-out` with `expo`, write `@extend %ease-in-out-expo` to apply the transition to all properties.
-
-* You can also use the map-get function to grab a transition, like so:
-
-`.something {
-	transition: all map-get($ease-in, circ);
-}`
-
-*/
-
-
-
-
-
