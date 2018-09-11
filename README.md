@@ -22,7 +22,7 @@ The premise of BOLT is to have a truly modular and customizable CSS framework wi
 BOLT is meant to be utilized with a task runner of your choice (Gulp, Grunt, Webpack etc.) by lieu of the `includePaths` option in any of the SASS libraries (e.g `gulp-sass`). Include the path in your task before final compilation output.
 
 ## Starter Kit
-For a starter kit utilizing GULP, check out the [BOLT Framework Starter](https://github.com/Woodbolt-International/bolt-framework-starter).
+For a starter kit utilizing Gulp, check out the [BOLT Framework Starter](https://github.com/Woodbolt-International/bolt-framework-starter).
 
 ## Ethos
 
