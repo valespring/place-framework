@@ -9,3 +9,16 @@
 		text-decoration: none;
 	}
 }
+
+%unlink-all-anchor {
+	@at-root ul#{&} {
+		&,
+		&:link,
+		&:hover,
+		&:visited,
+		&:active,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+}
