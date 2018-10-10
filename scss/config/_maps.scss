@@ -36,17 +36,6 @@ $type-quick-colors: (
 	white-text: $white
 ) !default;
 
-// WYSWIYG (Blog) Scale
-// * Use the keys from `type-scale` to set the heading sizes.
-$wysiwyg-scale: (
-	h1: canon-text,
-	h2: paragon-text,
-	h3: primer-text,
-	h4: normal-text,
-	h5: petite-text,
-	h6: minion-text
-) !default;
-
 // Helper Breakpoint Suffixes
 // * Global breakpoint suffixes attached to the corresponding viewport.
 $helper-breakpoints: (

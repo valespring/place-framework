@@ -41,7 +41,6 @@
 @mixin type-size($key, $font-size) {
 	@include size-for-font($font-size);
 	@include line-height-for-font($key, $font-size);
-	//@include lines-for-font-size($font-size, $round);
 }
 
 // Lists

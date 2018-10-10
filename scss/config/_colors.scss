@@ -63,7 +63,7 @@ $quarternary-color: #c0e5e4 !default;
 
 // Link Color Variables
 $primary-link-color: $primary-color !default;
-$primary-link-hover: darken($primary-color, 15%) !default;
+$primary-link-hover: darken($primary-link-color, 15%) !default;
 
 // Table Color Variables
 $table-border-color: $light-grey !default;
