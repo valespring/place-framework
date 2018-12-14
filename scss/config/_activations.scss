@@ -13,6 +13,10 @@ $css-grid: true !default;
 
 $flex-grid: true !default;
 
+// All Grid
+// * Set to `true` to create grid classes with no dependence on viewport.
+$all-grid: false;
+
 // Grid IE Fallback
 // * Set to `true` to have css grid and flex fallback for Edge and older IE versions dating back to IE9. 
 // * Recommended. Use your `$grid-lte9-class` on your `html` element. Edge is targeted through `supports`.

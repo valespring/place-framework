@@ -1,4 +1,4 @@
-BOLT SCSS Framework Documentation
+PLACE SCSS Framework Documentation
 ====
 
 ## Table of Contents
@@ -15,20 +15,20 @@ BOLT SCSS Framework Documentation
 
 ## Introduction
 
-The premise of BOLT is to have a truly modular and customizable CSS framework with minimal markup, devoid of combing through the core for manipulation. This package contains all the core files that are effectively inserted into your development environment.
+The premise of PLACE is to have a truly modular and customizable CSS framework with minimal markup, devoid of combing through the core for manipulation. This package contains all the core files that are effectively inserted into your development environment.
 
 ## Implementation
 
-BOLT is meant to be utilized with a task runner of your choice (Gulp, Grunt, Webpack etc.) by lieu of the `includePaths` option in any of the SASS libraries (e.g `gulp-sass`). Include the path in your task before final compilation output.
+PLACE is meant to be utilized with a task runner of your choice (Gulp, Grunt, Webpack etc.) by lieu of the `includePaths` option in any of the SASS libraries (e.g `gulp-sass`). Include the path in your task before final compilation output.
 
 ## Starter Kit
-For a starter kit utilizing Gulp, check out the [BOLT Framework Starter](https://github.com/Woodbolt-International/bolt-framework-starter).
+For a starter kit utilizing Gulp, check out the [PLACE Framework Starter](https://github.com/Woodbolt-International/bolt-framework-starter).
 
 ## Ethos
 
 ### Placeholders
 
-BOLT is built pretty much entirely on placeholder classes. This allows us to `@extend` such classes to, of course, create our utility classes, while also giving us the flexibility of extending the same class to a custom class name you define. This helps us avoid the constraints of a typical `@extend` use case, and keep our classes isolated of any style creep.
+PLACE is built pretty much entirely on placeholder classes. This allows us to `@extend` such classes to, of course, create our utility classes, while also giving us the flexibility of extending the same class to a custom class name you define. This helps us avoid the constraints of a typical `@extend` use case, and keep our classes isolated of any style creep.
 
 **Source:** [https://www.smashingmagazine.com/2015/05/extending-in-sass-without-mess/](https://www.smashingmagazine.com/2015/05/extending-in-sass-without-mess/)
 
@@ -54,7 +54,7 @@ The name of a class should be descriptive and concise enough to describe its fun
 
 #### OOCSS / BEM
 
-A now established concept, but foreign to a good number of developers, object-oriented CSS displays the relationship of a class by using element and modifier suffixes. Consider the class `.is-hidden-sm`. A seasoned developer will know immediately that this is a hide of some sort in a smaller viewport. While BOLT doesn't employ this for all classes, it is encouraged you leverage this style throughout your project.
+A now established concept, but foreign to a good number of developers, object-oriented CSS displays the relationship of a class by using element and modifier suffixes. Consider the class `.is-hidden-sm`. A seasoned developer will know immediately that this is a hide of some sort in a smaller viewport. While PLACE doesn't employ this for all classes, it is encouraged you leverage this style throughout your project.
 
 **Source:** [https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 
@@ -103,7 +103,7 @@ Variable                       | Description
 
 ### Class Template Patterns
 
-Class template patterns are an exciting feature of BOLT. This will allow you to tailor the output without digging into the core. Patterns utilize the `template-class` function to create a pattern that makes sense for you(r build).
+Class template patterns are an exciting feature of PLACE. This will allow you to tailor the output without digging into the core. Patterns utilize the `template-class` function to create a pattern that makes sense for you(r build).
 
 * B - Base
 * V - Viewport
@@ -324,7 +324,7 @@ A handful of cubic-bezier transitions in both variable and placeholder class for
 ## Grid
 
 ### Intro
-BOLT's grid system utilizes specific viewport targeting. This is to eliminate overrides, such as `!important`, and let the developer decide every single viewport they need the grid active. For example, let's consider a simple scenario where we need a 1/2 column layout in tablet and desktop only. 
+PLACE's grid system utilizes specific viewport targeting. This is to eliminate overrides, such as `!important`, and let the developer decide every single viewport they need the grid active. For example, let's consider a simple scenario where we need a 1/2 column layout in tablet and desktop only. 
 
 ```html
 <div class="row-lg row-md">

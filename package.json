@@ -1,6 +1,6 @@
 {
-  "name": "@nutrabolt/bolt-framework",
-  "version": "1.2.5",
+  "name": "place",
+  "version": "1.2.6",
   "main": "index.js",
   "license": "MIT Open Source",
   "scripts": {
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Woodbolt-International/bolt-framework.git"
+    "url": "git+https://bitbucket.org/valespring/place-framework.git"
   },
   "description": "A modular and flexible CSS framework created for developers, by developers. Includes normal grid, flex grid, and CSS grid options.",
-  "homepage": "https://github.com/Woodbolt-International/bolt-framework#readme",
+  "homepage": "https://bitbucket.org/valespring/place-framework.git#readme",
   "bugs": {
-    "url": "https://github.com/Woodbolt-International/bolt-framework/issues"
+    "url": "https://bitbucket.org/valespring/place-framework.git/issues"
   },
   "author": "Brian Kelley"
 }
