@@ -17,6 +17,19 @@
     box-shadow: none;
 }
 
+@mixin absolute-baseline() {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@mixin absolute-layer() {
+    @include absolute-baseline();
+
+    width: 100%;
+    height: 100%;
+}
+
 @mixin pseudo-clear() {
     content: "";
     width: 0;
@@ -59,14 +72,6 @@
         overflow: visible;
         position: static;
     }
-
-    @at-root body:hover #{&} {
-        a,
-        input,
-        button {
-            display: none;
-        }
-    }
 }
 @mixin show-hidden() {
     width: auto;
@@ -74,12 +79,4 @@
     margin: 0;
     position: relative;
     clip: auto;
-    
-    @at-root body:hover #{&} {
-        a,
-        input,
-        button {
-            display: inline-block;
-        }
-    }
 }

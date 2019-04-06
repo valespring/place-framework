@@ -12,7 +12,6 @@ Buttons
     $button-vertical: 1em * ($button-vertical-padding / $base-text-size);
     $button-side: 1em * ($button-side-padding / $base-text-size);
 
-
     // Baseline
     width: auto;
     height: auto;
@@ -21,10 +20,8 @@ Buttons
     text-align: center;
     text-decoration: none;
     position: relative;
-    -webkit-appearance: none;
-    -webkit-background-clip: padding;
-       -moz-background-clip: padding;
-            background-clip: padding-box;
+    appearance: none;
+    background-clip: padding-box;
     outline: 0;
     border: none;
     overflow: visible;

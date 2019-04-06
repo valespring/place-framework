@@ -11,13 +11,13 @@ The majority will be displayed `block`.
 *,
 *:before,
 *:after {
-
-    // Mixins
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
 }
+
 article,
 aside,
 details,
@@ -54,6 +54,7 @@ audio:not([controls]) {
     display: none;
     height: 0;
 }
+
 [hidden] {
     display: none;
 }

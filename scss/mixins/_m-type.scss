@@ -8,6 +8,10 @@
 	font-size:				#{$rem}rem;
 }
 
+@mixin size-map($map-key) {
+	@include size-for-font(map-get($type-scale, $map-key));
+}
+
 @mixin responsive-type-size ($font-size, $bp: $responsive-type-bp) {
 	$size: ($font-size / ($bp * 0.01) ) * 1;
 

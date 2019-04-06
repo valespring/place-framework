@@ -1,11 +1,13 @@
 form {
     margin: 0;
 }
+
 fieldset {
     border: none;
     margin: 0;
     padding: 0;
 }
+
 legend {
     width: 100%;
     border: 0;
@@ -13,6 +15,7 @@ legend {
     display: block;
     white-space: normal;
 }
+
 button,
 input,
 select,
@@ -21,6 +24,7 @@ textarea {
     margin: 0;
     display: block;
 }
+
 button,
 html input[type="button"],
 input[type="reset"],
@@ -29,6 +33,7 @@ input[type="submit"] {
     display: inline-block;
     cursor: pointer;
 }
+
 button,
 input {
     line-height: normal;
@@ -41,6 +46,7 @@ input {
         padding: 0;
     }
 }
+
 input {
     &[type="checkbox"],
     &[type="radio"] {
@@ -59,6 +65,7 @@ input {
         }
     }
 }
+
 textarea {
     overflow: auto;
     vertical-align: top;
