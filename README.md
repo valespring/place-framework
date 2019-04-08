@@ -1,3 +1,6 @@
+![Place Framework Logo](https://raw.github.com/valespring/place-framework/logo.svg?sanitize=true)
+<img src="https://raw.github.com/valespring/place-framework/logo.svg?sanitize=true">
+
 PLACE SCSS Framework Documentation
 ====
 
@@ -20,9 +23,6 @@ The premise of PLACE is to have a truly modular and customizable CSS framework w
 ## Implementation
 
 PLACE is meant to be utilized with a task runner of your choice (Gulp, Grunt, Webpack etc.) by lieu of the `includePaths` option in any of the SASS libraries (e.g `gulp-sass`). Include the path in your task before final compilation output.
-
-## Starter Kit
-For a starter kit utilizing Gulp, check out the [PLACE Framework Starter](https://github.com/Woodbolt-International/bolt-framework-starter).
 
 ## Ethos
 

@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/valespring/place-framework.git"
+    "url": "https://github.com/valespring/place-framework.git"
   },
   "description": "A modular and flexible CSS framework created for developers, by developers. Includes normal grid, flex grid, and CSS grid options.",
-  "homepage": "https://bitbucket.org/valespring/place-framework.git#readme",
+  "homepage": "https://github.com/valespring/place-framework.git#readme",
   "bugs": {
-    "url": "https://bitbucket.org/valespring/place-framework.git/issues"
+    "url": "https://github.com/valespring/place-framework/issues"
   },
   "author": "Brian Kelley"
 }
