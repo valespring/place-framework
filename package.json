@@ -1,6 +1,6 @@
 {
   "name": "place",
-  "version": "1.3",
+  "version": "1.0.0",
   "main": "index.js",
   "license": "MIT Open Source",
   "scripts": {
@@ -12,6 +12,12 @@
   },
   "description": "A modular and flexible CSS framework created for developers, by developers. Includes normal grid, flex grid, and CSS grid options.",
   "homepage": "https://github.com/valespring/place-framework.git#readme",
+  "keywords": [
+    "modular scss framework",
+    "placeholder classes",
+    "scss framework",
+    "place framework"
+  ],
   "bugs": {
     "url": "https://github.com/valespring/place-framework/issues"
   },
