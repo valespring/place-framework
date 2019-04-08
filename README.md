@@ -1,4 +1,6 @@
-![Place Framework Logo](https://raw.githubusercontent.com/valespring/place-framework/master/logo.svg?sanitize=true)
+
+
+<img src="https://raw.githubusercontent.com/valespring/place-framework/master/logo.svg?sanitize=true" alt="Place Framework Logo" width="250.42" height="99.42">
 
 PLACE SCSS Framework Documentation
 ====
