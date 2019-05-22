@@ -149,14 +149,14 @@
         @include grid-item-lte9();
     }
 
-    %#{$identifier}-flex-display {
-        display: flex;
-    }
-
     %#{$identifier}-flex-wrap {
         @include grid-flex-wrap();
     }
 
+    %#{$identifier}-flex-display {
+        display: flex;
+    }
+    
     %#{$identifier}-flex-column {
         flex-direction: column;
     }
