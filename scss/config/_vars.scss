@@ -7,10 +7,14 @@ $double-side: 1em * ($base-margin / $base-text-size) !default;
 
 // Horizontal Margins Minus Border
 
-$full-side-bordered: 1em * ((($base-margin / 2) - $default-border-width) / $base-text-size) !default;
-$half-side-bordered: 1em * ((($base-margin / 4) - $default-border-width) / $base-text-size) !default;
-$quarter-side-bordered: 1em * ((($base-margin / 8) - $default-border-width) / $base-text-size) !default;
-$double-side-bordered: 1em * (($base-margin - $default-border-width) / $base-text-size) !default;
+$full-side-bordered: 1em *
+    ((($base-margin / 2) - $default-border-width) / $base-text-size) !default;
+$half-side-bordered: 1em *
+    ((($base-margin / 4) - $default-border-width) / $base-text-size) !default;
+$quarter-side-bordered: 1em *
+    ((($base-margin / 8) - $default-border-width) / $base-text-size) !default;
+$double-side-bordered: 1em *
+    (($base-margin - $default-border-width) / $base-text-size) !default;
 
 // Vertical Margins
 
@@ -22,7 +26,11 @@ $double-vertical: 1em * (($base-vertical * 2) / $base-text-size) !default;
 
 // Vertical Margins Minus Border
 
-$full-vertical-bordered: 1em * (($base-vertical - $default-border-width) / $base-text-size) !default;
-$half-vertical-bordered: 1em * ((($base-vertical / 2) - $default-border-width) / $base-text-size) !default;
-$quarter-vertical-bordered: 1em * ((($base-vertical / 4) - $default-border-width) / $base-text-size) !default;
-$double-vertical-bordered: 1em * ((($base-vertical * 2) - $default-border-width) / $base-text-size) !default;
+$full-vertical-bordered: 1em *
+    (($base-vertical - $default-border-width) / $base-text-size) !default;
+$half-vertical-bordered: 1em *
+    ((($base-vertical / 2) - $default-border-width) / $base-text-size) !default;
+$quarter-vertical-bordered: 1em *
+    ((($base-vertical / 4) - $default-border-width) / $base-text-size) !default;
+$double-vertical-bordered: 1em *
+    ((($base-vertical * 2) - $default-border-width) / $base-text-size) !default;

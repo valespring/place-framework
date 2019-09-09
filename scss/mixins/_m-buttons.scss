@@ -1,5 +1,4 @@
-@mixin m-button-color($background, $border, $color: $white )  {
-    
+@mixin m-button-color($background, $border, $color: $white) {
     background-color: $background;
     border-color: $border;
 

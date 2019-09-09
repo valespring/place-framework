@@ -7,7 +7,6 @@ Fieldsets
 */
 
 .fieldset {
-
     // Mixins
     @include margin-leader(1);
     @include padding-trailer(1);

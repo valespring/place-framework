@@ -7,7 +7,6 @@ Buttons
 */
 
 [class*="#{$button-class-prefix}"] {
-
     // Variables
     $button-vertical: 1em * ($button-vertical-padding / $base-text-size);
     $button-side: 1em * ($button-side-padding / $base-text-size);
@@ -28,9 +27,8 @@ Buttons
     cursor: pointer;
     vertical-align: middle;
     display: inline-block;
-    text-align: center; 
+    text-align: center;
     padding: $button-vertical $button-side;
-    
+
     @include margin-leader();
 }
-

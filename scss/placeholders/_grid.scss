@@ -1,26 +1,26 @@
-// Mobile 
+// Mobile
 @media #{$small-screens-max} {
-    @include create-grid-placeholders( 
-        $grid-viewport-mobile-identifier, 
-        $mobile-columns, 
-        $mobile-margin 
+    @include create-grid-placeholders(
+        $grid-viewport-mobile-identifier,
+        $mobile-columns,
+        $mobile-margin
     );
 }
 
 // Tablet
 @media #{$medium-screens-only} {
-    @include create-grid-placeholders( 
-        $grid-viewport-tablet-identifier, 
-        $tablet-columns, 
-        $tablet-margin 
+    @include create-grid-placeholders(
+        $grid-viewport-tablet-identifier,
+        $tablet-columns,
+        $tablet-margin
     );
 }
 
 // Desktop
 @media #{$large-screens-min} {
-    @include create-grid-placeholders( 
-        $grid-viewport-desktop-identifier, 
-        $total-columns, 
-        $base-margin 
+    @include create-grid-placeholders(
+        $grid-viewport-desktop-identifier,
+        $total-columns,
+        $base-margin
     );
 }

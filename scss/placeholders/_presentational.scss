@@ -42,7 +42,7 @@
 // Floats
 
 %float-left {
-    float:left;
+    float: left;
 }
 
 %float-center {
@@ -51,11 +51,11 @@
 }
 
 %float-right {
-    float:right;
+    float: right;
 }
 
 %float-none {
-    float:none;
+    float: none;
 }
 
 %clear {
@@ -137,7 +137,6 @@
 // Media Query Helpers
 
 @each $breakpoint, $suffix in $helper-breakpoints {
-
     @media #{$breakpoint} {
         // Display
         %display-block-#{$suffix} {
@@ -168,7 +167,7 @@
 
         // Floats
         %float-left-#{$suffix} {
-            float:left;
+            float: left;
         }
 
         %float-center-#{$suffix} {
@@ -177,10 +176,10 @@
         }
 
         %float-right-#{$suffix} {
-            float:right;
+            float: right;
         }
 
-        // Flex 
+        // Flex
         %flex-display-#{$suffix} {
             display: flex;
         }
@@ -188,7 +187,7 @@
         %flex-grow-#{$suffix} {
             flex-grow: 1;
         }
-        
+
         %justify-start-#{$suffix} {
             justify-content: start;
         }
@@ -208,5 +207,5 @@
         %justify-space-between-#{$suffix} {
             justify-content: space-between;
         }
-    } 
+    }
 }

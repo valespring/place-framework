@@ -26,7 +26,7 @@
 }
 
 // Floats
-// * Glub glub glub. Like it sounds. 
+// * Glub glub glub. Like it sounds.
 
 .float-left {
     @extend %float-left;
@@ -106,10 +106,9 @@ Inline Block
 }
 
 @if flex-helpers {
+    // Flex Helpers
 
-// Flex Helpers
-
-// * Misc. flex helpers along with justify, for justifying the content inside the element.
+    // * Misc. flex helpers along with justify, for justifying the content inside the element.
 
     .flex-display {
         @extend %flex-display;
@@ -140,13 +139,10 @@ Inline Block
     }
 }
 
-
 @if $viewport-helpers {
-
-// Media Query Helpers
+    // Media Query Helpers
 
     @each $breakpoint, $suffix in $helper-breakpoints {
-
         @media #{$breakpoint} {
             // Display
             .display-block-#{$suffix} {
@@ -156,7 +152,7 @@ Inline Block
             .inline-block-#{$suffix} {
                 @extend %inline-block-#{$suffix};
             }
-            
+
             // Hides
             .is-hidden-#{$suffix} {
                 @extend %is-hidden-#{$suffix};
@@ -188,7 +184,7 @@ Inline Block
                 @extend %float-right-#{$suffix};
             }
 
-            // Flex 
+            // Flex
 
             @if flex-helpers {
                 .flex-display-#{$suffix} {
@@ -198,7 +194,7 @@ Inline Block
                 .flex-grow-#{$suffix} {
                     @extend %flex-grow-#{$suffix};
                 }
-                
+
                 .justify-start-#{$suffix} {
                     @extend %justify-start-#{$suffix};
                 }
@@ -219,6 +215,6 @@ Inline Block
                     @extend %justify-space-between-#{$suffix};
                 }
             }
-        } 
+        }
     }
 }

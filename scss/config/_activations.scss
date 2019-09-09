@@ -1,5 +1,5 @@
 // Default Grid
-// * Set to `true` to utilize the default grid with floats. 
+// * Set to `true` to utilize the default grid with floats.
 // * Recommended.
 $default-grid: true !default;
 
@@ -14,7 +14,7 @@ $css-grid: true !default;
 $flex-grid: true !default;
 
 // Grid IE Fallback
-// * Set to `true` to have css grid and flex fallback for Edge and older IE versions dating back to IE9. 
+// * Set to `true` to have css grid and flex fallback for Edge and older IE versions dating back to IE9.
 // * Recommended. Use your `$grid-lte9-class` on your `html` element. Edge is targeted through `supports`.
 
 $grid-ie-fallback: false !default;
@@ -35,7 +35,7 @@ $viewport-helpers: true !default;
 $flex-helpers: true !default;
 
 // Spacing Helpers
-// * Set to `true` to have spacing helpers to quickly add margin or padding to an element. 
+// * Set to `true` to have spacing helpers to quickly add margin or padding to an element.
 // * Recommended, at least at the beginning of a project.
 
 $spacing-helpers: true !default;
@@ -50,3 +50,8 @@ $type-viewport-helpers: false !default;
 // * Set to `true` to activate helper classes like `white-text` from the map `type-quick-colors`.
 
 $type-color-helpers: true !default;
+
+// Automatic responsive Tables
+// * Set to `true` to activate automatic responsive tables.
+
+$auto-responsive-tables: true !default;

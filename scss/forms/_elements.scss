@@ -3,9 +3,8 @@
 input,
 textarea,
 select {
-
     border: solid 1px $input-border-color;
-    
+
     @if $input-border-radius > 0 {
         border-radius: px($input-border-radius);
     }
@@ -24,7 +23,7 @@ select {
     &:hover,
     &:focus,
     &:active {
-        z-index: 1;        
+        z-index: 1;
     }
 }
 
@@ -47,11 +46,11 @@ select {
 // Style Placeholders
 @include placeholder {
     color: $input-placeholder-color;
-};
+}
 
 // Create Input Static Sizes
 @each $size, $value in $input-static-widths {
     .input--#{$size} {
         max-width: px($value);
     }
-};
+}

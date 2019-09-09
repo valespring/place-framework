@@ -6,29 +6,29 @@ Grid
 
 */
 
-// Mobile 
+// Mobile
 @media #{$small-screens-max} {
-    @include create-grid( 
-        $grid-viewport-mobile-identifier, 
-        $mobile-columns, 
+    @include create-grid(
+        $grid-viewport-mobile-identifier,
+        $mobile-columns,
         $mobile-margin
     );
 }
 
 // Tablet
 @media #{$medium-screens-only} {
-    @include create-grid( 
-        $grid-viewport-tablet-identifier, 
-        $tablet-columns, 
+    @include create-grid(
+        $grid-viewport-tablet-identifier,
+        $tablet-columns,
         $tablet-margin
     );
 }
 
 // Desktop
 @media #{$large-screens-min} {
-    @include create-grid( 
-        $grid-viewport-desktop-identifier, 
-        $total-columns, 
+    @include create-grid(
+        $grid-viewport-desktop-identifier,
+        $total-columns,
         $base-margin
     );
 }

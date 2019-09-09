@@ -5,7 +5,7 @@ $spacing-positions: (
     t: top,
     r: right,
     b: bottom,
-    l: left
+    l: left,
 );
 
 // Spacing Combined
@@ -14,7 +14,7 @@ $spacing-positions: (
 $spacing-combined: (
     v: vertical,
     h: horizontal,
-    a: all
+    a: all,
 );
 
 // Spacing Values
@@ -24,5 +24,5 @@ $spacing-values: (
     n: 0,
     s: 10,
     m: 20,
-    l: 30
+    l: 30,
 );

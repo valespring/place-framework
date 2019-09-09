@@ -61,7 +61,6 @@ ul {
 li {
     ul,
     ol {
-
         // Mixins
         @include margin-vertical(0.5);
     }

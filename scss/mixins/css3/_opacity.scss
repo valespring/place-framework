@@ -1,9 +1,8 @@
-@mixin opacity($opacity: 1.0)	{
+@mixin opacity($opacity: 1) {
+    // Variables
+    $ie-opacity: $opacity * 100;
 
-	// Variables
-	$ie-opacity:			$opacity * 100;
-
-	// Create
-    opacity:				$opacity;
-	filter:					"alpha(opacity=#{$ie-opacity})";
+    // Create
+    opacity: $opacity;
+    filter: "alpha(opacity=#{$ie-opacity})";
 }

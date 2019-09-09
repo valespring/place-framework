@@ -2,21 +2,17 @@
 // * Generate helper classes based on the SASS map.
 
 @if $type-viewport-helpers {
-
-	@each $breakpoint, $suffix in $type-helper-breakpoints {
-
-	    @media #{$breakpoint} {
-
-			// Hierarchy List Classes
-			@each $size, $value in $type-scale {
-				.#{$size}-#{$suffix} {
-					@extend %#{$size}-#{$suffix};
-				}
-			}
-		}
-	}
+    @each $breakpoint, $suffix in $type-helper-breakpoints {
+        @media #{$breakpoint} {
+            // Hierarchy List Classes
+            @each $size, $value in $type-scale {
+                .#{$size}-#{$suffix} {
+                    @extend %#{$size}-#{$suffix};
+                }
+            }
+        }
+    }
 }
-
 
 // Font Colors
 // * Generate helper classes based on the SASS map.

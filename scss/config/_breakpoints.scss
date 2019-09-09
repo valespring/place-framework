@@ -4,18 +4,18 @@ $bp-medium-width: 768 !default;
 $bp-large-width: 992 !default;
 $bp-x-large-width: 1240 !default;
 
-// Responsive Type 
+// Responsive Type
 $responsive-type-bp: $bp-large-width !default;
 
 // Breakpoint min and max values
-$mq-base-max: ( 1em * ( ( $bp-small-width - 1 ) / 16 ) ) !default;
-$mq-small-min: ( 1em * ( $bp-small-width / 16 ) ) !default;
-$mq-small-max: ( 1em * ( ( $bp-medium-width - 1 ) / 16 ) ) !default;
-$mq-medium-min: ( 1em * ( $bp-medium-width / 16 ) ) !default;
-$mq-medium-max: ( 1em * ( ( $bp-large-width - 1 ) / 16 ) ) !default;
-$mq-large-min: ( 1em * ( $bp-large-width / 16 ) ) !default;
-$mq-large-max: ( 1em * ( ( $bp-x-large-width - 1 ) / 16 ) ) !default;
-$mq-x-large-min: ( 1em * ( $bp-x-large-width / 16 ) ) !default;
+$mq-base-max: (1em * (($bp-small-width - 1) / 16)) !default;
+$mq-small-min: (1em * ($bp-small-width / 16)) !default;
+$mq-small-max: (1em * (($bp-medium-width - 1) / 16)) !default;
+$mq-medium-min: (1em * ($bp-medium-width / 16)) !default;
+$mq-medium-max: (1em * (($bp-large-width - 1) / 16)) !default;
+$mq-large-min: (1em * ($bp-large-width / 16)) !default;
+$mq-large-max: (1em * (($bp-x-large-width - 1) / 16)) !default;
+$mq-x-large-min: (1em * ($bp-x-large-width / 16)) !default;
 
 // Base
 $base-screens-max: "all and (max-width: #{$mq-base-max})" !default;

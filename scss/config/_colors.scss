@@ -1,6 +1,6 @@
 // Blacks
 $black: #000 !default;
-$light-black: lighten( $black, 15% ) !default;
+$light-black: lighten($black, 15%) !default;
 
 // Greys
 $grey: #a9a6a7 !default;
@@ -48,7 +48,7 @@ $dark-white: darken($white, 15%) !default;
 
 // Brand Colors
 $facebook-blue: #3b5998 !default;
-$linkedin-blue: #0077B5 !default;
+$linkedin-blue: #0077b5 !default;
 $twitter-blue: #00a0d1 !default;
 $pinterest-red: #c92228 !default;
 $youtube-red: #bb0000 !default;

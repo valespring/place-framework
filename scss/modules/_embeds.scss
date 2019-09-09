@@ -7,14 +7,14 @@
 .embed-container {
     @extend %relative-container;
 
-     &:before {
+    &:before {
         content: "";
 
         // Extend display block
         @extend %display-block;
 
         // Vars
-        $landscape-ratio: ( 100% * ( 9 / 16 ) );
+        $landscape-ratio: (100% * (9 / 16));
 
         // Style
         padding-top: $landscape-ratio;

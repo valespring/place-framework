@@ -1,5 +1,6 @@
 {
   "name": "place-framework",
+  "author": "Brian Kelley",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT Open Source",
@@ -21,7 +22,10 @@
   "bugs": {
     "url": "https://github.com/valespring/place-framework/issues"
   },
-  "author": "Brian Kelley",
+  "scripts": {
+    "check": "prettier --check \"scss/**/*.scss\"",
+    "format": "prettier --write \"scss/**/*.scss\""
+  },
   "devDependencies": {
     "prettier": "1.18.2"
   }

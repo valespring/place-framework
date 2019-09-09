@@ -2,17 +2,15 @@
 // * Generate helper classes based on the SASS map.
 
 @each $breakpoint, $suffix in $type-helper-breakpoints {
-
     @media #{$breakpoint} {
-
-		// Hierarchy List Classes
-		@each $size, $value in $type-scale {
-			// Create placeholder class and class
-			%#{$size}-#{$suffix} {
-		  		@include type-size( $size, $value );
-		  	}
-		}
-	}
+        // Hierarchy List Classes
+        @each $size, $value in $type-scale {
+            // Create placeholder class and class
+            %#{$size}-#{$suffix} {
+                @include type-size($size, $value);
+            }
+        }
+    }
 }
 
 // Font Colors
@@ -28,10 +26,10 @@
 // Type Sizes
 // * Generate sizes from type scale.
 @each $size, $value in $type-scale {
-	// Create placeholder class and class
-	%#{$size} {
-  		@include type-size( $size, $value );
-  	}
+    // Create placeholder class and class
+    %#{$size} {
+        @include type-size($size, $value);
+    }
 }
 
 // Font Styles

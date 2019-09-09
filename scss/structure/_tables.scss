@@ -44,50 +44,52 @@ table {
     max-width: 100%;
 }
 
-th,
-td {
-    padding: $half-vertical $half-side;
-    text-align: left;
-}
-
-@media #{$small-screens-max} {
-    table {
-        display: block;
-        width: 100%;
-    }
-
-    tbody,
-    tr,
+@if $auto-responsive-tables {
     th,
     td {
-        border: 0;
-        display: block;
-        padding: 0;
+        padding: $half-vertical $half-side;
         text-align: left;
-        white-space: normal;
     }
-    thead {
-        display: none;
-        visibility: hidden;
-    }
-    tr {
-        @include margin-leader();
-    }
-    td[data-th] {
-        &:before {
-            content: attr( data-th ) ":\00A0";
-            display: inline-block;
-            font-weight: bold;
-        }
-        &:empty {
-            display: none;
-        }
-    }
-}
 
-@media #{$medium-screens-min} {
-    th,
-    td {
-        padding: $half-vertical $full-side;
+    @media #{$small-screens-max} {
+        table {
+            display: block;
+            width: 100%;
+        }
+
+        tbody,
+        tr,
+        th,
+        td {
+            border: 0;
+            display: block;
+            padding: 0;
+            text-align: left;
+            white-space: normal;
+        }
+        thead {
+            display: none;
+            visibility: hidden;
+        }
+        tr {
+            @include margin-leader();
+        }
+        td[data-th] {
+            &:before {
+                content: attr(data-th) ":\00A0";
+                display: inline-block;
+                font-weight: bold;
+            }
+            &:empty {
+                display: none;
+            }
+        }
+    }
+
+    @media #{$medium-screens-min} {
+        th,
+        td {
+            padding: $half-vertical $full-side;
+        }
     }
 }

@@ -1,4 +1,4 @@
-// Font Family 
+// Font Family
 .primary-font {
     font-family: $primary-font;
 }
@@ -45,7 +45,7 @@ h6 {
     font-family: $heading-font;
 }
 
- body,
+body,
 .body-text {
     // Extends
     @extend %normal-text;

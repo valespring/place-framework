@@ -25,8 +25,7 @@
 
 // Grid Row
 
-@mixin grid-row($mar: $base-margin)    {
-
+@mixin grid-row($mar: $base-margin) {
     // Variables
     $grid-margin: 1em * (($mar / 2) / $base-text-size);
 
@@ -37,14 +36,13 @@
 
 // Grid Columns
 
-@mixin grid-column($float: left)  {
+@mixin grid-column($float: left) {
     display: inline;
     float: $float;
 }
 // Grid Padding
 
-@mixin grid-item-padding($mar: $base-margin)   {
-    
+@mixin grid-item-padding($mar: $base-margin) {
     // Variables
     $grid-margin: 1em * (($mar / 2) / $base-text-size);
 
@@ -75,7 +73,7 @@
     box-flex: 1;
     flex-grow: 1;
     flex-shrink: 0;
-    float:none;
+    float: none;
 }
 
 @mixin grid-wrap-lte9 {
@@ -96,15 +94,14 @@
     text-rendering: auto;
 }
 
-@mixin create-grid-placeholders( $prefix, $columns, $margin ) {
+@mixin create-grid-placeholders($prefix, $columns, $margin) {
     // Create Placeholders
-    @include grid-display-placeholders( $prefix, $margin );
-    @include grid-width-placeholders( $prefix, $columns);
-    @include css-grid-placeholders( $prefix, $columns );
+    @include grid-display-placeholders($prefix, $margin);
+    @include grid-width-placeholders($prefix, $columns);
+    @include css-grid-placeholders($prefix, $columns);
 }
 
-@mixin grid-display-placeholders ( $identifier, $margin ) {
-
+@mixin grid-display-placeholders($identifier, $margin) {
     // Default Grid Placeholders
     %#{$identifier}-grid-column-item {
         @include grid-item-padding($margin);
@@ -156,7 +153,7 @@
     %#{$identifier}-flex-display {
         display: flex;
     }
-    
+
     %#{$identifier}-flex-column {
         flex-direction: column;
     }
@@ -171,33 +168,31 @@
     }
 }
 
-
-@mixin create-quick-css-grid ( $class, $margin ) {
+@mixin create-quick-css-grid($class, $margin) {
     @each $prefix, $value in $quick-grid-map {
         // Class Variable
-        $quick-css-grid-class: template-class( 
-            $quick-css-grid-wrapper-pattern, 
-            $base: $class, 
+        $quick-css-grid-class: template-class(
+            $quick-css-grid-wrapper-pattern,
+            $base: $class,
             $total: $prefix
         );
 
-        $gap-css-grid-class: template-class( 
-            $quick-css-grid-gap-pattern, 
-            $base: $class, 
+        $gap-css-grid-class: template-class(
+            $quick-css-grid-gap-pattern,
+            $base: $class,
             $total: $prefix,
             $modifier: $grid-gap-modifier
         );
 
         // Classes
         .#{$quick-css-grid-class},
-        .#{$gap-css-grid-class} {   
+        .#{$gap-css-grid-class} {
             grid-template-columns: repeat($value, 1fr);
         }
     }
 }
 
-@mixin css-grid-placeholders ( $prefix, $columns ) {
-
+@mixin css-grid-placeholders($prefix, $columns) {
     // Loop Generics
     @for $r from 1 through $css-grid-max-rows {
         %#{$prefix}-grid-row-#{$r} {
@@ -249,7 +244,7 @@
     }
 }
 
-@mixin grid-width-placeholders ( $identifier, $columns ) {
+@mixin grid-width-placeholders($identifier, $columns) {
     $col-widths: ();
 
     @for $t from 1 through $columns {
@@ -284,32 +279,29 @@
             $w: ($p/$t);
 
             // Class
-            $grid-column-width-class: template-class( 
-                $grid-column-width-pattern, 
-                $base: $grid-column-identifier, 
+            $grid-column-width-class: template-class(
+                $grid-column-width-pattern,
+                $base: $grid-column-identifier,
                 $viewport: $identifier,
                 $partial: $p,
                 $total: $t
             );
 
-            $grid-full-column-width-class: template-class( 
-                $grid-concise-column-width-pattern, 
-                $base: $grid-column-identifier, 
+            $grid-full-column-width-class: template-class(
+                $grid-concise-column-width-pattern,
+                $base: $grid-column-identifier,
                 $viewport: $identifier,
                 $modifier: $grid-full-modifier
             );
 
             .#{$container-class} {
-
                 @if not index($col-widths, $w) {
-
                     @if $p != $t {
                         @each $fraction, $value in $quick-grid-widths {
-
                             // Class
-                            $grid-fraction-column-width-class: template-class( 
-                                $grid-concise-column-width-pattern, 
-                                $base: $grid-column-identifier, 
+                            $grid-fraction-column-width-class: template-class(
+                                $grid-concise-column-width-pattern,
+                                $base: $grid-column-identifier,
                                 $viewport: $identifier,
                                 $modifier: $fraction
                             );
@@ -328,7 +320,7 @@
                             @extend %#{$identifier}-#{$grid-flex-modifier}-1-1;
                         }
                     }
-                } 
+                }
 
                 $col-widths: append($col-widths, $w, comma);
             }
@@ -373,17 +365,17 @@
             $w: ($p/$t);
 
             // Class
-            $grid-width-class: template-class( 
-                $grid-width-pattern, 
-                $base: $grid-column-identifier, 
+            $grid-width-class: template-class(
+                $grid-width-pattern,
+                $base: $grid-column-identifier,
                 $viewport: $identifier,
                 $partial: $p,
                 $total: $t
             );
 
-            $grid-column-width-class: template-class( 
-                $grid-column-width-pattern, 
-                $base: $grid-column-identifier, 
+            $grid-column-width-class: template-class(
+                $grid-column-width-pattern,
+                $base: $grid-column-identifier,
                 $viewport: $identifier,
                 $partial: $p,
                 $total: $t
@@ -392,7 +384,6 @@
             // Loop
             @if not index($col-widths, $w) {
                 @if $p != $t {
-
                     .#{$grid-width-class},
                     .#{$grid-column-width-class} {
                         width: $w * 100%;
@@ -405,18 +396,17 @@
                     //$col-widths: append($col-widths, $w, comma);
 
                     @each $fraction, $value in $quick-grid-widths {
-
                         // Class
-                        $grid-quick-width-class: template-class( 
-                            $grid-quick-width-pattern, 
-                            $base: $grid-column-identifier, 
+                        $grid-quick-width-class: template-class(
+                            $grid-quick-width-pattern,
+                            $base: $grid-column-identifier,
                             $viewport: $identifier,
                             $total: $fraction
                         );
 
-                        $grid-quick-column-width-class: template-class( 
-                            $grid-quick-column-width-pattern, 
-                            $base: $grid-column-identifier, 
+                        $grid-quick-column-width-class: template-class(
+                            $grid-quick-column-width-pattern,
+                            $base: $grid-column-identifier,
                             $viewport: $identifier,
                             $total: $fraction
                         );
@@ -426,9 +416,8 @@
                             .#{$grid-quick-column-width-class} {
                                 @extend .#{$grid-width-class};
                             }
-                        } 
+                        }
                     }
-                    
                 } @else {
                     .#{$identifier}-full,
                     .#{$grid-column-identifier}-#{$identifier}-full {
@@ -438,66 +427,68 @@
                 }
             }
 
-             $col-widths: append($col-widths, $w, comma);
+            $col-widths: append($col-widths, $w, comma);
         }
-
     }
 }
 
-@mixin create-grid ( $grid-viewport-identifier, $grid-columns: $total-columns, $grid-margin: $base-margin ) {
-    
+@mixin create-grid(
+    $grid-viewport-identifier,
+    $grid-columns: $total-columns,
+    $grid-margin: $base-margin
+) {
     // Row Class Name Variables
-    $grid-row-class: template-class( 
-        $grid-row-pattern, 
-        $base: $grid-row-identifier, 
+    $grid-row-class: template-class(
+        $grid-row-pattern,
+        $base: $grid-row-identifier,
         $viewport: $grid-viewport-identifier
     );
 
-    $grid-row-ltr-class: template-class( 
-        $grid-orientation-pattern, 
-        $base: $grid-row-identifier, 
+    $grid-row-ltr-class: template-class(
+        $grid-orientation-pattern,
+        $base: $grid-row-identifier,
         $viewport: $grid-viewport-identifier,
         $modifier: $grid-ltr-modifier
     );
 
-    $grid-row-rtl-class: template-class( 
-        $grid-orientation-pattern, 
-        $base: $grid-row-identifier, 
+    $grid-row-rtl-class: template-class(
+        $grid-orientation-pattern,
+        $base: $grid-row-identifier,
         $viewport: $grid-viewport-identifier,
         $modifier: $grid-rtl-modifier
     );
 
     // Column Class Name Variables
-    $grid-column-class: template-class( 
-        $grid-column-pattern, 
-        $base: $grid-column-identifier, 
+    $grid-column-class: template-class(
+        $grid-column-pattern,
+        $base: $grid-column-identifier,
         $viewport: $grid-viewport-identifier
     );
 
     // Flex Class
-    $flex-grid-row-class: template-class( 
-        $flex-grid-row-pattern, 
-        $base: $grid-row-identifier, 
+    $flex-grid-row-class: template-class(
+        $flex-grid-row-pattern,
+        $base: $grid-row-identifier,
         $viewport: $grid-viewport-identifier,
         $modifier: $grid-flex-modifier
     );
 
-    $flex-flush-grid-row-class: template-class( 
-        $flex-grid-row-pattern, 
-        $base: $grid-row-identifier, 
+    $flex-flush-grid-row-class: template-class(
+        $flex-grid-row-pattern,
+        $base: $grid-row-identifier,
         $viewport: $grid-viewport-identifier,
         $modifier: $grid-flex-flush-modifier
     );
 
     // CSS Grid Name Variables
-    $css-grid-wrapper-class: template-class( 
-        $css-grid-wrapper-pattern, 
-        $base: $css-grid-identifier, 
+    $css-grid-wrapper-class: template-class(
+        $css-grid-wrapper-pattern,
+        $base: $css-grid-identifier,
         $viewport: $grid-viewport-identifier
     );
 
     // Widths
-    @include create-grid-widths( $grid-viewport-identifier, $grid-columns );
+    @include create-grid-widths($grid-viewport-identifier, $grid-columns);
 
     @if $default-grid {
         [class*="#{$grid-row-class}"] {
@@ -538,14 +529,14 @@
 
     // Offset
     @if $offset-grid {
-        @include create-grid-offsets( $grid-viewport-identifier, $grid-columns );
+        @include create-grid-offsets($grid-viewport-identifier, $grid-columns);
     }
 
     // CSS Grid
     @if $css-grid {
         // Variables
         $gap: 1em * (($css-grid-gap / 2) / $base-text-size) / 2;
-        
+
         // Set Baseline
         [class*="#{$css-grid-wrapper-class}"] {
             // Extend
@@ -562,11 +553,10 @@
         }
 
         // Quick Grid
-        @include create-quick-css-grid( $css-grid-wrapper-class, $grid-margin );
+        @include create-quick-css-grid($css-grid-wrapper-class, $grid-margin);
     }
 
     @if $flex-grid {
-
         // Flex Display Row
         .#{$flex-grid-row-class},
         .#{$flex-flush-grid-row-class} {
@@ -585,11 +575,9 @@
         }
 
         // Set the flex item base
-        .#{$flex-grid-row-class},   
+        .#{$flex-grid-row-class},
         .#{$flex-flush-grid-row-class} {
-
             > [class*="#{$grid-column-class}"] {
-
                 // Extend placeholders
                 @extend %#{$grid-viewport-identifier}-grid-flex-item;
                 @extend %#{$grid-viewport-identifier}-flex-display;
@@ -600,17 +588,15 @@
 
     // Fallbacks
     @if $grid-ie-fallback {
-
         // Class Target
         .#{$grid-lte9-class} {
-
             // Flex
             .#{$flex-grid-row-class},
             .#{$flex-flush-grid-row-class} {
                 @extend %#{$grid-viewport-identifier}-grid-wrap-lte9;
 
                 > [class*="#{$grid-column-class}"] {
-                   @extend %#{$grid-viewport-identifier}-grid-item-lte9;
+                    @extend %#{$grid-viewport-identifier}-grid-item-lte9;
                 }
             }
 
@@ -625,15 +611,15 @@
 
             // Quick CSS Grid
             @each $identifier, $value in $quick-grid-map {
-                $quick-css-grid-class: template-class( 
-                    $quick-css-grid-wrapper-pattern, 
-                    $base: $css-grid-wrapper-class, 
+                $quick-css-grid-class: template-class(
+                    $quick-css-grid-wrapper-pattern,
+                    $base: $css-grid-wrapper-class,
                     $total: $identifier
                 );
 
-                $gap-css-grid-class: template-class( 
-                    $quick-css-grid-gap-pattern, 
-                    $base: $css-grid-wrapper-class, 
+                $gap-css-grid-class: template-class(
+                    $quick-css-grid-gap-pattern,
+                    $base: $css-grid-wrapper-class,
                     $total: $identifier,
                     $modifier: $grid-gap-modifier
                 );
@@ -644,7 +630,7 @@
                     @extend %#{$grid-viewport-identifier}-clear-list;
 
                     > * {
-                        width: percentage( 1 / $value );
+                        width: percentage(1 / $value);
                     }
                 }
 
@@ -660,26 +646,27 @@
         }
 
         // Variables
-        $ie-10-target: all and (-ms-high-contrast: none), (-ms-high-contrast: active);
+        $ie-10-target: all and (-ms-high-contrast: none),
+            (-ms-high-contrast: active);
         $ie-13-14-target: (-ms-ime-align: auto);
 
         // IE 10+
-        @include target-ie-edge-fallbacks( 
-            $type: media, 
+        @include target-ie-edge-fallbacks(
+            $type: media,
             $query: $ie-10-target,
             $target-wrapper-class: $css-grid-wrapper-class
         );
 
         // IE 13/14
-        @include target-ie-edge-fallbacks( 
-            $type: supports, 
+        @include target-ie-edge-fallbacks(
+            $type: supports,
             $query: $ie-13-14-target,
             $target-wrapper-class: $css-grid-wrapper-class
         );
     }
 }
 
-@mixin create-ie-edge-fallbacks( $wrapper-class ) {
+@mixin create-ie-edge-fallbacks($wrapper-class) {
     [class*="#{$wrapper-class}"] {
         @include grid-wrap-lte9();
 
@@ -688,7 +675,7 @@
         }
     }
 
-    [class$="#{$grid-gap-modifier}"] { 
+    [class$="#{$grid-gap-modifier}"] {
         @include grid-row();
 
         > * {
@@ -700,15 +687,15 @@
     }
 
     @each $identifier, $value in $quick-grid-map {
-        $quick-css-grid-class: template-class( 
-            $quick-css-grid-wrapper-pattern, 
-            $base: $wrapper-class, 
+        $quick-css-grid-class: template-class(
+            $quick-css-grid-wrapper-pattern,
+            $base: $wrapper-class,
             $total: $identifier
         );
 
-        $gap-css-grid-class: template-class( 
-            $quick-css-grid-gap-pattern, 
-            $base: $wrapper-class, 
+        $gap-css-grid-class: template-class(
+            $quick-css-grid-gap-pattern,
+            $base: $wrapper-class,
             $total: $identifier,
             $modifier: $grid-gap-modifier
         );
@@ -716,14 +703,13 @@
         .#{$quick-css-grid-class},
         .#{$gap-css-grid-class} {
             > * {
-                width: percentage( 1 / $value );
+                width: percentage(1 / $value);
             }
-        } 
+        }
     }
 }
 
-@mixin target-ie-edge-fallbacks($type, $query, $target-wrapper-class ) {
-
+@mixin target-ie-edge-fallbacks($type, $query, $target-wrapper-class) {
     @if $type == media {
         @media #{$query} {
             @include create-ie-edge-fallbacks($target-wrapper-class);

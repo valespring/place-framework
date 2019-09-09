@@ -9,11 +9,9 @@
 // * Change the maps in the configuration to change the default output.
 
 // Mixin for creating helpers
-@mixin m-spacing-loop( $prefix, $property ) {
+@mixin m-spacing-loop($prefix, $property) {
     @each $infix, $position in $spacing-positions {
-
         @each $suffix, $value in $spacing-values {
-
             // Variables
             $spacing-class: template-class(
                 $spacing-class-pattern,
@@ -25,7 +23,7 @@
 
             @if $value != 0 {
                 $converted-value: 1em * ($value / $base-text-size);
-            } 
+            }
 
             .#{$spacing-class} {
                 #{$property}-#{$position}: $converted-value !important;

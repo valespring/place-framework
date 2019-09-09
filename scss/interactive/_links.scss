@@ -6,14 +6,14 @@ Link Styles
 
 a,
 .link {
-	color: $primary-link-color;
+    color: $primary-link-color;
 
-	&:hover,
-	&:focus {
-		color: $primary-link-hover;
-	}
+    &:hover,
+    &:focus {
+        color: $primary-link-hover;
+    }
 }
 
 .unlink {
-	text-decoration: none;
+    text-decoration: none;
 }

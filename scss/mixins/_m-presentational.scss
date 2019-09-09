@@ -54,7 +54,7 @@
 }
 
 // http://cssmojo.com/hide-content-from-sighted-users/
-@mixin visually-hidden() { 
+@mixin visually-hidden() {
     width: 1px;
     height: 1px;
     padding: 0;
@@ -62,7 +62,7 @@
     clip: rect(1px, 1px, 1px, 1px);
     border: 0;
     overflow: hidden;
-    
+
     &:active,
     &:focus {
         width: auto;

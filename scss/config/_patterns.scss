@@ -6,7 +6,6 @@
 //* T - Total
 //* M - Modifier
 
-
 // Row & Wrap Class Patterns
 $grid-row-pattern: "B-V" !default;
 $grid-orientation-pattern: "B-V--M" !default;
@@ -35,4 +34,4 @@ $grid-offset-pattern: "B-V-PofT" !default;
 $grid-quick-offset-pattern: "B-V-T" !default;
 
 // Spacing Class Pattern
-$spacing-class-pattern: 'BTM' !default;
+$spacing-class-pattern: "BTM" !default;
