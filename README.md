@@ -1,4 +1,21 @@
-![Place Framework Header](https://raw.githubusercontent.com/valespring/place-framework/master/logo-header.svg?sanitize=true)
+![Place Framework Header](https://raw.githubusercontent.com/valespring/place-framework/master/docs/logo-header.svg?sanitize=true)
+
+
+<p align="center">
+<img src="https://img.shields.io/github/languages/code-size/valespring/place-framework?style=flat-square">
+
+<a href="https://www.npmjs.com/package/place-framework" target="_blank">
+    <img src="https://img.shields.io/npm/v/place-framework?style=flat-square">
+</a>
+
+<a href="https://prettier.io" target="_blank"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>
+
+<a href="https://opensource.org/licenses/MIT" rel="nofollow">
+    <img src="https://img.shields.io/npm/l/place-framework?style=flat-square">
+</a>
+</p>
+
+
 
 PLACE SCSS Framework Documentation
 ====
@@ -13,6 +30,7 @@ PLACE SCSS Framework Documentation
 * [Modules](#modules)
 * [Grid](#grid)
 * [Examples](#examples)
+* [Import Types](#import-types)
 * [Acknowledgements](#acknowledgements)
 
 ## Introduction
@@ -606,6 +624,38 @@ A quick grid that only requires a class on the parent selector and targets any i
 #### Description
 
 A quick grid like the above, but targets the `$grid-gap-modifier` to apply gutters for spacing. Note that the element must end with the modifier ( default: `--gapped` ) *(Desktop: 33%, Tablet: 33%, Mobile: 50%)*.
+
+## Import Types
+
+Each import is required unless otherwise noted.
+
+`@import 'place-functions'`
+
+Math and template functions utilized in the framework. 
+
+`@import "place-mixins"`
+
+Mixins utilized in the framework.
+
+`@import "place-config"`
+
+Default configuration variables. These can be overwritten in the configuration of your project. 
+
+`@import "place-normalize"`
+
+A modified version of normalize. Optional, but recommended.
+
+`@import "place-placeholders"`
+
+The placeholders of PLACE. Required for the core.
+
+`@import "place-grid"`
+
+Import only the place grid with no added features or modules.
+
+`@import "place-core"`
+
+The above with additional helpful modules and features: helper classes, type defaults, interactive/button defaults, responsive tables, transition placeholders, and a responsive container for iframe embeds. 
                         
 ## Acknowledgements
 
