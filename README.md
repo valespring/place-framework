@@ -8,7 +8,9 @@
     <img src="https://img.shields.io/npm/v/place-framework?style=flat-square">
 </a>
 
-<a href="https://prettier.io" target="_blank"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>
+<a href="https://prettier.io" target="_blank">
+    <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
+</a>
 
 <a href="https://opensource.org/licenses/MIT" rel="nofollow">
     <img src="https://img.shields.io/npm/l/place-framework?style=flat-square">
