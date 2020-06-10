@@ -37,3 +37,18 @@ $large-screens-min: "all and (min-width: #{$mq-large-min})" !default;
 
 // Extra Large
 $x-large-screens-min: "all and (min-width: #{$mq-x-large-min})" !default;
+
+// Helper Breakpoint Suffixes
+// * Global breakpoint suffixes attached to the corresponding viewport.
+$helper-breakpoints: (
+    #{$small-screens-max}: "sm",
+    #{$medium-screens-only}: "md",
+    #{$large-screens-min}: "lg"
+) !default;
+
+// Type Helper Breakpoint Suffixes
+// * Used for specific sizes in these viewports.
+$type-helper-breakpoints: (
+    #{$small-screens-max}: "sm",
+    #{$medium-screens-min}: "md"
+) !default;

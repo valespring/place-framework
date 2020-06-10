@@ -6,29 +6,33 @@ Buttons
 
 */
 
-[class*="#{$button-class-prefix}"] {
-    // Variables
-    $button-vertical: 1em * ($button-vertical-padding / $base-text-size);
-    $button-side: 1em * ($button-side-padding / $base-text-size);
+@if $button-baseline {
+    [class*="#{$button-class-prefix}"] {
+        // Variables
+        $button-vertical: 1em * ($button-vertical-padding / $base-text-size);
+        $button-side: 1em * ($button-side-padding / $base-text-size);
 
-    // Baseline
-    width: auto;
-    height: auto;
-    margin: 0;
-    line-height: normal;
-    text-align: center;
-    text-decoration: none;
-    position: relative;
-    appearance: none;
-    background-clip: padding-box;
-    outline: 0;
-    border: none;
-    overflow: visible;
-    cursor: pointer;
-    vertical-align: middle;
-    display: inline-block;
-    text-align: center;
-    padding: $button-vertical $button-side;
+        // Baseline
+        width: auto;
+        height: auto;
+        margin: 0;
+        line-height: normal;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        appearance: none;
+        background-clip: padding-box;
+        outline: 0;
+        border: none;
+        overflow: visible;
+        cursor: pointer;
+        vertical-align: middle;
+        display: inline-block;
+        text-align: center;
+        padding: $button-vertical $button-side;
 
-    @include margin-leader();
+        @include margin-leader();
+    }
 }
+
+

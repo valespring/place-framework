@@ -55,3 +55,23 @@ $type-color-helpers: true !default;
 // * Set to `true` to activate automatic responsive tables.
 
 $auto-responsive-tables: true !default;
+
+// Static input widths
+// * Set to `true` to activate utility classes input widths.
+
+$form-input-utility-widths: true !default;
+
+// Input baseline
+// * Set to `true` to activate baseline styles for input, select, and textarea elements.
+
+$form-input-baseline: true !default;
+
+// Enable Button Baseline
+// * Set to `true` to set a baseline for your button class.
+
+$button-baseline: true !default;
+
+// Enable Embed Container for media embeds
+// * Set to `true` to enable the embed container for media files.
+
+$module-embed: true !default;

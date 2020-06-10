@@ -1,56 +1,61 @@
 // * Forms
 
-input,
-textarea,
-select {
-    border: solid 1px $input-border-color;
+@if $form-input-baseline {
 
-    @if $input-border-radius > 0 {
-        border-radius: px($input-border-radius);
+    input,
+    textarea,
+    select {
+        border: solid 1px $input-border-color;
+
+        @if $input-border-radius > 0 {
+            border-radius: px($input-border-radius);
+        }
     }
-}
 
-input,
-textarea,
-select {
-    // Style
-    padding: px($input-top-padding) px($input-side-padding);
-    outline: none;
-    width: 100%;
-    font-size: 1em;
-    font-family: $primary-font;
+    input,
+    textarea,
+    select {
+        // Style
+        padding: px($input-top-padding) px($input-side-padding);
+        outline: none;
+        width: 100%;
+        font-size: 1em;
+        font-family: $primary-font;
 
-    &:hover,
-    &:focus,
-    &:active {
-        z-index: 1;
+        &:hover,
+        &:focus,
+        &:active {
+            z-index: 1;
+        }
     }
-}
 
-input {
-    &[type="checkbox"],
-    &[type="radio"] {
+    input {
+        &[type="checkbox"],
+        &[type="radio"] {
+            width: auto;
+        }
+    }
+
+    textarea {
+        height: $full-vertical * 4;
+    }
+
+    select {
         width: auto;
+        max-width: 100%;
     }
-}
 
-textarea {
-    height: $full-vertical * 4;
-}
-
-select {
-    width: auto;
-    max-width: 100%;
-}
-
-// Style Placeholders
-@include placeholder {
-    color: $input-placeholder-color;
+    // Style Placeholders
+    @include placeholder {
+        color: $input-placeholder-color;
+    }
 }
 
 // Create Input Static Sizes
-@each $size, $value in $input-static-widths {
-    .input--#{$size} {
-        max-width: px($value);
+@if $form-input-utility-widths {
+    @each $size, $value in $input-static-widths {
+        .input--#{$size} {
+            max-width: px($value);
+        }
     }
 }

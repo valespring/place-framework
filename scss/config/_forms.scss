@@ -7,3 +7,13 @@ $input-placeholder-color: $light-grey !default;
 $label-required-color: $blue !default;
 $input-top-padding: 8 !default;
 $input-side-padding: 12 !default;
+
+// Input Static Width Map
+$input-static-widths: (
+    xxxs: 30,
+    xxs: 50,
+    xs: 100,
+    s: 175,
+    m: 250,
+    l: 350,
+) !default;
