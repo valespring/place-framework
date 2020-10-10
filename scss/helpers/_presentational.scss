@@ -21,6 +21,10 @@
     @extend %align-middle;
 }
 
+.align-middle-pseudo {
+    @extend %align-middle-pseudo;
+}
+
 .align-top {
     @extend %align-top;
 }

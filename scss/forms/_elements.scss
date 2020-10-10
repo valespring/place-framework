@@ -20,7 +20,11 @@
         outline: none;
         width: 100%;
         font-size: 1em;
-        font-family: $primary-font;
+    
+        &,
+        &::placeholder {
+            font-family: $primary-font;
+        }
 
         &:hover,
         &:focus,

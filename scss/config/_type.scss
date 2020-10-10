@@ -65,7 +65,7 @@ $long-line-height: 2 !default;
 $base-vertical: 20 !default;
 
 // Responsive Type Min
-$responsive-type-min: $large-screens-min;
+$responsive-type-min: $large-screens-min !default;
 
 // Golden Ratio
 $golden-ratio: (1 + square-root(5)) / 2;
