@@ -1,36 +1,36 @@
 // Calculate rhythm units
 @mixin rhythm($property, $lines, $size, $vertical: $base-vertical) {
-    // Variables
-    $rhythm: $lines * $vertical;
-    $rhythm-em: $rhythm / $size;
+  // Variables
+  $rhythm: $lines * $vertical;
+  $rhythm-em: $rhythm / $size;
 
-    // Create
-    #{$property}: #{$rhythm-em}em;
+  // Create
+  #{$property}: #{$rhythm-em}em;
 }
 
 // Apply leading whitespace as margin
 @mixin margin-leader($lines: 1, $font-size: $base-text-size) {
-    @include rhythm(margin-top, $lines, $font-size);
+  @include rhythm(margin-top, $lines, $font-size);
 }
 
 @mixin margin-trailer($lines: 1, $font-size: $base-text-size) {
-    @include rhythm(margin-bottom, $lines, $font-size);
+  @include rhythm(margin-bottom, $lines, $font-size);
 }
 
 @mixin margin-vertical($lines: 1, $font-size: $base-text-size) {
-    @include rhythm(margin-top, $lines, $font-size);
-    @include rhythm(margin-bottom, $lines, $font-size);
+  @include rhythm(margin-top, $lines, $font-size);
+  @include rhythm(margin-bottom, $lines, $font-size);
 }
 
 @mixin padding-leader($lines: 1, $font-size: $base-text-size) {
-    @include rhythm(padding-top, $lines, $font-size);
+  @include rhythm(padding-top, $lines, $font-size);
 }
 
 @mixin padding-trailer($lines: 1, $font-size: $base-text-size) {
-    @include rhythm(padding-bottom, $lines, $font-size);
+  @include rhythm(padding-bottom, $lines, $font-size);
 }
 
 @mixin padding-vertical($lines: 1, $font-size: $base-text-size) {
-    @include rhythm(padding-top, $lines, $font-size);
-    @include rhythm(padding-bottom, $lines, $font-size);
+  @include rhythm(padding-top, $lines, $font-size);
+  @include rhythm(padding-bottom, $lines, $font-size);
 }

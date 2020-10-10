@@ -2,19 +2,19 @@
 
 %list-unstyled,
 %list--unstyled {
-    @include unstyled-list();
+  @include unstyled-list();
 }
 
 // Inline List
 %list-inline,
 %list--inline {
-    @include unstyled-list();
+  @include unstyled-list();
 
-    li {
-        display: inline;
-    }
+  li {
+    display: inline;
+  }
 
-    a {
-        display: inline-block;
-    }
+  a {
+    display: inline-block;
+  }
 }

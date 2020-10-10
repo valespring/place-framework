@@ -8,27 +8,27 @@ Grid
 
 // Mobile
 @media #{$small-screens-max} {
-    @include create-grid(
-        $grid-viewport-mobile-identifier,
-        $mobile-columns,
-        $mobile-margin
-    );
+  @include create-grid(
+    $grid-viewport-mobile-identifier,
+    $mobile-columns,
+    $mobile-margin
+  );
 }
 
 // Tablet
 @media #{$medium-screens-only} {
-    @include create-grid(
-        $grid-viewport-tablet-identifier,
-        $tablet-columns,
-        $tablet-margin
-    );
+  @include create-grid(
+    $grid-viewport-tablet-identifier,
+    $tablet-columns,
+    $tablet-margin
+  );
 }
 
 // Desktop
 @media #{$large-screens-min} {
-    @include create-grid(
-        $grid-viewport-desktop-identifier,
-        $total-columns,
-        $base-margin
-    );
+  @include create-grid(
+    $grid-viewport-desktop-identifier,
+    $total-columns,
+    $base-margin
+  );
 }

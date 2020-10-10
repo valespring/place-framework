@@ -1,16 +1,16 @@
 @mixin m-button-color($background, $border, $color: $white) {
-    background-color: $background;
-    border-color: $border;
+  background-color: $background;
+  border-color: $border;
 
-    &,
-    &:hover,
-    &:focus {
-        color: $color;
-    }
+  &,
+  &:hover,
+  &:focus {
+    color: $color;
+  }
 
-    &:hover,
-    &:focus {
-        background-color: darken($background, 15%);
-        border-color: darken($border, 15%);
-    }
+  &:hover,
+  &:focus {
+    background-color: darken($background, 15%);
+    border-color: darken($border, 15%);
+  }
 }

@@ -1,222 +1,222 @@
 // Display
 
 %display-initial {
-    display: initial;
+  display: initial;
 }
 
 %display-block {
-    display: block;
+  display: block;
 }
 
 %display-inline-block,
 %inline-block {
-    display: inline-block;
+  display: inline-block;
 }
 
 // Aligns
 
 %align-left {
-    text-align: left;
+  text-align: left;
 }
 
 %align-center {
-    text-align: center;
+  text-align: center;
 }
 
 %align-right {
-    text-align: right;
+  text-align: right;
 }
 
 %align-sub {
-    vertical-align: sub;
+  vertical-align: sub;
 }
 
 %align-middle {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 %align-top {
-    vertical-align: top;
+  vertical-align: top;
 }
 
 %align-middle-pseudo {
-    position: relative;
+  position: relative;
 
-    &:before {
-        content: "";
-        display: inline-block;
-        vertical-align: middle;
-        height: 100%;
-    }
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
 }
 
 // Floats
 
 %float-left {
-    float: left;
+  float: left;
 }
 
 %float-center {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 %float-right {
-    float: right;
+  float: right;
 }
 
 %float-none {
-    float: none;
+  float: none;
 }
 
 %clear {
-    clear: both;
+  clear: both;
 }
 
 %group {
-    @include clearfix();
+  @include clearfix();
 }
 
 // Full Width
 %full-width {
-    width: 100%;
+  width: 100%;
 }
 
 %full-height {
-    width: 100%;
+  width: 100%;
 }
 
 %full-width-important {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 %full-height-important {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 // Hides
 
 %is-hidden {
-    @include visually-hidden();
+  @include visually-hidden();
 }
 
 %isnt-hidden {
-    /* Mixins */
-    @include show-hidden();
+  /* Mixins */
+  @include show-hidden();
 }
 
 // Container Positioning
 
 %relative-container {
-    position: relative;
+  position: relative;
 }
 
 %absolute-container {
-    position: absolute;
+  position: absolute;
 }
 
 // Flex Placeholders
 
 %flex-display {
-    display: flex;
+  display: flex;
 }
 
 %flex-grow {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 %justify-start {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 %justify-end {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 %justify-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 %justify-space-around {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 %justify-space-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 // Media Query Helpers
 
 @each $breakpoint, $suffix in $helper-breakpoints {
-    @media #{$breakpoint} {
-        // Display
-        %display-block-#{$suffix} {
-            display: block;
-        }
-
-        %inline-block-#{$suffix} {
-            display: inline-block;
-        }
-
-        // Hides
-        %is-hidden-#{$suffix} {
-            @include visually-hidden();
-        }
-
-        // Alignment
-        %align-left-#{$suffix} {
-            text-align: left;
-        }
-
-        %align-center-#{$suffix} {
-            text-align: center;
-        }
-
-        %align-right-#{$suffix} {
-            text-align: right;
-        }
-
-        // Floats
-        %float-left-#{$suffix} {
-            float: left;
-        }
-
-        %float-center-#{$suffix} {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        %float-right-#{$suffix} {
-            float: right;
-        }
-
-        // Flex
-        %flex-display-#{$suffix} {
-            display: flex;
-        }
-
-        %flex-grow-#{$suffix} {
-            flex-grow: 1;
-        }
-
-        %justify-start-#{$suffix} {
-            justify-content: start;
-        }
-
-        %justify-end-#{$suffix} {
-            justify-content: end;
-        }
-
-        %justify-center-#{$suffix} {
-            justify-content: center;
-        }
-
-        %justify-space-around-#{$suffix} {
-            justify-content: space-around;
-        }
-
-        %justify-space-between-#{$suffix} {
-            justify-content: space-between;
-        }
+  @media #{$breakpoint} {
+    // Display
+    %display-block-#{$suffix} {
+      display: block;
     }
+
+    %inline-block-#{$suffix} {
+      display: inline-block;
+    }
+
+    // Hides
+    %is-hidden-#{$suffix} {
+      @include visually-hidden();
+    }
+
+    // Alignment
+    %align-left-#{$suffix} {
+      text-align: left;
+    }
+
+    %align-center-#{$suffix} {
+      text-align: center;
+    }
+
+    %align-right-#{$suffix} {
+      text-align: right;
+    }
+
+    // Floats
+    %float-left-#{$suffix} {
+      float: left;
+    }
+
+    %float-center-#{$suffix} {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    %float-right-#{$suffix} {
+      float: right;
+    }
+
+    // Flex
+    %flex-display-#{$suffix} {
+      display: flex;
+    }
+
+    %flex-grow-#{$suffix} {
+      flex-grow: 1;
+    }
+
+    %justify-start-#{$suffix} {
+      justify-content: start;
+    }
+
+    %justify-end-#{$suffix} {
+      justify-content: end;
+    }
+
+    %justify-center-#{$suffix} {
+      justify-content: center;
+    }
+
+    %justify-space-around-#{$suffix} {
+      justify-content: space-around;
+    }
+
+    %justify-space-between-#{$suffix} {
+      justify-content: space-between;
+    }
+  }
 }

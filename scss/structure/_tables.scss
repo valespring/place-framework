@@ -40,57 +40,57 @@ Tables
 */
 
 table {
-    width: 100%;
-    max-width: 100%;
-    table-layout: fixed;
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
 }
 
 @if $auto-responsive-tables {
+  th,
+  td {
+    padding: $half-vertical $half-side;
+    text-align: left;
+  }
+
+  @media #{$small-screens-max} {
+    table {
+      display: block;
+      width: 100%;
+    }
+
+    tbody,
+    tr,
     th,
     td {
-        padding: $half-vertical $half-side;
-        text-align: left;
+      border: 0;
+      display: block;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
     }
-
-    @media #{$small-screens-max} {
-        table {
-            display: block;
-            width: 100%;
-        }
-
-        tbody,
-        tr,
-        th,
-        td {
-            border: 0;
-            display: block;
-            padding: 0;
-            text-align: left;
-            white-space: normal;
-        }
-        thead {
-            display: none;
-            visibility: hidden;
-        }
-        tr {
-            @include margin-leader();
-        }
-        td[data-th] {
-            &:before {
-                content: attr(data-th) ":\00A0";
-                display: inline-block;
-                font-weight: bold;
-            }
-            &:empty {
-                display: none;
-            }
-        }
+    thead {
+      display: none;
+      visibility: hidden;
     }
-
-    @media #{$medium-screens-min} {
-        th,
-        td {
-            padding: $half-vertical $full-side;
-        }
+    tr {
+      @include margin-leader();
     }
+    td[data-th] {
+      &:before {
+        content: attr(data-th) ":\00A0";
+        display: inline-block;
+        font-weight: bold;
+      }
+      &:empty {
+        display: none;
+      }
+    }
+  }
+
+  @media #{$medium-screens-min} {
+    th,
+    td {
+      padding: $half-vertical $full-side;
+    }
+  }
 }
