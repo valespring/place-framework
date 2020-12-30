@@ -80,13 +80,18 @@ Inline Block
   @extend %group;
 }
 
-// Full Width
+// Full Height & Width
 
 // * Duh. Be careful.
 
 .full-width {
-  @extend %full-width;
+  @extend %full-width-important;
 }
+
+.full-height {
+  @extend %full-height-important;
+}
+
 // Hides and Unhides
 // * Hides content while making it accessible to screen readers.
 
