@@ -7,10 +7,10 @@ $grid-column-identifier: "col" !default;
 $grid-offset-identifier: "os" !default;
 $css-grid-identifier: "grid" !default;
 
-// Grid Viewport Variables
-$grid-viewport-desktop-identifier: "lg" !default;
-$grid-viewport-tablet-identifier: "md" !default;
-$grid-viewport-mobile-identifier: "sm" !default;
+// // Grid Viewport Variables
+// $grid-viewport-desktop-identifier: "lg" !default;
+// $grid-viewport-tablet-identifier: "md" !default;
+// $grid-viewport-mobile-identifier: "sm" !default;
 
 // Grid Modifier Classes
 $grid-flex-modifier: "flex" !default;
@@ -23,20 +23,36 @@ $grid-gap-modifier: "gapped" !default;
 // Grid Fallback Variables
 $grid-lte9-class: "lte9";
 
-// Column Variables
-$base-column: 47 !default;
-$base-margin: 24 !default;
-$total-columns: 12 !default;
+// Large Column
+$large-margin: 24 !default;
+$large-columns: 12 !default;
 
-// Tablet Grid
-$tablet-column: 50 !default;
-$tablet-margin: 20 !default;
-$tablet-columns: 9 !default;
+// Medium Column
+$medium-margin: 20 !default;
+$medium-columns: 9 !default;
 
-// Mobile Grid
-$mobile-column: 136 !default;
-$mobile-margin: 16 !default;
-$mobile-columns: 4 !default;
+// Small Column
+$small-margin: 16 !default;
+$small-columns: 4 !default;
+
+// Establish baseline
+$base-margin: $large-margin;
+
+// Combined List
+$margin-column-set: (
+	$viewport-small-identifier: (
+		margin: $small-margin,
+		columns: $small-columns
+	),
+	$viewport-medium-identifier: (
+		margin: $medium-margin,
+		columns: $medium-columns
+	),
+	$viewport-large-identifier: (
+		margin: $large-margin,
+		columns: $large-columns
+	)
+);
 
 // CSS Grid
 // Don't use `fr` units with thoughts to fallbacks.
@@ -46,18 +62,18 @@ $css-grid-gap: ($base-margin * 3) !default;
 // Quick Grid Map
 // * Utilized with CSS grid to get a quick layout from applying the class to the container.
 $quick-grid-map: (
-  quarters: 4,
-  thirds: 3,
-  halves: 2,
+	quarters: 4,
+	thirds: 3,
+	halves: 2
 ) !default;
 
 // Extended Width Map
 // * Extends widths to quick classes, so you can use `third` in addition to `1of3` if desired.
 $quick-grid-widths: (
-  fifth: 1/5,
-  three-quarters: 3/4,
-  quarter: 1/4,
-  third: 1/3,
-  two-thirds: 2/3,
-  half: 1/2,
+	fifth: 1/5,
+	three-quarters: 3/4,
+	quarter: 1/4,
+	third: 1/3,
+	two-thirds: 2/3,
+	half: 1/2
 ) !default;

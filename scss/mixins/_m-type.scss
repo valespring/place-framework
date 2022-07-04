@@ -1,88 +1,118 @@
-// Size For Font
-// * Convert type size into rems, with a pixel fallback.
+@import "functions/_type";
 
-@mixin size-for-font($font-size) {
-  $rem: $font-size / 16;
-  $px: $font-size;
-  font-size: #{$px}px;
-  font-size: #{$rem}rem;
+// Size For Font
+// * Convert type size into rems, with a pixel fallback. Now with a responsive option.
+@mixin size-for-font($font-size, $responsive: false) {
+	// TODO: 16 to body size?
+	$numeric-font-size: number($font-size);
+	$rem: $numeric-font-size / 16;
+	$px: $numeric-font-size;
+
+	@if $responsive {
+		@debug "responsive";
+		@debug $font-size;
+		@include responsive-font-size($font-size);
+	} @else {
+		font-size: #{$px}px;
+		font-size: #{$rem}rem;
+	}
 }
 
 @mixin size-map($map-key) {
-  @include size-for-font(map-get($type-scale, $map-key));
+	@include type-size($map-key);
 }
 
-@mixin responsive-type-size($font-size, $bp: $responsive-type-bp) {
-  $size: ($font-size / ($bp * 0.01)) * 1;
+// Responsive Type
+// https://css-tricks.com/snippets/css/fluid-typography/
+@mixin responsive-font-size($font-size) {
+	//font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+	$s: #{$font-size}px;
 
-  font-size: #{$size}vw;
+	--min-font-size: calc(#{$s} * var(--content-ratio));
+
+	font-size: calc(
+		var(--min-font-size) + (#{$s} - var(--min-font-size)) *
+			(
+				100vw - (var(--content-width) * 1px) /
+					(var(--content-width-max) - var(--content-width))
+			)
+	);
 }
 
 // Golden Ratio Line-Height
 //* https://pearsonified.com/2011/12/golden-ratio-typography.php
-@mixin line-height-for-font($size-key, $size-value) {
-  $h: map-get($type-line-height, $size-key);
-  $p: $golden-ratio;
-  $s: $size-value;
+@mixin line-height-for-font($line-height, $font-size) {
+	$s: number($font-size);
+	$wp: power(($s * $golden-ratio), 2);
 
-  $w: $base-content-width;
-  $wp: power(($s * $p), 2);
-
-  $lh: $p - 1 / (2 * $p) * (1 - ($w / $wp));
-
-  @if $h {
-    line-height: ($h / $s);
-  } @else {
-    line-height: $lh;
-  }
+	@if $line-height {
+		line-height: calc(#{$line-height} / #{$font-size} * 1em);
+	} @else {
+		line-height: calc(
+			var(--golden-ratio) -
+				1 /
+				(2 * var(--golden-ratio)) *
+				(1 - (var(--content-width) / #{$wp}))
+		);
+	}
 }
 
 // Type Size
 // * Combine both mixins.
 
-@mixin type-size($key, $font-size) {
-  @include size-for-font($font-size);
-  @include line-height-for-font($key, $font-size);
+@mixin type-leading-combined($type-size, $line-height, $responsive: false) {
+	@include size-for-font($type-size, $responsive);
+	@include line-height-for-font($line-height, $type-size);
+}
+
+@mixin type-size($key, $responsive: false) {
+	$type-declaration: map-get($type-scale, $key);
+	$type-declaration-length: length($type-declaration);
+
+	@if ($type-declaration-length >= 1) {
+		@if $type-declaration-length > 1 {
+			@each $type-key, $type-value in $type-declaration {
+				$queried-type-size: get-type-size($type-value);
+				$queried-line-height: get-line-height($type-key, $key);
+
+				@include viewport-by-key($type-key) {
+					@include type-leading-combined(
+						$queried-type-size,
+						$queried-line-height,
+						$responsive
+					);
+				}
+			}
+		} @else {
+			$queried-type-size: get-type-size($type-declaration);
+			$queried-line-height: get-line-height($type-declaration, $key);
+
+			@include type-leading-combined(
+				$queried-type-size,
+				$queried-line-height,
+				$responsive
+			);
+		}
+	} @else {
+		@warn 'Type key #${key} is misconfigured.';
+	}
 }
 
 // Lists
 @mixin unstyled-list {
-  padding-left: 0;
-  list-style: none outside none;
+	padding-left: 0;
+	list-style: none outside none;
 }
 
 // Webfonts
 // * Mixins to generate `@font-face` code.
 
-// TODO: conditional
-@mixin web-font(
-  $name: "Web Font",
-  $folder: folder,
-  $filename: webfont,
-  $eot: true,
-  $woff: true,
-  $woff2: true,
-  $ttf: true
-) {
-  font-family: "#{$name}";
-
-  @if $eot {
-    src: url("#{$folder}/#{$filename}.eot"),
-      url("#{$folder}/#{$filename}.eot?#iefix") format("embedded-opentype");
-  }
-
-  @if $woff {
-    src: url("#{$folder}/#{$filename}.woff") format("woff");
-  }
-
-  @if $woff2 {
-    src: url("#{$folder}/#{$filename}.woff2") format("woff2");
-  }
-
-  @if $ttf {
-    src: url("#{$folder}/#{$filename}.ttf") format("truetype");
-  }
-
-  font-weight: normal;
-  font-style: normal;
+@mixin web-font($name: "Web Font", $folder: folder, $filename: webfont) {
+	font-family: "#{$name}";
+	src: url("#{$folder}/#{$filename}.eot");
+	src: url("#{$folder}/#{$filename}.eot?#iefix") format("embedded-opentype"),
+		url("#{$folder}/#{$filename}.woff") format("woff"),
+		url("#{$folder}/#{$filename}.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }

@@ -1,13 +1,13 @@
 img {
-  max-width: 100%;
-  border: 0;
+	max-width: 100%;
+	border: 0;
 
-  //https://css-tricks.com/svg-fallbacks/
-  [src$=".svg"] {
-    width: 100%;
-  }
+	//https://css-tricks.com/svg-fallbacks/
+	[src$=".svg"] {
+		width: 100%;
+	}
 }
 
 svg:not(:root) {
-  overflow: hidden;
+	overflow: hidden;
 }

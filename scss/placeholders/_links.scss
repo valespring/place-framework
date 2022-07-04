@@ -1,27 +1,27 @@
 %unlink {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 %unlink-all {
-  &,
-  &:link,
-  &:hover,
-  &:visited,
-  &:active,
-  &:focus {
-    text-decoration: none;
-  }
+	&,
+	&:link,
+	&:hover,
+	&:visited,
+	&:active,
+	&:focus {
+		text-decoration: none;
+	}
 }
 
 %unlink-all-anchor {
-  @at-root a#{&} {
-    &,
-    &:link,
-    &:hover,
-    &:visited,
-    &:active,
-    &:focus {
-      text-decoration: none;
-    }
-  }
+	@at-root a#{&} {
+		&,
+		&:link,
+		&:hover,
+		&:visited,
+		&:active,
+		&:focus {
+			text-decoration: none;
+		}
+	}
 }

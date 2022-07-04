@@ -7,7 +7,7 @@ Unstyled List
 */
 
 .list--unstyled {
-  @extend %list--unstyled;
+	@extend %list--unstyled;
 }
 
 /*!
@@ -19,5 +19,5 @@ Inline List
 */
 
 .list--inline {
-  @extend %list--inline;
+	@extend %list--inline;
 }

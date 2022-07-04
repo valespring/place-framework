@@ -3,9 +3,12 @@ $wrapper-width: 92 !default;
 $wrapper-name: "container" !default;
 
 // Wrapper Variable
-$wrapper-max-width: $bp-large-width !default;
-$wrapper-wide-max-width: $bp-x-large-width !default;
-$wrapper-fixed-width: $bp-large-width !default;
+// $wrapper-max-width: $bp-large-width !default;
+// $wrapper-wide-max-width: $bp-x-large-width !default;
+// $wrapper-fixed-width: $bp-large-width !default;
+
+$wrapper-max-width: 960;
+$wrapper-wide-max-width: 1100;
 
 // Base Content Width
 // * To be used in conjunction with the golden ratio for default line-height values.

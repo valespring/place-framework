@@ -1,48 +1,48 @@
 // Typographic Scale
 $type-scale: (
-  inch-text: 56,
-  canon-text: 42,
-  paragon-text: 30,
-  primer-text: 24,
-  tertia-text: 18,
-  normal-text: 16,
-  petite-text: 12,
-  minion-text: 10,
+	inch-text: 56,
+	canon-text: 42,
+	paragon-text: 30,
+	primer-text: 24,
+	tertia-text: 18,
+	normal-text: 16,
+	petite-text: 12,
+	minion-text: 10
 ) !default;
 
 // Typographic Line Height Overrides
 $type-line-height: (
-  inch-text: false,
-  canon-text: false,
-  paragon-text: false,
-  primer-text: false,
-  tertia-text: false,
-  normal-text: false,
-  petite-text: false,
-  minion-text: false,
+	inch-text: false,
+	canon-text: false,
+	paragon-text: false,
+	primer-text: false,
+	tertia-text: false,
+	normal-text: false,
+	petite-text: false,
+	minion-text: false
 ) !default;
 
 // Typographic Weights
 $type-weights: (
-  light: 300,
-  normal: 400,
-  semibold: 600,
-  bold: 700,
+	light: 300,
+	normal: 400,
+	semibold: 600,
+	bold: 700
 ) !default;
 
 // Typographic Text Color Helpers
 $type-quick-colors: (
-  black-text: $black,
-  white-text: $white,
+	black-text: $black,
+	white-text: $white
 ) !default;
 
 // Font Declarations
-$stack-serif: "Times New Roman", Times, Georgia, serif !default;
+$stack-serif: "Times New Roman", Times, Georgia, serif;
 $stack-sans-serif: Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode",
-  sans-serif !default;
-$stack-slab-serif: "Courier New", Courier, serif !default;
-$stack-mono: Courier, monospace !default;
-$stack-icons: "icons" !default;
+	sans-serif;
+$stack-slab-serif: "Courier New", Courier, serif;
+$stack-mono: Courier, monospace;
+$stack-icons: "icons";
 
 // Font Declarations
 $primary-font: $stack-sans-serif !default;
@@ -58,14 +58,8 @@ $font-face-display: fallback !default;
 // Baseline Typography
 $base-text-size: map-get($type-scale, normal-text) !default;
 
-// Line Height
-$long-line-height: 2 !default;
-
 // Vertical Rhythm
 $base-vertical: 20 !default;
-
-// Responsive Type Min
-$responsive-type-min: $large-screens-min !default;
 
 // Golden Ratio
 $golden-ratio: (1 + square-root(5)) / 2;

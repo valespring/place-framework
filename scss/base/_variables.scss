@@ -1,0 +1,36 @@
+:root {
+	// Base Variables
+	--golden-ratio: #{$golden-ratio};
+	//--content-width-min: #{$content-width-min};
+	--content-width-max: #{$content-width-max};
+	--content-ratio: calc(var(--content-width) / var(--content-width-max));
+
+	// Viewport Variables
+	@each $key, $breakpoint-value in $responsive-breakpoints {
+		$index: index($responsive-breakpoints, $key $breakpoint-value);
+		$next-index: $index + 1;
+
+		#{viewport-variable-min($key)}: viewport-value-min($breakpoint-value);
+
+		@if $next-index <= length($responsive-breakpoints) {
+			$neighboring-breakpoint-key: nth(
+				map-keys($responsive-breakpoints),
+				$next-index
+			);
+			$neighboring-breakpoint-value: nth(
+				map-values($responsive-breakpoints),
+				$next-index
+			);
+
+			@if $neighboring-breakpoint-key {
+				#{viewport-variable-max($key)}: viewport-value-max(
+					$neighboring-breakpoint-value
+				);
+			}
+		}
+
+		@include viewport-by-key($key) {
+			--content-width: #{map-get($responsive-breakpoints, $key)};
+		}
+	}
+}

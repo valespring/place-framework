@@ -10,46 +10,46 @@
 
 // Mixin for creating helpers
 @mixin m-spacing-loop($prefix, $property) {
-  @each $infix, $position in $spacing-positions {
-    @each $suffix, $value in $spacing-values {
-      // Variables
-      $spacing-class: template-class(
-        $spacing-class-pattern,
-        $base: $prefix,
-        $total: $infix,
-        $modifier: $suffix
-      );
-      $converted-value: $value;
+	@each $infix, $position in $spacing-positions {
+		@each $suffix, $value in $spacing-values {
+			// Variables
+			$spacing-class: template-class(
+				$spacing-class-pattern,
+				$base: $prefix,
+				$total: $infix,
+				$modifier: $suffix
+			);
+			$converted-value: $value;
 
-      @if $value != 0 {
-        $converted-value: 1em * ($value / $base-text-size);
-      }
+			@if $value != 0 {
+				$converted-value: 1em * ($value / $base-text-size);
+			}
 
-      .#{$spacing-class} {
-        #{$property}-#{$position}: $converted-value !important;
-      }
+			.#{$spacing-class} {
+				#{$property}-#{$position}: $converted-value !important;
+			}
 
-      @each $c, $alignment in $spacing-combined {
-        .#{$prefix}#{$c}#{$suffix} {
-          @if $alignment == vertical {
-            @if $position == top or $position == bottom {
-              @extend .#{$spacing-class};
-            }
-          } @else if $alignment == horizontal {
-            @if $position == left or $position == right {
-              @extend .#{$spacing-class};
-            }
-          } @else if $alignment == all {
-            @extend .#{$spacing-class};
-          }
-        }
-      }
-    }
-  }
+			@each $c, $alignment in $spacing-combined {
+				.#{$prefix}#{$c}#{$suffix} {
+					@if $alignment == vertical {
+						@if $position == top or $position == bottom {
+							@extend .#{$spacing-class};
+						}
+					} @else if $alignment == horizontal {
+						@if $position == left or $position == right {
+							@extend .#{$spacing-class};
+						}
+					} @else if $alignment == all {
+						@extend .#{$spacing-class};
+					}
+				}
+			}
+		}
+	}
 }
 
 // Create Classes
 @if $spacing-helpers {
-  @include m-spacing-loop(p, padding);
-  @include m-spacing-loop(m, margin);
+	@include m-spacing-loop(p, padding);
+	@include m-spacing-loop(m, margin);
 }

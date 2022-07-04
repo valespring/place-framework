@@ -1,23 +1,14 @@
 // Hierarchy List Classes
 @each $size, $value in $type-scale {
-  // Create placeholder class and class
-  [class*="#{$size}"] {
-    @extend %#{$size};
-  }
+	// Create placeholder class and class
+	[class*="#{$size}"] {
+		@extend %#{$size};
+	}
 }
 
-// VW Type Scale (Responsive)
-@media #{$responsive-type-min} {
-  @each $type, $value in $type-scale {
-    .responsive-#{$type} {
-      @include responsive-type-size($value);
-    }
-  }
-}
-
-// Long Modifiers
-// * Type sizes are given the `--long` modifier, allowing you to use each type size with a larger line height.
-
-[class*="text--long"] {
-  line-height: $long-line-height;
+// Type Scale (Responsive)
+@each $key, $value in $type-scale {
+	.responsive-#{$key} {
+		@include type-size($key, $responsive: true);
+	}
 }

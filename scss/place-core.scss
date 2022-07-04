@@ -25,6 +25,9 @@
 @import "structure/_containers";
 @import "structure/_tables";
 
+// Base
+@import "base/variables";
+
 // Modules
 @import "modules/_transitions";
 @import "modules/_embeds";
