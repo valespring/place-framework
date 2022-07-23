@@ -31,6 +31,7 @@
 
 		@include viewport-by-key($key) {
 			--content-width: #{map-get($responsive-breakpoints, $key)};
+			--content-width-px: calc(#{map-get($responsive-breakpoints, $key)} * 1px);
 		}
 	}
 }
