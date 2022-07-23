@@ -2,7 +2,7 @@
 	$margin: map-nested-get($margin-column-set, $identifier, margin);
 	$columns: map-nested-get($margin-column-set, $identifier, columns);
 
-	@media #{$query} {
+	@include viewport($query) {
 		@include create-grid-placeholders($identifier, $columns, $margin);
 	}
 }

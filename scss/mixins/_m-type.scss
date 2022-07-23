@@ -73,7 +73,10 @@
 		@if $type-declaration-length > 1 {
 			@each $type-key, $type-value in $type-declaration {
 				$queried-type-size: get-type-size($type-value);
-				$queried-line-height: get-line-height($type-key, $key);
+				$queried-line-height: get-line-height($type-value, $key);
+
+				@debug "$type-key" $type-key;
+				@debug "$type-value" $type-value;
 
 				@include viewport-by-key($type-key) {
 					@include type-leading-combined(

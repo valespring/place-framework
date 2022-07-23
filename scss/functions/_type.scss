@@ -1,10 +1,5 @@
 // Type Functions
 @function filter-type-declaration($value, $line-height: false) {
-	@if $line-height {
-		@debug "$VALUE";
-		@debug $value;
-	}
-
 	$string-value: #{$value};
 	$underscore-index: str-index($string-value, "_");
 
