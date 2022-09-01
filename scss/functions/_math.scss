@@ -1,0 +1,89 @@
+// Math
+@use 'sass:math';
+
+// Pixel Equivalents
+// TODO: check this
+@function px($value, $base-text-size: 16) {
+	@return (1em * math.div($value, $base-text-size));
+}
+
+// Square Root
+@function square-root($integer) {
+	$x0: 1;
+	$x1: $x0;
+
+	@for $i from 1 through 10 {
+		$x: ($x0 * $x0 - abs($integer));
+		//$x1: $x0 - ($x0 * $x0 - abs($integer)) / (2 * $x0);
+		$x1: $x0 - calc($x / (2 * $x0));
+		$x0: $x1;
+	}
+
+	@return $x1;
+}
+
+// Power
+@function power($number, $exponent) {
+	$value: 1;
+
+	@if $exponent > 0 {
+		@for $i from 1 through $exponent {
+			$value: $value * $number;
+		}
+	}
+
+	@return $value;
+}
+
+// Number
+@function number($value) {
+	@if type-of($value) == 'number' {
+		@return $value;
+	} @else if type-of($value) != 'string' {
+		$_: log('Value for `to-number` should be a number or a string.');
+	}
+
+	$result: 0;
+	$digits: 0;
+	$minus: str-slice($value, 1, 1) == '-';
+	$numbers: (
+		'0': 0,
+		'1': 1,
+		'2': 2,
+		'3': 3,
+		'4': 4,
+		'5': 5,
+		'6': 6,
+		'7': 7,
+		'8': 8,
+		'9': 9
+	);
+
+	@for $i from if($minus, 2, 1) through str-length($value) {
+		$character: str-slice($value, $i, $i);
+
+		@if not(index(map-keys($numbers), $character) or $character == '.') {
+			@return to-length(
+				if($minus, -$result, $result),
+				str-slice($value, $i)
+			);
+		}
+
+		@if $character == '.' {
+			$digits: 1;
+		} @else if $digits == 0 {
+			$result: $result * 10 + map-get($numbers, $character);
+		} @else {
+			$digits: $digits * 10;
+			$result: $result + map-get($numbers, $character) / $digits;
+		}
+	}
+
+	@return if($minus, -$result, $result);
+}
+
+@function calc-spacing($baseline, $multiplier: 1, $border-width: 0) {
+	$spacing: ($baseline * $multiplier) - $border-width;
+
+	@return 1em * math.div($spacing, $base-text-size);
+}

@@ -7,31 +7,31 @@
 //* M - Modifier
 
 // Row & Wrap Class Patterns
-$grid-row-pattern: "B-V" !default;
-$grid-orientation-pattern: "B-V--M" !default;
-$flex-grid-row-pattern: "B-V__M" !default;
+$grid-row-pattern: 'B-V' !default;
+$grid-orientation-pattern: 'B-V--M' !default;
+$flex-grid-row-pattern: 'B-V__M' !default;
 
 // CSS Grid
-$css-grid-wrapper-pattern: "B-V" !default;
-$quick-css-grid-wrapper-pattern: "B-T" !default;
-$quick-css-grid-gap-pattern: "B-T--M" !default;
+$css-grid-wrapper-pattern: 'B-V' !default;
+$quick-css-grid-wrapper-pattern: 'B-T' !default;
+$quick-css-grid-gap-pattern: 'B-T--M' !default;
 
 // Column Patterns
-$grid-column-pattern: "B-V" !default;
+$grid-column-pattern: 'B-V' !default;
 
 // Width Class Patterns
-$grid-column-width-pattern: "B-V-PofT" !default;
-$grid-width-pattern: "V-PofT" !default;
+$grid-column-width-pattern: 'B-V-PofT' !default;
+$grid-width-pattern: 'V-PofT' !default;
 
-$grid-quick-width-pattern: "V-T" !default;
-$grid-quick-column-width-pattern: "B-V-T" !default;
+$grid-quick-width-pattern: 'V-T' !default;
+$grid-quick-column-width-pattern: 'B-V-T' !default;
 
-$grid-concise-column-width-pattern: "B-V-M" !default;
-$grid-concise-width-pattern: "V-M" !default;
+$grid-concise-column-width-pattern: 'B-V-M' !default;
+$grid-concise-width-pattern: 'V-M' !default;
 
 // Offset Class Pattern
-$grid-offset-pattern: "B-V-PofT" !default;
-$grid-quick-offset-pattern: "B-V-T" !default;
+$grid-offset-pattern: 'B-V-PofT' !default;
+$grid-quick-offset-pattern: 'B-V-T' !default;
 
 // Spacing Class Pattern
-$spacing-class-pattern: "BTM" !default;
+$spacing-class-pattern: 'BTM' !default;

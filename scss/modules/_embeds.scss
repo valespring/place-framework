@@ -1,3 +1,6 @@
+// Math
+@use 'sass:math';
+
 // Embed Container
 // * Containers used to wrap around content, like videos, to keep them contained for every viewport.
 // * <div class="embed-container">
@@ -9,13 +12,13 @@
 		@extend %relative-container;
 
 		&:before {
-			content: "";
+			content: '';
 
 			// Extend display block
 			@extend %display-block;
 
 			// Vars
-			$landscape-ratio: (100% * (9 / 16));
+			$landscape-ratio: (100% * math.div(9, 16));
 
 			// Style
 			padding-top: $landscape-ratio;

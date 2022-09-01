@@ -77,7 +77,7 @@ table {
 		}
 		td[data-th] {
 			&:before {
-				content: attr(data-th) ":\00A0";
+				content: attr(data-th) ':\00A0';
 				display: inline-block;
 				font-weight: bold;
 			}

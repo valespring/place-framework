@@ -1,9 +1,11 @@
-// Mixin for clearing floats
+// Math
+@use 'sass:math';
 
+// Mixin for clearing floats
 @mixin clearfix() {
 	&:before,
 	&:after {
-		content: "\0020";
+		content: '\0020';
 		height: 0;
 		display: block;
 		overflow: hidden;
@@ -26,12 +28,9 @@
 // Grid Row
 
 @mixin grid-row($mar: $base-margin) {
-	// Variables
-	$grid-margin: 1em * (($mar / 2) / $base-text-size);
-
-	// Create
-	margin-left: -#{$grid-margin};
-	margin-right: -#{$grid-margin};
+	// TODO: combine mixins with padding/margin ternary
+	margin-left: -#{grid-spacing($mar)};
+	margin-right: -#{grid-spacing($mar)};
 }
 
 // Grid Columns
@@ -43,22 +42,17 @@
 // Grid Padding
 
 @mixin grid-item-padding($mar: $base-margin) {
-	// Variables
-	$grid-margin: 1em * (($mar / 2) / $base-text-size);
-
 	// Create
-	padding-left: $grid-margin;
-	padding-right: $grid-margin;
+	padding-left: grid-spacing($mar);
+	padding-right: grid-spacing($mar);
 }
 
 // Grid List Margin
-@mixin grid-list-item-margin($mar: $base-margin) {
-	// Variable
-	$m: (1em * ($mar / 2) / $base-text-size);
 
+@mixin grid-list-item-margin($mar: $base-margin) {
 	// Output
-	margin-top: $m;
-	margin-bottom: $m;
+	margin-top: grid-spacing($mar);
+	margin-bottom: grid-spacing($mar);
 }
 
 // Flex
@@ -205,7 +199,8 @@
 
 	@for $t from 1 through $columns {
 		@for $p from 1 through $t {
-			$w: ($p / $t);
+			//$w: ($p / $t);
+			$w: math.div($p, $t);
 
 			@if not index($col-widths, $w) {
 				@if $p != $t {
@@ -249,7 +244,8 @@
 
 	@for $t from 1 through $columns {
 		@for $p from 1 through $t {
-			$w: ($p / $t);
+			//$w: ($p / $t);
+			$w: math.div($p, $t);
 
 			// Flex Placeholders
 			%#{$identifier}-#{$grid-flex-modifier}-#{$p}-#{$t} {
@@ -276,7 +272,8 @@
 	@for $t from 1 through $columns {
 		@for $p from 1 through $t {
 			// Width
-			$w: ($p/$t);
+			//$w: ($p/$t);
+			$w: math.div($p, $t);
 
 			// Class
 			$grid-column-width-class: template-class(
@@ -333,7 +330,7 @@
 
 	@for $t from 1 through $columns {
 		@for $p from 1 through $t {
-			$w: ($p/$t);
+			$w: math.div($p, $t);
 
 			@if not index($col-widths, $w) {
 				@if $p != $t {
@@ -344,7 +341,7 @@
 					$col-widths: append($col-widths, $w, comma);
 
 					@each $fraction, $value in $quick-grid-widths {
-						@if $value == ($p/$t) {
+						@if $value == math.div($p, $t) {
 							.#{$grid-offset-identifier}-#{$prefix}-#{$fraction} {
 								@extend %#{$prefix}-#{$grid-offset-identifier}-#{$p}-#{$t};
 							}
@@ -362,7 +359,7 @@
 	@for $t from 1 through $columns {
 		@for $p from 1 through $t {
 			// Width
-			$w: ($p/$t);
+			$w: math.div($p, $t);
 
 			// Class
 			$grid-width-class: template-class(
@@ -411,7 +408,7 @@
 							$total: $fraction
 						);
 
-						@if $value == ($p/$t) {
+						@if $value == math.div($p, $t) {
 							.#{$grid-quick-width-class},
 							.#{$grid-quick-column-width-class} {
 								@extend .#{$grid-width-class};
@@ -491,7 +488,7 @@
 	@include create-grid-widths($grid-viewport-identifier, $grid-columns);
 
 	@if $default-grid {
-		[class*="#{$grid-row-class}"] {
+		[class*='#{$grid-row-class}'] {
 			@extend %#{$grid-viewport-identifier}-clear;
 			@extend %#{$grid-viewport-identifier}-clear-list;
 		}
@@ -507,7 +504,7 @@
 		.#{$grid-row-class},
 		.#{$grid-row-ltr-class},
 		.#{$grid-row-rtl-class} {
-			> [class*="#{$grid-column-class}"] {
+			> [class*='#{$grid-column-class}'] {
 				@extend %#{$grid-viewport-identifier}-grid-column-item;
 			}
 		}
@@ -515,13 +512,13 @@
 		// Alignments
 		.#{$grid-row-class},
 		.#{$grid-row-ltr-class} {
-			> [class*="#{$grid-column-class}"] {
+			> [class*='#{$grid-column-class}'] {
 				@extend %#{$grid-viewport-identifier}-grid-column-ltr;
 			}
 		}
 
 		.#{$grid-row-rtl-class} {
-			> [class*="#{$grid-column-class}"] {
+			> [class*='#{$grid-column-class}'] {
 				@extend %#{$grid-viewport-identifier}-grid-column-rtl;
 			}
 		}
@@ -534,11 +531,8 @@
 
 	// CSS Grid
 	@if $css-grid {
-		// Variables
-		$gap: 1em * (($css-grid-gap / 2) / $base-text-size) / 2;
-
 		// Set Baseline
-		[class*="#{$css-grid-wrapper-class}"] {
+		[class*='#{$css-grid-wrapper-class}'] {
 			// Extend
 			@extend %#{$grid-viewport-identifier}-clear-list;
 			@extend %#{$grid-viewport-identifier}-css-grid-display;
@@ -548,8 +542,8 @@
 		}
 
 		// Grid Gap
-		[class*="#{$grid-gap-modifier}"] {
-			grid-gap: $gap;
+		[class*='#{$grid-gap-modifier}'] {
+			grid-gap: $css-grid-gap;
 		}
 
 		// Quick Grid
@@ -569,7 +563,7 @@
 		}
 
 		.#{$flex-grid-row-class} {
-			> [class*="#{$grid-column-class}"] {
+			> [class*='#{$grid-column-class}'] {
 				@extend %#{$grid-viewport-identifier}-grid-column-item;
 			}
 		}
@@ -577,7 +571,7 @@
 		// Set the flex item base
 		.#{$flex-grid-row-class},
 		.#{$flex-flush-grid-row-class} {
-			> [class*="#{$grid-column-class}"] {
+			> [class*='#{$grid-column-class}'] {
 				// Extend placeholders
 				@extend %#{$grid-viewport-identifier}-grid-flex-item;
 				@extend %#{$grid-viewport-identifier}-flex-display;
@@ -595,13 +589,13 @@
 			.#{$flex-flush-grid-row-class} {
 				@extend %#{$grid-viewport-identifier}-grid-wrap-lte9;
 
-				> [class*="#{$grid-column-class}"] {
+				> [class*='#{$grid-column-class}'] {
 					@extend %#{$grid-viewport-identifier}-grid-item-lte9;
 				}
 			}
 
 			// CSS Grid
-			[class*="#{$css-grid-wrapper-class}"] {
+			[class*='#{$css-grid-wrapper-class}'] {
 				@extend %#{$grid-viewport-identifier}-grid-wrap-lte9;
 
 				> * {
@@ -667,7 +661,7 @@
 }
 
 @mixin create-ie-edge-fallbacks($wrapper-class) {
-	[class*="#{$wrapper-class}"] {
+	[class*='#{$wrapper-class}'] {
 		@include grid-wrap-lte9();
 
 		> * {
@@ -675,7 +669,7 @@
 		}
 	}
 
-	[class$="#{$grid-gap-modifier}"] {
+	[class$='#{$grid-gap-modifier}'] {
 		@include grid-row();
 
 		> * {

@@ -1,7 +1,7 @@
 // Type Functions
 @function filter-type-declaration($value, $line-height: false) {
 	$string-value: #{$value};
-	$underscore-index: str-index($string-value, "_");
+	$underscore-index: str-index($string-value, '_');
 
 	@if $underscore-index {
 		$start-index: 1;

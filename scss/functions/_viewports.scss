@@ -1,9 +1,9 @@
 @function viewport-variable-min($identifier) {
-	@return "--mq-#{$identifier}-min";
+	@return '--mq-#{$identifier}-min';
 }
 
 @function viewport-variable-max($identifier) {
-	@return "--mq-#{$identifier}-max";
+	@return '--mq-#{$identifier}-max';
 }
 
 @function viewport-width($identifier) {
@@ -16,12 +16,12 @@
 		$responsive-breakpoints,
 		$identifier $breakpoint-value
 	);
-	$prefix-str: "all and ";
+	$prefix-str: 'all and ';
 
 	@if $min {
-		@return "#{$prefix-str}(min-width: #{viewport-value-min($breakpoint-value)})";
+		@return '#{$prefix-str}(min-width: #{viewport-value-min($breakpoint-value)})';
 	} @else if $max {
-		@return "#{$prefix-str}(max-width: #{viewport-value-max($breakpoint-value)})";
+		@return '#{$prefix-str}(max-width: #{viewport-value-max($breakpoint-value)})';
 	} @else if $only {
 		$neighboring-index: $breakpoint-index + 1;
 		$neighboring-breakpoint-value: nth(
@@ -29,15 +29,15 @@
 			$neighboring-index
 		);
 
-		@return "#{$prefix-str}(min-width: #{viewport-value-min($breakpoint-value)}) and (max-width: #{viewport-value-max($neighboring-breakpoint-value)})";
+		@return '#{$prefix-str}(min-width: #{viewport-value-min($breakpoint-value)}) and (max-width: #{viewport-value-max($neighboring-breakpoint-value)})';
 	}
 }
 
 // TODO: Operate off of base font size instead of 16?
 @function viewport-value-min($breakpoint-value) {
-	@return (1em * ($breakpoint-value / 16));
+	@return (1em * calc($breakpoint-value / 16));
 }
 
 @function viewport-value-max($breakpoint-value) {
-	@return (1em * (($breakpoint-value - 1) / 16));
+	@return (1em * calc(($breakpoint-value - 1) / 16));
 }

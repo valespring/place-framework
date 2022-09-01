@@ -40,7 +40,11 @@
 	);
 	background-image: -o-linear-gradient(top, $color1 $stop1, $color2 $stop2);
 	background-image: -ms-linear-gradient(top, $color1 $stop1, $color2 $stop2);
-	background-image: linear-gradient(to bottom, $color1 $stop1, $color2 $stop2);
+	background-image: linear-gradient(
+		to bottom,
+		$color1 $stop1,
+		$color2 $stop2
+	);
 }
 
 @mixin background-image-linear-gradient-three-stops(

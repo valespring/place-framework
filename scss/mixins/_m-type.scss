@@ -1,11 +1,15 @@
-@import "functions/_type";
+// Math
+@use 'sass:math';
+
+// Functions
+@import 'functions/_math';
+@import 'functions/_type';
 
 // Size For Font
 // * Convert type size into rems, with a pixel fallback. Now with a responsive option.
 @mixin size-for-font($font-size, $responsive: false) {
-	// TODO: 16 to body size?
 	$numeric-font-size: number($font-size);
-	$rem: $numeric-font-size / 16;
+	$rem: math.div($numeric-font-size, $base-text-size);
 	$px: $numeric-font-size;
 
 	@if $responsive {
@@ -75,9 +79,6 @@
 				$queried-type-size: get-type-size($type-value);
 				$queried-line-height: get-line-height($type-value, $key);
 
-				@debug "$type-key" $type-key;
-				@debug "$type-value" $type-value;
-
 				@include viewport-by-key($type-key) {
 					@include type-leading-combined(
 						$queried-type-size,
@@ -110,12 +111,12 @@
 // Webfonts
 // * Mixins to generate `@font-face` code.
 
-@mixin web-font($name: "Web Font", $folder: folder, $filename: webfont) {
-	font-family: "#{$name}";
-	src: url("#{$folder}/#{$filename}.eot");
-	src: url("#{$folder}/#{$filename}.eot?#iefix") format("embedded-opentype"),
-		url("#{$folder}/#{$filename}.woff") format("woff"),
-		url("#{$folder}/#{$filename}.ttf") format("truetype");
+@mixin web-font($name: 'Web Font', $folder: folder, $filename: webfont) {
+	font-family: '#{$name}';
+	src: url('#{$folder}/#{$filename}.eot');
+	src: url('#{$folder}/#{$filename}.eot?#iefix') format('embedded-opentype'),
+		url('#{$folder}/#{$filename}.woff') format('woff'),
+		url('#{$folder}/#{$filename}.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }

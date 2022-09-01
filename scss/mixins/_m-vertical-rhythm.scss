@@ -1,8 +1,11 @@
+// Math
+@use 'sass:math';
+
 // Calculate rhythm units
 @mixin rhythm($property, $lines, $size, $vertical: $base-vertical) {
 	// Variables
 	$rhythm: $lines * $vertical;
-	$rhythm-em: $rhythm / $size;
+	$rhythm-em: math.div($rhythm, $size);
 
 	// Create
 	#{$property}: #{$rhythm-em}em;

@@ -3,7 +3,7 @@ img {
 	border: 0;
 
 	//https://css-tricks.com/svg-fallbacks/
-	[src$=".svg"] {
+	[src$='.svg'] {
 		width: 100%;
 	}
 }

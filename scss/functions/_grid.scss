@@ -1,0 +1,9 @@
+// Math
+@use 'sass:math';
+
+@function grid-spacing($mar: $base-margin) {
+	$half-spacing: math.div($mar, 2);
+	$grid-spacing: 1em * math.div($half-spacing, $base-text-size);
+
+	@return $grid-spacing;
+}

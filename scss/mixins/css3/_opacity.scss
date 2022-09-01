@@ -4,5 +4,5 @@
 
 	// Create
 	opacity: $opacity;
-	filter: "alpha(opacity=#{$ie-opacity})";
+	filter: 'alpha(opacity=#{$ie-opacity})';
 }

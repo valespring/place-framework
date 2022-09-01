@@ -10,11 +10,11 @@
 	$class: $pattern;
 
 	$template-map: (
-		"B": $base,
-		"V": $viewport,
-		"M": $modifier,
-		"P": $partial,
-		"T": $total
+		'B': $base,
+		'V': $viewport,
+		'M': $modifier,
+		'P': $partial,
+		'T': $total
 	);
 
 	@each $key, $value in $template-map {

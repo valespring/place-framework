@@ -1,39 +1,103 @@
+// Math
+@use 'sass:math';
+@import 'functions/_math';
+
 // Horizontal Margins
 
-$full-side: 1em * (($base-margin / 2) / $base-text-size) !default;
-$half-side: 1em * (($base-margin / 4) / $base-text-size) !default;
-$quarter-side: 1em * (($base-margin / 8) / $base-text-size) !default;
-$double-side: 1em * ($base-margin / $base-text-size) !default;
+// $full-side: 1em * (($base-margin / 2) / $base-text-size) !default;
+// $half-side: 1em * (($base-margin / 4) / $base-text-size) !default;
+// $quarter-side: 1em * (($base-margin / 8) / $base-text-size) !default;
+// $double-side: 1em * ($base-margin / $base-text-size) !default;
+
+// TODO: Check for breaking changes as full-side doesn't make sense with 0.5 divisor.
+
+$full-multiplier: 0.5;
+$half-multiplier: math.div($full-multiplier, 2);
+$quarter-multiplier: math.div($half-multiplier, 2);
+$eighth-multiplier: math.div($quarter-multiplier, 2);
+$double-multiplier: $full-multiplier * 2;
+
+$full-side: calc-spacing($base-margin, $full-multiplier) !default;
+$half-side: calc-spacing($base-margin, $half-multiplier) !default;
+$quarter-side: calc-spacing($base-margin, $quarter-multiplier) !default;
+$double-side: calc-spacing($base-margin, $double-multiplier) !default;
 
 // Horizontal Margins Minus Border
 
-$full-side-bordered: 1em *
-	((($base-margin / 2) - $default-border-width) / $base-text-size) !default;
-$half-side-bordered: 1em *
-	((($base-margin / 4) - $default-border-width) / $base-text-size) !default;
-$quarter-side-bordered: 1em *
-	((($base-margin / 8) - $default-border-width) / $base-text-size) !default;
-$double-side-bordered: 1em *
-	(($base-margin - $default-border-width) / $base-text-size) !default;
+// $full-side-bordered: 1em *
+// 	((($base-margin / 2) - $default-border-width) / $base-text-size) !default;
+// $half-side-bordered: 1em *
+// 	((($base-margin / 4) - $default-border-width) / $base-text-size) !default;
+// $quarter-side-bordered: 1em *
+// 	((($base-margin / 8) - $default-border-width) / $base-text-size) !default;
+// $double-side-bordered: 1em *
+// 	(($base-margin - $default-border-width) / $base-text-size) !default;
+
+$full-side-bordered: calc-spacing(
+	$base-margin,
+	$full-multiplier,
+	$default-border-width
+) !default;
+$half-side-bordered: calc-spacing(
+	$base-margin,
+	$half-multiplier,
+	$default-border-width
+) !default;
+$quarter-side-bordered: calc-spacing(
+	$base-margin,
+	$quarter-multiplier,
+	$default-border-width
+) !default;
+$double-side-bordered: calc-spacing(
+	$base-margin,
+	$double-multiplier,
+	$default-border-width
+) !default;
 
 // Vertical Margins
+// $full-vertical: 1em * ($base-vertical / $base-text-size) !default;
+// $half-vertical: 1em * (($base-vertical / 2) / $base-text-size) !default;
+// $quarter-vertical: 1em * (($base-vertical / 4) / $base-text-size) !default;
+// $eighth-vertical: 1em * (($base-vertical / 8) / $base-text-size) !default;
+// $double-vertical: 1em * (($base-vertical * 2) / $base-text-size) !default;
 
-$full-vertical: 1em * ($base-vertical / $base-text-size) !default;
-$half-vertical: 1em * (($base-vertical / 2) / $base-text-size) !default;
-$quarter-vertical: 1em * (($base-vertical / 4) / $base-text-size) !default;
-$eighth-vertical: 1em * (($base-vertical / 8) / $base-text-size) !default;
-$double-vertical: 1em * (($base-vertical * 2) / $base-text-size) !default;
+$full-vertical: calc-spacing($base-vertical, $full-multiplier) !default;
+$half-vertical: calc-spacing($base-vertical, $half-multiplier) !default;
+$quarter-vertical: calc-spacing($base-vertical, $quarter-multiplier) !default;
+$eighth-vertical: calc-spacing($base-vertical, $eighth-multiplier) !default;
+$double-vertical: calc-spacing($base-vertical, $double-multiplier) !default;
 
 // Vertical Margins Minus Border
 
-$full-vertical-bordered: 1em *
-	(($base-vertical - $default-border-width) / $base-text-size) !default;
-$half-vertical-bordered: 1em *
-	((($base-vertical / 2) - $default-border-width) / $base-text-size) !default;
-$quarter-vertical-bordered: 1em *
-	((($base-vertical / 4) - $default-border-width) / $base-text-size) !default;
-$double-vertical-bordered: 1em *
-	((($base-vertical * 2) - $default-border-width) / $base-text-size) !default;
+// $full-vertical-bordered: 1em *
+// 	(($base-vertical - $default-border-width) / $base-text-size) !default;
+// $half-vertical-bordered: 1em *
+// 	((($base-vertical / 2) - $default-border-width) / $base-text-size) !default;
+// $quarter-vertical-bordered: 1em *
+// 	((($base-vertical / 4) - $default-border-width) / $base-text-size) !default;
+// $double-vertical-bordered: 1em *
+// 	((($base-vertical * 2) - $default-border-width) / $base-text-size) !default;
+
+$full-vertical-bordered: calc-spacing(
+	$base-vertical,
+	$full-multiplier,
+	$default-border-width
+) !default;
+$half-vertical-bordered: calc-spacing(
+	$base-vertical,
+	$half-multiplier,
+	$default-border-width
+) !default;
+$quarter-vertical-bordered: calc-spacing(
+	$quarter-vertical,
+	$full-multiplier,
+	$default-border-width
+) !default;
+$double-vertical-bordered: calc-spacing(
+	$double-vertical,
+	$full-multiplier,
+	$default-border-width
+) !default;
 
 // Content
 $content-width-min: map-get(

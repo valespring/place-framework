@@ -1,3 +1,6 @@
+// Math
+@use 'sass:math';
+
 // Spacing Helpers
 
 // * Spacing helpers to quickly apply extra margin or padding to an element to quickly prototype, or leave in (it's your life).
@@ -22,7 +25,8 @@
 			$converted-value: $value;
 
 			@if $value != 0 {
-				$converted-value: 1em * ($value / $base-text-size);
+				//$converted-value: 1em * ($value / $base-text-size);
+				$converted-value: 1em * math.div($value, $base-text-size);
 			}
 
 			.#{$spacing-class} {

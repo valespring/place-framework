@@ -1,3 +1,6 @@
+// Math
+@use 'sass:math';
+
 /*!
 
 Container
@@ -15,9 +18,11 @@ Container
 }
 
 .#{$wrapper-name}-wide {
-	max-width: 1em * ($wrapper-wide-max-width / $base-text-size);
+	//max-width: 1em * ($wrapper-wide-max-width / $base-text-size);
+	max-width: 1em * math.div($wrapper-wide-max-width, $base-text-size);
 }
 
 .#{$wrapper-name} {
-	max-width: 1em * ($wrapper-max-width / $base-text-size);
+	//max-width: 1em * ($wrapper-max-width / $base-text-size);
+	max-width: 1em * math.div($wrapper-max-width, $base-text-size);
 }

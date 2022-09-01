@@ -1,3 +1,6 @@
+// Math
+@use 'sass:math';
+
 /*! 
 
 Buttons
@@ -7,10 +10,11 @@ Buttons
 */
 
 @if $button-baseline {
-	[class*="#{$button-class-prefix}"] {
+	[class*='#{$button-class-prefix}'] {
 		// Variables
-		$button-vertical: 1em * ($button-vertical-padding / $base-text-size);
-		$button-side: 1em * ($button-side-padding / $base-text-size);
+		$button-vertical: 1em *
+			math.div($button-vertical-padding, $base-text-size);
+		$button-side: 1em * math.div($button-side-padding, $base-text-size);
 
 		// Baseline
 		width: auto;

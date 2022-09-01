@@ -1,33 +1,33 @@
 // Global Creation Stylesheet
 
 // Helper Classes
-@import "helpers/_spacing";
-@import "helpers/_presentational";
-@import "helpers/_type";
+@import 'helpers/_spacing';
+@import 'helpers/_presentational';
+@import 'helpers/_type';
 
 // Typography
-@import "type/_font-face";
-@import "type/_hierarchy";
-@import "type/_styles";
+@import 'type/_font-face';
+@import 'type/_hierarchy';
+@import 'type/_styles';
 
 // Interactive Elements
-@import "interactive/_buttons";
-@import "interactive/_links";
+@import 'interactive/_buttons';
+@import 'interactive/_links';
 
 // Forms
-@import "forms/_elements";
+@import 'forms/_elements';
 
 // Layout
-@import "layout/_lists";
-@import "layout/_grid";
+@import 'layout/_lists';
+@import 'layout/_grid';
 
 // Structure
-@import "structure/_containers";
-@import "structure/_tables";
+@import 'structure/_containers';
+@import 'structure/_tables';
 
 // Base
-@import "base/variables";
+@import 'base/variables';
 
 // Modules
-@import "modules/_transitions";
-@import "modules/_embeds";
+@import 'modules/_transitions';
+@import 'modules/_embeds';

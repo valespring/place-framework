@@ -26,9 +26,9 @@ textarea {
 }
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
 	-webkit-appearance: button;
 	display: inline-block;
 	cursor: pointer;
@@ -48,15 +48,15 @@ input {
 }
 
 input {
-	&[type="checkbox"],
-	&[type="radio"] {
+	&[type='checkbox'],
+	&[type='radio'] {
 		margin: 3px;
 		padding: 0;
 		box-sizing: border-box;
 		position: relative;
 		vertical-align: top;
 	}
-	&[type="search"] {
+	&[type='search'] {
 		-webkit-appearance: textfield;
 
 		&::-webkit-search-cancel-button,

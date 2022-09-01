@@ -37,12 +37,12 @@ $type-quick-colors: (
 ) !default;
 
 // Font Declarations
-$stack-serif: "Times New Roman", Times, Georgia, serif;
-$stack-sans-serif: Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode",
+$stack-serif: 'Times New Roman', Times, Georgia, serif;
+$stack-sans-serif: Helvetica, Arial, 'Arial Unicode', 'Lucida Sans Unicode',
 	sans-serif;
-$stack-slab-serif: "Courier New", Courier, serif;
+$stack-slab-serif: 'Courier New', Courier, serif;
 $stack-mono: Courier, monospace;
-$stack-icons: "icons";
+$stack-icons: 'icons';
 
 // Font Declarations
 $primary-font: $stack-sans-serif !default;
@@ -61,5 +61,5 @@ $base-text-size: map-get($type-scale, normal-text) !default;
 // Vertical Rhythm
 $base-vertical: 20 !default;
 
-// Golden Ratio
-$golden-ratio: (1 + square-root(5)) / 2;
+// Golden Ratio ::: divide by 2
+$golden-ratio: (1 + square-root(5)) * 0.5;
