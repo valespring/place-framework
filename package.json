@@ -8,6 +8,7 @@
     "check": "prettier --check \"scss/**/*.scss\"",
     "format": "prettier --write \"scss/**/*.scss\""
   },
+  "prettier": "./node_modules/@valespring/valespring-code-config/prettier.config.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/valespring/place-framework.git"
@@ -24,6 +25,8 @@
     "url": "https://github.com/valespring/place-framework/issues"
   },
   "devDependencies": {
-    "prettier": "1.18.2"
+    "@valespring/valespring-code-config": "^1.0.5",
+    "prettier": "1.18.2",
+    "sass": "^1.54.8"
   }
 }

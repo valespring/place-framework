@@ -1,3 +1,6 @@
+// Math
+@use 'sass:math';
+
 @function viewport-variable-min($identifier) {
 	@return '--mq-#{$identifier}-min';
 }
@@ -35,9 +38,9 @@
 
 // TODO: Operate off of base font size instead of 16?
 @function viewport-value-min($breakpoint-value) {
-	@return (1em * calc($breakpoint-value / 16));
+	@return 1px * $breakpoint-value;
 }
 
 @function viewport-value-max($breakpoint-value) {
-	@return (1em * calc(($breakpoint-value - 1) / 16));
+	@return 1px * ($breakpoint-value - 1);
 }
