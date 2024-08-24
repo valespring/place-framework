@@ -10,7 +10,9 @@
 		$index: index($responsive-breakpoints, $key $breakpoint-value);
 		$next-index: $index + 1;
 
-		#{viewport-variable-min($key)}: viewport-value-min($breakpoint-value);
+		& {
+			#{viewport-variable-min($key)}: viewport-value-min($breakpoint-value);
+		}
 
 		@if $next-index <= length($responsive-breakpoints) {
 			$neighboring-breakpoint-key: nth(
@@ -23,9 +25,12 @@
 			);
 
 			@if $neighboring-breakpoint-key {
-				#{viewport-variable-max($key)}: viewport-value-max(
-					$neighboring-breakpoint-value
-				);
+				& {
+					#{viewport-variable-max($key)}: viewport-value-max(
+						$neighboring-breakpoint-value
+					);
+				}
+				
 			}
 		}
 
