@@ -13,7 +13,7 @@
 </a>
 
 <a href="https://opensource.org/licenses/MIT" rel="nofollow">
-    <img src="https://img.shields.io/npm/l/place-framework?style=flat-square">
+    <img src="https://img.shields.io/npm/l/@place-framework/place-framework?style=flat-square">
 </a>
 </p>
 
