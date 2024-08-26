@@ -1,5 +1,4 @@
-![Place Framework Header](https://raw.githubusercontent.com/valespring/place-framework/master/docs/logo-header.gif?sanitize=true)
-
+![PLACE Framework Header](https://raw.githubusercontent.com/valespring/place-framework/master/docs/logo-header.gif?sanitize=true)
 
 <p align="center">
 <img src="https://img.shields.io/github/languages/code-size/valespring/place-framework?style=flat-square">
@@ -33,6 +32,7 @@ PLACE SCSS Framework Documentation
 * [Grid](#grid)
 * [Examples](#examples)
 * [Import Types](#import-types)
+* [Subsets](#subsets)
 * [Acknowledgements](#acknowledgements)
 
 ## Introduction
@@ -658,6 +658,13 @@ Import only the place grid with no added features or modules.
 `@import "place-core"`
 
 The above with additional helpful modules and features: helper classes, type defaults, interactive/button defaults, responsive tables, transition placeholders, and a responsive container for iframe embeds. 
+
+## Subsets
+
+These are other tools that utilize the PLACE Framework.
+
+* [PLACE Webpack Preset](https://www.npmjs.com/package/@place-framework/place-webpack-preset)
+* [PLACE Starter Vue](https://www.npmjs.com/package/@place-framework/place-framework-starter-vue)
                         
 ## Acknowledgements
 
