@@ -1,9 +1,4 @@
-@mixin text-shadow(
-	$shadow-x: 0,
-	$shadow-y: 0,
-	$shadow-rad: 10px,
-	$shadow-color: #ccc
-) {
+@mixin text-shadow($shadow-x: 0, $shadow-y: 0, $shadow-rad: 10px, $shadow-color: #ccc) {
 	text-shadow: $shadow-x $shadow-y $shadow-rad $shadow-color;
 	filter: dropshadow(color=$shadow-color, offx=$shadow-x, offy=$shadow-y);
 }

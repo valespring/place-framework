@@ -1,6 +1,6 @@
 // Math
 @use 'sass:math';
-@import 'functions/_math';
+@import 'functions/math';
 
 // Horizontal Margins
 
@@ -33,26 +33,10 @@ $double-side: calc-spacing($base-margin, $double-multiplier) !default;
 // $double-side-bordered: 1em *
 // 	(($base-margin - $default-border-width) / $base-text-size) !default;
 
-$full-side-bordered: calc-spacing(
-	$base-margin,
-	$full-multiplier,
-	$default-border-width
-) !default;
-$half-side-bordered: calc-spacing(
-	$base-margin,
-	$half-multiplier,
-	$default-border-width
-) !default;
-$quarter-side-bordered: calc-spacing(
-	$base-margin,
-	$quarter-multiplier,
-	$default-border-width
-) !default;
-$double-side-bordered: calc-spacing(
-	$base-margin,
-	$double-multiplier,
-	$default-border-width
-) !default;
+$full-side-bordered: calc-spacing($base-margin, $full-multiplier, $default-border-width) !default;
+$half-side-bordered: calc-spacing($base-margin, $half-multiplier, $default-border-width) !default;
+$quarter-side-bordered: calc-spacing($base-margin, $quarter-multiplier, $default-border-width) !default;
+$double-side-bordered: calc-spacing($base-margin, $double-multiplier, $default-border-width) !default;
 
 // Vertical Margins
 // $full-vertical: 1em * ($base-vertical / $base-text-size) !default;
@@ -78,33 +62,11 @@ $double-vertical: calc-spacing($base-vertical, $double-multiplier) !default;
 // $double-vertical-bordered: 1em *
 // 	((($base-vertical * 2) - $default-border-width) / $base-text-size) !default;
 
-$full-vertical-bordered: calc-spacing(
-	$base-vertical,
-	$full-multiplier,
-	$default-border-width
-) !default;
-$half-vertical-bordered: calc-spacing(
-	$base-vertical,
-	$half-multiplier,
-	$default-border-width
-) !default;
-$quarter-vertical-bordered: calc-spacing(
-	$quarter-vertical,
-	$full-multiplier,
-	$default-border-width
-) !default;
-$double-vertical-bordered: calc-spacing(
-	$double-vertical,
-	$full-multiplier,
-	$default-border-width
-) !default;
+$full-vertical-bordered: calc-spacing($base-vertical, $full-multiplier, $default-border-width) !default;
+$half-vertical-bordered: calc-spacing($base-vertical, $half-multiplier, $default-border-width) !default;
+$quarter-vertical-bordered: calc-spacing($quarter-vertical, $full-multiplier, $default-border-width) !default;
+$double-vertical-bordered: calc-spacing($double-vertical, $full-multiplier, $default-border-width) !default;
 
 // Content
-$content-width-min: map-get(
-	$responsive-breakpoints,
-	$viewport-small-identifier
-);
-$content-width-max: map-get(
-	$responsive-breakpoints,
-	$viewport-x-large-identifier
-);
+$content-width-min: map-get($responsive-breakpoints, $viewport-small-identifier);
+$content-width-max: map-get($responsive-breakpoints, $viewport-x-large-identifier);

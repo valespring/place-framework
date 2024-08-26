@@ -1,11 +1,11 @@
-![Place Framework Header](https://raw.githubusercontent.com/valespring/place-framework/master/docs/logo-header.svg?sanitize=true)
+![Place Framework Header](https://raw.githubusercontent.com/valespring/place-framework/master/docs/logo-header.gif?sanitize=true)
 
 
 <p align="center">
 <img src="https://img.shields.io/github/languages/code-size/valespring/place-framework?style=flat-square">
 
 <a href="https://www.npmjs.com/package/place-framework" target="_blank">
-    <img src="https://img.shields.io/npm/v/place-framework?style=flat-square">
+    <img src="https://img.shields.io/npm/v/@place-framework/place-framework?style=flat-square">
 </a>
 
 <a href="https://prettier.io" target="_blank">

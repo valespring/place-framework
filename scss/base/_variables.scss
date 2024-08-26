@@ -15,30 +15,19 @@
 		}
 
 		@if $next-index <= length($responsive-breakpoints) {
-			$neighboring-breakpoint-key: nth(
-				map-keys($responsive-breakpoints),
-				$next-index
-			);
-			$neighboring-breakpoint-value: nth(
-				map-values($responsive-breakpoints),
-				$next-index
-			);
+			$neighboring-breakpoint-key: nth(map-keys($responsive-breakpoints), $next-index);
+			$neighboring-breakpoint-value: nth(map-values($responsive-breakpoints), $next-index);
 
 			@if $neighboring-breakpoint-key {
 				& {
-					#{viewport-variable-max($key)}: viewport-value-max(
-						$neighboring-breakpoint-value
-					);
+					#{viewport-variable-max($key)}: viewport-value-max($neighboring-breakpoint-value);
 				}
-				
 			}
 		}
 
 		@include viewport-by-key($key) {
 			--content-width: #{map-get($responsive-breakpoints, $key)};
-			--content-width-px: calc(
-				#{map-get($responsive-breakpoints, $key)} * 1px
-			);
+			--content-width-px: calc(#{map-get($responsive-breakpoints, $key)} * 1px);
 		}
 	}
 }

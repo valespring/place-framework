@@ -1,14 +1,19 @@
 {
   "name": "@place-framework/place-framework",
   "author": "Brian Kelley",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "index.js",
   "license": "MIT Open Source",
   "scripts": {
-    "check": "prettier --check \"scss/**/*.scss\"",
-    "format": "prettier --write \"scss/**/*.scss\""
+    "prettier": "prettier --check \"scss/**/*.scss\"",
+    "prettier:fix": "prettier --write \"scss/**/*.scss\"",
+    "lint:scss": "npx stylelint \"scss/**/*.scss\"",
+    "lint:scss:fix": "npx stylelint --fix \"scss/**/*.scss\""
   },
-  "prettier": "./node_modules/@valespring/code-config/prettier.config.js",
+  "prettier": "./node_modules/@place-framework/code-config/prettier.config.js",
+  "stylelint": {
+    "extends": "@place-framework/code-config/stylelint.config"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/valespring/place-framework.git"
@@ -28,7 +33,8 @@
     "url": "https://github.com/valespring/place-framework/issues"
   },
   "devDependencies": {
-    "prettier": "1.18.2",
-    "sass": "^1.54.8"
+    "@place-framework/code-config": "^2.0.2",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.8.2"
   }
 }

@@ -15,10 +15,7 @@
 
 @function viewport-range($identifier, $min: false, $max: false, $only: false) {
 	$breakpoint-value: viewport-width($identifier);
-	$breakpoint-index: index(
-		$responsive-breakpoints,
-		$identifier $breakpoint-value
-	);
+	$breakpoint-index: index($responsive-breakpoints, $identifier $breakpoint-value);
 	$prefix-str: 'all and ';
 
 	@if $min {
@@ -27,10 +24,7 @@
 		@return '#{$prefix-str}(max-width: #{viewport-value-max($breakpoint-value)})';
 	} @else if $only {
 		$neighboring-index: $breakpoint-index + 1;
-		$neighboring-breakpoint-value: nth(
-			map-values($responsive-breakpoints),
-			$neighboring-index
-		);
+		$neighboring-breakpoint-value: nth(map-values($responsive-breakpoints), $neighboring-index);
 
 		@return '#{$prefix-str}(min-width: #{viewport-value-min($breakpoint-value)}) and (max-width: #{viewport-value-max($neighboring-breakpoint-value)})';
 	}

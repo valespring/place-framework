@@ -12,8 +12,7 @@ Buttons
 @if $button-baseline {
 	[class*='#{$button-class-prefix}'] {
 		// Variables
-		$button-vertical: 1em *
-			math.div($button-vertical-padding, $base-text-size);
+		$button-vertical: 1em * math.div($button-vertical-padding, $base-text-size);
 		$button-side: 1em * math.div($button-side-padding, $base-text-size);
 
 		// Baseline
@@ -21,7 +20,6 @@ Buttons
 		height: auto;
 		margin: 0;
 		line-height: normal;
-		text-align: center;
 		text-decoration: none;
 		position: relative;
 		appearance: none;

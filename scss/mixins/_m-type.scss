@@ -2,8 +2,8 @@
 @use 'sass:math';
 
 // Functions
-@import 'functions/_math';
-@import 'functions/_type';
+@import 'functions/math';
+@import 'functions/type';
 
 // Size For Font
 // * Convert type size into rems, with a pixel fallback. Now with a responsive option.
@@ -27,19 +27,12 @@
 // Responsive Type
 // https://css-tricks.com/snippets/css/fluid-typography/
 @mixin responsive-font-size($font-size) {
-	//font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-	// font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-
-	//--min-font-size: calc(#{$s} * var(--content-ratio));
 	--min-font-size: calc(#{$font-size} * var(--content-ratio));
 	--min-font-size-px: calc(var(--min-font-size) * 1px);
 
 	font-size: calc(
 		var(--min-font-size-px) + (#{$font-size} - var(--min-font-size)) *
-			(
-				(100vw - var(--content-width-px)) /
-					(var(--content-width-max) - var(--content-width))
-			)
+			((100vw - var(--content-width-px)) / (var(--content-width-max) - var(--content-width)))
 	);
 }
 
@@ -52,12 +45,7 @@
 	@if $line-height {
 		line-height: calc(#{$line-height} / #{$font-size} * 1em);
 	} @else {
-		line-height: calc(
-			var(--golden-ratio) -
-				1 /
-				(2 * var(--golden-ratio)) *
-				(1 - (var(--content-width) / #{$wp}))
-		);
+		line-height: calc(var(--golden-ratio) - 1 / (2 * var(--golden-ratio)) * (1 - (var(--content-width) / #{$wp})));
 	}
 }
 
@@ -80,22 +68,14 @@
 				$queried-line-height: get-line-height($type-value, $key);
 
 				@include viewport-by-key($type-key) {
-					@include type-leading-combined(
-						$queried-type-size,
-						$queried-line-height,
-						$responsive
-					);
+					@include type-leading-combined($queried-type-size, $queried-line-height, $responsive);
 				}
 			}
 		} @else {
 			$queried-type-size: get-type-size($type-declaration);
 			$queried-line-height: get-line-height($type-declaration, $key);
 
-			@include type-leading-combined(
-				$queried-type-size,
-				$queried-line-height,
-				$responsive
-			);
+			@include type-leading-combined($queried-type-size, $queried-line-height, $responsive);
 		}
 	} @else {
 		@warn 'Type key #${key} is misconfigured.';
@@ -114,7 +94,8 @@
 @mixin web-font($name: 'Web Font', $folder: folder, $filename: webfont) {
 	font-family: '#{$name}';
 	src: url('#{$folder}/#{$filename}.eot');
-	src: url('#{$folder}/#{$filename}.eot?#iefix') format('embedded-opentype'),
+	src:
+		url('#{$folder}/#{$filename}.eot?#iefix') format('embedded-opentype'),
 		url('#{$folder}/#{$filename}.woff') format('woff'),
 		url('#{$folder}/#{$filename}.ttf') format('truetype');
 	font-weight: normal;

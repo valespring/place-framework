@@ -1,24 +1,27 @@
 // * Forms
 
 @if $form-input-baseline {
-	input,
-	textarea,
-	select {
-		border: solid 1px $input-border-color;
+	textarea {
+		height: $full-vertical * 4;
+	}
 
-		@if $input-border-radius > 0 {
-			border-radius: px($input-border-radius);
-		}
+	select {
+		width: auto;
+		max-width: 100%;
 	}
 
 	input,
 	textarea,
 	select {
-		// Style
+		border: solid 1px $input-border-color;
 		padding: px($input-top-padding) px($input-side-padding);
 		outline: none;
 		width: 100%;
 		font-size: 1em;
+
+		@if $input-border-radius > 0 {
+			border-radius: px($input-border-radius);
+		}
 
 		&,
 		&::placeholder {
@@ -37,15 +40,6 @@
 		&[type='radio'] {
 			width: auto;
 		}
-	}
-
-	textarea {
-		height: $full-vertical * 4;
-	}
-
-	select {
-		width: auto;
-		max-width: 100%;
 	}
 
 	// Style Placeholders

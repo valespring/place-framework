@@ -22,52 +22,22 @@ $responsive-breakpoints: (
 //$responsive-type-bp: $bp-large-width !default;
 
 // Small
-$small-screens-min: viewport-range(
-	$viewport-small-identifier,
-	$min: true
-) !default;
-$small-screens-max: viewport-range(
-	$viewport-medium-identifier,
-	$max: true
-) !default;
-$small-screens-only: viewport-range(
-	$viewport-small-identifier,
-	$only: true
-) !default;
+$small-screens-min: viewport-range($viewport-small-identifier, $min: true) !default;
+$small-screens-max: viewport-range($viewport-medium-identifier, $max: true) !default;
+$small-screens-only: viewport-range($viewport-small-identifier, $only: true) !default;
 
 // Medium
-$medium-screens-min: viewport-range(
-	$viewport-medium-identifier,
-	$min: true
-) !default;
-$medium-screens-max: viewport-range(
-	$viewport-large-identifier,
-	$max: true
-) !default;
-$medium-screens-only: viewport-range(
-	$viewport-medium-identifier,
-	$only: true
-) !default;
+$medium-screens-min: viewport-range($viewport-medium-identifier, $min: true) !default;
+$medium-screens-max: viewport-range($viewport-large-identifier, $max: true) !default;
+$medium-screens-only: viewport-range($viewport-medium-identifier, $only: true) !default;
 
 // Large
-$large-screens-min: viewport-range(
-	$viewport-large-identifier,
-	$min: true
-) !default;
-$large-screens-max: viewport-range(
-	$viewport-x-large-identifier,
-	$max: true
-) !default;
-$large-screens-only: viewport-range(
-	$viewport-large-identifier,
-	$only: true
-) !default;
+$large-screens-min: viewport-range($viewport-large-identifier, $min: true) !default;
+$large-screens-max: viewport-range($viewport-x-large-identifier, $max: true) !default;
+$large-screens-only: viewport-range($viewport-large-identifier, $only: true) !default;
 
 // Extra Large
-$x-large-screens-min: viewport-range(
-	$viewport-x-large-identifier,
-	$min: true
-) !default;
+$x-large-screens-min: viewport-range($viewport-x-large-identifier, $min: true) !default;
 
 // Default Viewport List
 $viewport-list: (

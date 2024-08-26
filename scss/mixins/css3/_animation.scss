@@ -10,8 +10,7 @@
 	$fill-mode: null,
 	$play-state: infinite
 ) {
-	animation: $name $duration $timing-function $delay $direction $iteration
-		$fill-mode $play-state;
+	animation: $name $duration $timing-function $delay $direction $iteration $fill-mode $play-state;
 }
 
 // Keyframes

@@ -16,12 +16,7 @@
 	@each $infix, $position in $spacing-positions {
 		@each $suffix, $value in $spacing-values {
 			// Variables
-			$spacing-class: template-class(
-				$spacing-class-pattern,
-				$base: $prefix,
-				$total: $infix,
-				$modifier: $suffix
-			);
+			$spacing-class: template-class($spacing-class-pattern, $base: $prefix, $total: $infix, $modifier: $suffix);
 			$converted-value: $value;
 
 			@if $value != 0 {

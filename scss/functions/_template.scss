@@ -1,12 +1,5 @@
 // Template Class Creation
-@function template-class(
-	$pattern,
-	$base: null,
-	$viewport: null,
-	$modifier: null,
-	$partial: null,
-	$total: null
-) {
+@function template-class($pattern, $base: null, $viewport: null, $modifier: null, $partial: null, $total: null) {
 	$class: $pattern;
 
 	$template-map: (

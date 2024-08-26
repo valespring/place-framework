@@ -64,7 +64,6 @@
 }
 
 @mixin grid-flex-item {
-	box-flex: 1;
 	flex-grow: 1;
 	flex-shrink: 0;
 	float: none;
@@ -165,11 +164,7 @@
 @mixin create-quick-css-grid($class, $margin) {
 	@each $prefix, $value in $quick-grid-map {
 		// Class Variable
-		$quick-css-grid-class: template-class(
-			$quick-css-grid-wrapper-pattern,
-			$base: $class,
-			$total: $prefix
-		);
+		$quick-css-grid-class: template-class($quick-css-grid-wrapper-pattern, $base: $class, $total: $prefix);
 
 		$gap-css-grid-class: template-class(
 			$quick-css-grid-gap-pattern,
@@ -204,12 +199,10 @@
 
 			@if not index($col-widths, $w) {
 				@if $p != $t {
-					//.#{$prefix}-grid-row-#{$p}-#{$t},
 					%#{$prefix}-grid-row-#{$p}-#{$t} {
 						grid-row: #{$p} / #{$t};
 					}
 
-					//.#{$prefix}-grid-column-#{$p}-#{$t},
 					%#{$prefix}-grid-column-#{$p}-#{$t} {
 						grid-column: #{$p} / #{$t};
 					}
@@ -303,7 +296,7 @@
 								$modifier: $fraction
 							);
 
-							@if $value == ($p/$t) {
+							@if $value == math.div($p, $t) {
 								> .#{$grid-column-width-class},
 								> .#{$grid-fraction-column-width-class} {
 									// Width
@@ -429,11 +422,7 @@
 	}
 }
 
-@mixin create-grid(
-	$grid-viewport-identifier,
-	$grid-columns: $large-columns,
-	$grid-margin: $large-margin
-) {
+@mixin create-grid($grid-viewport-identifier, $grid-columns: $large-columns, $grid-margin: $large-margin) {
 	// Row Class Name Variables
 	$grid-row-class: template-class(
 		$grid-row-pattern,
@@ -640,7 +629,8 @@
 		}
 
 		// Variables
-		$ie-10-target: all and (-ms-high-contrast: none),
+		$ie-10-target:
+			all and (-ms-high-contrast: none),
 			(-ms-high-contrast: active);
 		$ie-13-14-target: (-ms-ime-align: auto);
 
