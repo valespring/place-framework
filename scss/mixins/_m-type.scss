@@ -8,9 +8,11 @@
 // Size For Font
 // * Convert type size into rems, with a pixel fallback. Now with a responsive option.
 @mixin size-for-font($font-size, $responsive: false) {
+	$rem-baseline: 16;
 	$numeric-font-size: number($font-size);
-	$rem: math.div($numeric-font-size, $base-text-size);
+	$rem: math.div($numeric-font-size, $rem-baseline);
 	$px: $numeric-font-size;
+
 
 	@if $responsive {
 		@include responsive-font-size($font-size);
