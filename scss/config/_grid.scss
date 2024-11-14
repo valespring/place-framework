@@ -10,11 +10,6 @@ $grid-column-identifier: 'col' !default;
 $grid-offset-identifier: 'os' !default;
 $css-grid-identifier: 'grid' !default;
 
-// // Grid Viewport Variables
-// $grid-viewport-desktop-identifier: "lg" !default;
-// $grid-viewport-tablet-identifier: "md" !default;
-// $grid-viewport-mobile-identifier: "sm" !default;
-
 // Grid Modifier Classes
 $grid-flex-modifier: 'flex' !default;
 $grid-flex-flush-modifier: 'flush' !default;
@@ -58,7 +53,6 @@ $margin-column-set: (
 );
 
 // CSS Grid
-// Don't use `fr` units with thoughts to fallbacks.
 $css-grid-max-rows: 12 !default;
 $css-grid-gap: px(20) !default;
 

@@ -192,6 +192,7 @@
 	// Loop Specifics
 	$col-widths: ();
 
+	// TODO: not pigeonhole to named fractions?
 	@for $t from 1 through $columns {
 		@for $p from 1 through $t {
 			//$w: ($p / $t);

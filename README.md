@@ -396,9 +396,9 @@ Widths are generated based off of the columns variable for that viewport, creati
 
 Active Variables                     | Default
 ------------------------------|------------------------------
-`$total-columns`| 12
-`$tablet-columns`| 9
-`$mobile-columns`| 4
+`$large-columns`| 12
+`$medium-columns`| 9
+`$small-columns`| 4
 `$grid-viewport-desktop-identifier`| 'lg'
 `$grid-viewport-tablet-identifier`| 'md'
 `$grid-viewport-mobile-identifier`| 'sm'
