@@ -1,11 +1,9 @@
 // WYSIWYG Module with Vertical Rhythm
 // * Applies consistent vertical rhythm to content within .wysiwyg containers
 // * Uses CSS custom properties for easy customization
-// * Dynamically generates spacing based on type scale keys
+// * Simple hierarchical approach with standard HTML elements
 
-@use '~@place/core/config/typography' as typography;
 @use '~@place/core/mixins/vertical-rhythm' as rhythm;
-@use '~@place/core/functions/typography' as typography-functions;
 
 // WYSIWYG container with vertical rhythm
 .wysiwyg {
@@ -23,49 +21,36 @@
 	--rhythm-hr: 2;
 	--rhythm-tight-after-heading: 0.5;
 	--rhythm-nested-list: 0.5;
+	--rhythm-first-child: 0;
 	
-	// Generate spacing for each type scale size dynamically
-	@each $size-key, $size-value in typography.$type-scale {
-		// Handle both simple values and responsive maps
-		@if type-of($size-value) == 'map' {
-			// Responsive type scale - use the largest size for spacing calculation
-			$largest-size: 0;
-			@each $viewport, $responsive-value in $size-value {
-				$current-size: typography-functions.get-type-size($responsive-value);
-				@if $current-size > $largest-size {
-					$largest-size: $current-size;
-				}
-			}
-			
-			// Calculate rhythm units based on font size relative to base
-			$rhythm-multiplier: calc($largest-size / typography.$base-text-size);
-			
-			// Apply spacing for elements with this type class
-			> .#{$size-key} {
-				@include rhythm.rhythm-margin-block-start(calc($rhythm-multiplier * var(--rhythm-space-modifier)));
-			}
-		} @else {
-			// Simple type scale value
-			$font-size: typography-functions.get-type-size($size-value);
-			$rhythm-multiplier: calc($font-size / typography.$base-text-size);
-			
-			// Apply spacing for elements with this type class
-			> .#{$size-key} {
-				@include rhythm.rhythm-margin-block-start(calc($rhythm-multiplier * var(--rhythm-space-modifier)));
-			}
-		}
+	// Hierarchical heading spacing
+	h1,
+	h2 {
+		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-heading-large) * var(--rhythm-space-modifier)));
 	}
 	
-	// Generate adjacent sibling spacing dynamically based on type scale
-	@each $size-key, $size-value in typography.$type-scale {
-		// All headings get spacing after them
-		> .#{$size-key} + * {
-			@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-heading-large) * var(--rhythm-space-modifier)));
-		}
+	h3,
+	h4 {
+		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-heading-medium) * var(--rhythm-space-modifier)));
+	}
+	
+	h5,
+	h6 {
+		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-heading-small) * var(--rhythm-space-modifier)));
+	}
+	
+	// Spacing after headings
+	h1 + *,
+	h2 + *,
+	h3 + *,
+	h4 + *,
+	h5 + *,
+	h6 + * {
+		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-tight-after-heading) * var(--rhythm-space-modifier)));
 	}
 	
 	// List spacing
-	> ul, > ol {
+	ul, ol {
 		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-list) * var(--rhythm-space-modifier)));
 		
 		// Nested lists
@@ -75,46 +60,39 @@
 	}
 	
 	// Paragraph spacing
-	> p {
+	p {
 		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-paragraph) * var(--rhythm-space-modifier)));
-		
-		// Tighter spacing after any heading (dynamically generated)
-		@each $size-key, $size-value in typography.$type-scale {
-			.#{$size-key} + & {
-				@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-tight-after-heading) * var(--rhythm-space-modifier)));
-			}
-		}
 	}
 	
 	// Blockquote spacing
-	> blockquote {
+	blockquote {
 		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-blockquote) * var(--rhythm-space-modifier)));
 	}
 	
 	// Code block spacing
-	> pre,
-	> code {
+	pre,
+	code {
 		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-code) * var(--rhythm-space-modifier)));
 	}
 	
 	// Table spacing
-	> table {
+	table {
 		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-table) * var(--rhythm-space-modifier)));
 	}
 	
 	// Image spacing
-	> img,
-	> figure {
+	img,
+	figure {
 		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-media) * var(--rhythm-space-modifier)));
 	}
 	
 	// HR spacing
-	> hr {
+	hr {
 		@include rhythm.rhythm-margin-block-start(calc(var(--rhythm-hr) * var(--rhythm-space-modifier)));
 	}
 	
-	// Remove margin from first child
+	// First child margin override
 	> *:first-child {
-		margin-block-start: 0;
+		margin-block-start: calc(var(--rhythm-first-child) * var(--rhythm-space-modifier));
 	}
 }
