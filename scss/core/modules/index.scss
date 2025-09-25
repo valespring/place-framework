@@ -1,0 +1,11 @@
+// Modules index file
+// This file forwards all modules for easy consumption
+
+// You can import individual modules directly:
+// @use 'place-framework/scss/modules/core/embeds';
+// @use 'place-framework/scss/modules/baseline/forms';
+
+// Or import all modules at once:
+// Sass will automatically find the files with underscore prefixes
+@forward 'core';
+@forward 'baseline';

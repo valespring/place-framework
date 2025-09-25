@@ -1,0 +1,16 @@
+// Message utility functions
+@use 'sass:list';
+@use '~@place/core/functions/base' as base;
+
+// Function to format messages with multiple replacements
+@function format-message($message, $args...) {
+  $result: $message;
+  
+  @for $i from 1 through list.length($args) {
+    $placeholder: '%s';
+    $replacement: list.nth($args, $i);
+    $result: base.str-replace($result, $placeholder, $replacement);
+  }
+  
+  @return $result;
+}

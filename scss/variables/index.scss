@@ -1,0 +1,15 @@
+// Configuration index file
+// This file forwards all configuration modules
+
+// Activations have been replaced with modular includes
+@forward 'patterns';
+@forward 'helpers';
+@forward 'viewports';
+@forward 'colors';
+@forward 'grid';
+@forward 'structure';
+@forward 'typography';
+@forward 'borders';
+@forward 'forms';
+@forward 'vars';
+@forward 'buttons';

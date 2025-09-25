@@ -1,0 +1,37 @@
+@use '~@place/core/mixins/grid/core' as grid-core;
+
+@mixin float-placeholders($suffix: null) {
+	// If suffix, append it with dash, else do nothing for base
+	$s: if($suffix, '-#{$suffix}', '');
+
+	// Float using logical properties
+	%float-start#{$s} {
+		float: inline-start;
+	}
+
+	%float-center#{$s} {
+		margin-inline-start: auto;
+		margin-inline-end: auto;
+	}
+
+	%float-end#{$s} {
+		float: inline-end;
+	}
+
+	%clear#{$s} {
+		clear: both;
+	}
+
+	%group#{$s} {
+		@include grid-core.clearfix();
+	}
+
+	// Legacy support (can be deprecated later)
+	%float-start#{$s} {
+		float: inline-start;
+	}
+
+	%float-end#{$s} {
+		float: inline-end;
+	}
+}

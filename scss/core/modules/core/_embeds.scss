@@ -1,0 +1,37 @@
+// Math
+@use 'sass:math';
+
+// Embed Container
+// * Containers used to wrap around content, like videos, to keep them contained for every viewport.
+// * <div class="embed-container">
+// *    <iframe width="560" height="315" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
+// * </div>
+
+// No longer using conditional check for modular includes
+.embed-container {
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+
+		// Vars
+		$landscape-ratio: (100% * math.div(9, 16));
+
+		// Style
+		padding-top: $landscape-ratio;
+	}
+
+	iframe,
+	video,
+	object,
+	embed {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}

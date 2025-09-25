@@ -1,0 +1,16 @@
+@use '~@place/core/mixins/presentation' as presentation;
+
+@mixin visibility-placeholders($suffix: null) {
+	// If suffix, append it with dash, else do nothing for base
+	$s: if($suffix, '-#{$suffix}', '');
+
+	// Hides
+	%is-hidden#{$s} {
+		@include presentation.visually-hidden();
+	}
+
+	%isnt-hidden#{$s} {
+		/* Mixins */
+		@include presentation.show-hidden();
+	}
+}

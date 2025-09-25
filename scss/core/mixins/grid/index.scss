@@ -1,0 +1,17 @@
+// Grid Mixins Index
+// Forward all grid-related mixins to make them available when importing this index
+
+// Forward all individual grid modules
+@forward 'core';
+@forward 'float';
+@forward 'flex';
+@forward 'offset';
+@forward 'css-grid';
+@forward 'create-grid';
+
+// This allows users to import specific grid types directly:
+// @use 'mixins/grid/flex' as flex-grid;
+// @use 'mixins/grid/offset' as offset-grid;
+// @use 'mixins/grid/css-grid' as css-grid;
+// @use 'mixins/grid/float' as float-grid;
+// @use 'mixins/grid/create-grid' for the main create-grid mixin

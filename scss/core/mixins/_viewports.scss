@@ -1,0 +1,17 @@
+@use '~@place/core/config/viewports' as *;
+
+@mixin viewport($query) {
+	@if $query {
+		@media #{$query} {
+			@content;
+		}
+	}
+}
+
+@mixin viewport-by-key($key) {
+	$query: map-get($viewport-list, $key);
+
+	@include viewport($query) {
+		@content;
+	}
+}

@@ -1,0 +1,33 @@
+@mixin flex-placeholders($suffix: null) {
+	// If suffix, append it with dash, else do nothing for base
+	$s: if($suffix, '-#{$suffix}', '');
+
+	// Flex Placeholders
+	%flex-display#{$s} {
+		display: flex;
+	}
+
+	%flex-grow#{$s} {
+		flex-grow: 1;
+	}
+
+	%justify-start#{$s} {
+		justify-content: flex-start;
+	}
+
+	%justify-end#{$s} {
+		justify-content: flex-end;
+	}
+
+	%justify-center#{$s} {
+		justify-content: center;
+	}
+
+	%justify-space-around#{$s} {
+		justify-content: space-around;
+	}
+
+	%justify-space-between#{$s} {
+		justify-content: space-between;
+	}
+}

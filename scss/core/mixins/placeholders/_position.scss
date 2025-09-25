@@ -1,0 +1,13 @@
+@mixin position-placeholders($suffix: null) {
+	// If suffix, append it with dash, else do nothing for base
+	$s: if($suffix, '-#{$suffix}', '');
+
+	// Container Positioning
+	%relative-container#{$s} {
+		position: relative;
+	}
+
+	%absolute-container#{$s} {
+		position: absolute;
+	}
+}

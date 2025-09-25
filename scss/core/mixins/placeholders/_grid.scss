@@ -1,0 +1,206 @@
+// Grid Placeholders
+// This file contains all placeholder-related mixins for the grid system
+
+@use 'sass:math';
+@use 'sass:map';
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/config/viewports' as vars;
+@use '~@place/core/mixins/grid/core' as core;
+@use '~@place/core/mixins/grid/flex' as flex;
+
+// Public API - Descriptive mixin names for easy consumption
+// These create placeholders within media queries to avoid cross-media-query @extend issues
+@mixin display-placeholders() {
+	@each $identifier, $query in vars.$viewport-list {
+		@media #{$query} {
+			$margin: map.get(map.get(grid-config.$margin-column-set, $identifier), 'margin');
+			@include grid-display-placeholders($identifier, $margin);
+		}
+	}
+}
+
+@mixin width-placeholders() {
+	@each $identifier, $query in vars.$viewport-list {
+		@media #{$query} {
+			$columns: map.get(map.get(grid-config.$margin-column-set, $identifier), 'columns');
+			@include grid-width-placeholders($identifier, $columns);
+		}
+	}
+}
+
+@mixin flex-placeholders() {
+	@each $identifier, $query in vars.$viewport-list {
+		@media #{$query} {
+			@include create-flex-placeholders($identifier);
+		}
+	}
+}
+
+@mixin css-grid-placeholders() {
+	@each $identifier, $query in vars.$viewport-list {
+		@media #{$query} {
+			$columns: map.get(map.get(grid-config.$margin-column-set, $identifier), 'columns');
+			@include css-grid-viewport-placeholders($identifier, $columns);
+		}
+	}
+}
+
+// Legacy wrapper for backward compatibility
+@mixin create-grid-placeholders($prefix, $columns, $margin) {
+	// Create Placeholders
+	@include grid-display-placeholders($prefix, $margin);
+	@include grid-width-placeholders($prefix, $columns);
+}
+
+@mixin grid-display-placeholders($identifier, $margin) {
+	// Default Grid Placeholders
+	%#{$identifier}-grid-column-item {
+		@include core.grid-item-padding();
+
+		min-height: 1px;
+	}
+
+	%#{$identifier}-grid-list-item-margin {
+		@include core.grid-list-item-margin();
+	}
+
+	%#{$identifier}-grid-column-ltr {
+		@include core.grid-column(inline-start);
+	}
+
+	%#{$identifier}-grid-column-rtl {
+		@include core.grid-column(inline-end);
+	}
+
+	%#{$identifier}-clear {
+		@include core.clearfix();
+	}
+
+	%#{$identifier}-clear-list {
+		@include core.clearfix-list();
+	}
+
+	%#{$identifier}-row {
+		@include core.grid-row($margin);
+	}
+
+	// Flex Placeholders (property-viewport naming)
+	%flex-display-#{$identifier} {
+		display: flex;
+	}
+
+	%flex-column-#{$identifier} {
+		flex-direction: column;
+	}
+
+	%flex-grow-#{$identifier} {
+		flex-grow: 1;
+	}
+
+	// CSS Grid
+	%css-grid-display-#{$identifier} {
+		display: grid;
+	}
+}
+
+@mixin grid-width-placeholders($identifier, $columns) {
+	$col-widths: ();
+
+	@for $t from 1 through $columns {
+		@for $p from 1 through $t {
+			//$w: ($p / $t);
+			$w: math.div($p, $t);
+
+			// Flex Placeholders
+			%#{$identifier}-#{grid-config.$grid-flex-modifier}-#{$p}-#{$t} {
+				flex-basis: $w * 100%;
+			}
+
+			// Offset Placeholders
+			%#{$identifier}-#{grid-config.$grid-offset-identifier}-#{$p}-#{$t} {
+				margin-inline-start: $w * 100%;
+			}
+
+			// Width Placeholders
+			%#{$identifier}-#{$p}-#{$t} {
+				width: $w * 100%;
+				max-width: $w * 100%;
+			}
+		}
+	}
+}
+
+// CSS Grid Placeholders
+@mixin css-grid-viewport-placeholders($prefix, $columns) {
+	// Loop Generics - shorthand syntax
+	@for $r from 1 through grid-config.$css-grid-max-rows {
+		%#{$prefix}-grid-#{$r} {
+			grid-row: #{$r};
+		}
+	}
+
+	// Loop Specifics
+	$col-widths: ();
+
+	// TODO: not pigeonhole to named fractions?
+	@for $t from 1 through $columns {
+		@for $p from 1 through $t {
+			//$w: ($p / $t);
+			$w: math.div($p, $t);
+
+			@if not index($col-widths, $w) {
+				@if $p != $t {
+					// Shorthand syntax for grid positioning
+					%#{$prefix}-grid-#{$p}-#{$t} {
+						grid-column: #{$p} / #{$t};
+					}
+
+					// Keep original detailed placeholders for backward compatibility
+					%#{$prefix}-grid-row-#{$p}-#{$t} {
+						grid-row: #{$p} / #{$t};
+					}
+
+					%#{$prefix}-grid-column-#{$p}-#{$t} {
+						grid-column: #{$p} / #{$t};
+					}
+				} @else {
+					%#{$prefix}-grid-row-start-#{$t} {
+						grid-row-start: #{$t};
+					}
+
+					%#{$prefix}-grid-row-end-#{$t} {
+						grid-row-end: #{$t};
+					}
+
+					%#{$prefix}-grid-column-start-#{$t} {
+						grid-column-start: #{$t};
+					}
+
+					%#{$prefix}-grid-column-end-#{$t} {
+						grid-column-end: #{$t};
+					}
+
+					%#{$prefix}-grid-column-#{$t} {
+						grid-column: $p;
+					}
+
+					// Shorthand syntax
+					%#{$prefix}-grid-#{$t} {
+						grid-column: $p;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Flex Grid Placeholders
+@mixin create-flex-placeholders($identifier) {
+	%grid-flex-item-#{$identifier} {
+		@include flex.grid-flex-item();
+	}
+
+	%flex-wrap-#{$identifier} {
+		@include flex.grid-flex-wrap();
+	}
+}

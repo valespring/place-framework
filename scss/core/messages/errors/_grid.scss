@@ -1,0 +1,9 @@
+// Error messages for grid system
+
+$grid-invalid-type: "Invalid grid type: %s. Must be one of: %s";
+$grid-invalid-viewport: "Invalid viewport identifier: %s. Must be one of: %s";
+$grid-invalid-fraction: "Invalid grid fraction: %s. Partial (%s) must be positive and not greater than total (%s)";
+$grid-invalid-display-type: "Invalid grid display type: %s. Available types: %s";
+$grid-invalid-quick-pattern: "Invalid quick pattern: %s. Available patterns: %s";
+$grid-fraction-conversion-error: "Unable to convert fraction %s to simple numerator/denominator form";
+$grid-invalid-fraction-format: "Invalid fraction format: %s. Expected a number or list (numerator, denominator)";

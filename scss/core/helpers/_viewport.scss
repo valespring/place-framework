@@ -1,0 +1,62 @@
+@use '~@place/core/config/viewports' as viewports;
+
+@each $suffix, $breakpoint in viewports.$helper-breakpoints {
+    @media #{$breakpoint} {
+        // Display
+        .display-block-#{$suffix} {
+            @extend %display-block-#{$suffix} !optional;
+        }
+
+        .inline-block-#{$suffix} {
+            @extend %inline-block-#{$suffix} !optional;
+        }
+
+        // Hides
+        .is-hidden-#{$suffix} {
+            @extend %is-hidden-#{$suffix} !optional;
+        }
+
+        // Floats
+        .float-start-#{$suffix} {
+            @extend %float-start-#{$suffix} !optional;
+        }
+
+        .float-center-#{$suffix} {
+            @extend %float-center-#{$suffix} !optional;
+        }
+
+        .float-end-#{$suffix} {
+            @extend %float-end-#{$suffix} !optional;
+        }
+
+        // Display
+        .flex-display-#{$suffix} {
+            @extend %flex-display-#{$suffix} !optional;
+        }
+
+        .flex-grow-#{$suffix} {
+            @extend %flex-grow-#{$suffix} !optional;
+        }
+
+        // Justification
+        .justify-start-#{$suffix} {
+            @extend %justify-start-#{$suffix} !optional;
+        }
+
+        .justify-end-#{$suffix} {
+            @extend %justify-end-#{$suffix} !optional;
+        }
+
+        .justify-center-#{$suffix} {
+            @extend %justify-center-#{$suffix} !optional;
+        }
+
+        .justify-space-around-#{$suffix} {
+            @extend %justify-space-around-#{$suffix} !optional;
+        }
+
+        .justify-space-between-#{$suffix} {
+            @extend %justify-space-between-#{$suffix} !optional;
+        }
+    }
+}

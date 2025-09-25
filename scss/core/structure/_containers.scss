@@ -1,0 +1,32 @@
+// Math
+@use 'sass:math';
+
+// Configuration
+@use '~@place/core/config/structure' as *;
+
+/*!
+
+Container
+
+* These main classes to wrap content on your site and keep it centered.
+
+
+*/
+
+
+.#{$wrapper-name},
+.#{$wrapper-name}-wide,
+.#{$wrapper-name}-fluid {
+	margin-inline: auto;
+
+	width: math.div($wrapper-width, 100) * 100%;
+}
+
+.#{$wrapper-name} {
+	max-width: calc(1px * #{$wrapper-max-width});
+}
+
+.#{$wrapper-name}-wide {
+	max-width: calc(1px * #{$wrapper-wide-max-width});
+}
+

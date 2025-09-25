@@ -1,0 +1,22 @@
+@mixin alignment-placeholders($suffix: null) {
+	// If suffix, append it with dash, else do nothing for base
+	$s: if($suffix, '-#{$suffix}', '');
+
+	// Text alignment placeholders
+    // TODO: block / end
+	%text-start#{$s} {
+		text-align: start;
+	}
+
+	%text-center#{$s} {
+		text-align: center;
+	}
+
+	%text-end#{$s} {
+		text-align: end;
+	}
+
+	%text-justify#{$s} {
+		text-align: justify;
+	}
+}

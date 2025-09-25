@@ -1,0 +1,65 @@
+// PLACE Framework Helpers
+// This file provides configurable helper module consumption
+
+// Import required modules
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:map';
+@use '~@place/core/config/helpers' as helpers-config;
+
+// Configuration options
+// Users can override these when importing: @use 'place/helpers' with (helper-types: (spacing, alignment));
+$helper-types: (spacing, presentation, alignment, typography) !default;
+
+// Import all helper modules (required for meta approach)
+@use '~@place/core/helpers/spacing' as spacing;
+@use '~@place/core/helpers/presentation' as presentation;
+@use '~@place/core/helpers/alignment' as alignment;
+@use '~@place/core/helpers/typography' as typography;
+@use '~@place/core/helpers/viewport' as viewport;
+
+// Ensure presentation placeholders are loaded first
+@include meta.load-css('~@place/core/helpers/presentation');
+
+// Helper type to module mapping (following _create-grid.scss pattern)
+$helper-modules: (
+	spacing: spacing,
+	presentation: presentation,
+	alignment: alignment,
+	typography: typography,
+	viewport: viewport
+) !default;
+
+// Apply helper types based on configuration using meta functions
+@mixin apply-helper-types() {
+	@each $helper-type in $helper-types {
+		$module: map.get($helper-modules, $helper-type);
+		@if $module {
+			// Use meta.load-css to dynamically include helper CSS
+			@include meta.load-css('~@place/core/helpers/#{$helper-type}');
+		}
+	}
+}
+
+// Auto-apply configured helper types
+@include apply-helper-types();
+
+// Usage examples:
+//
+// 1. Import all helper types (default):
+//    @use 'place/helpers';
+//
+// 2. Import only specific helper types:
+//    @use 'place/helpers' with (
+//      helper-types: (spacing, alignment)
+//    );
+//
+// 3. Import no helper types:
+//    @use 'place/helpers' with (
+//      helper-types: ()
+//    );
+//
+// 4. Import all helper types plus additional ones:
+//    @use 'place/helpers' with (
+//      helper-types: (spacing, presentation, alignment, typography, viewport)
+//    );

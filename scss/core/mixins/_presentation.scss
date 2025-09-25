@@ -1,0 +1,93 @@
+@mixin remove-styles() {
+	// Display & Box Model
+	display: inline;
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	border: none;
+
+	// Other Removals
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	text-shadow: none;
+	background: none;
+	outline: none;
+	box-shadow: none;
+}
+
+@mixin absolute-baseline() {
+	position: absolute;
+	top: 0;
+	inset-inline-start: 0;
+}
+
+@mixin absolute-layer() {
+	@include absolute-baseline();
+
+	width: 100%;
+	height: 100%;
+}
+
+@mixin pseudo-clear() {
+	content: '';
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+@mixin align-center() {
+	margin-inline-start: auto;
+	margin-inline-end: auto;
+}
+
+@mixin hidden() {
+	display: none !important;
+	visibility: hidden;
+}
+
+@mixin word-wrap() {
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+
+// http://cssmojo.com/hide-content-from-sighted-users/
+@mixin visually-hidden() {
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
+	border: 0;
+	overflow: hidden;
+
+	&:active,
+	&:focus {
+		width: auto;
+		height: auto;
+		margin: 0;
+		clip: auto;
+		overflow: visible;
+		position: static;
+	}
+}
+@mixin show-hidden() {
+	width: auto;
+	height: auto;
+	margin: 0;
+	position: relative;
+	clip: auto;
+}
+
+// Lists
+@mixin unstyled-list() {
+	padding-inline-start: 0;
+	list-style: none outside none;
+}

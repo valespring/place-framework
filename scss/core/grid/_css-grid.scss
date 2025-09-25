@@ -1,0 +1,13 @@
+// CSS Grid Module
+// * Modern CSS Grid layout system
+
+@use 'sass:math';
+@use '~@place/core/mixins/grid' as grid;
+@use '~@place/core/mixins/placeholders/grid' as grid-placeholders;
+
+// Generate placeholders in the same scope as the grid classes
+@include grid-placeholders.display-placeholders();
+@include grid-placeholders.css-grid-placeholders();
+
+// Apply the CSS grid
+@include grid.apply-grid-type(css-grid);

@@ -1,0 +1,17 @@
+import BASE from './_base.js';
+import {
+  GRID_ROW_IDENTIFIER,
+  GRID_FLEX_MODIFIER,
+  GRID_RTL_MODIFIER,
+  GRID_FLEX_FLUSH_MODIFIER
+} from './_variables.js';
+
+export default {
+  SEP: BASE.SEP,
+  CLASS_PREFIX: GRID_ROW_IDENTIFIER,
+  MODIFIERS: {
+    FLEX: GRID_FLEX_MODIFIER,
+    RTL: GRID_RTL_MODIFIER,
+    FLUSH: GRID_FLEX_FLUSH_MODIFIER
+  }
+};

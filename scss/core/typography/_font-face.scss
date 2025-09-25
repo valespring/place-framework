@@ -1,0 +1,5 @@
+@use '~@place/core/config/typography' as typography;
+
+@font-face {
+	font-display: typography.$font-face-display;
+}

@@ -1,0 +1,30 @@
+// Calculate rhythm units using CSS custom properties
+@mixin rhythm($property, $units, $size: null) {
+	// Use CSS custom property for vertical rhythm - already in rem units
+	#{$property}: calc(#{$units} * var(--vertical-rhythm));
+}
+
+// Apply leading whitespace as margin
+@mixin rhythm-margin-block-start($units: 1) {
+	@include rhythm(margin-block-start, $units);
+}
+
+@mixin rhythm-margin-block-end($units: 1) {
+	@include rhythm(margin-block-end, $units);
+}
+
+@mixin rhythm-margin-block($units: 1) {
+	@include rhythm(margin-block, $units);
+}
+
+@mixin rhythm-padding-block-start($units: 1) {
+	@include rhythm(padding-block-start, $units);
+}
+
+@mixin rhythm-padding-block-end($units: 1) {
+	@include rhythm(padding-block-end, $units);
+}
+
+@mixin rhythm-padding-block($units: 1) {
+	@include rhythm(padding-block, $units);
+}

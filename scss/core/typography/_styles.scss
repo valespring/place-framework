@@ -1,0 +1,55 @@
+@use '~@place/core/config/typography' as typography;
+@use '~@place/core/mixins/typography' as typography-mixins;
+
+// Typography Styles
+// * Generate typography utility classes using mixins directly
+
+// Font Family
+.primary-font {
+	font-family: typography.$primary-font;
+}
+
+.secondary-font {
+	font-family: typography.$secondary-font;
+}
+
+// Case Helpers
+.lowercase-text {
+	text-transform: lowercase;
+}
+
+.normal-text {
+	text-transform: none;
+}
+
+.uppercase-text {
+	text-transform: uppercase;
+}
+
+// Font Styles
+// * Create font weight classes based on the map.
+@each $weight, $value in typography.$type-weights {
+	.#{$weight}-weight {
+		font-weight: $value;
+	}
+}
+
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	font-family: typography.$heading-font;
+}
+
+body,
+.body-text {
+	// Style
+	font-family: typography.$body-font;
+	font-size: 16px;
+	font-size: 1rem;
+}

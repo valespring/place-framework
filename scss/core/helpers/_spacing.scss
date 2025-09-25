@@ -1,0 +1,27 @@
+// Math
+@use 'sass:math';
+@use '~@place/core/mixins/spacing' as spacing;
+
+// Spacing Helpers
+// ---------------
+
+// Utility classes to quickly apply margin or padding to elements
+// for rapid prototyping or production use.
+
+// * Prefixes: `p` (padding), `m` (margin)
+// * Individual positions: `t` (top), `r` (inline-end), `b` (bottom), `l` (inline-start)
+// * Groups: `v` (vertical), `h` (horizontal), `a` (all sides)
+// * Sizes: `n` (none), `s` (small), `m` (medium), `l` (large)
+
+// Examples:
+// - `pts`: padding-top small
+// - `mvm`: margin vertical medium
+// - `pal`: padding all large
+
+// Configuration is in scss/config/_helpers.scss
+// Implementation is in scss/mixins/_spacing.scss
+
+// Generate the utility classes
+
+@include spacing.spacing-helper(p, padding);
+@include spacing.spacing-helper(m, margin);

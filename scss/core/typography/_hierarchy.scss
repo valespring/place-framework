@@ -1,0 +1,20 @@
+@use '~@place/core/config/typography' as typography;
+@use '~@place/core/mixins/typography' as typography-mixins;
+
+// Typography Hierarchy
+// * Generate typography utility classes using the type scale directly with mixins
+
+// Hierarchy List Classes
+@each $size, $value in typography.$type-scale {
+	// Create classes that use mixins directly
+	[class*='#{$size}'] {
+		@include typography-mixins.type-size($size);
+	}
+}
+
+// Type Scale (Responsive)
+@each $key, $value in typography.$type-scale {
+	.responsive-#{$key} {
+		@include typography-mixins.type-size($key, $responsive: true);
+	}
+}

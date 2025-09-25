@@ -1,8 +1,0 @@
-@each $identifier, $query in $viewport-list {
-	$margin: map-nested-get($margin-column-set, $identifier, margin);
-	$columns: map-nested-get($margin-column-set, $identifier, columns);
-
-	@include viewport($query) {
-		@include create-grid-placeholders($identifier, $columns, $margin);
-	}
-}

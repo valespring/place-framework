@@ -1,0 +1,60 @@
+@use 'sass:string';
+@use 'sass:map';
+@use '~@place/core/config/typography' as typography;
+@use '~@place/core/functions/math' as math-functions;
+
+// Typography Helper Functions
+
+// Helper function to parse underscore-separated values by index
+// Supports both string format ("56_72") and Sass number format (56_72)
+// Index 1 = first part, Index 2 = second part
+@function parse-underscore-value($value, $index: 1) {
+	// Convert any value to string to check for underscores
+	$value-string: if(type-of($value) == string, $value, inspect($value));
+	
+	$underscore-index: string.index($value-string, '_');
+	
+	@if $underscore-index {
+		@if $index == 1 {
+			$first-part: string.slice($value-string, 1, $underscore-index - 1);
+			@return math-functions.number($first-part);
+		} @else if $index == 2 {
+			$second-part: string.slice($value-string, $underscore-index + 1);
+			@return math-functions.number($second-part);
+		}
+	}
+	
+	// If no underscore found, return the original value (converted to number if string)
+	@if type-of($value) == string {
+		@return math-functions.number($value);
+	}
+	@return $value;
+}
+
+@function get-type-size($value) {
+	@return parse-underscore-value($value, 1);
+}
+
+@function get-line-height($value) {
+	// Convert to string to check for underscores
+	$value-string: if(type-of($value) == string, $value, inspect($value));
+	$underscore-index: string.index($value-string, '_');
+	
+	// Only try to parse if there's actually an underscore
+	@if $underscore-index {
+		$line-height-value: parse-underscore-value($value, 2);
+		// Ensure we return a proper number, not a string
+		@if type-of($line-height-value) == number {
+			@return $line-height-value;
+		} @else {
+			@return math-functions.number($line-height-value);
+		}
+	}
+	
+	@return false;
+}
+
+// Convert pixels to rem using the base text size as baseline
+@function px-to-rem($px-value, $baseline: get-type-size(typography.$base-text-size)) {
+	@return calc($px-value / $baseline);
+}

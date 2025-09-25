@@ -1,0 +1,13 @@
+// Default Grid Module
+// * Grid system with floats
+
+@use 'sass:math';
+@use '~@place/core/mixins/grid' as grid;
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/mixins/placeholders/grid' as grid-placeholders;
+
+// Generate placeholders in the same scope as the grid classes
+@include grid-placeholders.display-placeholders();
+
+// Apply the default grid
+@include grid.apply-grid-type(default);

@@ -1,0 +1,15 @@
+// Grid modules index
+// This file forwards all grid modules for easy consumption
+
+// You can import individual grid modules directly:
+// @use 'place-framework/scss/grid/default';
+// @use 'place-framework/scss/grid/css';
+// @use 'place-framework/scss/grid/flex';
+// @use 'place-framework/scss/grid/offset';
+// @use 'place-framework/scss/grid/quick-css-grid';
+
+// Or import all grid modules at once:
+@forward 'default';
+@forward 'flex';
+@forward 'offset';
+@forward 'css-grid';

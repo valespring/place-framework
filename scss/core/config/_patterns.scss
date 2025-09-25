@@ -1,0 +1,41 @@
+// Patterns - Parameter-Based Placeholder System
+//* Patterns utilize the `template-class` function with parameter-based placeholders.
+//* {base} - Base component name (row, col, wrapper, etc.)
+//* {viewport} - Viewport breakpoint (xs, sm, md, lg, xl, etc.)
+//* {modifier} - Modifier/variant (flex, rtl, flush, etc.)
+//* {partial} - Partial fraction (1, 2, 3, etc.)
+//* {total} - Total fraction (2, 3, 4, 12, etc.)
+
+// Grid Pattern Separator (duplicated here to avoid circular dependency)
+// TODO: Leverage these patterns in the JS utils
+$grid-pattern-separator: 'of' !default;
+
+// Row & Wrap Class Patterns
+$grid-row-pattern: '{base}-{viewport}' !default;                    // → row-lg
+$grid-orientation-pattern: '{base}-{viewport}-{modifier}' !default; // → row-lg--flex
+$flex-grid-row-pattern: '{base}-{viewport}-{modifier}' !default;     // → row-lg-flex
+
+// CSS Grid
+$css-grid-wrapper-pattern: '{base}-{viewport}' !default;                    // → wrapper-lg
+$quick-css-grid-wrapper-pattern: '{base}-{total}' !default;                   // → wrapper-12
+$quick-css-grid-gap-pattern: '{base}-{total}--{modifier}' !default;            // → wrapper-12--gap
+
+// Column Patterns
+$grid-column-pattern: '{base}-{viewport}' !default;                         // → col-lg
+
+// Width Class Patterns
+$grid-column-width-pattern: '{base}-{viewport}-{partial}#{$grid-pattern-separator}{total}' !default; // → col-lg-3of12
+$grid-width-pattern: '{viewport}-{partial}#{$grid-pattern-separator}{total}' !default;                    // → lg-3of12
+
+$grid-quick-width-pattern: '{viewport}-{total}' !default;                        // → lg-12
+$grid-quick-column-width-pattern: '{base}-{viewport}-{total}' !default;     // → col-lg-12
+
+$grid-concise-column-width-pattern: '{base}-{viewport}-{modifier}' !default; // → col-lg-half
+$grid-concise-width-pattern: '{viewport}-{modifier}' !default;                    // → lg-half
+
+// Offset Class Pattern
+$grid-offset-pattern: '{base}-{viewport}-{partial}#{$grid-pattern-separator}{total}' !default;      // → offset-lg-3of12
+$grid-quick-offset-pattern: '{base}-{viewport}-{total}' !default;           // → offset-lg-3
+
+// Spacing Class Pattern
+$spacing-class-pattern: '{base}{total}{modifier}' !default;                    // → m4t (margin-4-top)

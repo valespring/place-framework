@@ -1,0 +1,20 @@
+// PLACE Framework Placeholders
+// This file generates all placeholder selectors used by the framework
+// Placeholders take up no output space until they're extended, so we generate them all
+
+@use 'sass:map';
+@use '~@place/core/mixins/placeholders' as placeholders;
+@use '~@place/core/mixins/placeholders/grid' as grid-placeholders;
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/config/viewports' as vars;
+
+// Generate base presentation placeholders (no suffix)
+@include placeholders.presentation-placeholders();
+
+// Generate viewport-specific presentation placeholders
+@each $identifier, $query in vars.$viewport-list {
+	@include placeholders.presentation-placeholders($identifier);
+}
+
+// Grid placeholders are now generated in core/grid/index.scss
+// to ensure they're in the same scope as the grid classes that extend them

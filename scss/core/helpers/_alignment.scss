@@ -1,0 +1,66 @@
+// Alignment Helpers
+// * These classes help with flexbox alignment and display properties
+
+@use '~@place/core/config/viewports' as vars;
+
+// Base alignment helpers (no viewport)
+.flex-display {
+	@extend %flex-display !optional;
+}
+
+.flex-grow {
+	@extend %flex-grow !optional;
+}
+
+.justify-start {
+	@extend %justify-start !optional;
+}
+
+.justify-end {
+	@extend %justify-end !optional;
+}
+
+.justify-center {
+	@extend %justify-center !optional;
+}
+
+.justify-space-around {
+	@extend %justify-space-around !optional;
+}
+
+.justify-space-between {
+	@extend %justify-space-between !optional;
+}
+
+// Generate viewport-specific alignment helpers
+@each $identifier, $query in vars.$viewport-list {
+	@media #{$query} {
+		.flex-display-#{$identifier} {
+			@extend %flex-display-#{$identifier} !optional;
+		}
+
+		.flex-grow-#{$identifier} {
+			@extend %flex-grow-#{$identifier} !optional;
+		}
+
+		.justify-start-#{$identifier} {
+			@extend %justify-start-#{$identifier} !optional;
+		}
+
+		.justify-end-#{$identifier} {
+			@extend %justify-end-#{$identifier} !optional;
+		}
+
+		.justify-center-#{$identifier} {
+			@extend %justify-center-#{$identifier} !optional;
+		}
+
+		.justify-space-around-#{$identifier} {
+			@extend %justify-space-around-#{$identifier} !optional;
+		}
+
+		.justify-space-between-#{$identifier} {
+			@extend %justify-space-between-#{$identifier} !optional;
+		}
+	}
+}

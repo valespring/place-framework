@@ -1,0 +1,15 @@
+// Place Framework Core Configuration Index
+// This file forwards all config modules for easy importing
+
+@forward 'typography';
+@forward 'colors';
+// @forward 'patterns'; // Excluded to avoid circular dependency with grid
+@forward 'helpers';
+@forward 'viewports';
+@forward 'grid';
+@forward 'structure';
+@forward 'borders';
+@forward 'forms';
+@forward 'buttons';
+@forward 'vars';
+@forward 'viewport-base';

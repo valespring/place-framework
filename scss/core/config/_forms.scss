@@ -1,0 +1,14 @@
+// Import required variables
+@use 'borders' as *;
+@use 'colors' as *;
+@use 'typography' as *;
+
+// Form Variables
+$input-border: $default-border-width !default;
+$input-border-radius: $default-border-radius !default;
+$input-background-color: $white !default;
+$input-border-color: $light-grey !default;
+$input-placeholder-color: $light-grey !default;
+$input-font: $primary-font !default;
+
+$textarea-min-height: 100px !default;

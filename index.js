@@ -1,3 +1,2 @@
-exports.printMsg = function() {
-  console.log("Importing Place Framework.");
-}
+// Export all functionality from src
+module.exports = require('./src/index.js');

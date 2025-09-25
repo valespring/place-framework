@@ -1,0 +1,14 @@
+// Framework Core Layer (includes normalize and placeholders)
+
+// Foundation (normalize and placeholders should be first)
+@import '~@place/core/normalize';
+@import '~@place/core/placeholders';
+
+// Typography (utility classes)
+@import '~@place/core/typography';
+
+// Structure (containers, wrappers)
+@import '~@place/core/structure';
+
+// Base
+@import '~@place/variables/root';

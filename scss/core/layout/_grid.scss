@@ -1,0 +1,29 @@
+// Grid Placeholders
+// * Generate grid helper placeholders
+
+@use '~@place/core/mixins/grid/core' as grid-core;
+
+// Clearfix
+%clearfix {
+	@include grid-core.clearfix();
+}
+
+// Grid Row
+%grid-row {
+	@include grid-core.grid-row();
+}
+
+// Grid Column
+%grid-column {
+	@include grid-core.grid-column();
+}
+
+// Grid Item Padding
+%grid-item-padding {
+	@include grid-core.grid-item-padding();
+}
+
+// Grid List Item Margin
+%grid-list-item-margin {
+	@include grid-core.grid-list-item-margin();
+}

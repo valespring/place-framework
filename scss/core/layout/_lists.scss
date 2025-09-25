@@ -1,0 +1,21 @@
+// Unstyled List
+@use '~@place/core/mixins/presentation' as presentation;
+
+%list-unstyled,
+%list--unstyled {
+	@include presentation.unstyled-list();
+}
+
+// Inline List
+%list-inline,
+%list--inline {
+	@include presentation.unstyled-list();
+
+	li {
+		display: inline;
+	}
+
+	a {
+		display: inline-block;
+	}
+}

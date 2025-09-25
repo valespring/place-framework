@@ -1,0 +1,10 @@
+// Grid mixins
+// This file provides grid mixin functionality
+// Note: Removed @forward 'grid' to prevent circular dependency with grid/_default.scss
+
+@use '~@place/core/mixins/grid/create-grid' as create-grid;
+
+// Forward the apply-grid-type mixin from create-grid
+@mixin apply-grid-type($type) {
+  @include create-grid.apply-grid-type($type);
+}

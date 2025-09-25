@@ -1,0 +1,52 @@
+// Spacing Configuration
+// * A comprehensive map of all spacing positions and their groupings
+$spacing-config: (
+  // Individual positions
+  positions: (
+    t: block-start,
+    b: block-end,
+    l: inline-start,
+    r: inline-end
+  ),
+  
+  // Position groupings
+  groups: (
+    // Vertical spacing (top and bottom)
+    v: (
+      t: block-start,
+      b: block-end
+    ),
+    
+    // Horizontal spacing (inline-start and inline-end)
+    h: (
+      l: inline-start,
+      r: inline-end
+    ),
+    
+    // All sides spacing
+    a: (
+      t: block-start,
+      b: block-end,
+      l: inline-start,
+      r: inline-end
+    )
+  )
+);
+
+// Spacing Values
+// * Spacing values used in the spacing helpers loop.
+// * Based on vertical rhythm system using CSS custom properties.
+$spacing-values: (
+  n: 0,                                    // none
+  s: var(--vertical-rhythm),               // small (1x vertical rhythm)
+  m: calc(var(--vertical-rhythm) * 2),     // medium (2x vertical rhythm)
+  l: calc(var(--vertical-rhythm) * 3)      // large (3x vertical rhythm)
+);
+
+// For backward compatibility
+$spacing-positions: map-get($spacing-config, positions);
+$spacing-combined: (
+  v: vertical,
+  h: horizontal,
+  a: all
+);

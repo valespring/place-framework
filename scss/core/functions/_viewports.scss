@@ -1,0 +1,57 @@
+// Math
+@use 'sass:math';
+@use 'sass:map';
+@use '~@place/core/config/viewport-base' as viewport-base;
+@use '~@place/core/messages' as messages;
+
+@function get-adjacent-viewport-width() {
+	//viewport-width
+}
+
+@function viewport-variable-min($identifier) {
+	@return '--mq-#{$identifier}-min';
+}
+
+@function viewport-variable-max($identifier) {
+	@return '--mq-#{$identifier}-max';
+}
+
+@function viewport-width($identifier) {
+	@return map-get(viewport-base.$responsive-breakpoints, $identifier);
+}
+
+@function viewport-range($identifier, $min: false, $max: false, $only: false) {
+	$breakpoint-value: viewport-width($identifier);
+	$breakpoint-index: index(viewport-base.$responsive-breakpoints, $identifier $breakpoint-value);
+
+	@if $min {
+		@return '(width >= #{viewport-value-min($breakpoint-value)})';
+	} @else if $max {
+		@return '(width <= #{viewport-value-max($breakpoint-value)})';
+	} @else if $only {
+		$neighboring-index: $breakpoint-index + 1;
+		$neighboring-breakpoint-value: nth(map-values(viewport-base.$responsive-breakpoints), $neighboring-index);
+
+		@return '(#{viewport-value-min($breakpoint-value)} <= width <= #{viewport-value-max($neighboring-breakpoint-value)})';
+	}
+}
+
+// TODO: Operate off of base font size instead of 16?
+@function viewport-value-min($breakpoint-value) {
+	@return 1px * $breakpoint-value;
+}
+
+@function viewport-value-max($breakpoint-value) {
+	@return 1px * ($breakpoint-value - 1);
+}
+
+/// Helper function to validate viewport identifier
+/// @param {String} $identifier - Viewport identifier to validate
+/// @return {Boolean} - True if valid, throws error if invalid
+@function validate-viewport-identifier($identifier) {
+	@if not index(viewport-base.$viewport-identifiers, $identifier) {
+		$error-message: messages.format-message(messages.$grid-invalid-viewport, $identifier, viewport-base.$viewport-identifiers);
+		@error $error-message;
+	}
+	@return true;
+}

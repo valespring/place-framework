@@ -1,0 +1,5 @@
+// Messages API
+// This file forwards all message modules to create a unified API
+
+@forward '~@place/core/messages/functions';
+@forward '~@place/core/messages/errors';

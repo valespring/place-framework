@@ -1,0 +1,59 @@
+@use 'sass:math';
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/config/patterns' as patterns;
+@use '~@place/core/config/viewports' as vars;
+@use '~@place/core/functions/template' as template-functions;
+@use '_core' as core;
+
+// CSS Grid Mixins
+
+@mixin create-grid-base($class, $margin) {
+	@each $prefix, $value in grid-config.$quick-grid-map {
+		// Class Variable
+		$quick-css-grid-class: template-functions.template-class(patterns.$quick-css-grid-wrapper-pattern, $base: $class, $total: $prefix);
+
+		$gap-css-grid-class: template-functions.template-class(
+			patterns.$quick-css-grid-gap-pattern,
+			$base: $class,
+			$total: $prefix,
+			$modifier: grid-config.$grid-gap-modifier
+		);
+
+		// Classes
+		.#{$quick-css-grid-class},
+		.#{$gap-css-grid-class} {
+			grid-template-columns: repeat($value, 1fr);
+		}
+	}
+}
+
+@mixin create-grid($grid-viewport-identifier, $grid-columns, $grid-margin) {
+	// CSS Grid Name Variables
+	$css-grid-wrapper-class: template-functions.template-class(
+		patterns.$css-grid-wrapper-pattern,
+		$base: grid-config.$css-grid-identifier,
+		$viewport: $grid-viewport-identifier
+	);
+
+	// Set Baseline
+	[class*='#{$css-grid-wrapper-class}'] {
+		// Extend
+		@extend %clear-list-#{$grid-viewport-identifier} !optional;
+		@extend %css-grid-display-#{$grid-viewport-identifier} !optional;
+
+		// Style
+		grid-row-start: auto;
+	}
+
+	// Grid Gap
+	[class*='#{grid-config.$grid-gap-modifier}'] {
+		// Vars
+		--grid-gap: #{grid-config.$css-grid-gap};
+
+		// Style
+		grid-gap: var(--grid-gap);
+	}
+
+	// Quick Grid
+	@include create-grid-base($css-grid-wrapper-class, $grid-margin);
+}

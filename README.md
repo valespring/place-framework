@@ -1,3 +1,4 @@
+
 ![PLACE Framework Header](https://raw.githubusercontent.com/valespring/place-framework/master/docs/logo-header.gif?sanitize=true)
 
 <p align="center">
@@ -25,6 +26,9 @@ PLACE SCSS Framework Documentation
 
 * [Introduction](#introduction)
 * [Implementation](#implementation)
+* [Discovery System](#discovery-system)
+* [Vertical Rhythm](#vertical-rhythm)
+* [JavaScript Integration](#javascript-integration)
 * [Ethos](#ethos)
 * [Variable Configuration](#variable-configuration)
 * [Functions](#functions)
@@ -43,6 +47,170 @@ The premise of PLACE is to have a truly modular and customizable CSS framework w
 
 PLACE is meant to be utilized with a task runner of your choice (Gulp, Grunt, Webpack etc.) by lieu of the `includePaths` option in any of the SASS libraries (e.g `gulp-sass`). Include the path in your task before final compilation output.
 
+## Discovery System
+
+PLACE Framework includes a built-in discovery system to help developers easily find and use available utilities, mixins, and functions.
+
+### Usage
+
+Run the discovery command to see all available framework files:
+
+```bash
+npm run discovery
+```
+
+This will output a clean list of all framework files organized by category with their import statements:
+
+```
+## CONFIG
+@use '~@place/core/config/typography' as typography;
+@use '~@place/core/config/colors' as colors;
+@use '~@place/core/config/grid' as grid;
+
+## MIXINS  
+@use '~@place/core/mixins/vertical-rhythm' as rhythm;
+@use '~@place/core/mixins/typography' as typography;
+@use '~@place/core/mixins/grid' as grid;
+
+## FUNCTIONS
+@use '~@place/core/functions/typography' as typography;
+@use '~@place/core/functions/math' as math;
+```
+
+### Available Categories
+
+- **config**: Configuration files (colors, typography, grid settings, etc.)
+- **functions**: Utility functions (math, typography parsing, etc.)
+- **mixins**: Reusable mixins (vertical rhythm, typography, grid, etc.)
+- **grid**: Grid system files (CSS Grid, Flexbox, default grid)
+- **helpers**: Helper utilities (alignment, spacing, presentation)
+- **typography**: Typography-related files (hierarchy, font-face, styles)
+- **normalize**: CSS normalization files
+
+## Vertical Rhythm
+
+PLACE Framework now includes an advanced vertical rhythm system based on the Crasman methodology for consistent baseline alignment.
+
+### Features
+
+- **Responsive Rhythm**: Different baseline calculations per viewport
+- **Automatic Calculation**: Uses actual line-height values from your type scale
+- **CSS Custom Properties**: Runtime flexibility with `--vertical-rhythm`
+- **Rem-based**: All calculations properly converted to rem units
+
+### Typography Scale with Line Heights
+
+Define your typography scale with optional line-height values:
+
+```scss
+$type-scale: (
+    inch-type: 56_72,    // 56px font with 72px line-height
+    canon-type: 42,      // 42px font with golden ratio line-height
+    paragon-type: (
+        lg: 32_48,       // Responsive: 32px/48px in large viewport
+        md: 28_32,       // 28px/32px in medium viewport
+        sm: 24_28        // 24px/28px in small viewport
+    ),
+    normal-type: 16_30,  // 16px font with 30px line-height
+    petite-type: 14,
+    minion-type: 12
+);
+```
+
+### Vertical Rhythm Mixins
+
+Use the vertical rhythm mixins for consistent spacing:
+
+```scss
+@use '~@place/core/mixins/vertical-rhythm' as rhythm;
+
+.my-element {
+    @include rhythm.rhythm-margin-block-start(2);    // 2 rhythm units top margin
+    @include rhythm.rhythm-padding-block(1);         // 1 rhythm unit padding
+    @include rhythm.rhythm-margin-block-end(0.5);    // 0.5 rhythm units bottom margin
+}
+```
+
+### CSS Custom Properties
+
+The framework automatically generates CSS custom properties for vertical rhythm:
+
+```css
+:root {
+    --vertical-rhythm: 1.875rem; /* Calculated from 16_30 = 30px ÷ 16px */
+    --golden-ratio: 1.618;
+}
+```
+
+## JavaScript Integration
+
+PLACE Framework provides JavaScript utilities for dynamic class generation and access to SCSS variables.
+
+### SCSS Variables Export
+
+Framework variables are automatically exported to JavaScript via CSS `:export`:
+
+```javascript
+import variables from '@place-framework/place-framework/scss/variables/_export.scss';
+
+// Access SCSS variables in JavaScript
+console.log(variables.gridRowIdentifier);        // "row"
+console.log(variables.gridColumnIdentifier);     // "col"
+console.log(variables.largeColumns);             // "12"
+console.log(variables.viewportLargeIdentifier);  // "lg"
+```
+
+### Available Exported Variables
+
+- **Grid Identifiers**: `grid-row-identifier`, `grid-column-identifier`, `css-grid-identifier`
+- **Column Counts**: `large-columns`, `medium-columns`, `small-columns`
+- **Viewport Identifiers**: `viewport-large-identifier`, `viewport-medium-identifier`, `viewport-small-identifier`
+- **Grid Modifiers**: `grid-flex-modifier`, `grid-gap-modifier`, `grid-full-modifier`
+- **Quick Grid Widths**: All values from `$quick-grid-widths` map
+
+### JavaScript Class Generators
+
+Generate CSS classes dynamically using the JavaScript utilities:
+
+```javascript
+import { 
+    generateItemClasses, 
+    generateRowClasses, 
+    generateGridClasses 
+} from '@place-framework/place-framework';
+
+// Generate column and offset classes
+const itemClasses = generateItemClasses(
+    ['half', 'third', 'quarter'],  // Column sizes
+    ['quarter', null, null],       // Offset sizes  
+    ['lg', 'md', 'sm']            // Viewports
+);
+// Result: "col-lg-half col-md-third col-sm-quarter os-lg-quarter"
+
+// Generate row classes with modifiers
+const rowClasses = generateRowClasses(
+    ['lg', 'md', 'sm'], 
+    { flex: true, rtl: false }
+);
+// Result: "row-lg--flex row-md--flex row-sm--flex"
+
+// Generate CSS Grid classes
+const gridClasses = generateGridClasses(
+    ['lg', 'md', 'sm'],
+    ['quarters', 'thirds', 'halves'],
+    { spaced: true }
+);
+// Result: "grid-lg-quarters--gapped grid-md-thirds--gapped grid-sm-halves--gapped"
+```
+
+### Available Generator Functions
+
+- **`generateItemClasses(columnSizes, offsetSizes, viewports)`**: Generate column and offset classes
+- **`generateRowClasses(viewports, options)`**: Generate row container classes with modifiers
+- **`generateGridClasses(viewports, cols, options)`**: Generate CSS Grid classes
+- **`createColumnClasses(columnSizes, viewports)`**: Generate only column classes
+- **`createOffsetClasses(offsetSizes, viewports)`**: Generate only offset classes
+
 ## Ethos
 
 ### Placeholders
@@ -50,32 +218,6 @@ PLACE is meant to be utilized with a task runner of your choice (Gulp, Grunt, We
 PLACE is built pretty much entirely on placeholder classes. This allows us to `@extend` such classes to, of course, create our utility classes, while also giving us the flexibility of extending the same class to a custom class name you define. This helps us avoid the constraints of a typical `@extend` use case, and keep our classes isolated of any style creep.
 
 **Source:** [https://www.smashingmagazine.com/2015/05/extending-in-sass-without-mess/](https://www.smashingmagazine.com/2015/05/extending-in-sass-without-mess/)
-
-### Modularity
-
-You should see that classes are separated based on what they bring to the table, and it is encouraged that you resume this mode of coding throughout your project. For instance, for a heading that may need to be pushed to the right, one might use the following markup:
-
-```html
-<h3 class="primary-heading align-right">
-    This is a heading that is floating right.
-</h3>   
-```
-
-The class `primary-heading` is your primary heading, while `align-right` text-aligns to the right. Consider, however, if we applied the style of `align-right` to the `primary-heading` class. We would then be pigeonholed to that alignment every time we called the heading. Keeping these classes separated allows us to remain flexible in development. 
-
-### Descriptive Class Names
-
-Each class name should be descriptive and quietly tell any developer new to the project what a class is doing. This is achieved through the following methods:
-
-#### Naming
-
-The name of a class should be descriptive and concise enough to describe its function. There's no reason to name have a protracted class name if it creates more keystrokes. For example, `align-right` vs `text-align-right`, a difference of 5 characters each time it's used.
-
-#### OOCSS / BEM
-
-A now established concept, but foreign to a good number of developers, object-oriented CSS displays the relationship of a class by using element and modifier suffixes. Consider the class `.is-hidden-sm`. A seasoned developer will know immediately that this is a hide of some sort in a smaller viewport. While PLACE doesn't employ this for all classes, it is encouraged you leverage this style throughout your project.
-
-**Source:** [https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 
 ### Harder Working CSS Classes
 
@@ -122,29 +264,53 @@ Variable                       | Description
 
 ### Class Template Patterns
 
-Class template patterns are an exciting feature of PLACE. This will allow you to tailor the output without digging into the core. Patterns utilize the `template-class` function to create a pattern that makes sense for you(r build).
+Class template patterns are an exciting feature of PLACE. This will allow you to tailor the output without digging into the core. Patterns utilize parameter-based placeholders to create patterns that make sense for your build.
 
-* B - Base
-* V - Viewport
-* P - Partial
-* T - Total
-* M - Modifier
+* `{base}` - Base component name (row, col, wrapper, etc.)
+* `{viewport}` - Viewport breakpoint (xs, sm, md, lg, xl, etc.)
+* `{modifier}` - Modifier/variant (flex, rtl, flush, etc.)
+* `{partial}` - Partial fraction (1, 2, 3, etc.)
+* `{total}` - Total fraction (2, 3, 4, 12, etc.)
 
 #### Example 1
 ```css
-$quick-css-grid-gap-pattern: "B-T--M";
-
+$quick-css-grid-gap-pattern: '{base}-{total}--{modifier}';
 ```
 
 Example Output: `.grid-quarters--gapped`
 
 #### Example 2
 ```css
-$grid-column-width-pattern: "B-V-PofT";
-
+$grid-column-width-pattern: '{base}-{viewport}-{partial}of{total}';
 ```
 
 Example Output: `.col-md-3of4`
+
+#### Available Patterns
+
+```css
+// Row & Wrap Class Patterns
+$grid-row-pattern: '{base}-{viewport}';                    // → row-lg
+$grid-orientation-pattern: '{base}-{viewport}-{modifier}'; // → row-lg--flex
+$flex-grid-row-pattern: '{base}-{viewport}-{modifier}';    // → row-lg-flex
+
+// CSS Grid Patterns
+$css-grid-wrapper-pattern: '{base}-{viewport}';                    // → wrapper-lg
+$quick-css-grid-wrapper-pattern: '{base}-{total}';                 // → wrapper-12
+$quick-css-grid-gap-pattern: '{base}-{total}--{modifier}';         // → wrapper-12--gap
+
+// Column Patterns
+$grid-column-pattern: '{base}-{viewport}';                         // → col-lg
+$grid-column-width-pattern: '{base}-{viewport}-{partial}of{total}'; // → col-lg-3of12
+$grid-concise-column-width-pattern: '{base}-{viewport}-{modifier}'; // → col-lg-half
+
+// Offset Patterns
+$grid-offset-pattern: '{base}-{viewport}-{partial}of{total}';      // → offset-lg-3of12
+$grid-quick-offset-pattern: '{base}-{viewport}-{total}';           // → offset-lg-3
+
+// Spacing Patterns
+$spacing-class-pattern: '{base}{total}{modifier}';                 // → m4t (margin-4-top)
+```
 
 
 ### Variable Declaration
@@ -173,18 +339,22 @@ Variable maps make it simple to view the relationship of a variable under one um
 
 #### Typographic Scale
 
-The type scale to be used on the entire site. The keys are used for classes in a loop, so `.inch-text` would output to an equivalent of 72px.
+The type scale to be used on the entire site. The keys are used for classes in a loop, so `.inch-text` would output to an equivalent of 72px. You can now include line-height values using underscore notation:
 
 ```css
 $type-scale: (
-    inch-text: 56,
-    canon-text: 42,
-    paragon-text: 30,
-    primer-text: 24,
-    tertia-text: 18,
-    normal-text: 16,
-    petite-text: 12,
-    minion-text: 10
+    inch-type: 56_72,    // 56px font with 72px line-height
+    canon-type: 42,      // 42px font with golden ratio line-height
+    paragon-type: (
+        lg: 32_48,       // Responsive: 32px/48px in large viewport
+        md: 28_32,       // 28px/32px in medium viewport
+        sm: 24_28        // 24px/28px in small viewport
+    ),
+    primer-type: 24,
+    tertia-type: 18,
+    normal-type: 16_30,  // 16px font with 30px line-height
+    petite-type: 12,
+    minion-type: 10
 );
 ```
 
@@ -274,32 +444,90 @@ $quick-grid-widths: (
 );
 ```
 
-#### Input Static Width Map
-
-Set pixel specific widths for inputs. Keys are the class suffixes, while the values are the associated width(s).
-
-```css
-$input-static-widths: (
-    xxxs: 30,
-    xxs: 50,
-    xs: 100,
-    s: 175,
-    m: 250,
-    l: 350
-);
-```
 
 ## Functions
 
-### Pixel Equivalents
+### Math Functions
 
-Takes px values in relation to `$base-text-size` and converts them to em units.
+The framework includes several math utility functions:
 
-**How to call function:** `px(integer)`
+```scss
+@use '~@place/core/functions/math' as math;
+
+$em-value: math.px(24);        // Convert 24px to em units
+$power: math.power(2, 3);      // Calculate 2^3 = 8
+$sqrt: math.square-root(16);   // Calculate √16 = 4
+$number: math.number('24');    // Convert string '24' to number 24
+```
+
+### Typography Functions
+
+New typography functions for parsing font sizes and line heights:
+
+```scss
+@use '~@place/core/functions/typography' as typography;
+
+// Parse underscore-separated font size and line-height values
+$font-size: typography.get-type-size('16_24');      // Returns 16
+$line-height: typography.get-line-height('16_24');  // Returns 24
+$rem-value: typography.px-to-rem(24);               // Returns calc(24 / 16)
+
+// Parse any underscore value by index
+$first: typography.parse-underscore-value('56_72', 1);  // Returns 56
+$second: typography.parse-underscore-value('56_72', 2); // Returns 72
+```
 
 ## Modules
 
 Modules are small additions to the framework that aren't necessary to the framework, but helpful in many scenarios.
+
+### WYSIWYG
+
+The WYSIWYG module provides consistent vertical rhythm spacing for content areas using the framework's vertical rhythm system. It dynamically generates spacing based on your type scale configuration.
+
+#### Usage
+
+```html
+<div class="wysiwyg">
+    <h1 class="canon-type">Main Heading</h1>
+    <p>This paragraph will have proper spacing after the heading.</p>
+    <h2 class="paragon-type">Subheading</h2>
+    <p>Another paragraph with consistent rhythm.</p>
+    <ul>
+        <li>List items maintain rhythm</li>
+        <li>Nested spacing is handled automatically</li>
+    </ul>
+</div>
+```
+
+#### Customization
+
+The WYSIWYG module uses CSS custom properties for easy spacing customization:
+
+```css
+.wysiwyg {
+    --rhythm-space-modifier: 1.2;        /* Increase all spacing by 20% */
+    --rhythm-heading-large: 2.5;         /* More space after large headings */
+    --rhythm-paragraph: 1.25;            /* Slightly more paragraph spacing */
+    --rhythm-tight-after-heading: 0.25;  /* Tighter spacing after headings */
+}
+```
+
+#### Available CSS Custom Properties
+
+- `--rhythm-space-modifier`: Global spacing multiplier (default: 1)
+- `--rhythm-heading-large`: Space after large headings (default: 2)
+- `--rhythm-heading-medium`: Space after medium headings (default: 1.5)
+- `--rhythm-heading-small`: Space after small headings (default: 1.25)
+- `--rhythm-paragraph`: Paragraph spacing (default: 1)
+- `--rhythm-list`: List spacing (default: 1)
+- `--rhythm-blockquote`: Blockquote spacing (default: 1.5)
+- `--rhythm-code`: Code block spacing (default: 1)
+- `--rhythm-table`: Table spacing (default: 1.5)
+- `--rhythm-media`: Image/figure spacing (default: 1.5)
+- `--rhythm-hr`: Horizontal rule spacing (default: 2)
+- `--rhythm-tight-after-heading`: Tight spacing after headings (default: 0.5)
+- `--rhythm-nested-list`: Nested list spacing (default: 0.5)
 
 ### Embeds
 
@@ -311,33 +539,6 @@ This leverages a container to wrap around your `embed`, `video`, or `iframe` to 
 <div class="embed-container">
     <iframe src="yoursourcehere.com">
 </div>
-```
-
-### Transitions
-
-A handful of cubic-bezier transitions in both variable and placeholder class format.
-
-#### Usage
-```css
-// Placeholder Class Usage (All)
-.element-one {
-    opacity: 0.5;
-    
-    @extend %ease-in-out-expo;
-    
-    &:hover {
-        opacity: 1;
-        
-        @extend %ease-in-out-expo;
-    }
-}   
-
-// Variable Usage (User-Defined)
-.element-one {
-    opacity: 0.5;
-
-    transition: opacity map-get($ease-in, circ);
-}   
 ```
 
 ## Grid
@@ -694,5 +895,4 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE

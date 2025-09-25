@@ -1,0 +1,145 @@
+// Math - extends native sass:math with custom functions
+@forward 'sass:math';
+@use 'sass:math';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use '~@place/core/messages' as messages;
+
+// Pixel Equivalents
+// TODO: check this
+@function px($value, $base-text-size: 16) {
+	@return calc(1em * #{$value} / #{$base-text-size});
+}
+
+// Square Root
+@function square-root($integer) {
+	$x0: 1;
+	$x1: $x0;
+
+	@for $i from 1 through 10 {
+		$x: ($x0 * $x0 - abs($integer));
+		//$x1: $x0 - ($x0 * $x0 - abs($integer)) / (2 * $x0);
+		$x1: $x0 - calc($x / (2 * $x0));
+		$x0: $x1;
+	}
+
+	@return $x1;
+}
+
+// Power
+@function power($number, $exponent) {
+	$value: 1;
+
+	@if $exponent > 0 {
+		@for $i from 1 through $exponent {
+			$value: $value * $number;
+		}
+	}
+
+	@return $value;
+}
+
+// Number
+@function number($value) {
+	@if type-of($value) == 'number' {
+		@return $value;
+	} @else if type-of($value) != 'string' {
+		$_: log('Value for `to-number` should be a number or a string.');
+	}
+
+	$result: 0;
+	$digits: 0;
+	$minus: str-slice($value, 1, 1) == '-';
+	$numbers: (
+		'0': 0,
+		'1': 1,
+		'2': 2,
+		'3': 3,
+		'4': 4,
+		'5': 5,
+		'6': 6,
+		'7': 7,
+		'8': 8,
+		'9': 9
+	);
+
+	@for $i from if($minus, 2, 1) through str-length($value) {
+		$character: str-slice($value, $i, $i);
+
+		@if not(index(map-keys($numbers), $character) or $character == '.') {
+			@return to-length(if($minus, -$result, $result), str-slice($value, $i));
+		}
+
+		@if $character == '.' {
+			$digits: 1;
+		} @else if $digits == 0 {
+			$result: $result * 10 + map-get($numbers, $character);
+		} @else {
+			$digits: $digits * 10;
+			$result: $result + map-get($numbers, $character) / $digits;
+		}
+	}
+
+	@return if($minus, -$result, $result);
+}
+
+@function calc-spacing($baseline, $multiplier: 1, $border-width: 0) {
+	$spacing: ($baseline * $multiplier) - $border-width;
+
+	@return calc(1em * #{$spacing} / #{$base-text-size});
+}
+
+/// Helper function to find greatest common divisor
+/// @param {Number} $a - First number
+/// @param {Number} $b - Second number
+/// @return {Number} - Greatest common divisor
+@function gcd($a, $b) {
+	@while $b != 0 {
+		$temp: $b;
+		$b: $a % $b;
+		$a: $temp;
+	}
+	@return $a;
+}
+
+/// Helper function to normalize fraction input
+/// @param {Number|List} $fraction - Either a decimal fraction or a list (numerator, denominator)
+/// @param {Number} $max-denominator - Maximum denominator to try for decimal conversion (default: 12)
+/// @return {List} - List containing (numerator, denominator)
+@function normalize-fraction($fraction, $max-denominator: 12) {
+	// If it's already a list (numerator, denominator), return as-is
+	@if meta.type-of($fraction) == 'list' and list.length($fraction) == 2 {
+		@return $fraction;
+	}
+	
+	// If it's a decimal, convert to fraction parts
+	@if meta.type-of($fraction) == 'number' {
+		// Handle whole numbers
+		@if $fraction == 1 {
+			@return (1, 1);
+		}
+		
+		// Try denominators from 2 to max-denominator
+		@for $denominator from 2 through $max-denominator {
+			$numerator: math.round($fraction * $denominator);
+			$calculated-fraction: math.div($numerator, $denominator);
+			
+			// Check if we found a match (with small tolerance for floating point precision)
+			@if math.abs($calculated-fraction - $fraction) < 0.001 {
+				// Reduce to lowest terms
+				$common-divisor: gcd($numerator, $denominator);
+				@return (math.div($numerator, $common-divisor), math.div($denominator, $common-divisor));
+			}
+		}
+		
+		$error-message: messages.format-message(messages.$grid-fraction-conversion-error, $fraction);
+		@error $error-message;
+	}
+	
+	$error-message: messages.format-message(messages.$grid-invalid-fraction-format, $fraction);
+	@error $error-message;
+}
+
+// Grid-dependent functions moved to separate file to avoid circular dependency
+// These functions will be available through a grid-math module

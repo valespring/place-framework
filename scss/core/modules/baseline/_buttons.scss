@@ -1,0 +1,27 @@
+/*!
+ * Buttons
+ *
+ * * The default button styles for every button on the site. The base `.btn` style is devoid of any coloring, allowing either the primary, secondary, or classes you create further color the button.
+ *
+ */
+
+@use '~@place/core/config/buttons' as *;
+
+#{$button-selector} {
+	// Baseline
+	width: auto;
+	height: auto;
+	margin: 0;
+	line-height: normal;
+	text-decoration: none;
+	position: relative;
+	appearance: none;
+	background-clip: padding-box;
+	outline: 0;
+	border: none;
+	overflow: visible;
+	cursor: pointer;
+	vertical-align: middle;
+	display: inline-block;
+	text-align: center;
+}

@@ -1,0 +1,13 @@
+@mixin display-placeholders($suffix: null) {
+	// If suffix, append it with dash, else do nothing for base
+	$s: if($suffix, '-#{$suffix}', '');
+
+	// Display
+	%inline-block#{$s} {
+		display: inline-block;
+	}
+
+	%display-block#{$s} {
+		display: block;
+	}
+}

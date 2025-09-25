@@ -1,0 +1,153 @@
+// Grid Extension Mixins
+// Provides utilities for extending grid placeholders dynamically
+// Creates separate mixins for each grid type defined in grid-config.$grid-types
+//
+// For usage examples, see: ../../examples/grid-extend-examples.scss
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'config/grid' as grid-config;
+@use 'config/viewports' as viewport-config;
+@use 'messages' as messages;
+@use 'functions/math' as math;
+@use 'functions/viewports' as viewport-functions;
+
+// Grid patterns mapping
+$grid-patterns: (
+	default: '#{$identifier}-#{$partial}-#{$total}',
+	flex: '#{$identifier}-#{grid-config.$grid-flex-modifier}-#{$partial}-#{$total}',
+	offset: '#{$identifier}-#{grid-config.$grid-offset-identifier}-#{$partial}-#{$total}',
+	css-grid: '#{$identifier}-#{grid-config.$css-grid-identifier}-#{$partial}-#{$total}'
+) !default;
+
+
+// Grid item type to mixin name mapping
+$grid-item-type-mixins: (
+	default: 'item-base-width',
+	flex: 'item-flex',
+	offset: 'item-offset'
+) !default;
+
+
+/// Extend default grid width placeholder
+/// @param {String} $identifier - Viewport identifier (e.g., 'sm', 'md', 'lg')
+/// @param {String|Number|List} $fraction - The fraction (e.g., 'half', (1, 2), or math.div(1, 2))
+@mixin item-base-width($identifier, $fraction) {
+	$_: viewport-functions.validate-viewport-identifier($identifier);
+	$partial: math.get-numerator($fraction);
+	$total: math.get-denominator($fraction);
+	@extend %#{$identifier}-#{$partial}-#{$total};
+}
+
+/// Extend flex grid placeholder
+/// @param {String} $identifier - Viewport identifier
+/// @param {String|Number|List} $fraction - The fraction (e.g., 'half', (1, 2), or math.div(1, 2))
+@mixin item-flex($identifier, $fraction) {
+	$_: viewport-functions.validate-viewport-identifier($identifier);
+	$partial: math.get-numerator($fraction);
+	$total: math.get-denominator($fraction);
+	@extend %#{$identifier}-#{grid-config.$grid-flex-modifier}-#{$partial}-#{$total};
+}
+
+/// Extend offset grid placeholder
+/// @param {String} $identifier - Viewport identifier (optional - if not provided, applies to all viewports)
+/// @param {String|Number|List} $fraction - The fraction (e.g., 'half', (1, 2), or math.div(1, 2))
+@mixin item-offset($identifier: null, $fraction: null) {
+	@if $identifier and $fraction {
+		$_: viewport-functions.validate-viewport-identifier($identifier);
+		$partial: math.get-numerator($fraction);
+		$total: math.get-denominator($fraction);
+		@extend %#{$identifier}-#{grid-config.$grid-offset-identifier}-#{$partial}-#{$total};
+	} @else if $fraction and not $identifier {
+		// Apply to all viewports when no identifier is provided
+		@each $viewport-key in viewport-config.$viewport-keys {
+			$_: viewport-functions.validate-viewport-identifier($viewport-key);
+			$partial: math.get-numerator($fraction);
+			$total: math.get-denominator($fraction);
+			@extend %#{$viewport-key}-#{grid-config.$grid-offset-identifier}-#{$partial}-#{$total};
+		}
+	} @else {
+		@error "item-offset requires at least a fraction parameter";
+	}
+}
+
+/// Extend CSS grid placeholder
+/// @param {String} $identifier - Viewport identifier
+/// @param {String|Number|List} $fraction - The fraction (e.g., 'half', (1, 2), or math.div(1, 2))
+@mixin css-grid($identifier, $fraction) {
+	$_: viewport-functions.validate-viewport-identifier($identifier);
+	$partial: math.get-numerator($fraction);
+	$total: math.get-denominator($fraction);
+	@extend %#{$identifier}-#{grid-config.$css-grid-identifier}-#{$partial}-#{$total};
+}
+
+/// Extend grid item with fraction and type
+/// @param {String} $identifier - Viewport identifier (optional - if not provided, applies to all viewports)
+/// @param {String|Number|List} $fraction - The fraction (e.g., 'half', (1, 2), or math.div(1, 2))
+/// @param {String} $type - Grid item type (default, flex, offset)
+@mixin item($identifier: null, $fraction: null, $type: 'default') {
+	@if list.index(grid-config.$grid-types, $type) {
+		$mixin-name: map.get($grid-item-type-mixins, $type);
+		@if $mixin-name {
+			@if $identifier and $fraction {
+				@include meta.apply(meta.get-mixin($mixin-name), $identifier, $fraction);
+			} @else if $fraction and not $identifier {
+				// Apply to all viewports when no identifier is provided
+				@each $viewport-key in viewport-config.$viewport-keys {
+					@include meta.apply(meta.get-mixin($mixin-name), $viewport-key, $fraction);
+				}
+			} @else {
+				@error "item requires at least a fraction parameter";
+			}
+		}
+	} @else {
+		$error-message: messages.format-message(messages.$grid-invalid-type, $type, grid-config.$grid-types);
+		@error $error-message;
+	}
+}
+
+/// Extend grid row placeholder (with built-in clearing)
+/// @param {String} $identifier - Viewport identifier (optional - if not provided, applies to all viewports)
+@mixin row($identifier: null) {
+	@if $identifier {
+		$_: viewport-functions.validate-viewport-identifier($identifier);
+		@extend %#{$identifier}-row;
+	} @else {
+		// Apply to all viewports when no identifier is provided
+		@each $viewport-key in viewport-config.$viewport-keys {
+			@extend %#{$viewport-key}-row;
+		}
+	}
+}
+
+/// Extend grid using quick width patterns from grid-config.$quick-grid-widths
+/// @param {String} $identifier - Viewport identifier
+/// @param {String} $pattern - Quick pattern name from grid-config.$quick-grid-widths
+/// @param {String} $type - Grid type to extend
+@mixin quick-grid($identifier, $pattern, $type: 'default') {
+	@if map.has-key(grid-config.$quick-grid-widths, $pattern) {
+		$fraction: map.get(grid-config.$quick-grid-widths, $pattern);
+		@include item($identifier, $fraction, $type);
+	} @else {
+		$available-patterns: map.keys(grid-config.$quick-grid-widths);
+		$error-message: messages.format-message(messages.$grid-invalid-quick-pattern, $pattern, $available-patterns);
+		@error $error-message;
+	}
+}
+
+/// Extend responsive grid classes using map configuration
+/// @param {Map} $breakpoints - Map of breakpoint identifiers and their grid fractions
+/// @param {String} $type - Grid type to extend
+///
+/// Example usage:
+/// @include item-responsive((
+///   'sm': 'half',
+///   'md': (1, 3),
+///   'lg': 'quarter'
+/// ));
+@mixin item-responsive($breakpoints, $type: 'default') {
+	@each $identifier, $fraction in $breakpoints {
+		@include item($identifier, $fraction, $type);
+	}
+}

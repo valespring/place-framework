@@ -1,0 +1,24 @@
+// Neutrals
+$black: #000 !default;
+$light-grey: #fafafa !default;
+$white: #fff !default;
+
+// Transparent
+$transparent: rgba(255, 255, 255, 0) !default;
+
+// Site Color Variables
+$primary-color: #45b3af !default;
+$secondary-color: #196966 !default;
+$tertiary-color: #a9a6a7 !default;
+$quarternary-color: #c0e5e4 !default;
+//$quinary-color: -- !default;
+
+// Link Color Variables
+$primary-link-color: $primary-color !default;
+$primary-link-hover: darken($primary-link-color, 15%) !default;
+
+// Table Color Variables
+$table-border-color: $light-grey !default;
+
+// Type Colors
+$primary-text-color: $black !default;

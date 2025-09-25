@@ -1,0 +1,15 @@
+// Configuration API
+// This file forwards all configuration modules to create a unified API
+
+// Activations have been replaced with modular includes
+@forward '~@place/core/config/patterns';
+@forward '~@place/core/config/helpers';
+@forward '~@place/core/config/viewports';
+@forward '~@place/core/config/colors';
+@forward '~@place/core/config/grid';
+@forward '~@place/core/config/structure';
+@forward '~@place/core/config/typography';
+@forward '~@place/core/config/borders';
+@forward '~@place/core/config/forms';
+@forward '~@place/core/config/buttons';
+@forward '~@place/core/config/vars';

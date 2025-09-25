@@ -1,0 +1,8 @@
+@use '~@place/core/functions/base' as base-functions;
+
+// Export Vars
+@mixin export-vars($map) {
+	@each $key, $value in $map {
+		#{base-functions.camel-case($key)}: #{$value};
+	}
+}

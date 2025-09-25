@@ -1,10 +1,31 @@
 {
   "name": "@place-framework/place-framework",
   "author": "Brian Kelley",
-  "version": "2.0.9",
-  "main": "index.js",
+  "version": "3.0.0",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "require": "./src/index.js"
+    },
+    "./constants": {
+      "import": "./src/constants/index.js"
+    },
+    "./utils": {
+      "import": "./src/utils/index.js"
+    },
+    "./scss/*": "./scss/*"
+  },
+  "files": [
+    "src/",
+    "scss/",
+    "README.md"
+  ],
   "license": "MIT Open Source",
   "scripts": {
+    "discovery": "node src/utils/discovery.js",
     "prettier": "prettier --check \"scss/**/*.scss\"",
     "prettier:fix": "prettier --write \"scss/**/*.scss\"",
     "lint:scss": "npx stylelint \"scss/**/*.scss\"",

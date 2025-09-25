@@ -1,0 +1,17 @@
+@use 'placeholders/display' as display;
+@use 'placeholders/alignment' as alignment;
+@use 'placeholders/float' as float;
+@use 'placeholders/sizing' as sizing;
+@use 'placeholders/visibility' as visibility;
+@use 'placeholders/position' as position;
+@use 'placeholders/flex' as flex;
+
+@mixin presentation-placeholders($suffix: null) {
+	@include display.display-placeholders($suffix);
+	@include alignment.alignment-placeholders($suffix);
+	@include float.float-placeholders($suffix);
+	@include sizing.sizing-placeholders($suffix);
+	@include visibility.visibility-placeholders($suffix);
+	@include position.position-placeholders($suffix);
+	@include flex.flex-placeholders($suffix);
+}

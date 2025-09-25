@@ -1,0 +1,45 @@
+@use 'sass:math';
+@use 'sass:list';
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/config/viewports' as vars;
+@use '_core' as core;
+
+// Offset Grid Mixins
+
+@mixin create-grid-offsets($prefix, $columns) {
+	$col-widths: ();
+
+	@for $t from 1 through $columns {
+		@for $p from 1 through $t {
+			$w: math.div($p, $t);
+
+			@if not index($col-widths, $w) {
+				@if $p != $t {
+					.#{grid-config.$grid-offset-identifier}-#{$prefix}-#{$p}of#{$t} {
+						@extend %#{$prefix}-#{grid-config.$grid-offset-identifier}-#{$p}-#{$t} !optional;
+					}
+
+					$col-widths: list.append($col-widths, $w, comma);
+
+					@each $fraction, $value in grid-config.$quick-grid-widths {
+						@if $value == math.div($p, $t) {
+							.#{grid-config.$grid-offset-identifier}-#{$prefix}-#{$fraction} {
+								@extend %#{$prefix}-#{grid-config.$grid-offset-identifier}-#{$p}-#{$t} !optional;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin create-offset-grid($grid-viewport-identifier, $grid-columns, $grid-margin) {
+	// Create the offset classes
+	@include create-grid-offsets($grid-viewport-identifier, $grid-columns);
+}
+
+@mixin create-grid($grid-viewport-identifier, $grid-columns, $grid-margin) {
+	// Alias for create-offset-grid to match the expected interface
+	@include create-offset-grid($grid-viewport-identifier, $grid-columns, $grid-margin);
+}

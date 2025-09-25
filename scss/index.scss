@@ -1,0 +1,17 @@
+// Main entry point for the PLACE framework
+// This file re-exports all the components for easy consumption
+
+// Re-export the configuration
+@forward 'framework/config';
+
+// Re-export all the framework components
+@forward 'framework/functions';
+@forward 'framework/mixins';
+@forward 'framework/normalize';
+@forward 'framework/placeholders';
+@forward 'framework/typography';
+@forward 'framework/core';
+@forward 'framework/grid';
+@forward 'framework/helpers';
+@forward 'framework/messages';
+@forward 'framework/modules';

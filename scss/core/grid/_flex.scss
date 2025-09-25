@@ -1,0 +1,14 @@
+// Flex Grid Module
+// * Flexbox-based grid system
+
+@use 'sass:math';
+@use '~@place/core/mixins/grid' as grid;
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/mixins/placeholders/grid' as grid-placeholders;
+
+// Generate placeholders in the same scope as the grid classes
+@include grid-placeholders.display-placeholders();
+@include grid-placeholders.flex-placeholders();
+
+// Apply the flex grid
+@include grid.apply-grid-type(flex);

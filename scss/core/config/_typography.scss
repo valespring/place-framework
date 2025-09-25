@@ -1,0 +1,49 @@
+@use 'sass:math';
+
+// Typographic Scale
+$type-scale: (
+	inch-type: 56,
+	canon-type: 42,
+	paragon-type: 30,
+	primer-type: 24,
+	tertia-type: 18,
+	normal-type: 16,
+	petite-type: 12,
+	minion-type: 10
+) !default;
+
+// Typographic Weights
+$type-weights: (
+	light: 300,
+	normal: 400,
+	semibold: 600,
+	bold: 700
+) !default;
+
+// Font Declarations
+$stack-serif: 'Times New Roman', Times, Georgia, serif;
+$stack-sans-serif: Helvetica, Arial, 'Arial Unicode', 'Lucida Sans Unicode', sans-serif;
+$stack-slab-serif: 'Courier New', Courier, serif;
+$stack-mono: Courier, monospace;
+$stack-icons: 'icons';
+
+// Font Declarations
+$primary-font: $stack-sans-serif !default;
+$secondary-font: $stack-sans-serif !default;
+$body-font: $primary-font !default;
+$body-font-fallback: $stack-sans-serif !default;
+$heading-font: $primary-font !default;
+$print-font: $stack-sans-serif !default;
+
+// @font-face Display
+$font-face-display: fallback !default;
+
+// Baseline Typography
+$base-text-key: normal-type !default;
+$base-text-size: map-get($type-scale, $base-text-key) !default;
+
+// Golden Ratio
+$golden-ratio: 1.618 !default;
+
+// Vertical Rhythm - calculated dynamically in _root.scss using base text configuration
+// This allows proper baseline grid based on actual line-height values from type scale

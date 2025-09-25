@@ -1,0 +1,83 @@
+@use 'sass:math';
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/config/patterns' as patterns;
+@use '~@place/core/config/viewports' as vars;
+@use '~@place/core/functions' as functions;
+@use 'core' as core;
+
+// Float Grid Implementation
+@mixin create-grid($grid-viewport-identifier, $grid-columns, $grid-margin) {
+	// Row Class Name Variables
+	$grid-row-class: functions.template-class(
+		patterns.$grid-row-pattern,
+		$base: grid-config.$grid-row-identifier,
+		$viewport: $grid-viewport-identifier
+	);
+
+	$grid-row-ltr-class: functions.template-class(
+		patterns.$grid-orientation-pattern,
+		$base: grid-config.$grid-row-identifier,
+		$viewport: $grid-viewport-identifier,
+		$modifier: grid-config.$grid-ltr-modifier
+	);
+
+	$grid-row-rtl-class: functions.template-class(
+		patterns.$grid-orientation-pattern,
+		$base: grid-config.$grid-row-identifier,
+		$viewport: $grid-viewport-identifier,
+		$modifier: grid-config.$grid-rtl-modifier
+	);
+
+	// Column Class Name Variables
+	$grid-column-class: functions.template-class(
+		patterns.$grid-column-pattern,
+		$base: grid-config.$grid-column-identifier,
+		$viewport: $grid-viewport-identifier
+	);
+
+	[class*='#{$grid-row-class}'] {
+		@extend %#{$grid-viewport-identifier}-clear !optional;
+		@extend %#{$grid-viewport-identifier}-clear-list !optional;
+	}
+
+	// Row
+	.#{$grid-row-class},
+	.#{$grid-row-ltr-class},
+	.#{$grid-row-rtl-class} {
+		@extend %#{$grid-viewport-identifier}-row !optional;
+		// Add basic row styles directly
+		@include core.clearfix();
+		@include core.grid-row();
+	}
+
+	// Columns
+	.#{$grid-row-class},
+	.#{$grid-row-ltr-class},
+	.#{$grid-row-rtl-class} {
+		> [class*='#{$grid-column-class}'] {
+			@extend %#{$grid-viewport-identifier}-grid-column-item !optional;
+			// Add basic column styles directly
+			@include core.grid-column();
+			@include core.grid-item-padding();
+		}
+	}
+
+	// Alignments
+	.#{$grid-row-class},
+	.#{$grid-row-ltr-class} {
+		> [class*='#{$grid-column-class}'] {
+			@extend %#{$grid-viewport-identifier}-grid-column-ltr !optional;
+		}
+	}
+
+	.#{$grid-row-rtl-class} {
+		> [class*='#{$grid-column-class}'] {
+			@extend %#{$grid-viewport-identifier}-grid-column-rtl !optional;
+			// Add RTL column styles directly
+			@include core.grid-column(inline-end);
+		}
+	}
+
+	// Generate column width classes
+	@include core.create-grid-widths($grid-viewport-identifier, $grid-columns);
+}

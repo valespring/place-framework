@@ -1,0 +1,13 @@
+// Offset Grid Module
+// * Grid system with offset capabilities
+
+@use 'sass:math';
+@use '~@place/core/mixins/grid' as grid;
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/mixins/placeholders/grid' as grid-placeholders;
+
+// Generate width placeholders (includes offset placeholders) in the same scope
+@include grid-placeholders.width-placeholders();
+
+// Apply the offset grid
+@include grid.apply-grid-type(offset);

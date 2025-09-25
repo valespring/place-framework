@@ -1,0 +1,22 @@
+// Font Sizes
+// * Generate helper classes based on the SASS map.
+
+@use '~@place/core/config/typography' as typography;
+@use '~@place/core/mixins/typography' as typography-mixins;
+@use '~@place/core/mixins/viewports' as viewports-mixins;
+
+// Hierarchy List Classes
+@each $key, $value in typography.$type-scale {
+	// Create placeholder class and class
+	%#{$key} {
+		@include typography-mixins.type-size($key);
+	}
+}
+
+// Font Styles
+// * Create font weight classes based on the map.
+@each $weight, $value in typography.$type-weights {
+	%#{$weight}-weight {
+		font-weight: $value;
+	}
+}

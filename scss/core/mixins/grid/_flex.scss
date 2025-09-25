@@ -1,0 +1,80 @@
+@use 'sass:math';
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/config/patterns' as patterns;
+@use '~@place/core/config/viewports' as vars;
+@use '~@place/core/functions/template' as template-functions;
+@use '_core' as core;
+
+// Flex Grid Mixins
+
+@mixin grid-flex-wrap {
+	flex-flow: row wrap;
+	align-items: stretch;
+	align-content: space-between;
+}
+
+@mixin grid-flex-item {
+	flex-grow: 1;
+	flex-shrink: 0;
+	float: none;
+}
+
+@mixin create-grid($grid-viewport-identifier, $grid-columns, $grid-margin) {
+	// DEBUG: Output the pattern and generated class name
+	/* DEBUG: flex-grid-row-pattern: #{patterns.$flex-grid-row-pattern} */
+	/* DEBUG: grid-row-identifier: #{grid-config.$grid-row-identifier} */
+	/* DEBUG: grid-viewport-identifier: #{$grid-viewport-identifier} */
+	/* DEBUG: grid-flex-modifier: #{grid-config.$grid-flex-modifier} */
+	
+	// Flex Class
+	$flex-grid-row-class: template-functions.template-class(
+		patterns.$flex-grid-row-pattern,
+		$base: grid-config.$grid-row-identifier,
+		$viewport: $grid-viewport-identifier,
+		$modifier: grid-config.$grid-flex-modifier
+	);
+	
+	/* DEBUG: Generated flex-grid-row-class: #{$flex-grid-row-class} */
+
+	$flex-flush-grid-row-class: template-functions.template-class(
+		patterns.$flex-grid-row-pattern,
+		$base: grid-config.$grid-row-identifier,
+		$viewport: $grid-viewport-identifier,
+		$modifier: grid-config.$grid-flex-flush-modifier
+	);
+
+	// Column Class Name Variables
+	$grid-column-class: template-functions.template-class(
+		patterns.$grid-column-pattern,
+		$base: grid-config.$grid-column-identifier,
+		$viewport: $grid-viewport-identifier
+	);
+
+	// Flex Display Row
+	.#{$flex-grid-row-class},
+	.#{$flex-flush-grid-row-class} {
+		@extend %flex-display-#{$grid-viewport-identifier} !optional;
+		@extend %flex-wrap-#{$grid-viewport-identifier} !optional;
+	}
+
+	.#{$flex-grid-row-class} {
+		@extend %#{$grid-viewport-identifier}-row !optional;
+	}
+
+	.#{$flex-grid-row-class} {
+		> [class*='#{$grid-column-class}'] {
+			@extend %#{$grid-viewport-identifier}-grid-column-item !optional;
+		}
+	}
+
+	// Set the flex item base
+	.#{$flex-grid-row-class},
+	.#{$flex-flush-grid-row-class} {
+		> [class*='#{$grid-column-class}'] {
+			// Extend placeholders
+			@extend %grid-flex-item-#{$grid-viewport-identifier} !optional;
+			@extend %flex-display-#{$grid-viewport-identifier} !optional;
+			@extend %flex-column-#{$grid-viewport-identifier} !optional;
+		}
+	}
+}

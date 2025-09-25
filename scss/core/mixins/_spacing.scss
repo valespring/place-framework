@@ -1,0 +1,69 @@
+// Math
+@use 'sass:math';
+@use 'sass:map';
+@use '~@place/core/config/helpers' as helpers-config;
+@use '~@place/core/config/patterns' as patterns;
+@use '~@place/core/config/typography' as typography;
+@use '~@place/core/functions/template' as template-functions;
+@use '~@place/core/functions/math' as math-functions;
+
+/// Generates spacing utility classes for margin and padding
+/// @param {String} $prefix - The prefix for the class (p for padding, m for margin)
+/// @param {String} $property - The CSS property to apply (padding or margin)
+@mixin spacing-helper($prefix, $property) {
+  // Get positions map from config
+  $positions: map-get(helpers-config.$spacing-config, positions);
+  
+  // Generate individual position classes
+  @each $infix, $position in $positions {
+    @each $suffix, $value in helpers-config.$spacing-values {
+      // Generate class name
+      $spacing-class: template-functions.template-class(
+        patterns.$spacing-class-pattern,
+        $prefix,
+        null,
+        $suffix,
+        null,
+        $infix
+      );
+      
+      // Convert to em units
+      $converted-value: if(
+        $value != 0,
+        math-functions.px($value, typography.$base-text-size),
+        0
+      );
+      
+      // Create the class
+      .#{$spacing-class} {
+        #{$property}-#{$position}: $converted-value !important;
+      }
+    }
+  }
+  
+  // Generate group classes (vertical, horizontal, all)
+  $groups: map-get(helpers-config.$spacing-config, groups);
+  
+  @each $group-name, $group-positions in $groups {
+    @each $suffix, $value in helpers-config.$spacing-values {
+      // Create the group class (e.g., pvm, mhs, pal)
+      .#{$prefix}#{$group-name}#{$suffix} {
+        // Apply each position in this group
+        @each $pos-infix, $pos-value in $group-positions {
+          // Get the class name for this individual position
+          $individual-class: template-functions.template-class(
+            patterns.$spacing-class-pattern,
+            $prefix,
+            null,
+            $suffix,
+            null,
+            $pos-infix
+          );
+          
+          // Extend from the individual class
+          @extend .#{$individual-class};
+        }
+      }
+    }
+  }
+}

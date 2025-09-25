@@ -1,0 +1,52 @@
+// Main Grid Creation Mixin
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:meta';
+@use '~@place/core/config/grid' as grid-config;
+@use '~@place/core/config/viewports' as vars;
+@use '~@place/core/messages/errors' as errors;
+@use '~@place/core/messages/functions' as messages;
+
+// Import all grid type mixins
+@use '_core' as core;
+@use '_default' as default;
+@use '_flex' as flex;
+@use '_offset' as offset;
+@use '_css-grid' as css;
+
+// Grid type to module mapping
+$grid-modules: (
+	default: default,
+	flex: flex,
+	offset: offset,
+	css-grid: css
+) !default;
+
+// Apply a specific grid type for each viewport
+@mixin apply-grid-type($grid-type) {
+	// Validate grid type is in the list of allowed types
+	$valid-type: false;
+	@each $type in grid-config.$grid-types {
+		@if $grid-type == $type {
+			$valid-type: true;
+		}
+	}
+	
+	@if not $valid-type {
+		@error messages.format-message(errors.$grid-invalid-type, $grid-type, grid-config.$grid-types);
+	}
+	
+	// Apply the grid for each viewport
+	@each $identifier, $query in vars.$viewport-list {
+		$margin: map-get(map-get(grid-config.$margin-column-set, $identifier), 'margin');
+		$columns: map-get(map-get(grid-config.$margin-column-set, $identifier), 'columns');
+
+		@media #{$query} {
+			// Call the appropriate mixin based on grid type using map lookup
+			$module: map.get($grid-modules, $grid-type);
+			@if $module {
+				@include meta.apply(meta.get-mixin('create-grid', $module: $module), $identifier, $columns, $margin);
+			}
+		}
+	}
+}

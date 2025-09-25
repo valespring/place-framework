@@ -1,0 +1,21 @@
+@mixin sizing-placeholders($suffix: null) {
+	// If suffix, append it with dash, else do nothing for base
+	$s: if($suffix, '-#{$suffix}', '');
+
+	// Full Width
+	%full-width#{$s} {
+		width: 100%;
+	}
+
+	%full-width-important#{$s} {
+		width: 100% !important;
+	}
+
+	%full-height#{$s} {
+		height: 100%;
+	}
+
+	%full-height-important#{$s} {
+		height: 100% !important;
+	}
+}

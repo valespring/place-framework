@@ -1,0 +1,42 @@
+// Import variables from config files instead of redeclaring
+@use 'sass:map';
+@use '~@place/core/config/grid' as grid;
+@use '~@place/core/config/patterns' as patterns;
+@use '~@place/core/config/structure' as structure;
+@use '~@place/core/config/viewport-base' as viewports;
+
+// Only to be used in conjunction with JS
+$static-variables: map.merge((
+	// Grid Base Identifiers
+	grid-row-identifier: grid.$grid-row-identifier,
+	grid-column-identifier: grid.$grid-column-identifier,
+	grid-offset-identifier: grid.$grid-offset-identifier,
+	css-grid-identifier: grid.$css-grid-identifier,
+	// Column Counts
+	large-columns: grid.$large-columns,
+	medium-columns: grid.$medium-columns,
+	small-columns: grid.$small-columns,
+	// Separators
+	grid-pattern-separator: patterns.$grid-pattern-separator,
+	grid-class-separator: grid.$grid-class-separator,
+	// Grid Modifiers
+	grid-flex-modifier: grid.$grid-flex-modifier,
+	grid-flex-flush-modifier: grid.$grid-flex-flush-modifier,
+	grid-ltr-modifier: grid.$grid-ltr-modifier,
+	grid-rtl-modifier: grid.$grid-rtl-modifier,
+	grid-full-modifier: grid.$grid-full-modifier,
+	grid-gap-modifier: grid.$grid-gap-modifier,
+	// Viewports
+	viewport-x-large-identifier: viewports.$viewport-x-large-identifier,
+	viewport-large-identifier: viewports.$viewport-large-identifier,
+	viewport-medium-identifier: viewports.$viewport-medium-identifier,
+	viewport-small-identifier: viewports.$viewport-small-identifier,
+	// Wrapper
+	wrapper-name: structure.$wrapper-name
+), grid.$quick-grid-widths);
+
+:export{
+	@each $key, $value in $static-variables {
+		#{$key}: #{$value};
+	}
+}

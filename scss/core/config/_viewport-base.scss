@@ -1,0 +1,24 @@
+// Base viewport configuration - shared data without functions
+// This file contains only the core viewport data to avoid circular dependencies
+
+// Viewport Variables
+$viewport-x-large-identifier: 'xl' !default;
+$viewport-large-identifier: 'lg' !default;
+$viewport-medium-identifier: 'md' !default;
+$viewport-small-identifier: 'sm' !default;
+
+// Responsive Breakpoints
+$responsive-breakpoints: (
+	$viewport-small-identifier: 480,
+	$viewport-medium-identifier: 768,
+	$viewport-large-identifier: 992,
+	$viewport-x-large-identifier: 1240
+) !default;
+
+// Basic viewport list for validation (without computed values)
+$viewport-identifiers: (
+	$viewport-small-identifier,
+	$viewport-medium-identifier,
+	$viewport-large-identifier,
+	$viewport-x-large-identifier
+) !default;

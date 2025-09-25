@@ -1,0 +1,49 @@
+// Export SCSS variables to JavaScript
+// This file exports framework variables for use in JavaScript/TypeScript
+
+@use 'sass:map';
+@use 'viewport-base' as viewports;
+@use 'grid' as grid;
+@use 'patterns' as patterns;
+
+// Export individual variables
+:export {
+  // Grid identifiers
+  grid-row-identifier: #{grid.$grid-row-identifier};
+  grid-column-identifier: #{grid.$grid-column-identifier};
+  grid-offset-identifier: #{grid.$grid-offset-identifier};
+  css-grid-identifier: #{grid.$css-grid-identifier};
+  
+  // Pattern separators
+  grid-pattern-separator: #{patterns.$grid-pattern-separator};
+  grid-class-separator: #{grid.$grid-class-separator};
+  
+  // Grid modifiers
+  grid-flex-modifier: #{grid.$grid-flex-modifier};
+  grid-flex-flush-modifier: #{grid.$grid-flex-flush-modifier};
+  grid-ltr-modifier: #{grid.$grid-ltr-modifier};
+  grid-rtl-modifier: #{grid.$grid-rtl-modifier};
+  grid-full-modifier: #{grid.$grid-full-modifier};
+  grid-gap-modifier: #{grid.$grid-gap-modifier};
+  
+  // Wrapper (using a default value since it's not defined in the current files)
+  wrapper-name: 'wrapper';
+  
+  // Viewport identifiers
+  viewport-x-large-identifier: #{viewports.$viewport-x-large-identifier};
+  viewport-large-identifier: #{viewports.$viewport-large-identifier};
+  viewport-medium-identifier: #{viewports.$viewport-medium-identifier};
+  viewport-small-identifier: #{viewports.$viewport-small-identifier};
+  
+  // Column counts
+  large-columns: #{grid.$large-columns};
+  medium-columns: #{grid.$medium-columns};
+  small-columns: #{grid.$small-columns};
+  
+  // Quick grid widths (fractions) - export as individual properties
+  grid-quick-width-full: #{map.get(grid.$quick-grid-widths, 'full')};
+  grid-quick-width-half: #{map.get(grid.$quick-grid-widths, 'half')};
+  grid-quick-width-third: #{map.get(grid.$quick-grid-widths, 'third')};
+  grid-quick-width-quarter: #{map.get(grid.$quick-grid-widths, 'quarter')};
+  grid-quick-width-fifth: #{map.get(grid.$quick-grid-widths, 'fifth')};
+}

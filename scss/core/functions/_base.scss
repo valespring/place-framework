@@ -1,0 +1,37 @@
+// String Replacement
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace +
+			str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+@function camel-case($string) {
+	$string: quote(#{$string});
+	$progress: $string;
+	$result: '';
+	$exclude: ' ', '-', '–', '—', '_', ',', ';', ':', '.', '+', '=', '?', '&', '*', '/', '|', '>', '<', '(', ')';
+	@while str-length($progress) > 0 {
+		$char: str-slice($progress, 1, 1);
+		@if index($exclude, $char) {
+			$progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+		} @else {
+			$result: $result + $char;
+			$progress: str-slice($progress, 2);
+		}
+	}
+	@return $result;
+}
+
+// Map Nested Get
+@function map-nested-get($map, $keys...) {
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+
+	@return $map;
+}

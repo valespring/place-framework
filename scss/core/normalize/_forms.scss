@@ -1,0 +1,50 @@
+// * Forms
+
+@use '~@place/core/config/forms' as *;
+@use '~@place/core/config/vars' as *;
+@use '~@place/core/config/typography' as *;
+
+textarea {
+	min-height: $textarea-min-height;
+}
+
+select {
+	width: auto;
+	max-width: 100%;
+}
+
+input,
+textarea,
+select {
+	border: solid 1px $input-border-color;
+	outline: none;
+	width: 100%;
+	font-size: 1em;
+
+	@if $input-border-radius > 0 {
+		border-radius: px($input-border-radius);
+	}
+
+	&,
+	&::placeholder {
+		font-family: $primary-font;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		z-index: 1;
+	}
+}
+
+input {
+	&[type='checkbox'],
+	&[type='radio'] {
+		width: auto;
+	}
+}
+
+// Style Placeholders
+::placeholder {
+	color: $input-placeholder-color;
+}

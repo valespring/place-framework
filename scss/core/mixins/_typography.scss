@@ -1,0 +1,123 @@
+// Math
+@use 'sass:math';
+
+// Configuration
+@use '~@place/core/config/typography' as *;
+
+// Functions
+@use '~@place/core/functions/math' as math-functions;
+@use '~@place/core/functions/typography' as typography-functions;
+
+// Mixins
+@use '~@place/core/mixins/viewports' as viewports-mixins;
+
+// Size For Font
+// * Convert type size into rems, with a pixel fallback. Now with a responsive option.
+@mixin size-for-font($font-size, $responsive: false) {
+	$rem-baseline: 16;
+	$processed-font-size: typography-functions.get-type-size($font-size);
+	// $processed-font-size is already a number, no need to convert it
+	$numeric-font-size: $processed-font-size;
+	$rem: calc($numeric-font-size / $rem-baseline);
+	$px: $numeric-font-size;
+
+	@if $responsive {
+		@include responsive-font-size($processed-font-size);
+	} @else {
+		font-size: #{$px}px;
+		font-size: #{$rem}rem;
+	}
+}
+
+@mixin size-map($map-key) {
+	@include type-size($map-key);
+}
+
+// Responsive Type
+// https://css-tricks.com/snippets/css/fluid-typography/
+@mixin responsive-font-size($font-size) {
+	$processed-font-size: typography-functions.get-type-size($font-size);
+	--min-font-size: calc(#{$processed-font-size} * var(--content-ratio));
+	--min-font-size-px: calc(var(--min-font-size) * 1px);
+
+	font-size: calc(
+		var(--min-font-size-px) + (#{$processed-font-size} - var(--min-font-size)) *
+			((100vw - var(--content-width-px)) / (var(--content-width-max) - var(--content-width)))
+	);
+}
+
+// Golden Ratio Line-Height
+//* https://pearsonified.com/2011/12/golden-ratio-typography.php
+@mixin line-height-for-type($line-height, $font-size) {
+	$processed-font-size: typography-functions.get-type-size($font-size);
+	
+	@if $line-height {
+		--type-line-height: #{math.div($line-height, $processed-font-size)};
+		
+	} 
+
+	line-height: var(--type-line-height, var(--golden-ratio));
+}
+
+// Type Size
+// * Combine both mixins.
+@mixin type-leading-combined($type-size, $line-height, $responsive: false) {
+	@include size-for-font($type-size, $responsive);
+	@include line-height-for-type($line-height, $type-size);
+}
+
+@mixin type-size($key, $responsive: false) {
+	$type-declaration: map-get($type-scale, $key);
+	$type-declaration-length: length($type-declaration);
+
+	@if ($type-declaration-length >= 1) {
+		@if $type-declaration-length > 1 {
+			@each $type-key, $type-value in $type-declaration {
+				$queried-type-size: typography-functions.get-type-size($type-value);
+				$queried-line-height: typography-functions.get-line-height($type-value);
+
+				@include viewports-mixins.viewport-by-key($type-key) {
+					@include type-leading-combined($queried-type-size, $queried-line-height, $responsive);
+				}
+			}
+		} @else {
+			$queried-type-size: typography-functions.get-type-size($type-declaration);
+			$queried-line-height: typography-functions.get-line-height($type-declaration);
+
+			@include type-leading-combined($queried-type-size, $queried-line-height, $responsive);
+		}
+	} @else {
+		@warn 'Type key #${key} is misconfigured.';
+	}
+}
+
+// Webfonts
+// * Mixins to generate `@font-face` code.
+// @include font-face(Canela-Thin, 'path/fonts/Canela-Thin-Web', $exts: eot woff2 woff);
+@mixin font-face($name, $path, $weight: normal, $style: normal, $exts: eot woff2 woff ttf svg, $display: swap) {
+	$src: null;
+
+	$extmods: (
+		eot: '?',
+		svg: '#' + str-replace($name, ' ', '_')
+	);
+
+	$formats: (
+		otf: 'opentype',
+		ttf: 'truetype'
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-display: $display;
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
