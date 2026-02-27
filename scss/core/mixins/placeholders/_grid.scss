@@ -3,6 +3,7 @@
 
 @use 'sass:math';
 @use 'sass:map';
+@use 'sass:list';
 @use '~@place/core/config/grid' as grid-config;
 @use '~@place/core/config/viewports' as vars;
 @use '~@place/core/mixins/grid/core' as core;
@@ -148,7 +149,7 @@
 			//$w: ($p / $t);
 			$w: math.div($p, $t);
 
-			@if not index($col-widths, $w) {
+			@if not list.index($col-widths, $w) {
 				@if $p != $t {
 					// Shorthand syntax for grid positioning
 					%#{$prefix}-grid-#{$p}-#{$t} {

@@ -1,6 +1,7 @@
 // Import viewport base for breakpoints and identifiers
+@use 'sass:map';
 @use 'viewport-base' as *;
 
 // Content
-$content-width-min: map-get($responsive-breakpoints, $viewport-small-identifier);
-$content-width-max: map-get($responsive-breakpoints, $viewport-x-large-identifier);
+$content-width-min: map.get($responsive-breakpoints, $viewport-small-identifier);
+$content-width-max: map.get($responsive-breakpoints, $viewport-x-large-identifier);

@@ -1,6 +1,7 @@
 // Math
 @use 'sass:math';
 @use 'sass:map';
+@use 'sass:list';
 @use '~@place/core/config/viewport-base' as viewport-base;
 @use '~@place/core/messages' as messages;
 
@@ -17,12 +18,12 @@
 }
 
 @function viewport-width($identifier) {
-	@return map-get(viewport-base.$responsive-breakpoints, $identifier);
+	@return map.get(viewport-base.$responsive-breakpoints, $identifier);
 }
 
 @function viewport-range($identifier, $min: false, $max: false, $only: false) {
 	$breakpoint-value: viewport-width($identifier);
-	$breakpoint-index: index(viewport-base.$responsive-breakpoints, $identifier $breakpoint-value);
+	$breakpoint-index: list.index(viewport-base.$responsive-breakpoints, $identifier $breakpoint-value);
 
 	@if $min {
 		@return '(width >= #{viewport-value-min($breakpoint-value)})';
@@ -30,7 +31,7 @@
 		@return '(width <= #{viewport-value-max($breakpoint-value)})';
 	} @else if $only {
 		$neighboring-index: $breakpoint-index + 1;
-		$neighboring-breakpoint-value: nth(map-values(viewport-base.$responsive-breakpoints), $neighboring-index);
+		$neighboring-breakpoint-value: list.nth(map.values(viewport-base.$responsive-breakpoints), $neighboring-index);
 
 		@return '(#{viewport-value-min($breakpoint-value)} <= width <= #{viewport-value-max($neighboring-breakpoint-value)})';
 	}

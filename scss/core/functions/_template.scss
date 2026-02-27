@@ -1,4 +1,5 @@
 // Template Class Creation
+@use 'sass:string';
 @use 'base' as base-functions;
 
 @function template-class($pattern, $base: null, $viewport: null, $modifier: null, $partial: null, $total: null) {
@@ -15,7 +16,7 @@
 
 	@each $placeholder, $value in $template-map {
 		@if $value != null {
-			@if (str-index($class, $placeholder)) {
+			@if (string.index($class, $placeholder)) {
 				$class: base-functions.str-replace($class, $placeholder, $value);
 			}
 		}

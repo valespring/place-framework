@@ -38,8 +38,8 @@ $grid-modules: (
 	
 	// Apply the grid for each viewport
 	@each $identifier, $query in vars.$viewport-list {
-		$margin: map-get(map-get(grid-config.$margin-column-set, $identifier), 'margin');
-		$columns: map-get(map-get(grid-config.$margin-column-set, $identifier), 'columns');
+		$margin: map.get(map.get(grid-config.$margin-column-set, $identifier), 'margin');
+		$columns: map.get(map.get(grid-config.$margin-column-set, $identifier), 'columns');
 
 		@media #{$query} {
 			// Call the appropriate mixin based on grid type using map lookup

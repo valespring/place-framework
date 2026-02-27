@@ -1,5 +1,7 @@
 // Math
 @use 'sass:math';
+@use 'sass:map';
+@use 'sass:list';
 
 // Configuration
 @use '~@place/core/config/typography' as *;
@@ -67,8 +69,8 @@
 }
 
 @mixin type-size($key, $responsive: false) {
-	$type-declaration: map-get($type-scale, $key);
-	$type-declaration-length: length($type-declaration);
+	$type-declaration: map.get($type-scale, $key);
+	$type-declaration-length: list.length($type-declaration);
 
 	@if ($type-declaration-length >= 1) {
 		@if $type-declaration-length > 1 {

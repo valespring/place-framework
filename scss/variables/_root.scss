@@ -1,4 +1,6 @@
 // Configuration
+@use 'sass:list';
+@use 'sass:map';
 @use '~@place/core/config/vars' as *;
 @use '~@place/core/config/viewport-base' as *;
 @use '~@place/core/config/viewports' as *;
@@ -21,14 +23,14 @@
 
 	// Viewport Variables
 	@each $key, $breakpoint-value in $responsive-breakpoints {
-		$index: index($responsive-breakpoints, $key $breakpoint-value);
+		$index: list.index($responsive-breakpoints, $key $breakpoint-value);
 		$next-index: $index + 1;
 
 		#{viewport-variable-min($key)}: viewport-value-min($breakpoint-value);
 
-		@if $next-index <= length($responsive-breakpoints) {
-			$neighboring-breakpoint-key: nth(map-keys($responsive-breakpoints), $next-index);
-			$neighboring-breakpoint-value: nth(map-values($responsive-breakpoints), $next-index);
+		@if $next-index <= list.length($responsive-breakpoints) {
+			$neighboring-breakpoint-key: list.nth(map.keys($responsive-breakpoints), $next-index);
+			$neighboring-breakpoint-value: list.nth(map.values($responsive-breakpoints), $next-index);
 
 			@if $neighboring-breakpoint-key {
 				#{viewport-variable-max($key)}: viewport-value-max($neighboring-breakpoint-value);
@@ -36,14 +38,14 @@
 		}
 	}
 
-	@each $key in map-keys($responsive-breakpoints) {
+	@each $key in map.keys($responsive-breakpoints) {
 		@include viewport-by-key($key) {
-			--content-width: #{map-get($responsive-breakpoints, $key)};
-			--content-width-max: #{map-get($responsive-breakpoints, $key)};
+			--content-width: #{map.get($responsive-breakpoints, $key)};
+			--content-width-max: #{map.get($responsive-breakpoints, $key)};
 			
 			// Vertical Rhythm - calculated from base text configuration per viewport
 			// Uses actual line-height from type scale (e.g., 16_30 = 30px rhythm converted to rem)
-			$base-text-config: map-get($type-scale, $base-text-key);
+			$base-text-config: map.get($type-scale, $base-text-key);
 			$base-line-height: typography-functions.get-line-height($base-text-config);
 			@if $base-line-height and $base-line-height != false {
 				--vertical-rhythm-defined: #{typography-functions.px-to-rem($base-line-height)}rem;

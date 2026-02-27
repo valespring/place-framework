@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '~@place/core/config/viewports' as *;
 
 @mixin viewport($query) {
@@ -9,7 +10,7 @@
 }
 
 @mixin viewport-by-key($key) {
-	$query: map-get($viewport-list, $key);
+	$query: map.get($viewport-list, $key);
 
 	@include viewport($query) {
 		@content;

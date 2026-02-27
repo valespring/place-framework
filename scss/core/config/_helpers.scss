@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // Spacing Configuration
 // * A comprehensive map of all spacing positions and their groupings
 $spacing-config: (
@@ -44,7 +46,7 @@ $spacing-values: (
 );
 
 // For backward compatibility
-$spacing-positions: map-get($spacing-config, positions);
+$spacing-positions: map.get($spacing-config, positions);
 $spacing-combined: (
   v: vertical,
   h: horizontal,

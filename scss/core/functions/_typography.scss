@@ -1,5 +1,6 @@
 @use 'sass:string';
 @use 'sass:map';
+@use 'sass:meta';
 @use '~@place/core/config/typography' as typography;
 @use '~@place/core/functions/math' as math-functions;
 
@@ -10,7 +11,7 @@
 // Index 1 = first part, Index 2 = second part
 @function parse-underscore-value($value, $index: 1) {
 	// Convert any value to string to check for underscores
-	$value-string: if(type-of($value) == string, $value, inspect($value));
+	$value-string: if(meta.type-of($value) == string, $value, meta.inspect($value));
 	
 	$underscore-index: string.index($value-string, '_');
 	
@@ -25,7 +26,7 @@
 	}
 	
 	// If no underscore found, return the original value (converted to number if string)
-	@if type-of($value) == string {
+	@if meta.type-of($value) == string {
 		@return math-functions.number($value);
 	}
 	@return $value;
@@ -37,14 +38,14 @@
 
 @function get-line-height($value) {
 	// Convert to string to check for underscores
-	$value-string: if(type-of($value) == string, $value, inspect($value));
+	$value-string: if(meta.type-of($value) == string, $value, meta.inspect($value));
 	$underscore-index: string.index($value-string, '_');
 	
 	// Only try to parse if there's actually an underscore
 	@if $underscore-index {
 		$line-height-value: parse-underscore-value($value, 2);
 		// Ensure we return a proper number, not a string
-		@if type-of($line-height-value) == number {
+		@if meta.type-of($line-height-value) == number {
 			@return $line-height-value;
 		} @else {
 			@return math-functions.number($line-height-value);

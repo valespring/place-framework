@@ -90,7 +90,7 @@
 				@if $p != $t {
 					.#{$grid-width-class},
 					.#{$grid-column-width-class} {
-						width: percentage($w);
+						width: math.percentage($w);
 						@extend %#{$identifier}-#{$p}-#{$t} !optional;
 						@extend %#{$identifier}-#{grid-config.$grid-flex-modifier}-#{$p}-#{$t} !optional;
 					}

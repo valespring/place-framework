@@ -1,10 +1,14 @@
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+
 // String Replacement
 @function str-replace($string, $search, $replace: '') {
-	$index: str-index($string, $search);
+	$index: string.index($string, $search);
 
 	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace +
-			str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+		@return string.slice($string, 1, $index - 1) + $replace +
+			str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
 	}
 
 	@return $string;
@@ -15,13 +19,13 @@
 	$progress: $string;
 	$result: '';
 	$exclude: ' ', '-', '–', '—', '_', ',', ';', ':', '.', '+', '=', '?', '&', '*', '/', '|', '>', '<', '(', ')';
-	@while str-length($progress) > 0 {
-		$char: str-slice($progress, 1, 1);
-		@if index($exclude, $char) {
-			$progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+	@while string.length($progress) > 0 {
+		$char: string.slice($progress, 1, 1);
+		@if list.index($exclude, $char) {
+			$progress: capitalize(string.slice($progress, 2, 2)) + string.slice($progress, 3);
 		} @else {
 			$result: $result + $char;
-			$progress: str-slice($progress, 2);
+			$progress: string.slice($progress, 2);
 		}
 	}
 	@return $result;
@@ -30,7 +34,7 @@
 // Map Nested Get
 @function map-nested-get($map, $keys...) {
 	@each $key in $keys {
-		$map: map-get($map, $key);
+		$map: map.get($map, $key);
 	}
 
 	@return $map;

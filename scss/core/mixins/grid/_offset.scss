@@ -13,7 +13,7 @@
 		@for $p from 1 through $t {
 			$w: math.div($p, $t);
 
-			@if not index($col-widths, $w) {
+			@if not list.index($col-widths, $w) {
 				@if $p != $t {
 					.#{grid-config.$grid-offset-identifier}-#{$prefix}-#{$p}of#{$t} {
 						@extend %#{$prefix}-#{grid-config.$grid-offset-identifier}-#{$p}-#{$t} !optional;
