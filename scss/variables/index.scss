@@ -2,14 +2,14 @@
 // This file forwards all configuration modules
 
 // Activations have been replaced with modular includes
-@forward 'patterns';
-@forward 'helpers';
-@forward 'viewports';
-@forward 'colors';
-@forward 'grid';
-@forward 'structure';
-@forward 'typography';
-@forward 'borders';
-@forward 'forms';
-@forward 'vars';
-@forward 'buttons';
+@forward '~@place/core/config/patterns';
+@forward '~@place/core/config/helpers';
+@forward '~@place/core/config/viewports';
+@forward '~@place/core/config/colors';
+@forward '~@place/core/config/grid';
+@forward '~@place/core/config/structure';
+@forward '~@place/core/config/typography';
+@forward '~@place/core/config/borders';
+@forward '~@place/core/config/forms';
+@forward '~@place/core/config/vars';
+@forward '~@place/core/config/buttons';
