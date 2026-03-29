@@ -1,9 +1,9 @@
 @use '~@place/core/mixins/presentation' as presentation;
 
-@mixin visibility-placeholders($suffix: null) {
-	// If suffix, append it with dash, else do nothing for base
-	$s: if($suffix, '-#{$suffix}', '');
+@use '~@place/core/functions/placeholders' as placeholder-functions;
 
+@mixin visibility-placeholders($suffix: null) {
+	$s: placeholder-functions.get-suffix($suffix);
 	// Hides
 	%is-hidden#{$s} {
 		@include presentation.visually-hidden();

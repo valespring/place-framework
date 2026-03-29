@@ -11,7 +11,12 @@
 // Index 1 = first part, Index 2 = second part
 @function parse-underscore-value($value, $index: 1) {
 	// Convert any value to string to check for underscores
-	$value-string: if(meta.type-of($value) == string, $value, meta.inspect($value));
+	$value-string: null;
+	@if meta.type-of($value) == string {
+		$value-string: $value;
+	} @else {
+		$value-string: meta.inspect($value);
+	}
 	
 	$underscore-index: string.index($value-string, '_');
 	
@@ -38,7 +43,12 @@
 
 @function get-line-height($value) {
 	// Convert to string to check for underscores
-	$value-string: if(meta.type-of($value) == string, $value, meta.inspect($value));
+	$value-string: null;
+	@if meta.type-of($value) == string {
+		$value-string: $value;
+	} @else {
+		$value-string: meta.inspect($value);
+	}
 	$underscore-index: string.index($value-string, '_');
 	
 	// Only try to parse if there's actually an underscore

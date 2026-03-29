@@ -12,7 +12,7 @@
 /// @param {String} $property - The CSS property to apply (padding or margin)
 @mixin spacing-helper($prefix, $property) {
   // Get positions map from config
-  $positions: map-get(helpers-config.$spacing-config, positions);
+  $positions: map.get(helpers-config.$spacing-config, positions);
   
   // Generate individual position classes
   @each $infix, $position in $positions {
@@ -28,11 +28,10 @@
       );
       
       // Convert to em units
-      $converted-value: if(
-        $value != 0,
-        math-functions.px($value, typography.$base-text-size),
-        0
-      );
+      $converted-value: 0;
+      @if $value != 0 {
+        $converted-value: $value;
+      }
       
       // Create the class
       .#{$spacing-class} {
@@ -42,7 +41,7 @@
   }
   
   // Generate group classes (vertical, horizontal, all)
-  $groups: map-get(helpers-config.$spacing-config, groups);
+  $groups: map.get(helpers-config.$spacing-config, groups);
   
   @each $group-name, $group-positions in $groups {
     @each $suffix, $value in helpers-config.$spacing-values {

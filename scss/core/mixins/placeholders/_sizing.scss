@@ -1,6 +1,7 @@
+@use '~@place/core/functions/placeholders' as placeholder-functions;
+
 @mixin sizing-placeholders($suffix: null) {
-	// If suffix, append it with dash, else do nothing for base
-	$s: if($suffix, '-#{$suffix}', '');
+	$s: placeholder-functions.get-suffix($suffix);
 
 	// Full Width
 	%full-width#{$s} {

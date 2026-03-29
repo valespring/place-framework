@@ -65,11 +65,20 @@
 		'9': 9
 	);
 
-	@for $i from if($minus, 2, 1) through string.length($value) {
+	$start-index: 1;
+	@if $minus {
+		$start-index: 2;
+	}
+	
+	@for $i from $start-index through string.length($value) {
 		$character: string.slice($value, $i, $i);
 
 		@if not(list.index(map.keys($numbers), $character) or $character == '.') {
-			@return to-length(if($minus, -$result, $result), string.slice($value, $i));
+			$return-value: $result;
+			@if $minus {
+				$return-value: -$result;
+			}
+			@return to-length($return-value, string.slice($value, $i));
 		}
 
 		@if $character == '.' {
@@ -82,7 +91,11 @@
 		}
 	}
 
-	@return if($minus, -$result, $result);
+	$final-result: $result;
+	@if $minus {
+		$final-result: -$result;
+	}
+	@return $final-result;
 }
 
 @function calc-spacing($baseline, $multiplier: 1, $border-width: 0) {

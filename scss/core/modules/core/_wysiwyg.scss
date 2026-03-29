@@ -1,9 +1,12 @@
 // WYSIWYG Module with Vertical Rhythm
 // * Applies consistent vertical rhythm to content within .wysiwyg containers
 // * Uses CSS custom properties for easy customization
-// * Simple hierarchical approach with standard HTML elements
+// * Integrates with typography scale configuration
 
+@use 'sass:map';
 @use '~@place/core/mixins/vertical-rhythm' as rhythm;
+@use '~@place/core/mixins/typography' as typography-mixins;
+@use '~@place/core/config/typography' as typography;
 
 // WYSIWYG container with vertical rhythm
 .wysiwyg {
@@ -22,6 +25,13 @@
 	--rhythm-tight-after-heading: 0.5;
 	--rhythm-nested-list: 0.5;
 	--rhythm-first-child: 0;
+	
+	// Typography scale integration - apply font sizes from wysiwyg-scale
+	@each $element, $type-key in typography.$wysiwyg-scale {
+		#{$element} {
+			@include typography-mixins.type-size($type-key);
+		}
+	}
 	
 	// Hierarchical heading spacing
 	h1,

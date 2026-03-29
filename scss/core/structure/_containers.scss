@@ -19,14 +19,14 @@ Container
 .#{$wrapper-name}-fluid {
 	margin-inline: auto;
 
-	width: math.div($wrapper-width, 100) * 100%;
+	width: calc(var(--wrapper-width) * 1%);
 }
 
 .#{$wrapper-name} {
-	max-width: calc(1px * #{$wrapper-max-width});
+	max-width: calc(1px * var(--wrapper-max-width));
 }
 
 .#{$wrapper-name}-wide {
-	max-width: calc(1px * #{$wrapper-wide-max-width});
+	max-width: calc(1px * var(--wrapper-wide-max-width));
 }
 

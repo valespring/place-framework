@@ -6,12 +6,16 @@
 @use '~@place/core/config/viewports' as *;
 @use '~@place/core/config/typography' as *;
 @use '~@place/core/config/colors' as *;
+@use '~@place/core/config/structure' as *;
 @use '~@place/core/functions/viewports' as *;
 @use '~@place/core/mixins/viewports' as *;
 @use '~@place/core/functions/typography' as typography-functions;
 
 :root {
 	// Base Variables
+	--wrapper-width: #{$wrapper-width};
+	--wrapper-max-width: #{$wrapper-max-width};
+	--wrapper-wide-max-width: #{$wrapper-wide-max-width};
 	--content-ratio: calc(var(--content-width) / var(--content-width-max));
 	--content-width-px: calc(var(--content-width) * 1px);
 	--golden-ratio: #{$golden-ratio};

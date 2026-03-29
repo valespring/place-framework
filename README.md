@@ -387,12 +387,13 @@ Use the keys from `$type-scale` to set the heading size values, so we can `@exte
 
 ```css
 $wysiwyg-scale: (
-    h1: canon-text,
-    h2: paragon-text,
-    h3: primer-text,
-    h4: normal-text,
-    h5: petite-text,
-    h6: minion-text
+    h1: canon-type,
+    h2: paragon-type,
+    h3: primer-type,
+    h4: normal-type,
+    h5: petite-type,
+    h6: minion-type,
+    p: normal-type
 );
 ```
 

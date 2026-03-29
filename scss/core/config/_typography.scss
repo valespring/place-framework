@@ -46,5 +46,16 @@ $base-text-size: map.get($type-scale, $base-text-key) !default;
 // Golden Ratio
 $golden-ratio: 1.618 !default;
 
+// WYSIWYG Scale - maps heading elements to type scale keys
+$wysiwyg-scale: (
+	h1: canon-type,
+	h2: paragon-type,
+	h3: primer-type,
+	h4: normal-type,
+	h5: petite-type,
+	h6: minion-type,
+	p: normal-type
+) !default;
+
 // Vertical Rhythm - calculated dynamically in _root.scss using base text configuration
 // This allows proper baseline grid based on actual line-height values from type scale

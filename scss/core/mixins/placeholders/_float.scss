@@ -1,9 +1,9 @@
 @use '~@place/core/mixins/grid/core' as grid-core;
 
-@mixin float-placeholders($suffix: null) {
-	// If suffix, append it with dash, else do nothing for base
-	$s: if($suffix, '-#{$suffix}', '');
+@use '~@place/core/functions/placeholders' as placeholder-functions;
 
+@mixin float-placeholders($suffix: null) {
+	$s: placeholder-functions.get-suffix($suffix);
 	// Float using logical properties
 	%float-start#{$s} {
 		float: inline-start;

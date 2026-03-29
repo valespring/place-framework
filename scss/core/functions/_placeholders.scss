@@ -1,0 +1,9 @@
+// Placeholder utility functions
+
+// Function to generate suffix string for placeholders
+@function get-suffix($suffix: null) {
+	@if $suffix {
+		@return '-#{$suffix}';
+	}
+	@return '';
+}
