@@ -10,7 +10,7 @@
 }
 
 @mixin viewport-by-key($key) {
-	$query: map.get($viewport-list, $key);
+	$query: map.get($viewport-list-all, $key);
 
 	@include viewport($query) {
 		@content;

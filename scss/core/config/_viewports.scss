@@ -24,7 +24,14 @@ $x-large-screens-min: viewport-functions.viewport-range($viewport-x-large-identi
 $viewport-list: (
 	$viewport-small-identifier: #{$small-screens-max},
 	$viewport-medium-identifier: #{$medium-screens-only},
-	$viewport-large-identifier: #{$large-screens-min}
+	$viewport-large-identifier: #{$large-screens-min},
+);
+
+$viewport-list-all: (
+	$viewport-small-identifier: #{$small-screens-max},
+	$viewport-medium-identifier: #{$medium-screens-only},
+	$viewport-large-identifier: #{$large-screens-min},
+	$viewport-x-large-identifier: #{$x-large-screens-min}
 );
 
 // All viewport identifiers (extracted from viewport-list keys)
