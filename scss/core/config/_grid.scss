@@ -66,7 +66,7 @@ $margin-column-set: (
 
 // CSS Grid
 $css-grid-max-rows: 12 !default;
-$css-grid-gap: math.px(20) !default;
+$css-grid-gap: 20px !default;
 
 // Quick Grid Map
 // * Utilized with CSS grid to get a quick layout from applying the class to the container.

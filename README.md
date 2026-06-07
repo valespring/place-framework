@@ -455,7 +455,6 @@ The framework includes several math utility functions:
 ```scss
 @use '~@place/core/functions/math' as math;
 
-$em-value: math.px(24);        // Convert 24px to em units
 $power: math.power(2, 3);      // Calculate 2^3 = 8
 $sqrt: math.square-root(16);   // Calculate √16 = 4
 $number: math.number('24');    // Convert string '24' to number 24

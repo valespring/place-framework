@@ -21,10 +21,6 @@ select {
 	width: 100%;
 	font-size: 1em;
 
-	@if $input-border-radius > 0 {
-		border-radius: px($input-border-radius);
-	}
-
 	&,
 	&::placeholder {
 		font-family: $primary-font;
