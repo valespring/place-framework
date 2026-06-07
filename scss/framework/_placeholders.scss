@@ -12,8 +12,11 @@
 @include placeholders.presentation-placeholders();
 
 // Generate viewport-specific presentation placeholders
+// Each set is wrapped in its media query so @extend works at the top level
 @each $identifier, $query in vars.$viewport-list {
-	@include placeholders.presentation-placeholders($identifier);
+	@media #{$query} {
+		@include placeholders.presentation-placeholders($identifier);
+	}
 }
 
 // Grid placeholders are now generated in core/grid/index.scss

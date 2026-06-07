@@ -33,34 +33,33 @@
 }
 
 // Generate viewport-specific alignment helpers
+// Placeholders include their media query, so @extend works at the top level
 @each $identifier, $query in vars.$viewport-list {
-	@media #{$query} {
-		.flex-display-#{$identifier} {
-			@extend %flex-display-#{$identifier} !optional;
-		}
+	.flex-display-#{$identifier} {
+		@extend %flex-display-#{$identifier} !optional;
+	}
 
-		.flex-grow-#{$identifier} {
-			@extend %flex-grow-#{$identifier} !optional;
-		}
+	.flex-grow-#{$identifier} {
+		@extend %flex-grow-#{$identifier} !optional;
+	}
 
-		.justify-start-#{$identifier} {
-			@extend %justify-start-#{$identifier} !optional;
-		}
+	.justify-start-#{$identifier} {
+		@extend %justify-start-#{$identifier} !optional;
+	}
 
-		.justify-end-#{$identifier} {
-			@extend %justify-end-#{$identifier} !optional;
-		}
+	.justify-end-#{$identifier} {
+		@extend %justify-end-#{$identifier} !optional;
+	}
 
-		.justify-center-#{$identifier} {
-			@extend %justify-center-#{$identifier} !optional;
-		}
+	.justify-center-#{$identifier} {
+		@extend %justify-center-#{$identifier} !optional;
+	}
 
-		.justify-space-around-#{$identifier} {
-			@extend %justify-space-around-#{$identifier} !optional;
-		}
+	.justify-space-around-#{$identifier} {
+		@extend %justify-space-around-#{$identifier} !optional;
+	}
 
-		.justify-space-between-#{$identifier} {
-			@extend %justify-space-between-#{$identifier} !optional;
-		}
+	.justify-space-between-#{$identifier} {
+		@extend %justify-space-between-#{$identifier} !optional;
 	}
 }

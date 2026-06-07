@@ -18,8 +18,9 @@ $helper-types: (spacing, presentation, alignment, typography) !default;
 @use '~@place/core/helpers/typography' as typography;
 @use '~@place/core/helpers/viewport' as viewport;
 
-// Ensure presentation placeholders are loaded first
-@include meta.load-css('~@place/core/helpers/presentation');
+// Ensure all presentation placeholders (including viewport-specific ones) are generated first
+// This must come before any helper that uses @extend on viewport-suffixed placeholders
+@include meta.load-css('~@place/framework/placeholders');
 
 // Helper type to module mapping (following _create-grid.scss pattern)
 $helper-modules: (

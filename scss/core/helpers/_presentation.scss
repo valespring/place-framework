@@ -1,12 +1,4 @@
-@use '~@place/core/mixins/placeholders' as placeholders;
-@use '~@place/core/config/viewports' as *;
+@use '~@place/core/mixins/placeholders' as placeholder-mixins;
 
-// Base Helpers
-@include placeholders.presentation-placeholders();
-
-// Media Query Helpers
-@each $suffix, $breakpoint in $helper-breakpoints {
-	@media #{$breakpoint} {
-		@include placeholders.presentation-placeholders($suffix);
-	}
-}
+// Base Helpers (no viewport suffix)
+@include placeholder-mixins.presentation-placeholders();
