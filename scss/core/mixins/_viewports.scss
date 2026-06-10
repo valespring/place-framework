@@ -1,5 +1,7 @@
 @use 'sass:map';
+@use 'sass:string';
 @use '~@place/core/config/viewports' as *;
+@use '~@place/core/messages' as messages;
 
 @mixin viewport($query) {
 	@if $query {
@@ -13,6 +15,42 @@
 	$query: map.get($viewport-list-all, $key);
 
 	@include viewport($query) {
+		@content;
+	}
+}
+
+/// Flexible range mixin using a single string argument.
+/// Parses '<identifier> <direction>' where direction is 'up', 'down', or 'only'.
+///
+/// @param {String} $query - e.g. 'md up', 'lg down', 'sm only'
+///
+/// @example
+///   @include viewport-range('md up')   // (width >= 768px)
+///   @include viewport-range('md down') // (width <= 991px)
+///   @include viewport-range('md only') // (768px <= width <= 991px)
+@mixin viewport-range($query) {
+	$space: string.index($query, ' ');
+
+	@if not $space {
+		@error messages.format-message(messages.$viewport-range-invalid-format, $query);
+	}
+
+	$key:       string.slice($query, 1, $space - 1);
+	$direction: string.slice($query, $space + 1);
+
+	$key-map: map.get($viewport-ranges, $key);
+
+	@if not $key-map {
+		@error messages.format-message(messages.$viewport-range-invalid-key, $key, map.keys($viewport-ranges));
+	}
+
+	$media-query: map.get($key-map, $direction);
+
+	@if not $media-query {
+		@error messages.format-message(messages.$viewport-range-invalid-direction, $direction, $key, map.keys($key-map));
+	}
+
+	@include viewport($media-query) {
 		@content;
 	}
 }

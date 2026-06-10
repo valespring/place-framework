@@ -1,0 +1,5 @@
+// Error messages for viewport mixins
+
+$viewport-range-invalid-format: "viewport-range() expects a string in the format '<key> <direction>' e.g. 'md up'. Got: %s";
+$viewport-range-invalid-key: "viewport-range(): unknown viewport key '%s'. Available keys: %s";
+$viewport-range-invalid-direction: "viewport-range(): direction '%s' is not available for '%s'. Available directions: %s";

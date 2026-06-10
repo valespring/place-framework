@@ -34,6 +34,30 @@ $viewport-list-all: (
 	$viewport-x-large-identifier: #{$x-large-screens-min}
 );
 
+// Viewport Ranges Map
+// * Keyed by identifier, each entry exposes 'up' (min), 'down' (max), and 'only' variants.
+// * Used by the viewport-range() mixin for string-based lookups e.g. @include viewport-range('md up')
+$viewport-ranges: (
+	$viewport-small-identifier: (
+		'up':   #{$small-screens-min},
+		'down': #{$small-screens-max},
+		'only': #{$small-screens-only},
+	),
+	$viewport-medium-identifier: (
+		'up':   #{$medium-screens-min},
+		'down': #{$medium-screens-max},
+		'only': #{$medium-screens-only},
+	),
+	$viewport-large-identifier: (
+		'up':   #{$large-screens-min},
+		'down': #{$large-screens-max},
+		'only': #{$large-screens-only},
+	),
+	$viewport-x-large-identifier: (
+		'up':   #{$x-large-screens-min},
+	),
+) !default;
+
 // All viewport identifiers (extracted from viewport-list keys)
 $viewport-keys: map.keys($viewport-list) !default;
 
