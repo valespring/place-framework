@@ -50,6 +50,5 @@ body,
 .body-text {
 	// Style
 	font-family: typography.$body-font;
-	font-size: 16px;
-	font-size: 1rem;
+	@include typography-mixins.type-size(typography.$base-text-key);
 }
